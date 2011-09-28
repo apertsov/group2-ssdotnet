@@ -8,6 +8,6 @@
         About
     </h2>
     <p>
-        Put content here.
+        This is group 2 test project.
     </p>
 </asp:Content>
