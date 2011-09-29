@@ -4,7 +4,7 @@
         revert: true,
         handle: '.handle',
         cursor: 'move',
-        opacity: 0.7        
+        opacity: 0.7
     });
 
 });
