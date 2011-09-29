@@ -85,6 +85,7 @@
 {
     position: fixed;
     min-width: 270px;
+    z-index: -1;
 }
 
 .productwidget .inside h4 
