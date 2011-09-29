@@ -1,0 +1,101 @@
+﻿body 
+{
+    background: #f7f7f7;
+}
+
+#wrapper
+{
+    width: 900px;
+    margin: 10px auto 0 auto;
+}
+
+#content
+{
+    float: left;
+    width: 580px;
+    padding: 10px;
+}
+
+#sidebar
+{
+    float: right;
+    width: 278px;
+    padding: 10px;
+}
+
+.productwidget, .bag
+{
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;    
+    background-color:#f1f1f1;
+    background-image:-ms-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:-moz-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:-o-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:-webkit-gradient(linear,left top,left bottom,from(#f9f9f9),to(#ececec));
+    background-image:-webkit-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:linear-gradient(top,#f9f9f9,#ececec);
+    margin-bottom: 10px;
+}
+
+.productwidget h3.handle, .bag h3.handle 
+{
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    background-color:#f1f1f1;
+    background-image:-ms-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:-moz-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:-o-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:-webkit-gradient(linear,left top,left bottom,from(#f9f9f9),to(#ececec));
+    background-image:-webkit-linear-gradient(top,#f9f9f9,#ececec);
+    background-image:linear-gradient(top,#f9f9f9,#ececec);
+    
+    color: #464600;
+    font-family: "Georgia", "Times New Roman", "Bitstream Charter", "Times", serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    padding: 7px 10px;
+}
+
+.productwidget .inside, .bag .inside
+{
+    padding: 7px 10px;
+    font-size: 11px;
+    font-family: Sans-Serif;
+    color: #333;    
+}
+
+.bag .inside 
+{
+    min-height: 100px;
+}
+
+.bag .inside #baginside
+{
+    margin: 3px;
+    border: 2px dashed #dddddd;
+    min-height: 70px;
+    text-align: center; 
+    padding-top: 10px;  
+    color: #aaa; 
+}
+
+#shopBag
+{
+    position: fixed;
+    min-width: 270px;
+}
+
+.productwidget .inside h4 
+{
+    margin-top: 2px;
+}
+
+.productphoto
+{
+    float: left;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
