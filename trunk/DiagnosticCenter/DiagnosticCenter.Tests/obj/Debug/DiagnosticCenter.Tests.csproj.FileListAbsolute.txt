@@ -1,8 +1,0 @@
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.Tests.dll.config
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.Tests.dll
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.Tests.pdb
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.dll
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.pdb
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\ResolveAssemblyReference.cache
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\DiagnosticCenter.Tests.dll
-E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\DiagnosticCenter.Tests.pdb
