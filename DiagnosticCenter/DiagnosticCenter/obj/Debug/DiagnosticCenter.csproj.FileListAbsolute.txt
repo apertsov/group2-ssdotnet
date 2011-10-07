@@ -1,0 +1,7 @@
+E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\bin\DiagnosticCenter.dll
+E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\bin\DiagnosticCenter.pdb
+E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\bin\EntityFramework.dll
+E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\bin\EntityFramework.xml
+E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\obj\Debug\ResolveAssemblyReference.cache
+E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\obj\Debug\DiagnosticCenter.dll
+E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\obj\Debug\DiagnosticCenter.pdb
