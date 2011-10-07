@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Namespace="DiagnosticsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="DiagnosticsDBModelTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DiagnosticsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="DiagnosticsDBModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="DiagnosticsDBModel.Department" />
+          <EntitySet Name="Days" EntityType="DiagnosticsDBModel.Day" />
+          <EntitySet Name="Employees" EntityType="DiagnosticsDBModel.Employee" />
+          <EntitySet Name="Cabinets" EntityType="DiagnosticsDBModel.Cabinet" />
+          <AssociationSet Name="DepartmentEmployee" Association="DiagnosticsDBModel.DepartmentEmployee">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="CabinetEmployee" Association="DiagnosticsDBModel.CabinetEmployee">
+            <End EntitySet="Cabinets" Role="Cabinet" />
+            <End EntitySet="Employees" Role="Employee" />
+          </AssociationSet>
+          <EntitySet Name="News" EntityType="DiagnosticsDBModel.News" />
+          <AssociationSet Name="EmployeeNews" Association="DiagnosticsDBModel.EmployeeNews">
+            <End EntitySet="Employees" Role="Employee" />
+            <End EntitySet="News" Role="News" />
+          </AssociationSet>
+          <AssociationSet Name="DayEmployee" Association="DiagnosticsDBModel.DayEmployee">
+            <End Role="Day" EntitySet="Days" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="Patients" EntityType="DiagnosticsDBModel.Patient" />
+          <EntitySet Name="Referrals" EntityType="DiagnosticsDBModel.Referral" />
+          <AssociationSet Name="PatientReferral" Association="DiagnosticsDBModel.PatientReferral">
+            <End EntitySet="Patients" Role="Patient" />
+            <End EntitySet="Referrals" Role="Referral" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeReferral" Association="DiagnosticsDBModel.EmployeeReferral">
+            <End EntitySet="Employees" Role="Employee" />
+            <End EntitySet="Referrals" Role="Referral" />
+          </AssociationSet>
+          <EntitySet Name="Examinations" EntityType="DiagnosticsDBModel.Examination" />
+          <EntitySet Name="ExaminationTypes" EntityType="DiagnosticsDBModel.ExaminationType" />
+          <AssociationSet Name="EmployeeExamination" Association="DiagnosticsDBModel.EmployeeExamination">
+            <End EntitySet="Employees" Role="Employee" />
+            <End EntitySet="Examinations" Role="Examination" />
+          </AssociationSet>
+          <AssociationSet Name="PatientExamination" Association="DiagnosticsDBModel.PatientExamination">
+            <End EntitySet="Patients" Role="Patient" />
+            <End EntitySet="Examinations" Role="Examination" />
+          </AssociationSet>
+          <AssociationSet Name="ReferralExamination" Association="DiagnosticsDBModel.ReferralExamination">
+            <End Role="Referral" EntitySet="Referrals" />
+            <End Role="Examination" EntitySet="Examinations" />
+          </AssociationSet>
+          <AssociationSet Name="ExaminationTypeExamination" Association="DiagnosticsDBModel.ExaminationTypeExamination">
+            <End Role="ExaminationType" EntitySet="ExaminationTypes" />
+            <End Role="Examination" EntitySet="Examinations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID_Dept" />
+          </Key>
+          <Property Type="Int32" Name="ID_Dept" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.DepartmentEmployee" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Day">
+          <Key>
+            <PropertyRef Name="ID_Day" />
+          </Key>
+          <Property Type="Int32" Name="ID_Day" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <Property Type="DateTime" Name="StartBreak" Nullable="false" />
+          <Property Type="DateTime" Name="EndBreak" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.DayEmployee" FromRole="Day" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID_Employee" />
+          </Key>
+          <Property Type="Int32" Name="ID_Employee" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Category" Nullable="false" />
+          <Property Type="String" Name="Specialty" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Position" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Rate" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="DiagnosticsDBModel.DepartmentEmployee" FromRole="Employee" ToRole="Department" />
+          <Property Type="Int32" Name="ID_Dept" Nullable="false" />
+          <NavigationProperty Name="Cabinet" Relationship="DiagnosticsDBModel.CabinetEmployee" FromRole="Employee" ToRole="Cabinet" />
+          <Property Type="Int32" Name="ID_Cabinet" Nullable="false" />
+          <NavigationProperty Name="News" Relationship="DiagnosticsDBModel.EmployeeNews" FromRole="Employee" ToRole="News" />
+          <NavigationProperty Name="Day" Relationship="DiagnosticsDBModel.DayEmployee" FromRole="Employee" ToRole="Day" />
+          <NavigationProperty Name="Referral" Relationship="DiagnosticsDBModel.EmployeeReferral" FromRole="Employee" ToRole="Referral" />
+          <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.EmployeeExamination" FromRole="Employee" ToRole="Examination" />
+        </EntityType>
+        <EntityType Name="Cabinet">
+          <Key>
+            <PropertyRef Name="ID_Cabinet" />
+          </Key>
+          <Property Type="Int32" Name="ID_Cabinet" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="String" Name="Phone" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.CabinetEmployee" FromRole="Cabinet" ToRole="Employee" />
+        </EntityType>
+        <Association Name="DepartmentEmployee">
+          <End Type="DiagnosticsDBModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="DiagnosticsDBModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="ID_Dept" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_Dept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CabinetEmployee">
+          <End Type="DiagnosticsDBModel.Cabinet" Multiplicity="1" Role="Cabinet" />
+          <End Type="DiagnosticsDBModel.Employee" Multiplicity="*" Role="Employee" />
+          <ReferentialConstraint>
+            <Principal Role="Cabinet">
+              <PropertyRef Name="ID_Cabinet" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_Cabinet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID_News" />
+          </Key>
+          <Property Type="Int32" Name="ID_News" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ID_Dept" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" />
+          <Property Type="Byte" Name="Type" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.EmployeeNews" FromRole="News" ToRole="Employee" />
+          <Property Type="Int32" Name="ID_Employee" Nullable="false" />
+        </EntityType>
+        <Association Name="EmployeeNews">
+          <End Type="DiagnosticsDBModel.Employee" Multiplicity="1" Role="Employee" />
+          <End Type="DiagnosticsDBModel.News" Multiplicity="*" Role="News" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DayEmployee">
+          <End Type="DiagnosticsDBModel.Day" Role="Day" Multiplicity="*" />
+          <End Type="DiagnosticsDBModel.Employee" Role="Employee" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID_Patient" />
+          </Key>
+          <Property Type="Int32" Name="ID_Patient" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Specialty" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="Phone" Nullable="false" />
+          <Property Type="String" Name="Comment" Nullable="false" />
+          <Property Type="Byte" Name="Workplace" Nullable="false" />
+          <Property Type="Byte" Name="Civil_Servant" Nullable="false" />
+          <NavigationProperty Name="Referral" Relationship="DiagnosticsDBModel.PatientReferral" FromRole="Patient" ToRole="Referral" />
+          <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.PatientExamination" FromRole="Patient" ToRole="Examination" />
+        </EntityType>
+        <EntityType Name="Referral">
+          <Key>
+            <PropertyRef Name="ID_Referral" />
+          </Key>
+          <Property Type="Int32" Name="ID_Referral" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="DateTime" Name="VisitDate" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="DiagnosticsDBModel.PatientReferral" FromRole="Referral" ToRole="Patient" />
+          <Property Type="Int32" Name="ID_Patient" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.EmployeeReferral" FromRole="Referral" ToRole="Employee" />
+          <Property Type="Int32" Name="ID_Employee" Nullable="false" />
+          <Property Type="Int32" Name="ID_Examination" Nullable="false" />
+          <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.ReferralExamination" FromRole="Referral" ToRole="Examination" />
+        </EntityType>
+        <Association Name="PatientReferral">
+          <End Type="DiagnosticsDBModel.Patient" Multiplicity="1" Role="Patient" />
+          <End Type="DiagnosticsDBModel.Referral" Multiplicity="*" Role="Referral" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID_Patient" />
+            </Principal>
+            <Dependent Role="Referral">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeReferral">
+          <End Type="DiagnosticsDBModel.Employee" Multiplicity="1" Role="Employee" />
+          <End Type="DiagnosticsDBModel.Referral" Multiplicity="*" Role="Referral" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="Referral">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Examination">
+          <Key>
+            <PropertyRef Name="ID_Examination" />
+          </Key>
+          <Property Type="Int32" Name="ID_Examination" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Protocol" Nullable="false" />
+          <Property Type="String" Name="Conclusion" Nullable="false" />
+          <Property Type="String" Name="Recommendation" Nullable="false" />
+          <Property Type="String" Name="Consultation" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.EmployeeExamination" FromRole="Examination" ToRole="Employee" />
+          <Property Type="Int32" Name="ID_Employee" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="DiagnosticsDBModel.PatientExamination" FromRole="Examination" ToRole="Patient" />
+          <Property Type="Int32" Name="ID_Patient" Nullable="false" />
+          <Property Type="Int32" Name="ID_ExmType" Nullable="false" />
+          <NavigationProperty Name="Referral" Relationship="DiagnosticsDBModel.ReferralExamination" FromRole="Examination" ToRole="Referral" />
+          <NavigationProperty Name="ExaminationType" Relationship="DiagnosticsDBModel.ExaminationTypeExamination" FromRole="Examination" ToRole="ExaminationType" />
+        </EntityType>
+        <EntityType Name="ExaminationType">
+          <Key>
+            <PropertyRef Name="ID_ExmType" />
+          </Key>
+          <Property Type="Int32" Name="ID_ExmType" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Int32" Name="Duration" Nullable="false" />
+          <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.ExaminationTypeExamination" FromRole="ExaminationType" ToRole="Examination" />
+        </EntityType>
+        <Association Name="EmployeeExamination">
+          <End Type="DiagnosticsDBModel.Employee" Multiplicity="1" Role="Employee" />
+          <End Type="DiagnosticsDBModel.Examination" Multiplicity="*" Role="Examination" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="Examination">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PatientExamination">
+          <End Type="DiagnosticsDBModel.Patient" Multiplicity="1" Role="Patient" />
+          <End Type="DiagnosticsDBModel.Examination" Multiplicity="*" Role="Examination" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID_Patient" />
+            </Principal>
+            <Dependent Role="Examination">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReferralExamination">
+          <End Type="DiagnosticsDBModel.Referral" Role="Referral" Multiplicity="1" />
+          <End Type="DiagnosticsDBModel.Examination" Role="Examination" Multiplicity="1" />
+        </Association>
+        <Association Name="ExaminationTypeExamination">
+          <End Type="DiagnosticsDBModel.ExaminationType" Role="ExaminationType" Multiplicity="1" />
+          <End Type="DiagnosticsDBModel.Examination" Role="Examination" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="DiagnosticsDBModel" />
+        <Alias Key="Target" Value="DiagnosticsDBModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="DiagnosticsDBModelContainer" StorageEntityContainer="DiagnosticsDBModelTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="DiagnosticsDBModel" >
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Department" Width="1.5" PointX="0.875" PointY="0.5" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Day" Width="1.5" PointX="0.5" PointY="2.75" Height="2.3648893229166665" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Employee" Width="1.75" PointX="3.375" PointY="0.5" Height="3.326396484375" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Cabinet" Width="1.5" PointX="8.5" PointY="0.5" Height="1.9802864583333335" />
+        <AssociationConnector Association="DiagnosticsDBModel.DepartmentEmployee">
+          <ConnectorPoint PointX="2.375" PointY="1.3939925130208335" />
+          <ConnectorPoint PointX="3.375" PointY="1.3939925130208335" />
+        </AssociationConnector>
+        <AssociationConnector Association="DiagnosticsDBModel.CabinetEmployee">
+          <ConnectorPoint PointX="8.5" PointY="1.4901432291666668" />
+          <ConnectorPoint PointX="5.125" PointY="1.4901432291666668" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DiagnosticsDBModel.News" Width="1.5" PointX="6.375" PointY="2.875" Height="2.1725878906249996" />
+        <AssociationConnector Association="DiagnosticsDBModel.EmployeeNews">
+          <ConnectorPoint PointX="5.125" PointY="3.3506982421875" />
+          <ConnectorPoint PointX="6.375" PointY="3.3506982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DiagnosticsDBModel.DayEmployee">
+          <ConnectorPoint PointX="2" PointY="3.2881982421875" />
+          <ConnectorPoint PointX="3.375" PointY="3.2881982421875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Patient" Width="1.5" PointX="2.125" PointY="4" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Referral" Width="1.5" PointX="4.25" PointY="4.625" Height="2.5571907552083335" />
+        <AssociationConnector Association="DiagnosticsDBModel.PatientReferral">
+          <ConnectorPoint PointX="3.625" PointY="5.7833968098958328" />
+          <ConnectorPoint PointX="3.8541666666666665" PointY="5.7833968098958319" />
+          <ConnectorPoint PointX="4.020833333333333" PointY="5.7833968098958328" />
+          <ConnectorPoint PointX="4.25" PointY="5.7833968098958328" />
+        </AssociationConnector>
+        <AssociationConnector Association="DiagnosticsDBModel.EmployeeReferral">
+          <ConnectorPoint PointX="4.6875" PointY="4.0186979166666665" />
+          <ConnectorPoint PointX="4.6875" PointY="4.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Examination" Width="1.5" PointX="6.375" PointY="5.625" Height="3.5186979166666656" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.ExaminationType" Width="1.5" PointX="0.5" PointY="6.25" Height="1.7879850260416674" />
+        <AssociationConnector Association="DiagnosticsDBModel.EmployeeExamination">
+          <ConnectorPoint PointX="3.9375" PointY="4.0186979166666665" />
+          <ConnectorPoint PointX="3.9375" PointY="8.72529768240743" />
+          <ConnectorPoint PointX="6.375" PointY="8.72529768240743" />
+        </AssociationConnector>
+        <AssociationConnector Association="DiagnosticsDBModel.PatientExamination">
+          <ConnectorPoint PointX="2.875" PointY="6.9417936197916656" />
+          <ConnectorPoint PointX="2.875" PointY="8.20268104405882" />
+          <ConnectorPoint PointX="3.8541666666666665" PointY="8.20268104405882" />
+          <ConnectorPoint PointX="4.020833333333333" PointY="8.20268104405882" />
+          <ConnectorPoint PointX="6.375" PointY="8.20268104405882" />
+        </AssociationConnector>
+        <AssociationConnector Association="DiagnosticsDBModel.ReferralExamination">
+          <ConnectorPoint PointX="5.75" PointY="6.49974609375" />
+          <ConnectorPoint PointX="6.375" PointY="6.49974609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DiagnosticsDBModel.ExaminationTypeExamination">
+          <ConnectorPoint PointX="2" PointY="7.75733661577941" />
+          <ConnectorPoint PointX="2.7916666666666665" PointY="7.7573366157794092" />
+          <ConnectorPoint PointX="2.9583333333333335" PointY="7.75733661577941" />
+          <ConnectorPoint PointX="3.8541666666666665" PointY="7.7573366157794092" />
+          <ConnectorPoint PointX="4.020833333333333" PointY="7.75733661577941" />
+          <ConnectorPoint PointX="6.375" PointY="7.75733661577941" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
