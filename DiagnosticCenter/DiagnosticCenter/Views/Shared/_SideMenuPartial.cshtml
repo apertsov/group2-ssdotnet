@@ -1,0 +1,82 @@
+﻿@*@if (Request.IsAuthenticated)*@
+@{
+    <ul id="adminmenu">     
+    @*@if (User.IsInRole("headdoctor"))*@
+    @{
+        <li id="menu-settings" class="first-item menu-top menu-icon-settings">
+            <div class="menu-image">
+               @Html.ActionLink(" ", "Settings", "Admin")
+            </div>
+            <div class="menu-arrow"><div></div></div>
+            <div class="menu-toggle" style="display: none;"><br /></div>
+            @Html.ActionLink("Налаштування", "Settings", "Admin", null, new { @class = "first-item menu-top menu-icon-settings" })
+        </li>
+        
+        <li id="menu-news" class="has-submenu menu-open menu-top menu-top-first menu-icon-news">
+            <div class="menu-image">
+               @Html.ActionLink(" ", "Index", "News")
+            </div>
+            <div class="menu-arrow"><div></div></div>
+            <div class="menu-toggle"><br /></div>
+            @Html.ActionLink("Новини", "Index", "News", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-news" })
+            <div class="submenu"><div class="submenu-wrap">
+                <div class="submenu-head">Новини</div>
+                <ul>
+                    <li>@Html.ActionLink("Всі новини", "Index", "News")</li>
+                    <li>@Html.ActionLink("Створити новину", "Create", "News")</li>
+                </ul>
+            </div></div>
+        </li>   
+        
+        <li id="menu-empl" class="has-submenu menu-open menu-top menu-top-first menu-icon-empl">
+            <div class="menu-image">
+               @Html.ActionLink(" ", "Index", "Employees")
+            </div>
+            <div class="menu-arrow"><div></div></div>
+            <div class="menu-toggle"><br /></div>
+            @Html.ActionLink("Працівники", "Index", "Employees", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-empl" })
+            <div class="submenu"><div class="submenu-wrap">
+                <div class="submenu-head">Працівники</div>
+                <ul>
+                    <li>@Html.ActionLink("Всі працівники", "Index", "Employees")</li>
+                    <li>@Html.ActionLink("Пошук працівника", "Search", "Employees")</li>
+                    <li>@Html.ActionLink("Додати працівника", "Create", "Employees")</li>
+                </ul>
+            </div></div>
+        </li>
+    }
+    @*@if (User.IsInRole("doctor") || User.IsInRole("depchiefdoctor") || User.IsInRole("headdoctor"))*@
+    @{  
+        <li id="menu-patients" class="has-submenu menu-open menu-top menu-top-first menu-icon-patient">
+            <div class="menu-image">
+               @Html.ActionLink(" ", "Index", "Patients")
+            </div>
+            <div class="menu-arrow"><div></div></div>
+            <div class="menu-toggle"><br /></div>
+            @Html.ActionLink("Пацієнти", "Index", "Patients", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-patient" })
+            <div class="submenu"><div class="submenu-wrap">
+                <div class="submenu-head">Пацієнти</div>
+                <ul>
+                    <li>@Html.ActionLink("Всі пацієнти", "Index", "Patients")</li>
+                    <li>@Html.ActionLink("Пошук пацієнта", "Search", "Patients")</li>
+                    <li>@Html.ActionLink("Додати пацієнта", "Create", "Patients")</li>
+                </ul>
+            </div></div>
+        </li>        
+    }
+
+        <li id="menu-plan" class="menu-top menu-top-first menu-icon-plan">
+            <div class="menu-image">
+               @Html.ActionLink(" ", "Index", "Plan")
+            </div>
+            <div class="menu-arrow"><div></div></div>
+            <div class="menu-toggle"><br /></div>
+            @Html.ActionLink("Графік роботи", "Index", "Plan", null, new { @class = "menu-top menu-top-first menu-icon-plan" })            
+        </li>   
+
+
+
+
+    </ul>
+
+}
