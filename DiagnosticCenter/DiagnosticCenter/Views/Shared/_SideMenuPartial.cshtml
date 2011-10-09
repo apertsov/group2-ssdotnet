@@ -22,11 +22,27 @@
             <div class="submenu"><div class="submenu-wrap">
                 <div class="submenu-head">Новини</div>
                 <ul>
-                    <li>@Html.ActionLink("Всі новини", "Index", "News")</li>
+                    <li class="first-item">@Html.ActionLink("Всі новини", "Index", "News")</li>
                     <li>@Html.ActionLink("Створити новину", "Create", "News")</li>
                 </ul>
             </div></div>
-        </li>   
+        </li> 
+        
+        <li id="menu-deps" class="has-submenu menu-open menu-top menu-top-first menu-icon-deps">
+            <div class="menu-image">
+               @Html.ActionLink(" ", "Index", "Departments")
+            </div>
+            <div class="menu-arrow"><div></div></div>
+            <div class="menu-toggle"><br /></div>
+            @Html.ActionLink("Відділення", "Index", "Departments", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-deps" })
+            <div class="submenu"><div class="submenu-wrap">
+                <div class="submenu-head">Відділення</div>
+                <ul>
+                    <li class="first-item">@Html.ActionLink("Всі відділення", "Index", "Departments")</li>
+                    <li>@Html.ActionLink("Створити відділення", "Create", "Departments")</li>
+                </ul>
+            </div></div>
+        </li>  
         
         <li id="menu-empl" class="has-submenu menu-open menu-top menu-top-first menu-icon-empl">
             <div class="menu-image">
@@ -38,7 +54,7 @@
             <div class="submenu"><div class="submenu-wrap">
                 <div class="submenu-head">Працівники</div>
                 <ul>
-                    <li>@Html.ActionLink("Всі працівники", "Index", "Employees")</li>
+                    <li class="first-item">@Html.ActionLink("Всі працівники", "Index", "Employees")</li>
                     <li>@Html.ActionLink("Пошук працівника", "Search", "Employees")</li>
                     <li>@Html.ActionLink("Додати працівника", "Create", "Employees")</li>
                 </ul>
@@ -57,7 +73,7 @@
             <div class="submenu"><div class="submenu-wrap">
                 <div class="submenu-head">Пацієнти</div>
                 <ul>
-                    <li>@Html.ActionLink("Всі пацієнти", "Index", "Patients")</li>
+                    <li class="first-item">@Html.ActionLink("Всі пацієнти", "Index", "Patients")</li>
                     <li>@Html.ActionLink("Пошук пацієнта", "Search", "Patients")</li>
                     <li>@Html.ActionLink("Додати пацієнта", "Create", "Patients")</li>
                 </ul>
@@ -75,6 +91,13 @@
         </li>   
 
 
+
+        <li id="collapse-menu" class="hide-if-no-js">
+            <div id="collapse-button">
+                <div></div>
+            </div>
+            <span>Згорнути меню</span>
+        </li>
 
 
     </ul>
