@@ -964,3 +964,8 @@ body.admin-bar #wphead, body.admin-bar #adminmenu {
 {
     padding-top: 3px;
 }
+ .patient {margin: 0 auto; width:50%; text-align:center; margin-top:50px;}
+    #formholder { margin-left:25%}
+    #formholder .text { text-align:left;}
+    #formholder .inputs {text-align:right;}
+    #formholder textarea {width:350px;}
