@@ -969,3 +969,7 @@ body.admin-bar #wphead, body.admin-bar #adminmenu {
     #formholder .text { text-align:left;}
     #formholder .inputs {text-align:right;}
     #formholder textarea {width:350px;}
+    .news_title { color:navy;
+    text-decoration:underline;
+    }
+    .news_div{width:400px; border: 1px solid #aaa; padding:5px;}
