@@ -204,7 +204,7 @@
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <Content Include="Views\Departments\Cardiology.cshtml" />
     <Content Include="Views\Departments\Endocrinology.cshtml" />
-    <Content Include="Views\Departments\Neurorpathology.cshtml" />
+    <Content Include="Views\Departments\Neurology.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
