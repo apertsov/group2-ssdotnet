@@ -826,7 +826,9 @@ namespace DiagnosticCenter.Models
         /// <param name="rate">Initial value of the Rate property.</param>
         /// <param name="iD_Dept">Initial value of the ID_Dept property.</param>
         /// <param name="iD_Cabinet">Initial value of the ID_Cabinet property.</param>
-        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet)
+        /// <param name="atWork">Initial value of the AtWork property.</param>
+        /// <param name="iD_User">Initial value of the ID_User property.</param>
+        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet, global::System.String atWork, global::System.Guid iD_User)
         {
             Employee employee = new Employee();
             employee.ID_Employee = iD_Employee;
@@ -836,6 +838,8 @@ namespace DiagnosticCenter.Models
             employee.Rate = rate;
             employee.ID_Dept = iD_Dept;
             employee.ID_Cabinet = iD_Cabinet;
+            employee.AtWork = atWork;
+            employee.ID_User = iD_User;
             return employee;
         }
 
@@ -1012,6 +1016,54 @@ namespace DiagnosticCenter.Models
         private global::System.Int32 _ID_Cabinet;
         partial void OnID_CabinetChanging(global::System.Int32 value);
         partial void OnID_CabinetChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String AtWork
+        {
+            get
+            {
+                return _AtWork;
+            }
+            set
+            {
+                OnAtWorkChanging(value);
+                ReportPropertyChanging("AtWork");
+                _AtWork = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AtWork");
+                OnAtWorkChanged();
+            }
+        }
+        private global::System.String _AtWork;
+        partial void OnAtWorkChanging(global::System.String value);
+        partial void OnAtWorkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ID_User
+        {
+            get
+            {
+                return _ID_User;
+            }
+            set
+            {
+                OnID_UserChanging(value);
+                ReportPropertyChanging("ID_User");
+                _ID_User = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_User");
+                OnID_UserChanged();
+            }
+        }
+        private global::System.Guid _ID_User;
+        partial void OnID_UserChanging(global::System.Guid value);
+        partial void OnID_UserChanged();
 
         #endregion
     
@@ -2023,7 +2075,7 @@ namespace DiagnosticCenter.Models
         /// <param name="comment">Initial value of the Comment property.</param>
         /// <param name="workplace">Initial value of the Workplace property.</param>
         /// <param name="civil_Servant">Initial value of the Civil_Servant property.</param>
-        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String name, global::System.String specialty, global::System.String address, global::System.String phone, global::System.String comment, global::System.Byte workplace, global::System.Byte civil_Servant)
+        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String name, global::System.String specialty, global::System.String address, global::System.String phone, global::System.String comment, global::System.String workplace, global::System.String civil_Servant)
         {
             Patient patient = new Patient();
             patient.ID_Patient = iD_Patient;
@@ -2192,7 +2244,7 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte Workplace
+        public global::System.String Workplace
         {
             get
             {
@@ -2202,13 +2254,13 @@ namespace DiagnosticCenter.Models
             {
                 OnWorkplaceChanging(value);
                 ReportPropertyChanging("Workplace");
-                _Workplace = StructuralObject.SetValidValue(value);
+                _Workplace = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Workplace");
                 OnWorkplaceChanged();
             }
         }
-        private global::System.Byte _Workplace;
-        partial void OnWorkplaceChanging(global::System.Byte value);
+        private global::System.String _Workplace;
+        partial void OnWorkplaceChanging(global::System.String value);
         partial void OnWorkplaceChanged();
     
         /// <summary>
@@ -2216,7 +2268,7 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte Civil_Servant
+        public global::System.String Civil_Servant
         {
             get
             {
@@ -2226,13 +2278,13 @@ namespace DiagnosticCenter.Models
             {
                 OnCivil_ServantChanging(value);
                 ReportPropertyChanging("Civil_Servant");
-                _Civil_Servant = StructuralObject.SetValidValue(value);
+                _Civil_Servant = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Civil_Servant");
                 OnCivil_ServantChanged();
             }
         }
-        private global::System.Byte _Civil_Servant;
-        partial void OnCivil_ServantChanging(global::System.Byte value);
+        private global::System.String _Civil_Servant;
+        partial void OnCivil_ServantChanging(global::System.String value);
         partial void OnCivil_ServantChanged();
 
         #endregion

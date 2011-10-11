@@ -1,30 +1,29 @@
 ﻿@model IEnumerable<DiagnosticCenter.Models.Patient>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
 </p>
 <table>
     <tr>
         <th>
-            Name
+            ПІБ
         </th>
         <th>
-            Specialty
+            Спеціальність
         </th>
         <th>
-            Address
+            Адреса
         </th>
         <th>
-            Phone
+            Телефон
         </th>
         <th>
-            Comment
+            Держслужбовець
         </th>
         <th>
-            Workplace
+            Працевлаштований
         </th>
         <th>
-            Civil_Servant
+            Коментар
         </th>
         <th></th>
     </tr>
@@ -44,13 +43,14 @@
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Comment)
+           @Html.DisplayFor(modelItem => item.Civil_Servant)
         </td>
         <td>
+            
             @Html.DisplayFor(modelItem => item.Workplace)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Civil_Servant)
+            @Html.DisplayFor(modelItem => item.Comment)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID_Patient }) |
