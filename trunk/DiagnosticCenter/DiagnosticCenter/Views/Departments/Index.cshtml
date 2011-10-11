@@ -1,17 +1,21 @@
-﻿@{
-    ViewBag.Title = "Departments page";
+﻿@model IEnumerable<DiagnosticCenter.Models.Department>
+
+@{
+    ViewBag.Title = "Список відділення";
 }
 
-<h2>Відділення Діагностичного Центру</h2>
+<h2>Список відділень</h2>
 
-<table border="0">
- <tr bgcolor="#99CCFF">
-   <td><a href="Cardiology.cshtml">Кардіологічне відділення</a></td>
- </tr>
- <tr bgcolor="#99CCFF">
-   <td><a href="Neurorpathology.cshtml">Неврологічне відділення</a></td>
- </tr>
- <tr bgcolor="#99CCFF">
-   <td><a href="Endocrinology.cshtml">Ендокрінологічне відділення</a></td>
- </tr>
+<table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "Details", new { id = item.ID_Dept })
+        </td>
+        <td>
+            @Html.ActionLink("Видалити", "Delete", new { id=item.ID_Dept })
+        </td>
+    </tr>
+}
+
 </table>
