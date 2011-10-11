@@ -1,0 +1,21 @@
+﻿@model DiagnosticCenter.Models.Department
+
+@{
+    ViewBag.Title = "Видалення";
+}
+
+<h2>Видалення</h2>
+
+<h3>Ви впевнені що бажаєте видалити відділення "@Model.Name" ?</h3>
+<fieldset>
+    <legend>Опис</legend>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Видалити" /> |
+        @Html.ActionLink("Список відділень", "Index")
+    </p>
+}
