@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.Patient>
+
+
+<h2>Детальніша інформація</h2>
+<table>
+    <tr>
+        <th>
+            ПІБ
+        </th>
+        <th>
+            Спеціальність
+        </th>
+        <th>
+            Адреса
+        </th>
+        <th>
+            Телефон
+        </th>
+        <th>
+            Держслужбовець
+        </th>
+        <th>
+            Працевлаштований
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Workplace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Civil_Servant)
+        </td>
+        </tr>
+    <tr>
+        <td colspan = 6 align = "center">    
+        @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+    </tr>
+}
+
+</table>

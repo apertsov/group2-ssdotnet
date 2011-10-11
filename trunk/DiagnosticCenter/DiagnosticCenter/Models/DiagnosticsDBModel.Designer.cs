@@ -14,6 +14,7 @@ using System.Data.EntityClient;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -2075,7 +2076,7 @@ namespace DiagnosticCenter.Models
         /// <param name="comment">Initial value of the Comment property.</param>
         /// <param name="workplace">Initial value of the Workplace property.</param>
         /// <param name="civil_Servant">Initial value of the Civil_Servant property.</param>
-        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String name, global::System.String specialty, global::System.String address, global::System.String phone, global::System.String comment, global::System.String workplace, global::System.String civil_Servant)
+        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String name, global::System.String specialty, global::System.String address, global::System.String phone, global::System.String comment, global::System.Boolean workplace, global::System.Boolean civil_Servant)
         {
             Patient patient = new Patient();
             patient.ID_Patient = iD_Patient;
@@ -2124,6 +2125,8 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s){2}[А-ЯЇІЙа-яіїй]+$", ErrorMessage = "Невірний формат вводу")]
+        [Required(ErrorMessage="Обов'язкове поле")]
         public global::System.String Name
         {
             get
@@ -2148,6 +2151,8 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s?)+", ErrorMessage = "Невірний формат вводу")]
         public global::System.String Specialty
         {
             get
@@ -2172,6 +2177,8 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [RegularExpression("^((пр-т.)|([А-ЯІЇЙа-яійї]+\\.?))(\\s?[А-ЯІЇЙа-яійї])*\\s[1-9][0-9]*[А-ЯІЇЙа-яійї]?$", ErrorMessage = "Невірний формат вводу")]
         public global::System.String Address
         {
             get
@@ -2196,6 +2203,8 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [RegularExpression("^([0-9]{10})|([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})$",ErrorMessage="Невірний формат вводу")]
         public global::System.String Phone
         {
             get
@@ -2244,7 +2253,7 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Workplace
+        public global::System.Boolean Workplace
         {
             get
             {
@@ -2254,13 +2263,13 @@ namespace DiagnosticCenter.Models
             {
                 OnWorkplaceChanging(value);
                 ReportPropertyChanging("Workplace");
-                _Workplace = StructuralObject.SetValidValue(value, false);
+                _Workplace = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Workplace");
                 OnWorkplaceChanged();
             }
         }
-        private global::System.String _Workplace;
-        partial void OnWorkplaceChanging(global::System.String value);
+        private global::System.Boolean _Workplace;
+        partial void OnWorkplaceChanging(global::System.Boolean value);
         partial void OnWorkplaceChanged();
     
         /// <summary>
@@ -2268,7 +2277,7 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Civil_Servant
+        public global::System.Boolean Civil_Servant
         {
             get
             {
@@ -2278,13 +2287,13 @@ namespace DiagnosticCenter.Models
             {
                 OnCivil_ServantChanging(value);
                 ReportPropertyChanging("Civil_Servant");
-                _Civil_Servant = StructuralObject.SetValidValue(value, false);
+                _Civil_Servant = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Civil_Servant");
                 OnCivil_ServantChanged();
             }
         }
-        private global::System.String _Civil_Servant;
-        partial void OnCivil_ServantChanging(global::System.String value);
+        private global::System.Boolean _Civil_Servant;
+        partial void OnCivil_ServantChanging(global::System.Boolean value);
         partial void OnCivil_ServantChanged();
 
         #endregion

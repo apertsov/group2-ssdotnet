@@ -1,0 +1,9 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.Patient>
+
+<h2>Пошук пацієнтів</h2>
+@using (Html.BeginForm("SearchResult","Patients"))
+{      @Html.Label("Введіть ПІБ пацієнта:")
+       @Html.TextBox("Name")
+       <input type="submit" value = "Пошук"/>       
+   
+}

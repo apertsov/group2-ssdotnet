@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
@@ -203,16 +204,26 @@
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.ssdl" />
     <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\Patients\Delete.cshtml" />
     <Content Include="Views\Cabinets\Index.cshtml" />
     <Content Include="Views\Cabinets\Details.cshtml" />
     <Content Include="Views\Cabinets\Create.cshtml" />
     <Content Include="Views\Cabinets\Edit.cshtml" />
     <Content Include="Views\Cabinets\Delete.cshtml" />
+<<<<<<< .mine
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Search.cshtml" />
+    <Content Include="Views\Patients\SearchResult.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Search.cshtml" />
+    <Content Include="Views\Employees\SearchResult.cshtml" />
+=======
     <Content Include="Views\Departments\Index.cshtml" />
     <Content Include="Views\Departments\Create.cshtml" />
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
+>>>>>>> .r37
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
