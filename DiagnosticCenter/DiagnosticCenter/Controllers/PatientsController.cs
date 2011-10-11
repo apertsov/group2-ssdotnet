@@ -4,13 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DiagnosticCenter.Models;
-
 namespace DiagnosticCenter.Controllers
 {
     public class PatientsController : Controller
     {
-        private DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
         
+        DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
+
+
+        public ActionResult Index()
+        {
+            return View(_patients.Patients.ToList());
+        }
+
         public ActionResult Create()
         {
             return View();
@@ -19,75 +25,87 @@ namespace DiagnosticCenter.Controllers
         [HttpPost]
         public ActionResult Create(Patient new_Patient)
         {
-            if (new_Patient.Workplace == null) new_Patient.Workplace = "ні";
-            else new_Patient.Workplace = "так";
-            if (new_Patient.Civil_Servant == null) new_Patient.Civil_Servant = "ні";
-            else new_Patient.Civil_Servant = "так";
+            if (!ModelState.IsValid) return View();
+
+
             _patients.AddToPatients(new_Patient);
+            _patients.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            IQueryable<Patient> query = from patient in _patients.Patients
+                                        where patient.ID_Patient == id
+                                        select patient;
+
+            foreach (var pat in query)
+            {
+                _patients.Patients.DeleteObject(pat);
+            }
             _patients.SaveChanges();
             return RedirectToAction("Index");
         }
 
-       public ActionResult Index()
-        {
-            return View(_patients.Patients.ToList());
-        }
-        //
-        // GET: /Patient/Details/5
-
         public ActionResult Details(int id)
         {
-            return View();
+            IQueryable<Patient> query = from patient in _patients.Patients
+                                        where patient.ID_Patient == id
+                                        select patient;
+
+            return View(query.ToList());
         }
 
-                     
-        //
-        // GET: /Patient/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
+            var edit_patient = (from p in _patients.Patients
+                                where p.ID_Patient == id
+                                select p).First();
+
+
+
+            return View(edit_patient);
+        }
+        [HttpPost]
+        public ActionResult Edit(Patient edit_patient)
+        {
+            var original_patient = (from p in _patients.Patients
+                                    where p.ID_Patient == edit_patient.ID_Patient
+                                    select p).First();
+            if (!ModelState.IsValid)
+                return View(original_patient);
+
+            _patients.ApplyCurrentValues(original_patient.EntityKey.EntitySetName, edit_patient);
+            _patients.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        public ActionResult Search()
+        {
             return View();
         }
 
-        //
-        // POST: /Patient/Edit/5
-
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Search(int? id)
         {
-            try
-            {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            string name = ViewData["Name"].ToString();
+            return RedirectToAction("SearchResult", name);
         }
 
-        
- 
-         
 
-        [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult SearchResult(string name)
         {
-            try
-            {
-                  Patient del_patient = _patients.Patients.FirstOrDefault(p => p.ID_Patient == id);
-                  _patients.Patients.DeleteObject(del_patient);
 
-                
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            IQueryable<Patient> query = from p in _patients.Patients
+                                        where p.Name.Contains(name)
+                                        select p;
+            List<Patient> pat = new List<Patient>();
+            foreach (Patient p in query)
+                pat.Add(p);
+            return View(pat);
         }
     }
 }

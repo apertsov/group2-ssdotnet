@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d8e5673d-37d8-4ac3-b6e6-82cb8c038e98" name="SkSirius@SKSIRIUS-PC 2011-10-11 22:09:12" runUser="SkSirius-PC\SkSirius" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="30802964-f87f-4884-b29d-76a3036716ad">
+    <Deployment runDeploymentRoot="SkSirius_SKSIRIUS-PC 2011-10-11 22_09_12">
+      <DeploymentItem filename="D:\DiagnosticCenter\DiagnosticCenter\bin\DiagnosticCenter.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-11T22:09:12.5771484+03:00" queuing="2011-10-11T22:09:19.0458984+03:00" start="2011-10-11T22:09:19.4638671+03:00" finish="2011-10-11T22:09:20.9150390+03:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Index" storage="d:\diagnosticcenter\diagnosticcenter.tests\bin\debug\diagnosticcenter.tests.dll" id="1daf0092-febb-0cf4-5d8d-3569245b286b">
+      <Execution id="5f7df04d-7b26-4750-b235-af59dfbccddd" />
+      <TestMethod codeBase="D:/DiagnosticCenter/DiagnosticCenter.Tests/bin/Debug/DiagnosticCenter.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DiagnosticCenter.Tests.Controllers.HomeControllerTest, DiagnosticCenter.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+    <UnitTest name="About" storage="d:\diagnosticcenter\diagnosticcenter.tests\bin\debug\diagnosticcenter.tests.dll" id="bccb5605-0d36-ae0c-87cb-1d9dd0bfe13c">
+      <Execution id="93a3eacc-dd4a-401d-b0fd-6ac7ecc03ae2" />
+      <TestMethod codeBase="D:/DiagnosticCenter/DiagnosticCenter.Tests/bin/Debug/DiagnosticCenter.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DiagnosticCenter.Tests.Controllers.HomeControllerTest, DiagnosticCenter.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1daf0092-febb-0cf4-5d8d-3569245b286b" executionId="5f7df04d-7b26-4750-b235-af59dfbccddd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bccb5605-0d36-ae0c-87cb-1d9dd0bfe13c" executionId="93a3eacc-dd4a-401d-b0fd-6ac7ecc03ae2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="5f7df04d-7b26-4750-b235-af59dfbccddd" testId="1daf0092-febb-0cf4-5d8d-3569245b286b" testName="Index" computerName="SKSIRIUS-PC" duration="00:00:00.2857863" startTime="2011-10-11T22:09:19.6113281+03:00" endTime="2011-10-11T22:09:20.7089843+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5f7df04d-7b26-4750-b235-af59dfbccddd">
+    </UnitTestResult>
+    <UnitTestResult executionId="93a3eacc-dd4a-401d-b0fd-6ac7ecc03ae2" testId="bccb5605-0d36-ae0c-87cb-1d9dd0bfe13c" testName="About" computerName="SKSIRIUS-PC" duration="00:00:00.0007249" startTime="2011-10-11T22:09:20.7275390+03:00" endTime="2011-10-11T22:09:20.7470703+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="93a3eacc-dd4a-401d-b0fd-6ac7ecc03ae2">
+    </UnitTestResult>
+  </Results>
+</TestRun>
