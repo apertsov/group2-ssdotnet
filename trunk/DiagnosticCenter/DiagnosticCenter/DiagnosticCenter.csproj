@@ -38,6 +38,12 @@
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcPaging">
+      <HintPath>..\packages\MvcPaging.1.0.1\lib\net40\MvcPaging.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.10\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -65,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CabinetsController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -210,9 +215,6 @@
     <Content Include="Views\Cabinets\Create.cshtml" />
     <Content Include="Views\Cabinets\Edit.cshtml" />
     <Content Include="Views\Cabinets\Delete.cshtml" />
-
-
-    
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Search.cshtml" />
@@ -221,15 +223,10 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\Search.cshtml" />
     <Content Include="Views\Employees\SearchResult.cshtml" />
-
-
-  
     <Content Include="Views\Departments\Index.cshtml" />
     <Content Include="Views\Departments\Create.cshtml" />
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
-
-
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

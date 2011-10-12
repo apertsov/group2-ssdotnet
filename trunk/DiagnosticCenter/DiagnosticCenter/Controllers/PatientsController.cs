@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DiagnosticCenter.Models;
+using PagedList;
 namespace DiagnosticCenter.Controllers
 {
     public class PatientsController : Controller
@@ -12,9 +13,14 @@ namespace DiagnosticCenter.Controllers
         DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
 
 
-        public ViewResult Index()
+        public ViewResult Index(int? page)
         {
-            return View(_patients.Patients.ToList());
+
+            var pat = from p in _patients.Patients
+                           select p;
+            pat = pat.OrderBy(item => item.Name);
+             int pageIndex = (page ?? 1); 
+            return View(pat.ToPagedList(pageIndex,5));
         }
 
         public ActionResult Create()
@@ -96,16 +102,16 @@ namespace DiagnosticCenter.Controllers
         }
 
 
-        public ActionResult SearchResult(string name)
+        public ActionResult SearchResult(int? page, string name)
         {
 
-            IQueryable<Patient> query = from p in _patients.Patients
-                                        where p.Name.Contains(name)
-                                        select p;
-            List<Patient> pat = new List<Patient>();
-            foreach (Patient p in query)
-                pat.Add(p);
-            return View(pat);
+            var pat = from p in _patients.Patients
+                      where p.Name.Contains(name)
+                      select p;
+            pat = pat.OrderBy(item => item.Name);
+            int pageIndex = (page ?? 1);
+            return View("Index",pat.ToPagedList(pageIndex, 5));
+           
         }
     }
 }
