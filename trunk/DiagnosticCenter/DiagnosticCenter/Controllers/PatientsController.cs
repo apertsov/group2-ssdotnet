@@ -12,7 +12,7 @@ namespace DiagnosticCenter.Controllers
         DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
 
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
             return View(_patients.Patients.ToList());
         }
