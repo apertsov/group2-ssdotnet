@@ -39,7 +39,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcPaging">
-      <HintPath>..\packages\MvcPaging.1.0.1\lib\net40\MvcPaging.dll</HintPath>
+      <HintPath>..\packages\MvcPaging.1.0.0\lib\net40\MvcPaging.dll</HintPath>
     </Reference>
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.10\lib\net40\PagedList.dll</HintPath>
@@ -161,7 +161,9 @@
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Views\Plan\PlanScripts.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -234,14 +236,14 @@
     <Content Include="Views\Departments\Create.cshtml" />
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
-<!--<<<<<<< .mine-->
+    <!--<<<<<<< .mine-->
     <Content Include="Views\Plan\Index.cshtml" />
     <Content Include="Views\Plan\Details.cshtml" />
     <Content Include="Views\Plan\Create.cshtml" />
     <Content Include="Views\Plan\Edit.cshtml" />
     <Content Include="Views\Plan\Delete.cshtml" />
     <!-->>>>>>> .r37-->
-<!--=======
+    <!--=======
 >>>>>>> .r42-->
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

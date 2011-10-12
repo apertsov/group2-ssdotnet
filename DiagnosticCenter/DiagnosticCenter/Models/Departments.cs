@@ -8,40 +8,32 @@ namespace DiagnosticCenter.Models
     public class Departments
     {
         public static Departments Instance = new Departments();
-        public List<Department> list = new List<Department>();
+        DiagnosticsDBModelContainer DB = new DiagnosticsDBModelContainer();
         public Departments()
         {
-            list.Add
-            (
-                Department.CreateDepartment(1, "Кардіологічне", "Кардіологічне відділення")
-            );
-            list.Add
-            (
-                Department.CreateDepartment(2, "Неврологічне", "Неврологічне відділення")
-            );
-            list.Add
-            (
-                Department.CreateDepartment(3, "Ендокринологічне", "Ендокринологічне відділення")
-            );
         }
         public List<Department> getList()
-        {
-            return list;
+        {   
+            return (from d in DB.Departments select d).ToList();
         }
         public Department getByID(int id)
         {
-            return list.Find( d => d.ID_Dept == id);
+            return (from d in DB.Departments where d.ID_Dept == id select d).First();
         }
         public Department add( Department d )
         {
-            int max = list.Max(x => x.ID_Dept);
+            List<Department> list = (from a in DB.Departments select a).ToList();
+            int max = list.Count == 0 ? 1 : list.Max(x => x.ID_Dept);
             d.ID_Dept = max + 1;
-            list.Add(d);
+            DB.Departments.AddObject(d);
+            DB.SaveChanges();
             return d;
         }
         public void deleteByID(int id)
         {
-            list.Remove( list.Find( d => d.ID_Dept == id) );
+            var X = from d in DB.Departments where d.ID_Dept == id select d;
+            DB.Departments.DeleteObject(X.First());
+            DB.SaveChanges();
         }
     }
 }

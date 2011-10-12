@@ -13,11 +13,8 @@ namespace DiagnosticCenter.Controllers
         DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
 
 
-<<<<<<< .mine
-        public ActionResult Index()
-=======
         public ViewResult Index(int? page)
->>>>>>> .r42
+/*>>>>>>> .r42*/
         {
 
             var pat = from p in _patients.Patients
@@ -108,7 +105,6 @@ namespace DiagnosticCenter.Controllers
 
         public ActionResult SearchResult(int? page, string name)
         {
-
             var pat = from p in _patients.Patients
                       where p.Name.Contains(name)
                       select p;
