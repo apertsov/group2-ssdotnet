@@ -11,7 +11,7 @@ namespace DiagnosticCenter.Controllers
     {
         //
         // GET: /Departments/
-
+        
         public ActionResult Index()
         {
             return View( Departments.Instance.getList() );
@@ -33,6 +33,7 @@ namespace DiagnosticCenter.Controllers
                 return View(d);
             }
             Departments.Instance.add( d );
+            
             return View("Details", d);
         }
         /*----- DELETE -----*/
