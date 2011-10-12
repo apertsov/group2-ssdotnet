@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.Cabinet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Додати кабінет", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Номер кабінету
+        </th>
+        <th>
+            Номер телефону
+        </th>
+        <th>
+            Опис
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.ID_Cabinet }) |
+            @Html.ActionLink("Деталі", "Details", new { id=item.ID_Cabinet }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.ID_Cabinet })
+        </td>
+    </tr>
+}
+
+</table>
+@{ if (ViewBag.HasPrevious)
+   {
+       @Html.ActionLink("<<", "Index", new { page = (ViewBag.CurrentPage - 1) })
+  }
+ }
+
+
+@{ if (ViewBag.HasMore)
+   {  @Html.ActionLink(">>", "Index", new { page = (ViewBag.CurrentPage + 1) }) 
+  }
+ }
