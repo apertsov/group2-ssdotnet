@@ -13,7 +13,11 @@ namespace DiagnosticCenter.Controllers
         DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
 
 
+<<<<<<< .mine
+        public ActionResult Index()
+=======
         public ViewResult Index(int? page)
+>>>>>>> .r42
         {
 
             var pat = from p in _patients.Patients

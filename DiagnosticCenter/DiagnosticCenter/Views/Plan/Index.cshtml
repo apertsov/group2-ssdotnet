@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.Day>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            StartTime
+        </th>
+        <th>
+            EndTime
+        </th>
+        <th>
+            StartBreak
+        </th>
+        <th>
+            EndBreak
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartBreak)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndBreak)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Day }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Day }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Day })
+        </td>
+    </tr>
+}
+
+</table>
+*@

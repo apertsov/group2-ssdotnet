@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="8a8a4d2f-a760-4ccb-a184-343f58528a90" name="misharashik@ACER 2011-10-12 09:32:24" runUser="ACER\misharashik" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="4c58c179-3cfc-45c9-8bf9-503cdf3f5047">
+    <Deployment runDeploymentRoot="misharashik_ACER 2011-10-12 09_32_24">
+      <DeploymentItem filename="D:\dotNET\group2-ssdotnet\DiagnosticCenter\DiagnosticCenter\bin\DiagnosticCenter.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-12T09:32:24.5937500+03:00" queuing="2011-10-12T09:32:42.8437500+03:00" start="2011-10-12T09:32:43.4687500+03:00" finish="2011-10-12T09:32:48.6250000+03:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Index" storage="d:\dotnet\group2-ssdotnet\diagnosticcenter\diagnosticcenter.tests\bin\debug\diagnosticcenter.tests.dll" id="1daf0092-febb-0cf4-5d8d-3569245b286b">
+      <Execution id="46238226-e987-42fc-8d55-3f44b616a634" />
+      <TestMethod codeBase="D:/dotNET/group2-ssdotnet/DiagnosticCenter/DiagnosticCenter.Tests/bin/Debug/DiagnosticCenter.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DiagnosticCenter.Tests.Controllers.HomeControllerTest, DiagnosticCenter.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+    <UnitTest name="About" storage="d:\dotnet\group2-ssdotnet\diagnosticcenter\diagnosticcenter.tests\bin\debug\diagnosticcenter.tests.dll" id="bccb5605-0d36-ae0c-87cb-1d9dd0bfe13c">
+      <Execution id="74740869-8236-4006-9d5f-62407f679e1f" />
+      <TestMethod codeBase="D:/dotNET/group2-ssdotnet/DiagnosticCenter/DiagnosticCenter.Tests/bin/Debug/DiagnosticCenter.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DiagnosticCenter.Tests.Controllers.HomeControllerTest, DiagnosticCenter.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1daf0092-febb-0cf4-5d8d-3569245b286b" executionId="46238226-e987-42fc-8d55-3f44b616a634" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bccb5605-0d36-ae0c-87cb-1d9dd0bfe13c" executionId="74740869-8236-4006-9d5f-62407f679e1f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="46238226-e987-42fc-8d55-3f44b616a634" testId="1daf0092-febb-0cf4-5d8d-3569245b286b" testName="Index" computerName="ACER" duration="00:00:02.1740176" startTime="2011-10-12T09:32:43.6875000+03:00" endTime="2011-10-12T09:32:48.3593750+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="46238226-e987-42fc-8d55-3f44b616a634">
+    </UnitTestResult>
+    <UnitTestResult executionId="74740869-8236-4006-9d5f-62407f679e1f" testId="bccb5605-0d36-ae0c-87cb-1d9dd0bfe13c" testName="About" computerName="ACER" duration="00:00:00.0007042" startTime="2011-10-12T09:32:48.4062500+03:00" endTime="2011-10-12T09:32:48.4375000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74740869-8236-4006-9d5f-62407f679e1f">
+    </UnitTestResult>
+  </Results>
+</TestRun>

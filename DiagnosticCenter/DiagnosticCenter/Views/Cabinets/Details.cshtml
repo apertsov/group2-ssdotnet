@@ -1,0 +1,28 @@
+﻿@model DiagnosticCenter.Models.Cabinet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<fieldset>
+    <legend>Кабінет</legend>
+
+    <div class="display-label">Номер кабінету:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">Номер телефону:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">Опис:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редагувати кабінет", "Edit", new { id=Model.ID_Cabinet }) |
+    @Html.ActionLink("Повернутись до списку кабінетів", "Index")
+</p>
