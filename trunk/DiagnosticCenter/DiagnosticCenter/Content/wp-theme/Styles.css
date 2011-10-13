@@ -828,7 +828,7 @@ body.js #adminmenu li.menu-open .submenu, body.no-js #adminmenu .open-if-no-js .
     z-index: 25;
 }
 #adminmenu .menu-arrow div {
-    background: url("../images/menu-arrow-frame.png") no-repeat scroll right top transparent;
+    background: url("images/menu-arrow-frame.png") no-repeat scroll right top transparent;
     height: 30px;
     width: 15px;
 }

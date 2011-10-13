@@ -6,6 +6,14 @@
         <input type="submit" value="Знайти" /></p> 
 }
 <table align = "center">
+
+@{
+    ViewBag.Controller = "Patients";
+    ViewBag.Action = "Patients.Index";
+}
+<p>
+</p>
+<table>
     <tr>
         <th>
            @Html.ActionLink("Прізвище", "Index", new { sortOrder = ViewBag.SurameSortParm }) 
