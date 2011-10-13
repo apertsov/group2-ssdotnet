@@ -12,7 +12,7 @@ namespace DiagnosticCenter.Controllers
     {
         
         private DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
-        
+       
         
         public ViewResult Index(string sortOrder, string searchString, int? page)
         {
@@ -124,22 +124,32 @@ namespace DiagnosticCenter.Controllers
         }
 
         [HttpPost]
-        public ActionResult Search(int? id)
-        {
-            string name = ViewData["Name"].ToString();
-            return RedirectToAction("SearchResult", name);
-        }
-
-
-        public ActionResult SearchResult(int? page, string name)
+        public ActionResult Search(Patient s_pat)
         {
             var pat = from p in _patients.Patients
-                      where p.FirstName.Contains(name)
                       select p;
-            pat = pat.OrderBy(item => item.FirstName);
-            int pageIndex = (page ?? 1);
-            return View("Index",pat.ToPagedList(pageIndex, 5));
            
+            if (Request.Form["FirstName"].ToString().Trim() != "")
+                pat = pat.Where(p => p.FirstName.Contains(s_pat.FirstName));
+            if (Request.Form["Surname"].ToString().Trim() != "")
+                pat = pat.Where(p => p.Surname.Contains(s_pat.Surname));
+            if (Request.Form["BirthDate"].ToString().Trim() != "")
+                pat = pat.Where(p => p.BirthDate == s_pat.BirthDate);
+            pat = pat.Where(p => p.Sex == s_pat.Sex);
+            if (Request.Form["City"].ToString().Trim() != "")
+                pat = pat.Where(p => p.City.Contains(s_pat.City));
+            if (Request.Form["Address"].ToString().Trim() != "")
+                pat = pat.Where(p => p.Address.Contains(s_pat.Address));
+            if (Request.Form["Phone"].ToString().Trim() != "")
+                pat = pat.Where(p => p.Phone.Contains(s_pat.Phone));
+            if (Request.Form["Email"].ToString().Trim() != "")
+                pat = pat.Where(p => p.Email.Contains(s_pat.Email));
+            
+            pat = pat.OrderBy(p => p.FirstName);
+           
+            return View("Index",pat.ToPagedList(1,5));
         }
+
+      
     }
 }
