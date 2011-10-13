@@ -134,7 +134,7 @@ namespace DiagnosticCenter.Models
         
         [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s){2}[А-ЯЇІЙа-яіїй]+$", ErrorMessage = "Невірний формат вводу")]
         [Required(ErrorMessage = "Обов'язкове поле")]
-        public global::System.String Name {get; set;}
+        public global::System.String FirstName {get; set;}
         
         [Required(ErrorMessage = "Обов'язкове поле")]
         [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s?)+", ErrorMessage = "Невірний формат вводу")]

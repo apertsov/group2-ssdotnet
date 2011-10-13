@@ -14,12 +14,12 @@ namespace DiagnosticCenter.Controllers
 
 
         public ViewResult Index(int? page)
-/*>>>>>>> .r42*/
+
         {
 
             var pat = from p in _patients.Patients
                            select p;
-            pat = pat.OrderBy(item => item.Name);
+            pat = pat.OrderBy(item => item.FirstName);
              int pageIndex = (page ?? 1); 
             return View(pat.ToPagedList(pageIndex,5));
         }
@@ -106,9 +106,9 @@ namespace DiagnosticCenter.Controllers
         public ActionResult SearchResult(int? page, string name)
         {
             var pat = from p in _patients.Patients
-                      where p.Name.Contains(name)
+                      where p.FirstName.Contains(name)
                       select p;
-            pat = pat.OrderBy(item => item.Name);
+            pat = pat.OrderBy(item => item.FirstName);
             int pageIndex = (page ?? 1);
             return View("Index",pat.ToPagedList(pageIndex, 5));
            

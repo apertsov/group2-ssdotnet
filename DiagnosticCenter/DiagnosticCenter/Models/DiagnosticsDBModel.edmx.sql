@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/13/2011 12:58:47
+-- Date Created: 10/13/2011 13:22:37
 -- Generated from EDMX file: D:\DiagnosticCenter\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
@@ -17,14 +17,8 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_DepartmentEmployee]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_DepartmentEmployee];
-GO
 IF OBJECT_ID(N'[dbo].[FK_CabinetEmployee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_CabinetEmployee];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeeNews]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[News] DROP CONSTRAINT [FK_EmployeeNews];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DayEmployee_Day]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DayEmployee] DROP CONSTRAINT [FK_DayEmployee_Day];
@@ -32,40 +26,55 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DayEmployee_Employee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DayEmployee] DROP CONSTRAINT [FK_DayEmployee_Employee];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PatientReferral]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_PatientReferral];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeeReferral]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_EmployeeReferral];
+IF OBJECT_ID(N'[dbo].[FK_DepartmentEmployee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_DepartmentEmployee];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeeExamination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_EmployeeExamination];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PatientExamination]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_PatientExamination];
+IF OBJECT_ID(N'[dbo].[FK_EmployeeNews]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[News] DROP CONSTRAINT [FK_EmployeeNews];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ReferralExamination]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_ReferralExamination];
+IF OBJECT_ID(N'[dbo].[FK_EmployeeReferral]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_EmployeeReferral];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ExaminationTypeExamination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ExaminationTypes] DROP CONSTRAINT [FK_ExaminationTypeExamination];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatientExamination]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_PatientExamination];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatientReferral]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_PatientReferral];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ReferralExamination]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_ReferralExamination];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Departments]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Departments];
+IF OBJECT_ID(N'[dbo].[Cabinets]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cabinets];
+GO
+IF OBJECT_ID(N'[dbo].[DayEmployee]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DayEmployee];
 GO
 IF OBJECT_ID(N'[dbo].[Days]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Days];
 GO
+IF OBJECT_ID(N'[dbo].[Departments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Departments];
+GO
 IF OBJECT_ID(N'[dbo].[Employees]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Employees];
 GO
-IF OBJECT_ID(N'[dbo].[Cabinets]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Cabinets];
+IF OBJECT_ID(N'[dbo].[Examinations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Examinations];
+GO
+IF OBJECT_ID(N'[dbo].[ExaminationTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ExaminationTypes];
 GO
 IF OBJECT_ID(N'[dbo].[News]', 'U') IS NOT NULL
     DROP TABLE [dbo].[News];
@@ -75,15 +84,6 @@ IF OBJECT_ID(N'[dbo].[Patients]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Referrals]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Referrals];
-GO
-IF OBJECT_ID(N'[dbo].[Examinations]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Examinations];
-GO
-IF OBJECT_ID(N'[dbo].[ExaminationTypes]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ExaminationTypes];
-GO
-IF OBJECT_ID(N'[dbo].[DayEmployee]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DayEmployee];
 GO
 
 -- --------------------------------------------------
@@ -148,15 +148,17 @@ GO
 -- Creating table 'Patients'
 CREATE TABLE [dbo].[Patients] (
     [ID_Patient] int IDENTITY(1,1) NOT NULL,
-    [FirstName] nvarchar(max)  NOT NULL,
+    [FirstName] nvarchar(20)  NOT NULL,
     [Specialty] nvarchar(max)  NOT NULL,
     [Address] nvarchar(max)  NOT NULL,
     [Phone] nvarchar(max)  NOT NULL,
-    [Comment] nvarchar(max)  NOT NULL,
+    [Comment] nvarchar(max)  NULL,
     [Workplace] bit  NOT NULL,
     [Civil_Servant] bit  NOT NULL,
     [Surname] nvarchar(max)  NOT NULL,
-    [Patronymic] nvarchar(max)  NOT NULL
+    [Patronymic] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL
 );
 GO
 

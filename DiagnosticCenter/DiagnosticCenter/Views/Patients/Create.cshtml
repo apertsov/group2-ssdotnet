@@ -13,11 +13,11 @@
         
         <tr>
             <td>
-                @Html.Label("ПІБ пацієнта:")
+              @Html.Label("Ім'я");
             </td>
             <td>
-                @Html.EditorFor(model => model.Name,"i_name")
-                @Html.ValidationMessageFor(model => model.Name)
+                @Html.EditorFor(model => model.FirstName,"i_FirstName")
+                @Html.ValidationMessageFor(model => model.FirstName)
              </td>
         </tr>    
         <tr> 
