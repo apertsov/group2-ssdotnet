@@ -225,7 +225,6 @@
     <Content Include="Views\Cabinets\Create.cshtml" />
     <Content Include="Views\Cabinets\Edit.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Patients\Search.cshtml" />
     <Content Include="Views\Patients\SearchResult.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />

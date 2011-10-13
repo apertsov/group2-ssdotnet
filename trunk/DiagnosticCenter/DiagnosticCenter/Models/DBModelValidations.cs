@@ -170,7 +170,7 @@ namespace DiagnosticCenter.Models
         public global::System.String Phone {get; set;}
 
         [Required(ErrorMessage = "Обов'язкове поле")]
-        //[RegularExpression("^\\d{2}\\.\\d{2}\\.\\d{4}$",ErrorMessage="Невірний формат")]
+        //[RegularExpression("^\\d{2}/\\d{2}/\\d{4}$",ErrorMessage="Невірний формат")]
         public global::System.DateTime BirthDate { get; set; }
        
         
