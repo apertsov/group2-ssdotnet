@@ -14,7 +14,6 @@ using System.Data.EntityClient;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
-using System.ComponentModel.DataAnnotations;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -829,7 +828,10 @@ namespace DiagnosticCenter.Models
         /// <param name="iD_Cabinet">Initial value of the ID_Cabinet property.</param>
         /// <param name="atWork">Initial value of the AtWork property.</param>
         /// <param name="iD_User">Initial value of the ID_User property.</param>
-        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet, global::System.String atWork, global::System.Guid iD_User)
+        /// <param name="firstName">Initial value of the FirstName property.</param>
+        /// <param name="surname">Initial value of the Surname property.</param>
+        /// <param name="patronymic">Initial value of the Patronymic property.</param>
+        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet, global::System.String atWork, global::System.Guid iD_User, global::System.String firstName, global::System.String surname, global::System.String patronymic)
         {
             Employee employee = new Employee();
             employee.ID_Employee = iD_Employee;
@@ -841,6 +843,9 @@ namespace DiagnosticCenter.Models
             employee.ID_Cabinet = iD_Cabinet;
             employee.AtWork = atWork;
             employee.ID_User = iD_User;
+            employee.FirstName = firstName;
+            employee.Surname = surname;
+            employee.Patronymic = patronymic;
             return employee;
         }
 
@@ -1065,6 +1070,78 @@ namespace DiagnosticCenter.Models
         private global::System.Guid _ID_User;
         partial void OnID_UserChanging(global::System.Guid value);
         partial void OnID_UserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FirstName
+        {
+            get
+            {
+                return _FirstName;
+            }
+            set
+            {
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
+            }
+        }
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Surname
+        {
+            get
+            {
+                return _Surname;
+            }
+            set
+            {
+                OnSurnameChanging(value);
+                ReportPropertyChanging("Surname");
+                _Surname = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Surname");
+                OnSurnameChanged();
+            }
+        }
+        private global::System.String _Surname;
+        partial void OnSurnameChanging(global::System.String value);
+        partial void OnSurnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Patronymic
+        {
+            get
+            {
+                return _Patronymic;
+            }
+            set
+            {
+                OnPatronymicChanging(value);
+                ReportPropertyChanging("Patronymic");
+                _Patronymic = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Patronymic");
+                OnPatronymicChanged();
+            }
+        }
+        private global::System.String _Patronymic;
+        partial void OnPatronymicChanging(global::System.String value);
+        partial void OnPatronymicChanged();
 
         #endregion
     
@@ -2069,24 +2146,28 @@ namespace DiagnosticCenter.Models
         /// Create a new Patient object.
         /// </summary>
         /// <param name="iD_Patient">Initial value of the ID_Patient property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="firstName">Initial value of the FirstName property.</param>
         /// <param name="specialty">Initial value of the Specialty property.</param>
         /// <param name="address">Initial value of the Address property.</param>
         /// <param name="phone">Initial value of the Phone property.</param>
         /// <param name="comment">Initial value of the Comment property.</param>
         /// <param name="workplace">Initial value of the Workplace property.</param>
         /// <param name="civil_Servant">Initial value of the Civil_Servant property.</param>
-        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String name, global::System.String specialty, global::System.String address, global::System.String phone, global::System.String comment, global::System.Boolean workplace, global::System.Boolean civil_Servant)
+        /// <param name="surname">Initial value of the Surname property.</param>
+        /// <param name="patronymic">Initial value of the Patronymic property.</param>
+        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String firstName, global::System.String specialty, global::System.String address, global::System.String phone, global::System.String comment, global::System.Boolean workplace, global::System.Boolean civil_Servant, global::System.String surname, global::System.String patronymic)
         {
             Patient patient = new Patient();
             patient.ID_Patient = iD_Patient;
-            patient.Name = name;
+            patient.FirstName = firstName;
             patient.Specialty = specialty;
             patient.Address = address;
             patient.Phone = phone;
             patient.Comment = comment;
             patient.Workplace = workplace;
             patient.Civil_Servant = civil_Servant;
+            patient.Surname = surname;
+            patient.Patronymic = patronymic;
             return patient;
         }
 
@@ -2125,34 +2206,30 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s){2}[А-ЯЇІЙа-яіїй]+$", ErrorMessage = "Невірний формат вводу")]
-        [Required(ErrorMessage="Обов'язкове поле")]
-        public global::System.String Name
+        public global::System.String FirstName
         {
             get
             {
-                return _Name;
+                return _FirstName;
             }
             set
             {
-                OnNameChanging(value);
-                ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Name");
-                OnNameChanged();
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
             }
         }
-        private global::System.String _Name;
-        partial void OnNameChanging(global::System.String value);
-        partial void OnNameChanged();
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s?)+", ErrorMessage = "Невірний формат вводу")]
         public global::System.String Specialty
         {
             get
@@ -2177,8 +2254,6 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^((пр-т.)|([А-ЯІЇЙа-яійї]+\\.?))(\\s?[А-ЯІЇЙа-яійї])*\\s[1-9][0-9]*[А-ЯІЇЙа-яійї]?$", ErrorMessage = "Невірний формат вводу")]
         public global::System.String Address
         {
             get
@@ -2203,8 +2278,6 @@ namespace DiagnosticCenter.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([0-9]{10})|([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})$",ErrorMessage="Невірний формат вводу")]
         public global::System.String Phone
         {
             get
@@ -2295,6 +2368,54 @@ namespace DiagnosticCenter.Models
         private global::System.Boolean _Civil_Servant;
         partial void OnCivil_ServantChanging(global::System.Boolean value);
         partial void OnCivil_ServantChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Surname
+        {
+            get
+            {
+                return _Surname;
+            }
+            set
+            {
+                OnSurnameChanging(value);
+                ReportPropertyChanging("Surname");
+                _Surname = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Surname");
+                OnSurnameChanged();
+            }
+        }
+        private global::System.String _Surname;
+        partial void OnSurnameChanging(global::System.String value);
+        partial void OnSurnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Patronymic
+        {
+            get
+            {
+                return _Patronymic;
+            }
+            set
+            {
+                OnPatronymicChanging(value);
+                ReportPropertyChanging("Patronymic");
+                _Patronymic = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Patronymic");
+                OnPatronymicChanged();
+            }
+        }
+        private global::System.String _Patronymic;
+        partial void OnPatronymicChanging(global::System.String value);
+        partial void OnPatronymicChanged();
 
         #endregion
     
