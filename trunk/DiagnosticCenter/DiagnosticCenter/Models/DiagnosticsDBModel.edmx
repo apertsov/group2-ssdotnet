@@ -154,15 +154,17 @@
             <PropertyRef Name="ID_Patient" />
           </Key>
           <Property Name="ID_Patient" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Workplace" Type="bit" Nullable="false" />
           <Property Name="Civil_Servant" Type="bit" Nullable="false" />
           <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Referrals">
           <Key>
@@ -473,17 +475,19 @@
             <PropertyRef Name="ID_Patient" />
           </Key>
           <Property Type="Int32" Name="ID_Patient" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Specialty" Nullable="false" />
           <Property Type="String" Name="Address" Nullable="false" />
           <Property Type="String" Name="Phone" Nullable="false" />
-          <Property Type="String" Name="Comment" Nullable="false" />
+          <Property Type="String" Name="Comment" Nullable="true" />
           <Property Type="Boolean" Name="Workplace" Nullable="false" />
           <Property Type="Boolean" Name="Civil_Servant" Nullable="false" />
           <NavigationProperty Name="Referral" Relationship="DiagnosticsDBModel.PatientReferral" FromRole="Patient" ToRole="Referral" />
           <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.PatientExamination" FromRole="Patient" ToRole="Examination" />
           <Property Type="String" Name="Surname" Nullable="false" />
           <Property Type="String" Name="Patronymic" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
         </EntityType>
         <EntityType Name="Referral">
           <Key>
@@ -663,6 +667,8 @@
           <ScalarProperty Name="Civil_Servant" ColumnName="Civil_Servant" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
           <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -748,17 +754,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="DiagnosticsDBModel" >
-        <EntityTypeShape EntityType="DiagnosticsDBModel.Department" Width="1.5" PointX="2.125" PointY="0.5" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Department" Width="1.5" PointX="2.875" PointY="0.5" Height="1.787985026041667" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.Day" Width="1.5" PointX="0.5" PointY="0.5" Height="2.3648893229166665" />
-        <EntityTypeShape EntityType="DiagnosticsDBModel.Employee" Width="1.75" PointX="5.125" PointY="0.625" Height="4.480205078125" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Employee" Width="1.75" PointX="5.125" PointY="0.5" Height="4.480205078125" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.Cabinet" Width="1.5" PointX="7.625" PointY="0.5" Height="1.9802864583333335" />
         <AssociationConnector Association="DiagnosticsDBModel.DepartmentEmployee">
-          <ConnectorPoint PointX="3.625" PointY="1.4564925130208335" />
-          <ConnectorPoint PointX="5.125" PointY="1.4564925130208335" />
+          <ConnectorPoint PointX="4.375" PointY="1.3939925130208335" />
+          <ConnectorPoint PointX="5.125" PointY="1.3939925130208335" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.CabinetEmployee">
-          <ConnectorPoint PointX="7.625" PointY="1.5526432291666668" />
-          <ConnectorPoint PointX="6.875" PointY="1.5526432291666668" />
+          <ConnectorPoint PointX="7.625" PointY="1.4901432291666668" />
+          <ConnectorPoint PointX="6.875" PointY="1.4901432291666668" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DiagnosticsDBModel.News" Width="1.5" PointX="9.625" PointY="0.5" Height="2.1725878906249996" />
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeNews">
@@ -769,29 +775,29 @@
           <ConnectorPoint PointX="2" PointY="2.6076871744791665" />
           <ConnectorPoint PointX="5.125" PointY="2.6076871744791665" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="DiagnosticsDBModel.Patient" Width="1.5" PointX="0.5" PointY="3.5" Height="3.3263964843749987" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Patient" Width="1.5" PointX="0.5" PointY="3.5" Height="3.7109993489583335" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.Referral" Width="1.5" PointX="2.75" PointY="2.875" Height="2.7494921874999996" />
         <AssociationConnector Association="DiagnosticsDBModel.PatientReferral">
           <ConnectorPoint PointX="2" PointY="4.56224609375" />
           <ConnectorPoint PointX="2.75" PointY="4.56224609375" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeReferral">
-          <ConnectorPoint PointX="5.125" PointY="3.9901025390625" />
-          <ConnectorPoint PointX="4.25" PointY="3.9901025390625" />
+          <ConnectorPoint PointX="5.125" PointY="3.9276025390625" />
+          <ConnectorPoint PointX="4.25" PointY="3.9276025390625" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DiagnosticsDBModel.Examination" Width="1.5" PointX="7.625" PointY="2.75" Height="3.7109993489583317" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.ExaminationType" Width="1.5" PointX="9.625" PointY="2.875" Height="1.9802864583333335" />
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeExamination">
-          <ConnectorPoint PointX="6.875" PointY="3.9276025390625" />
-          <ConnectorPoint PointX="7.625" PointY="3.9276025390625" />
+          <ConnectorPoint PointX="6.875" PointY="3.8651025390625" />
+          <ConnectorPoint PointX="7.625" PointY="3.8651025390625" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.PatientExamination">
           <ConnectorPoint PointX="2" PointY="6.0739957682291656" />
           <ConnectorPoint PointX="7.625" PointY="6.0739957682291656" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.ReferralExamination">
-          <ConnectorPoint PointX="4.25" PointY="5.3960986328125" />
-          <ConnectorPoint PointX="7.625" PointY="5.3960986328125" />
+          <ConnectorPoint PointX="4.25" PointY="5.3335986328125" />
+          <ConnectorPoint PointX="7.625" PointY="5.3335986328125" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.ExaminationTypeExamination">
           <ConnectorPoint PointX="9.625" PointY="3.8651432291666667" />
