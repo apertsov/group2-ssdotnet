@@ -1,43 +1,54 @@
 ﻿@model IEnumerable<DiagnosticCenter.Models.Patient>
 
 
-<h2>Детальніша інформація</h2>
 <table>
     <tr>
         <th>
-            ПІБ
+            Прізвище
         </th>
         <th>
-            Спеціальність
+            Ім'я
         </th>
         <th>
-            Адреса
+            По батькові
         </th>
         <th>
-            Телефон
+            Професія
         </th>
         <th>
-            Держслужбовець
+            Стать
         </th>
         <th>
-            Працевлаштований
+            Дата народження
         </th>
-        <th></th>
-    </tr>
-
+        <th>
+            Працевлаштований(-на)
+        </th>
+        <th>
+           Держслужбовець
+        </th>
+</tr>
 @foreach (var item in Model) {
+    
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patronymic)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Specialty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Address)
+            @Html.DisplayFor(modelItem => item.Sex)
         </td>
+        
         <td>
-            @Html.DisplayFor(modelItem => item.Phone)
+            @Html.DisplayFor(modelItem => item.BirthDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Workplace)
@@ -45,11 +56,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.Civil_Servant)
         </td>
-        </tr>
-    <tr>
-        <td colspan = 6 align = "center">    
-        @Html.DisplayFor(modelItem => item.Comment)
+      </tr>  
+     <tr>
+        <td colspan="4">
+            <br />
+            <p><b>Місто:</b>&nbsp;@Html.DisplayFor(modelItem => item.City)</p>
+            <p><b>Адреса:</b>&nbsp;@Html.DisplayFor(modelItem => item.Address)</p>
+            <p><b>E-mail:</b>&nbsp;@Html.DisplayFor(modelItem => item.Email)</p>
+            <p><b>Телефон:</b>&nbsp;@Html.DisplayFor(modelItem => item.Phone)</p>
         </td>
+       
+    <td colspan="4" align = "center">
+      @Html.DisplayFor(modelItem => item.Comment)
+    </td>
     </tr>
 }
 
