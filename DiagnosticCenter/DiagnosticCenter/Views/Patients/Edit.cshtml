@@ -11,7 +11,8 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-     @Html.HiddenFor(model => model.ID_Patient)
+    @Html.HiddenFor(model => model.Password) 
+    @Html.HiddenFor(model => model.ID_Patient)
     <p align = "center"><h2>Редагування інформації</h2></p>
     <table id="formholder">
         

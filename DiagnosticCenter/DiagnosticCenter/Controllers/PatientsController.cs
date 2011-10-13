@@ -14,11 +14,36 @@ namespace DiagnosticCenter.Controllers
         private DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
         
         
-        public ViewResult Index(int? page)
+        public ViewResult Index(string sortOrder, string searchString, int? page)
         {
+            ViewBag.FirstNameSortParm = String.IsNullOrEmpty(sortOrder) ? "FirstName desc" : "";
+            ViewBag.SurnameSortParm = String.IsNullOrEmpty(sortOrder) ? "Surname desc" : "";
+            ViewBag.BirthDateSortParm = sortOrder == "Date" ? "Date desc" : "Date";
             var pat = from p in _patients.Patients
                       select p;
-            pat = pat.OrderBy(item => item.FirstName);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                pat = pat.Where(s => s.Surname.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Surname desc":
+                    pat = pat.OrderByDescending(s => s.Surname);
+                    break;
+                case "Date":
+                    pat = pat.OrderBy(s => s.BirthDate);
+                    break;
+                case "Date desc":
+                    pat = pat.OrderByDescending(s => s.BirthDate);
+                    break;
+                case "FirstName desc":
+                    pat = pat.OrderByDescending(s => s.FirstName);
+                    break;
+                default:
+                    pat = pat.OrderBy(s => s.FirstName);
+                    break;
+            } 
+            
             int pageIndex = (page ?? 1); 
     
             return View(pat.ToPagedList(pageIndex,5));
