@@ -2154,9 +2154,11 @@ namespace DiagnosticCenter.Models
         /// <param name="civil_Servant">Initial value of the Civil_Servant property.</param>
         /// <param name="surname">Initial value of the Surname property.</param>
         /// <param name="patronymic">Initial value of the Patronymic property.</param>
-        /// <param name="email">Initial value of the Email property.</param>
         /// <param name="password">Initial value of the Password property.</param>
-        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String firstName, global::System.String specialty, global::System.String address, global::System.String phone, global::System.Boolean workplace, global::System.Boolean civil_Servant, global::System.String surname, global::System.String patronymic, global::System.String email, global::System.String password)
+        /// <param name="birthDate">Initial value of the BirthDate property.</param>
+        /// <param name="sex">Initial value of the Sex property.</param>
+        /// <param name="city">Initial value of the City property.</param>
+        public static Patient CreatePatient(global::System.Int32 iD_Patient, global::System.String firstName, global::System.String specialty, global::System.String address, global::System.String phone, global::System.Boolean workplace, global::System.Boolean civil_Servant, global::System.String surname, global::System.String patronymic, global::System.String password, global::System.DateTime birthDate, global::System.String sex, global::System.String city)
         {
             Patient patient = new Patient();
             patient.ID_Patient = iD_Patient;
@@ -2168,8 +2170,10 @@ namespace DiagnosticCenter.Models
             patient.Civil_Servant = civil_Servant;
             patient.Surname = surname;
             patient.Patronymic = patronymic;
-            patient.Email = email;
             patient.Password = password;
+            patient.BirthDate = birthDate;
+            patient.Sex = sex;
+            patient.City = city;
             return patient;
         }
 
@@ -2422,7 +2426,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -2434,7 +2438,7 @@ namespace DiagnosticCenter.Models
             {
                 OnEmailChanging(value);
                 ReportPropertyChanging("Email");
-                _Email = StructuralObject.SetValidValue(value, false);
+                _Email = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Email");
                 OnEmailChanged();
             }
@@ -2466,6 +2470,78 @@ namespace DiagnosticCenter.Models
         private global::System.String _Password;
         partial void OnPasswordChanging(global::System.String value);
         partial void OnPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime BirthDate
+        {
+            get
+            {
+                return _BirthDate;
+            }
+            set
+            {
+                OnBirthDateChanging(value);
+                ReportPropertyChanging("BirthDate");
+                _BirthDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BirthDate");
+                OnBirthDateChanged();
+            }
+        }
+        private global::System.DateTime _BirthDate;
+        partial void OnBirthDateChanging(global::System.DateTime value);
+        partial void OnBirthDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Sex
+        {
+            get
+            {
+                return _Sex;
+            }
+            set
+            {
+                OnSexChanging(value);
+                ReportPropertyChanging("Sex");
+                _Sex = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Sex");
+                OnSexChanged();
+            }
+        }
+        private global::System.String _Sex;
+        partial void OnSexChanging(global::System.String value);
+        partial void OnSexChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String City
+        {
+            get
+            {
+                return _City;
+            }
+            set
+            {
+                OnCityChanging(value);
+                ReportPropertyChanging("City");
+                _City = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("City");
+                OnCityChanged();
+            }
+        }
+        private global::System.String _City;
+        partial void OnCityChanging(global::System.String value);
+        partial void OnCityChanged();
 
         #endregion
     

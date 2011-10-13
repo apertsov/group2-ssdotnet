@@ -5,22 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using DiagnosticCenter.Models;
 using PagedList;
+
 namespace DiagnosticCenter.Controllers
 {
     public class PatientsController : Controller
     {
         
-        DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
-
-
+        private DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
+        
+        
         public ViewResult Index(int? page)
-
         {
-
             var pat = from p in _patients.Patients
-                           select p;
+                      select p;
             pat = pat.OrderBy(item => item.FirstName);
-             int pageIndex = (page ?? 1); 
+            int pageIndex = (page ?? 1); 
+    
             return View(pat.ToPagedList(pageIndex,5));
         }
 
@@ -32,12 +32,15 @@ namespace DiagnosticCenter.Controllers
         [HttpPost]
         public ActionResult Create(Patient new_Patient)
         {
+            Classes.MailSender sender = new Classes.MailSender();
+           
+ 
             if (!ModelState.IsValid) return View();
-
-
+                  
+            new_Patient.Password = sender.GeneratePassword();
             _patients.AddToPatients(new_Patient);
             _patients.SaveChanges();
-
+            sender.SendPassword(new_Patient.Email);
             return RedirectToAction("Index");
         }
 

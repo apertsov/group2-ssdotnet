@@ -15,15 +15,60 @@
     <p align = "center"><h2>Редагування інформації</h2></p>
     <table id="formholder">
         
-        <tr>
+       <tr>
             <td>
-                @Html.Label("ПІБ пацієнта:")
+              @Html.Label("Ім'я:")
             </td>
             <td>
-                @Html.EditorFor(model => model.Name,"i_name")
-                @Html.ValidationMessageFor(model => model.Name)
+                @Html.EditorFor(model => model.FirstName, "i_FirstName")
+                @Html.ValidationMessageFor(model => model.FirstName)
+             </td>
+        </tr>
+        <tr>
+            <td>
+              @Html.Label("Прізвище:")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Surname)
+                @Html.ValidationMessageFor(model => model.Surname)
              </td>
         </tr>    
+        <tr>
+            <td>
+              @Html.Label("По батькові:")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Patronymic)
+                @Html.ValidationMessageFor(model => model.Patronymic)
+             </td>
+        </tr>
+         <tr>
+            <td>
+              @Html.Label("Стать:")<br />
+            </td>
+            <td>
+                @Html.RadioButton("Sex","жіноча")&nbsp;жіноча
+                @Html.RadioButton("Sex", "чоловіча")&nbsp;чоловіча
+            </td>
+        </tr>  
+        <tr> 
+            <td>
+                @Html.Label("Дата народження:")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.BirthDate)
+                @Html.ValidationMessageFor(model => model.BirthDate)
+            </td>
+        </tr>    
+        <tr>
+            <td>
+              @Html.Label("Електронна адреса:")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+             </td>
+        </tr>           
         <tr> 
             <td>
                 @Html.Label("Професія:")
@@ -31,6 +76,15 @@
             <td>
                 @Html.EditorFor(model => model.Specialty)
                 @Html.ValidationMessageFor(model => model.Specialty)
+            </td>
+        </tr>    
+        <tr> 
+            <td>
+                @Html.Label("Місто:")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.City)
+                @Html.ValidationMessageFor(model => model.City)
             </td>
         </tr>    
         <tr> 

@@ -155,16 +155,19 @@
           </Key>
           <Property Name="ID_Patient" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="20" />
-          <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Specialty" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Workplace" Type="bit" Nullable="false" />
           <Property Name="Civil_Servant" Type="bit" Nullable="false" />
           <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Referrals">
           <Key>
@@ -476,9 +479,9 @@
           </Key>
           <Property Type="Int32" Name="ID_Patient" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Specialty" Nullable="false" />
-          <Property Type="String" Name="Address" Nullable="false" />
-          <Property Type="String" Name="Phone" Nullable="false" />
+          <Property Type="String" Name="Specialty" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Comment" Nullable="true" />
           <Property Type="Boolean" Name="Workplace" Nullable="false" />
           <Property Type="Boolean" Name="Civil_Servant" Nullable="false" />
@@ -486,8 +489,11 @@
           <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.PatientExamination" FromRole="Patient" ToRole="Examination" />
           <Property Type="String" Name="Surname" Nullable="false" />
           <Property Type="String" Name="Patronymic" Nullable="false" />
-          <Property Type="String" Name="Email" Nullable="false" />
-          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="16" />
+          <Property Type="DateTime" Name="BirthDate" Nullable="false" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="City" Nullable="false" />
         </EntityType>
         <EntityType Name="Referral">
           <Key>
@@ -669,6 +675,9 @@
           <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="City" ColumnName="City" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -775,7 +784,7 @@
           <ConnectorPoint PointX="2" PointY="2.6076871744791665" />
           <ConnectorPoint PointX="5.125" PointY="2.6076871744791665" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="DiagnosticsDBModel.Patient" Width="1.5" PointX="0.5" PointY="3.5" Height="3.7109993489583335" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Patient" Width="1.5" PointX="0.5" PointY="3.5" Height="4.2879036458333326" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.Referral" Width="1.5" PointX="2.75" PointY="2.875" Height="2.7494921874999996" />
         <AssociationConnector Association="DiagnosticsDBModel.PatientReferral">
           <ConnectorPoint PointX="2" PointY="4.56224609375" />

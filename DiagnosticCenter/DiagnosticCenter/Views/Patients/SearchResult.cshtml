@@ -1,62 +1,51 @@
 ﻿@model PagedList.IPagedList<DiagnosticCenter.Models.Patient>
 
-<p>
-</p>
-<table>
+<table align = "center">
     <tr>
         <th>
-            ПІБ
+            Прізвище
         </th>
         <th>
-            Спеціальність
+            Ім'я
         </th>
         <th>
-            Адреса
+            По батькові
         </th>
         <th>
-            Телефон
+            Стать
         </th>
         <th>
-            Держслужбовець
+            Дата народження
         </th>
-        <th>
-            Працевлаштований
-        </th>
-        <th></th>
+        
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Specialty)
+            @Html.DisplayFor(modelItem => item.Patronymic)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Address)
+            @Html.DisplayFor(modelItem => item.Sex)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Phone)
+            @Html.DisplayFor(modelItem => item.BirthDate)
         </td>
-        <td>
-           @Html.DisplayFor(modelItem => item.Civil_Servant)
-        </td>
-        <td>
-            
-            @Html.DisplayFor(modelItem => item.Workplace)
-        </td>
-        
         <td>
             @Html.ActionLink("Правити", "Edit", new { id=item.ID_Patient }) |
-            @Html.ActionLink("Переглянути деталі", "Details", new { id=item.ID_Patient }) |
+            @Html.ActionLink("Деталі", "Details", new { id=item.ID_Patient }) |
             @Html.ActionLink("Видалити", "Delete", new { id=item.ID_Patient })
         </td>
     </tr>
 }
 
 </table>
- 
 <div> 
     Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount 
     &nbsp; 
