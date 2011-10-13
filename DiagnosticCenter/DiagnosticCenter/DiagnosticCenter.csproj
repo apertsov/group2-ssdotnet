@@ -234,7 +234,6 @@
     <Content Include="Views\Departments\Create.cshtml" />
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
-    <!--<<<<<<< .mine-->
     <Content Include="Views\Plan\Index.cshtml" />
     <Content Include="Views\Plan\Details.cshtml" />
     <Content Include="Views\Plan\Create.cshtml" />
@@ -242,9 +241,6 @@
     <Content Include="Views\Plan\Delete.cshtml" />
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
-    <!-->>>>>>> .r37-->
-    <!--=======
->>>>>>> .r42-->
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -264,7 +260,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1041</DevelopmentServerPort>
+          <DevelopmentServerPort>43632</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
