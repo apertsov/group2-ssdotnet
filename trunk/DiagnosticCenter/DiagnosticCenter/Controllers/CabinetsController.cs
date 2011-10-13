@@ -6,113 +6,84 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DiagnosticCenter.Models;
+using PagedList;
 
 namespace DiagnosticCenter.Controllers
 { 
     public class CabinetsController : Controller
     {
-        private DiagnosticsDBModelContainer db = new DiagnosticsDBModelContainer();
+        private DiagnosticsDBModelContainer Cabinets_db = new DiagnosticsDBModelContainer();
 
-        //
-        // GET: /Cabinets/
-
-        //public ViewResult Index()
-        //{
-        //    return View(db.Cabinets.ToList());
-        //}
-
-        public ActionResult Index(int? page)
+        public ViewResult Index(int? page)
         {
-            const int pageSize = 10;
-            var cabinets = CabinetsDataAccess.GetPagedCabinets((page ?? 0) * pageSize, pageSize);
-            ViewBag.HasPrevious = cabinets.HasPrevious;
-            ViewBag.HasMore = cabinets.HasNext;
-            ViewBag.CurrentPage = (page ?? 0);
-            return View(cabinets.Entities);
-        }
 
-        //
-        // GET: /Cabinets/Details/5
+            var pat = from p in Cabinets_db.Cabinets
+                      select p;
+            pat = pat.OrderBy(item => item.Number);
+            int pageIndex = (page ?? 1);
+            return View(pat.ToPagedList(pageIndex, 5));
+        }
 
         public ViewResult Details(int id)
         {
-            Cabinet cabinet = db.Cabinets.Single(c => c.ID_Cabinet == id);
+            Cabinet cabinet = Cabinets_db.Cabinets.Single(c => c.ID_Cabinet == id);
             return View(cabinet);
         }
-
-        //
-        // GET: /Cabinets/Create
 
         public ActionResult Create()
         {
             return View();
         } 
 
-        //
-        // POST: /Cabinets/Create
-
         [HttpPost]
         public ActionResult Create(Cabinet cabinet)
         {
             if (ModelState.IsValid)
             {
-                db.Cabinets.AddObject(cabinet);
-                db.SaveChanges();
+                Cabinets_db.Cabinets.AddObject(cabinet);
+                Cabinets_db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
             return View(cabinet);
         }
-        
-        //
-        // GET: /Cabinets/Edit/5
  
         public ActionResult Edit(int id)
         {
-            Cabinet cabinet = db.Cabinets.Single(c => c.ID_Cabinet == id);
+            Cabinet cabinet = Cabinets_db.Cabinets.Single(c => c.ID_Cabinet == id);
             return View(cabinet);
         }
-
-        //
-        // POST: /Cabinets/Edit/5
 
         [HttpPost]
         public ActionResult Edit(Cabinet cabinet)
         {
             if (ModelState.IsValid)
             {
-                db.Cabinets.Attach(cabinet);
-                db.ObjectStateManager.ChangeObjectState(cabinet, EntityState.Modified);
-                db.SaveChanges();
+                Cabinets_db.Cabinets.Attach(cabinet);
+                Cabinets_db.ObjectStateManager.ChangeObjectState(cabinet, EntityState.Modified);
+                Cabinets_db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(cabinet);
         }
 
-        //
-        // GET: /Cabinets/Delete/5
- 
         public ActionResult Delete(int id)
         {
-            Cabinet cabinet = db.Cabinets.Single(c => c.ID_Cabinet == id);
-            return View(cabinet);
-        }
+            IQueryable<Cabinet> query = from cabinet in Cabinets_db.Cabinets
+                                        where cabinet.ID_Cabinet == id
+                                        select cabinet;
 
-        //
-        // POST: /Cabinets/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {            
-            Cabinet cabinet = db.Cabinets.Single(c => c.ID_Cabinet == id);
-            db.Cabinets.DeleteObject(cabinet);
-            db.SaveChanges();
+            foreach (var pat in query)
+            {
+                Cabinets_db.Cabinets.DeleteObject(pat);
+            }
+            Cabinets_db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            Cabinets_db.Dispose();
             base.Dispose(disposing);
         }
     }

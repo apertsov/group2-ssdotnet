@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CabinetsController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -82,6 +83,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\DBModelValidations.cs" />
     <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\DiagnosticsDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -223,7 +225,6 @@
     <Content Include="Views\Cabinets\Details.cshtml" />
     <Content Include="Views\Cabinets\Create.cshtml" />
     <Content Include="Views\Cabinets\Edit.cshtml" />
-    <Content Include="Views\Cabinets\Delete.cshtml" />
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Search.cshtml" />
@@ -263,7 +264,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>43632</DevelopmentServerPort>
+          <DevelopmentServerPort>1041</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
