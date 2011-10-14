@@ -19,7 +19,7 @@ namespace DiagnosticCenter.Models
         [RegularExpression("^([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})$", ErrorMessage = "Невірний формат")]
         public global::System.String Phone {get; set;}
         
-        public global::System.String Description {get; set;}       
+        public global::System.String Description {get; set;}
     }
 
 //Day
@@ -44,6 +44,8 @@ namespace DiagnosticCenter.Models
     public partial class Department { }
     public class DepartmentMetadata
     {
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [RegularExpression(@"^\w+$", ErrorMessage = "Невірний формат")]
         public global::System.String Name {get; set;}
         
         public global::System.String Description {get; set;}
