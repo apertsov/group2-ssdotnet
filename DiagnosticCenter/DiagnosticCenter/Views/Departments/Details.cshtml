@@ -13,5 +13,9 @@
     </div>
 </fieldset>
 <p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.ID_Dept }) |
+    @Html.ActionLink("Видалити", "Delete", new { id = Model.ID_Dept })
+</p>
+<p>
     @Html.ActionLink("Список відділень", "Index")
 </p>
