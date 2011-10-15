@@ -45,7 +45,7 @@ namespace DiagnosticCenter.Models
     public class DepartmentMetadata
     {
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression(@"^\w+$", ErrorMessage = "Невірний формат")]
+        [RegularExpression(@"^[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
         public global::System.String Name {get; set;}
         
         public global::System.String Description {get; set;}

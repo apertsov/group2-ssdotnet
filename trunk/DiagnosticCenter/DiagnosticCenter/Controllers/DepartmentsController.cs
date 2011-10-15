@@ -36,6 +36,22 @@ namespace DiagnosticCenter.Controllers
             
             return View("Details", d);
         }
+        /*----- EDIT ------*/
+        public ActionResult Edit(int id)
+        {
+            //ViewBag.Message = "Welcome to ASP.NET MVC!";
+            return View( Departments.Instance.getByID(id) );
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, Department d)
+        {
+            if (null == Departments.Instance.update(id, d))
+            {
+                return View(d);
+            };
+            return View("Details", d);
+        }
         /*----- DELETE -----*/
         public ActionResult Delete(int id)
         {
