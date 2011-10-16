@@ -233,21 +233,14 @@
     <Content Include="Views\Plan\Delete.cshtml" />
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
-
     <Content Include="Views\Patients\Search.cshtml" />
-
-
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Search.cshtml" />
-
-    <Content Include="Views\Patients\SearchResult.cshtml" />
-
     <Content Include="Views\Departments\Edit.cshtml" />
-
-
+    <Content Include="Views\Patients\SetReferral.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

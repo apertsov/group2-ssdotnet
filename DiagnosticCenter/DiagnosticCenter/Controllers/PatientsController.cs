@@ -10,48 +10,42 @@ namespace DiagnosticCenter.Controllers
 {
     public class PatientsController : Controller
     {
-        
-        private DiagnosticsDBModelContainer _patients = new DiagnosticsDBModelContainer();
+        //контекст моделі
+        private DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
        
-        
+        //-------Всі пацієнти-------//
         public ViewResult Index(string sortOrder, string searchString, int? page)
         {
             ViewBag.FirstNameSortParm = String.IsNullOrEmpty(sortOrder) ? "FirstName desc" : "";
             ViewBag.SurnameSortParm = String.IsNullOrEmpty(sortOrder) ? "Surname desc" : "";
             ViewBag.BirthDateSortParm = sortOrder == "Date" ? "Date desc" : "Date";
+            IQueryable<Patient> patients = context.Patients;
             
-            var pat = from p in _patients.Patients
-                      select p;
             if (!String.IsNullOrEmpty(searchString))
-            {
-                pat = pat.Where(s => s.Surname.ToUpper().Contains(searchString.ToUpper()));
-            }
-
-                       
+                patients = patients.Where(s => s.Surname.ToUpper().Contains(searchString.ToUpper()));
             switch (sortOrder)
             {
                 case "Surname desc":
-                    pat = pat.OrderByDescending(s => s.Surname);
+                    patients = patients.OrderByDescending(s => s.Surname);
                     break;
                 case "Date":
-                    pat = pat.OrderBy(s => s.BirthDate);
+                    patients = patients.OrderBy(s => s.BirthDate);
                     break;
                 case "Date desc":
-                    pat = pat.OrderByDescending(s => s.BirthDate);
+                    patients = patients.OrderByDescending(s => s.BirthDate);
                     break;
                 case "FirstName desc":
-                    pat = pat.OrderByDescending(s => s.FirstName);
+                    patients = patients.OrderByDescending(s => s.FirstName);
                     break;
                 default:
-                    pat = pat.OrderBy(s => s.FirstName);
+                    patients = patients.OrderBy(s => s.FirstName);
                     break;
             } 
-            
             int pageIndex = (page ?? 1); 
-    
-            return View(pat.ToPagedList(pageIndex,5));
+            return View(patients.ToPagedList(pageIndex,5));
         }
-
+       
+        //-------Створення пацієнта-------//
         public ActionResult Create()
         {
             return View();
@@ -61,98 +55,99 @@ namespace DiagnosticCenter.Controllers
         public ActionResult Create(Patient new_Patient)
         {
             Classes.MailSender sender = new Classes.MailSender();
-           
- 
-            if (!ModelState.IsValid) return View();
-                  
+            if (!ModelState.IsValid) 
+                return View();
             new_Patient.Password = sender.GeneratePassword();
-            _patients.AddToPatients(new_Patient);
-            _patients.SaveChanges();
+            context.AddToPatients(new_Patient);
+            context.SaveChanges();
+            if(new_Patient.Email != "")
             sender.SendPassword(new_Patient.Email);
             return RedirectToAction("Index");
         }
-
-
+        
+        //-------Видалення пацієнта-------//
         public ActionResult Delete(int id)
         {
-            IQueryable<Patient> query = from patient in _patients.Patients
-                                        where patient.ID_Patient == id
-                                        select patient;
-
-            foreach (var pat in query)
-            {
-                _patients.Patients.DeleteObject(pat);
-            }
-            _patients.SaveChanges();
+            Patient patient = context.Patients.Where(p => p.ID_Patient == id).First();
+            context.Patients.DeleteObject(patient);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        //-------Детальна інформація-------//
         public ActionResult Details(int id)
         {
-            IQueryable<Patient> query = from patient in _patients.Patients
-                                        where patient.ID_Patient == id
-                                        select patient;
-
-            return View(query.ToList());
+            Patient patient = context.Patients.Where(p => p.ID_Patient == id).First();
+            return View(patient);
         }
 
-
+        //-------Редагування інформації-------//
         public ActionResult Edit(int id)
         {
-            var edit_patient = (from p in _patients.Patients
-                                where p.ID_Patient == id
-                                select p).First();
-
-
-
-            return View(edit_patient);
+            Patient patient = context.Patients.Where(p => p.ID_Patient == id).First();
+            return View(patient);
         }
+        
         [HttpPost]
         public ActionResult Edit(Patient edit_patient)
         {
-            var original_patient = (from p in _patients.Patients
-                                    where p.ID_Patient == edit_patient.ID_Patient
-                                    select p).First();
+            Patient original_patient = context.Patients.Where(p => p.ID_Patient == edit_patient.ID_Patient).First(); 
             if (!ModelState.IsValid)
                 return View(original_patient);
-
-            _patients.ApplyCurrentValues(original_patient.EntityKey.EntitySetName, edit_patient);
-            _patients.SaveChanges();
+            context.ApplyCurrentValues(original_patient.EntityKey.EntitySetName, edit_patient);
+            context.SaveChanges();
             return RedirectToAction("Index");
-
         }
+        
+        //------Пошук пацієнта-------//
         public ActionResult Search()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Search(Patient s_pat)
+        public ActionResult Search(Patient requestedPatient)
         {
-            var pat = from p in _patients.Patients
-                      select p;
-           
-            if (Request.Form["FirstName"].ToString().Trim() != "")
-                pat = pat.Where(p => p.FirstName.Contains(s_pat.FirstName));
-            if (Request.Form["Surname"].ToString().Trim() != "")
-                pat = pat.Where(p => p.Surname.Contains(s_pat.Surname));
-            if (Request.Form["BirthDate"].ToString().Trim() != "")
-                pat = pat.Where(p => p.BirthDate == s_pat.BirthDate);
-            pat = pat.Where(p => p.Sex == s_pat.Sex);
-            if (Request.Form["City"].ToString().Trim() != "")
-                pat = pat.Where(p => p.City.Contains(s_pat.City));
-            if (Request.Form["Address"].ToString().Trim() != "")
-                pat = pat.Where(p => p.Address.Contains(s_pat.Address));
-            if (Request.Form["Phone"].ToString().Trim() != "")
-                pat = pat.Where(p => p.Phone.Contains(s_pat.Phone));
-            if (Request.Form["Email"].ToString().Trim() != "")
-                pat = pat.Where(p => p.Email.Contains(s_pat.Email));
-            
-            pat = pat.OrderBy(p => p.FirstName);
-           
-            return View("Index",pat.ToPagedList(1,5));
+            IQueryable<Patient> patient = context.Patients;
+                      
+            if (Request.Form["firstname"].ToString().Trim() != "")
+                patient = patient.Where(p => p.FirstName.Contains(requestedPatient.FirstName));
+            if (Request.Form["surname"].ToString().Trim() != "")
+                patient = patient.Where(p => p.Surname.Contains(requestedPatient.Surname));
+            if (Request.Form["birthdate"].ToString().Trim() != "")
+                patient = patient.Where(p => p.BirthDate == requestedPatient.BirthDate);
+            if (Request.Form["city"].ToString().Trim() != "")
+                patient = patient.Where(p => p.City.Contains(requestedPatient.City));
+            if (Request.Form["address"].ToString().Trim() != "")
+                patient = patient.Where(p => p.Address.Contains(requestedPatient.Address));
+            if (Request.Form["phone"].ToString().Trim() != "")
+                patient = patient.Where(p => p.Phone.Contains(requestedPatient.Phone));
+            if (Request.Form["email"].ToString().Trim() != "")
+                patient = patient.Where(p => p.Email.Contains(requestedPatient.Email));
+            if (Request.Form["optional"] != null)
+            {
+                patient = patient.Where(p => p.Workplace == requestedPatient.Workplace);
+                patient = patient.Where(p => p.Civil_Servant == requestedPatient.Civil_Servant);
+            }
+            patient = patient.OrderBy(p => p.FirstName);
+            return View("Index",patient.ToPagedList(1,5));
+        }
+        
+        public ActionResult SetReferral(int id)
+        {
+            Patient patient = context.Patients.Where(p => p.ID_Patient == id).First();
+            ViewBag.PatName = patient.FirstName;
+            ViewBag.PatSurname = patient.Surname;
+            return View();
         }
 
-      
+        [HttpPost]
+        public ActionResult SetReferral(Referral new_ref)
+        {
+               
+            context.AddToReferrals(new_ref);
+            context.SaveChanges();
+           return View("~/Views/Shared/Print.chtml");
+        }
     }
 }

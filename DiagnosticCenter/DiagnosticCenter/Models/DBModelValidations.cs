@@ -45,7 +45,7 @@ namespace DiagnosticCenter.Models
     public class DepartmentMetadata
     {
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression(@"^[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [RegularExpression(@"^([А-ЯЇІЙЄа-яіїйє]+\\s?)+$", ErrorMessage = "Невірний формат")]
         public global::System.String Name {get; set;}
         
         public global::System.String Description {get; set;}
@@ -57,6 +57,7 @@ namespace DiagnosticCenter.Models
     public class EmployeeMetadata
     {
         [Required(ErrorMessage = "Обов'язкове поле")]
+        [RegularExpression("^([а-яійїєА-Яійїє0-9]+\\s?)+$",ErrorMessage = "Невірний формат")]
         public global::System.String Category {get; set;}
         
         [Required(ErrorMessage = "Обов'язкове поле")]
@@ -178,7 +179,7 @@ namespace DiagnosticCenter.Models
         public global::System.String Phone {get; set;}
 
         [Required(ErrorMessage = "Обов'язкове поле")]
-        //[RegularExpression("^\\d{2}/\\d{2}/\\d{4}$",ErrorMessage="Невірний формат")]
+        //[RegularExpression("^[0-9]{2}/[0-9]{2}/[0-9]{4}$",ErrorMessage = "Невірний формат")]
         public global::System.DateTime BirthDate { get; set; }
        
         

@@ -7,13 +7,13 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Employee</legend>
+        <legend>Редагування даних</legend>
 
         @Html.HiddenFor(model => model.ID_Employee)
         @Html.HiddenFor(model => model.ID_User)
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.FirstName)
+           @Html.Label("Ім'я:")
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.FirstName)
@@ -21,7 +21,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Surname)
+            @Html.Label("Прізвище:")
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Surname)
@@ -29,14 +29,14 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Patronymic)
+             @Html.Label("По батькові:")
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Patronymic)
             @Html.ValidationMessageFor(model => model.Patronymic)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Category)
+           @Html.Label("Категорія:")
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Category)
@@ -44,7 +44,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Specialty)
+            @Html.Label("Спеціальність:")
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Specialty)
@@ -53,17 +53,17 @@
 
         <div class="editor-label">
         @Html.Label("Посада:")
-            <select name = "position">
-                <option value = "DepartmentChiefDoctor">Зав. відділом</option>
-                <option value = "HeadDoctor">Головний лікар</option>
-                <option value = "Doctor">Лікар</option>
-                <option value = "HeadNurse">Головна медсестра</option>
-                <option value = "Nurse">Медсестра</option>
-                <option value = "MedicalRegistrar">Працівник реєстратури</option>
+             <select name = "position">
+                <option value = "зав. відділом">Зав. відділом</option>
+                <option value = "головний лікар">Головний лікар</option>
+                <option value = "лікар">Лікар</option>
+                <option value = "головна медсестра">Головна медсестра</option>
+                <option value = "медсестра">Медсестра</option>
+                <option value = "реєстратура">Працівник реєстратури</option>
              </select>
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Rate)
+            @Html.Label("Ставка")
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Rate)
@@ -85,8 +85,15 @@
          
         @Html.DropDownList("Depts")
         </div>
+        <div class="editor-label">
+            @Html.Label("E-mail")
+        </div>
+        <div class="editor-field">
+            <input type = "text" name = "email" /> 
+        
+        </div>
        <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Зберегти зміни" />
         </p>
     </fieldset>
 }

@@ -45,12 +45,12 @@
         <div class="editor-label">
             @Html.Label("Посада:")
             <select name = "position">
-                <option value = "DepartmentChiefDoctor">Зав. відділом</option>
-                <option value = "HeadDoctor">Головний лікар</option>
-                <option value = "Doctor">Лікар</option>
-                <option value = "HeadNurse">Головна медсестра</option>
-                <option value = "Nurse">Медсестра</option>
-                <option value = "MedicalRegistrar">Працівник реєстратури</option>
+                <option value = "зав. відділом">Зав. відділом</option>
+                <option value = "головний лікар">Головний лікар</option>
+                <option value = "лікар">Лікар</option>
+                <option value = "головна медсестра">Головна медсестра</option>
+                <option value = "медсестра">Медсестра</option>
+                <option value = "реєстратура">Працівник реєстратури</option>
              </select>
                     
         </div>
@@ -61,20 +61,20 @@
             @Html.EditorFor(model => model.Rate)
             @Html.ValidationMessageFor(model => model.Rate)
         </div>
-<!-- випадаючий список відділень-->
+
         <div class="editor-label">
             @Html.Label("Відділення:")
             @Html.DropDownList("Depts")
           
         </div>
-<!-- випадаючий список кабінетів-->
+
         <div class="editor-label">
             @Html.Label("Кабінет:")
             @Html.DropDownList("Cabinets")
        
             
         </div>
-        <!-- професія -->
+        
         <div class="editor-label">
             @Html.Label("Нікнейм:")
             @Html.TextBox("username")
