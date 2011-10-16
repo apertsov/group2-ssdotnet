@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/16/2011 14:15:19
+-- Date Created: 10/16/2011 15:04:32
 -- Generated from EDMX file: D:\DiagnosticCenter\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
@@ -173,7 +173,7 @@ CREATE TABLE [dbo].[Referrals] (
     [VisitDate] datetime  NOT NULL,
     [ID_Patient] int  NOT NULL,
     [ID_Employee] int  NOT NULL,
-    [ID_Examination] int  NOT NULL,
+    [ID_Examination] int  NULL,
     [Examination_ID_Examination] int  NOT NULL
 );
 GO

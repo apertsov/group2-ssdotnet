@@ -1,4 +1,4 @@
-﻿@model DiagnosticCenter.Models.Employee
+﻿@model DiagnosticCenter.Models.EmployeeVM
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -8,80 +8,56 @@
         <div class="editor-label">
             @Html.Label("Ім'я:")
         
-            @Html.EditorFor(model => model.FirstName)
+            <input type = "text" name = "FirstName"/>
            
         </div>
 
         <div class="editor-label">
             @Html.Label("Прізвище:")
         
-            @Html.EditorFor(model => model.Surname)
+            <input type = "text" name="Surname"/>
           
         </div>
 
         <div class="editor-label">
-            @Html.Label("По батькові:")
-        
-            @Html.EditorFor(model => model.Patronymic)
-           
-        </div>
-        <div class="editor-label">
             @Html.Label("Категорія:")
        
-            @Html.EditorFor(model => model.Category)
+            <input type="text" name="Category" />
             
         </div>
 
         <div class="editor-label">
             @Html.Label("Спеціальність:")
-        
-            @Html.EditorFor(model => model.Specialty)
+            <input type="text" name="Specialty" />
            
         </div>
 
         <div class="editor-label">
             @Html.Label("Посада:")
             <select name = "position">
-                <option value = "DepartmentChiefDoctor">Зав. відділом</option>
-                <option value = "HeadDoctor">Головний лікар</option>
-                <option value = "Doctor">Лікар</option>
-                <option value = "HeadNurse">Головна медсестра</option>
-                <option value = "Nurse">Медсестра</option>
-                <option value = "MedicalRegistrar">Працівник реєстратури</option>
+                <option value = "">Виберіть посаду</option>
+                <option value = "зав. відділом">Зав. відділом</option>
+                <option value = "головний лікар">Головний лікар</option>
+                <option value = "лікар">Лікар</option>
+                <option value = "головна медсестра">Головна медсестра</option>
+                <option value = "медсестра">Медсестра</option>
+                <option value = "реєстратура">Працівник реєстратури</option>
              </select>
-                    
+        </div>
+               
+
+        <div class="editor-label">
+            @Html.Label("Відділення:")
+            @Html.DropDownList("Depts","Виберіть відділення")
+          
         </div>
 
         <div class="editor-label">
-            @Html.Label("Ставка:")
-        
-            @Html.EditorFor(model => model.Rate)
-            
-        </div>
-<!-- випадаючий список відділень-->
-        <div class="editor-label">
-            @Html.Label("Відділення:")
-            @Html.DropDownList("Depts")
-          
-        </div>
-<!-- випадаючий список кабінетів-->
-        <div class="editor-label">
             @Html.Label("Кабінет:")
-            @Html.DropDownList("Cabinets")
+            @Html.DropDownList("Cabinets","Виберіть кабінет")
        
             
         </div>
-        <!-- професія -->
-        <div class="editor-label">
-            @Html.Label("Нікнейм:")
-            @Html.TextBox("username")
-        </div>
-        <div class="editor-label">
-            @Html.Label("Email:")
-            @Html.TextBox("e-mail")
-        </div>
-        
-
         <p>
             <input type="submit" value="Знайти" />
         </p>

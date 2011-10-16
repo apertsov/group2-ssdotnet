@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DiagnosticCenter.Models.Patient>
+﻿@model DiagnosticCenter.Models.Patient
 
 
 <table>
@@ -28,48 +28,46 @@
            Держслужбовець
         </th>
 </tr>
-@foreach (var item in Model) {
-    
-    <tr>
+   <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Surname)
+            @Html.DisplayFor(modelItem => Model.Surname)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => Model.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Patronymic)
+            @Html.DisplayFor(modelItem => Model.Patronymic)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Specialty)
+            @Html.DisplayFor(modelItem => Model.Specialty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Sex)
+            @Html.DisplayFor(modelItem => Model.Sex)
         </td>
         
         <td>
-            @Html.DisplayFor(modelItem => item.BirthDate)
+            @Html.DisplayFor(modelItem => Model.BirthDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Workplace)
+            @Html.DisplayFor(modelItem => Model.Workplace)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Civil_Servant)
+            @Html.DisplayFor(modelItem => Model.Civil_Servant)
         </td>
       </tr>  
      <tr>
         <td colspan="4">
             <br />
-            <p><b>Місто:</b>&nbsp;@Html.DisplayFor(modelItem => item.City)</p>
-            <p><b>Адреса:</b>&nbsp;@Html.DisplayFor(modelItem => item.Address)</p>
-            <p><b>E-mail:</b>&nbsp;@Html.DisplayFor(modelItem => item.Email)</p>
-            <p><b>Телефон:</b>&nbsp;@Html.DisplayFor(modelItem => item.Phone)</p>
+            <p><b>Місто:</b>&nbsp;@Html.DisplayFor(modelItem => Model.City)</p>
+            <p><b>Адреса:</b>&nbsp;@Html.DisplayFor(modelItem => Model.Address)</p>
+            <p><b>E-mail:</b>&nbsp;@Html.DisplayFor(modelItem => Model.Email)</p>
+            <p><b>Телефон:</b>&nbsp;@Html.DisplayFor(modelItem => Model.Phone)</p>
         </td>
        
     <td colspan="4" align = "center">
-      @Html.DisplayFor(modelItem => item.Comment)
+      @Html.DisplayFor(modelItem => Model.Comment)
     </td>
     </tr>
-}
+
 
 </table>

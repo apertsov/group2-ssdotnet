@@ -179,7 +179,7 @@
           <Property Name="VisitDate" Type="datetime" Nullable="false" />
           <Property Name="ID_Patient" Type="int" Nullable="false" />
           <Property Name="ID_Employee" Type="int" Nullable="false" />
-          <Property Name="ID_Examination" Type="int" Nullable="false" />
+          <Property Name="ID_Examination" Type="int" />
           <Property Name="Examination_ID_Examination" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_CabinetEmployee">
@@ -508,7 +508,7 @@
           <Property Type="Int32" Name="ID_Patient" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.EmployeeReferral" FromRole="Referral" ToRole="Employee" />
           <Property Type="Int32" Name="ID_Employee" Nullable="false" />
-          <Property Type="Int32" Name="ID_Examination" Nullable="false" />
+          <Property Type="Int32" Name="ID_Examination" Nullable="true" />
           <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.ReferralExamination" FromRole="Referral" ToRole="Examination" />
         </EntityType>
         <Association Name="PatientReferral">
