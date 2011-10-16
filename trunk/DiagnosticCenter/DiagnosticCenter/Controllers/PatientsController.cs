@@ -19,12 +19,15 @@ namespace DiagnosticCenter.Controllers
             ViewBag.FirstNameSortParm = String.IsNullOrEmpty(sortOrder) ? "FirstName desc" : "";
             ViewBag.SurnameSortParm = String.IsNullOrEmpty(sortOrder) ? "Surname desc" : "";
             ViewBag.BirthDateSortParm = sortOrder == "Date" ? "Date desc" : "Date";
+            
             var pat = from p in _patients.Patients
                       select p;
             if (!String.IsNullOrEmpty(searchString))
             {
                 pat = pat.Where(s => s.Surname.ToUpper().Contains(searchString.ToUpper()));
             }
+
+                       
             switch (sortOrder)
             {
                 case "Surname desc":

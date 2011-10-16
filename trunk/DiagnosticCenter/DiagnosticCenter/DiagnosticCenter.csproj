@@ -90,16 +90,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DiagnosticsDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ASPNETDB.MDF" />
     <Content Include="App_Data\aspnetdb_log.ldf">
       <DependentUpon>ASPNETDB.MDF</DependentUpon>
-    </Content>
-    <Content Include="App_Data\DiagnosticsDB.mdf" />
-    <Content Include="App_Data\DiagnosticsDB_log.ldf">
-      <DependentUpon>DiagnosticsDB.mdf</DependentUpon>
     </Content>
     <Content Include="bin\DiagnosticCenter.dll" />
     <Content Include="bin\DiagnosticCenter.pdb" />
@@ -225,10 +222,6 @@
     <Content Include="Views\Cabinets\Create.cshtml" />
     <Content Include="Views\Cabinets\Edit.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Employees\Details.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Employees\Search.cshtml" />
-    <Content Include="Views\Employees\SearchResult.cshtml" />
     <Content Include="Views\Departments\Index.cshtml" />
     <Content Include="Views\Departments\Create.cshtml" />
     <Content Include="Views\Departments\Details.cshtml" />
@@ -241,8 +234,16 @@
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Patients\Search.cshtml" />
+
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Search.cshtml" />
+
     <Content Include="Views\Patients\SearchResult.cshtml" />
     <Content Include="Views\Departments\Edit.cshtml" />
+
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

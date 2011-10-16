@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Net.Mail;
-
+using System.Web.Security;
 namespace DiagnosticCenter.Classes
 {
     public class MailSender
@@ -14,19 +14,8 @@ namespace DiagnosticCenter.Classes
         private string password;
 
         internal string GeneratePassword()
-        {
-            password = "";
-            string digit = "0123456789";
-            string letter = "abcdefghijklmnopqrstuvwxyz";
-            int arr_index = 0;
-            
-            while (password.Length != 8)
-            {
-
-                arr_index = r.Next(1, 3);
-                if (arr_index == 1) password += digit[r.Next(0, 10)];
-                else password += letter[r.Next(0, 26)];
-            }
+        {   
+            password =  Membership.GeneratePassword(8, 3);
             return password;
         }
         

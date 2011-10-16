@@ -56,21 +56,27 @@ namespace DiagnosticCenter.Models
     public partial class Employee { }
     public class EmployeeMetadata
     {
+        [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Category {get; set;}
         
+        [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Specialty {get; set;}
         
-        public global::System.String Position {get; set;}
-        
+        [RegularExpression("[2-8]",ErrorMessage="Невірна кількість годин")]
+        [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.Int32 Rate {get; set;}
-        
-        public global::System.Int32 ID_Dept {get; set;}
-        
-        public global::System.Int32 ID_Cabinet {get; set;}
-        
-        public global::System.String AtWork {get; set;}
-        
-        public global::System.Guid ID_User {get; set;}
+
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        public global::System.String FirstName { get; set; }
+
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*-?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        public global::System.String Surname { get; set; }
+
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+(вич|вна)$", ErrorMessage = "Невірний формат")]
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        public global::System.String Patronymic { get; set; }
         
     }
 //Examination

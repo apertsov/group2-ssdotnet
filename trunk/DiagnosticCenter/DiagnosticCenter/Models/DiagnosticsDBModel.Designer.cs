@@ -826,12 +826,11 @@ namespace DiagnosticCenter.Models
         /// <param name="rate">Initial value of the Rate property.</param>
         /// <param name="iD_Dept">Initial value of the ID_Dept property.</param>
         /// <param name="iD_Cabinet">Initial value of the ID_Cabinet property.</param>
-        /// <param name="atWork">Initial value of the AtWork property.</param>
         /// <param name="iD_User">Initial value of the ID_User property.</param>
         /// <param name="firstName">Initial value of the FirstName property.</param>
         /// <param name="surname">Initial value of the Surname property.</param>
         /// <param name="patronymic">Initial value of the Patronymic property.</param>
-        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet, global::System.String atWork, global::System.Guid iD_User, global::System.String firstName, global::System.String surname, global::System.String patronymic)
+        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet, global::System.Guid iD_User, global::System.String firstName, global::System.String surname, global::System.String patronymic)
         {
             Employee employee = new Employee();
             employee.ID_Employee = iD_Employee;
@@ -841,7 +840,6 @@ namespace DiagnosticCenter.Models
             employee.Rate = rate;
             employee.ID_Dept = iD_Dept;
             employee.ID_Cabinet = iD_Cabinet;
-            employee.AtWork = atWork;
             employee.ID_User = iD_User;
             employee.FirstName = firstName;
             employee.Surname = surname;
@@ -1026,7 +1024,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String AtWork
         {
@@ -1038,7 +1036,7 @@ namespace DiagnosticCenter.Models
             {
                 OnAtWorkChanging(value);
                 ReportPropertyChanging("AtWork");
-                _AtWork = StructuralObject.SetValidValue(value, false);
+                _AtWork = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("AtWork");
                 OnAtWorkChanged();
             }
@@ -1950,7 +1948,8 @@ namespace DiagnosticCenter.Models
         /// <param name="text">Initial value of the Text property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="iD_Employee">Initial value of the ID_Employee property.</param>
-        public static News CreateNews(global::System.Int32 iD_News, global::System.Int32 iD_Dept, global::System.String text, global::System.Byte type, global::System.Int32 iD_Employee)
+        /// <param name="topic">Initial value of the Topic property.</param>
+        public static News CreateNews(global::System.Int32 iD_News, global::System.Int32 iD_Dept, global::System.String text, global::System.Byte type, global::System.Int32 iD_Employee, global::System.String topic)
         {
             News news = new News();
             news.ID_News = iD_News;
@@ -1958,6 +1957,7 @@ namespace DiagnosticCenter.Models
             news.Text = text;
             news.Type = type;
             news.ID_Employee = iD_Employee;
+            news.Topic = topic;
             return news;
         }
 
@@ -2086,6 +2086,30 @@ namespace DiagnosticCenter.Models
         private global::System.Int32 _ID_Employee;
         partial void OnID_EmployeeChanging(global::System.Int32 value);
         partial void OnID_EmployeeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Topic
+        {
+            get
+            {
+                return _Topic;
+            }
+            set
+            {
+                OnTopicChanging(value);
+                ReportPropertyChanging("Topic");
+                _Topic = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Topic");
+                OnTopicChanged();
+            }
+        }
+        private global::System.String _Topic;
+        partial void OnTopicChanging(global::System.String value);
+        partial void OnTopicChanged();
 
         #endregion
     
@@ -2210,7 +2234,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String FirstName
         {
@@ -2222,7 +2246,7 @@ namespace DiagnosticCenter.Models
             {
                 OnFirstNameChanging(value);
                 ReportPropertyChanging("FirstName");
-                _FirstName = StructuralObject.SetValidValue(value, true);
+                _FirstName = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("FirstName");
                 OnFirstNameChanged();
             }
@@ -2234,7 +2258,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Specialty
         {
@@ -2258,7 +2282,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Address
         {
@@ -2270,7 +2294,7 @@ namespace DiagnosticCenter.Models
             {
                 OnAddressChanging(value);
                 ReportPropertyChanging("Address");
-                _Address = StructuralObject.SetValidValue(value, true);
+                _Address = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Address");
                 OnAddressChanged();
             }
@@ -2282,7 +2306,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Phone
         {
@@ -2294,7 +2318,7 @@ namespace DiagnosticCenter.Models
             {
                 OnPhoneChanging(value);
                 ReportPropertyChanging("Phone");
-                _Phone = StructuralObject.SetValidValue(value, true);
+                _Phone = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Phone");
                 OnPhoneChanged();
             }
@@ -2330,7 +2354,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Workplace
         {
@@ -2354,7 +2378,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Civil_Servant
         {
@@ -2378,7 +2402,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Surname
         {
@@ -2390,7 +2414,7 @@ namespace DiagnosticCenter.Models
             {
                 OnSurnameChanging(value);
                 ReportPropertyChanging("Surname");
-                _Surname = StructuralObject.SetValidValue(value, true);
+                _Surname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Surname");
                 OnSurnameChanged();
             }
@@ -2402,7 +2426,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Patronymic
         {
@@ -2414,7 +2438,7 @@ namespace DiagnosticCenter.Models
             {
                 OnPatronymicChanging(value);
                 ReportPropertyChanging("Patronymic");
-                _Patronymic = StructuralObject.SetValidValue(value, true);
+                _Patronymic = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Patronymic");
                 OnPatronymicChanged();
             }
@@ -2474,7 +2498,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime BirthDate
         {
@@ -2522,7 +2546,7 @@ namespace DiagnosticCenter.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String City
         {
@@ -2534,7 +2558,7 @@ namespace DiagnosticCenter.Models
             {
                 OnCityChanging(value);
                 ReportPropertyChanging("City");
-                _City = StructuralObject.SetValidValue(value, true);
+                _City = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("City");
                 OnCityChanged();
             }
