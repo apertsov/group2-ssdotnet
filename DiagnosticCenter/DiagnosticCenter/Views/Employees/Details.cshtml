@@ -1,69 +1,45 @@
-﻿@model IEnumerable<DiagnosticCenter.Models.Employee>
+﻿@model List<DiagnosticCenter.Models.EmployeeVM>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
-            Category
+            Прізвище
         </th>
         <th>
-            Specialty
+            Ім'я
         </th>
         <th>
-            Position
+            По батькові
         </th>
-        <th>
-            Rate
-        </th>
-        <th>
-            ID_Dept
-        </th>
-        <th>
-            ID_Cabinet
-        </th>
-        <th>
-            AtWork
-        </th>
-        <th>
-            ID_User
-        </th>
-        <th></th>
     </tr>
-
-@foreach (var item in Model) {
+@foreach(var item in Model){   
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Category)
+            @Html.DisplayFor(modelItem => item.surname)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specialty)
+         <td>
+            @Html.DisplayFor(modelItem => item.firstName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Position)
+         <td>
+            @Html.DisplayFor(modelItem => item.patronymic)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_Dept)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_Cabinet)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AtWork)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_User)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Employee }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Employee }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Employee })
+    </tr>
+    <tr>    
+        <td colspan="3">
+            <br />
+            <b>Відділення:</b>
+            @Html.DisplayFor(modelItem => item.department)<br />
+             <b>Кабінет:</b>
+            @Html.DisplayFor(modelItem => item.cabinet)<br />
+             <b> Посада:</b>
+            @Html.DisplayFor(modelItem => item.position)<br />
+             <b> Категорія:</b>
+            @Html.DisplayFor(modelItem => item.category)<br />
+            <b> Спеціальність:</b>
+            @Html.DisplayFor(modelItem => item.specialty)<br />
+            <b> Ставка:</b>
+            @Html.DisplayFor(modelItem => item.rate) год. в день.
         </td>
     </tr>
 }
-
 </table>

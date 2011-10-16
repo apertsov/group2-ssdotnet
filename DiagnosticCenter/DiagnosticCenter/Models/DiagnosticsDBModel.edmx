@@ -108,7 +108,7 @@
           <Property Name="Rate" Type="int" Nullable="false" />
           <Property Name="ID_Dept" Type="int" Nullable="false" />
           <Property Name="ID_Cabinet" Type="int" Nullable="false" />
-          <Property Name="AtWork" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="AtWork" Type="nvarchar" MaxLength="3" />
           <Property Name="ID_User" Type="uniqueidentifier" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
@@ -148,6 +148,7 @@
           <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Type" Type="tinyint" Nullable="false" />
           <Property Name="ID_Employee" Type="int" Nullable="false" />
+          <Property Name="Topic" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Patients">
           <Key>
@@ -399,14 +400,14 @@
           <Property Type="String" Name="Position" Nullable="false" MaxLength="30" />
           <Property Type="Int32" Name="Rate" Nullable="false" />
           <NavigationProperty Name="Department" Relationship="DiagnosticsDBModel.DepartmentEmployee" FromRole="Employee" ToRole="Department" />
-          <Property Type="Int32" Name="ID_Dept" Nullable="false" />
+          <Property Type="Int32" Name="ID_Dept" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="Cabinet" Relationship="DiagnosticsDBModel.CabinetEmployee" FromRole="Employee" ToRole="Cabinet" />
           <Property Type="Int32" Name="ID_Cabinet" Nullable="false" />
           <NavigationProperty Name="News" Relationship="DiagnosticsDBModel.EmployeeNews" FromRole="Employee" ToRole="News" />
           <NavigationProperty Name="Day" Relationship="DiagnosticsDBModel.DayEmployee" FromRole="Employee" ToRole="Day" />
           <NavigationProperty Name="Referral" Relationship="DiagnosticsDBModel.EmployeeReferral" FromRole="Employee" ToRole="Referral" />
           <NavigationProperty Name="Examination" Relationship="DiagnosticsDBModel.EmployeeExamination" FromRole="Employee" ToRole="Examination" />
-          <Property Type="String" Name="AtWork" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="AtWork" Nullable="true" MaxLength="3" />
           <Property Type="Guid" Name="ID_User" Nullable="false" />
           <Property Type="String" Name="FirstName" Nullable="false" />
           <Property Type="String" Name="Surname" Nullable="false" />
@@ -456,6 +457,7 @@
           <Property Type="Byte" Name="Type" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="DiagnosticsDBModel.EmployeeNews" FromRole="News" ToRole="Employee" />
           <Property Type="Int32" Name="ID_Employee" Nullable="false" />
+          <Property Type="String" Name="Topic" Nullable="false" />
         </EntityType>
         <Association Name="EmployeeNews">
           <End Type="DiagnosticsDBModel.Employee" Multiplicity="1" Role="Employee" />
@@ -657,6 +659,7 @@
           <ScalarProperty Name="Text" ColumnName="Text" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -775,10 +778,10 @@
           <ConnectorPoint PointX="7.625" PointY="1.4901432291666668" />
           <ConnectorPoint PointX="6.875" PointY="1.4901432291666668" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="DiagnosticsDBModel.News" Width="1.5" PointX="9.625" PointY="0.5" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.News" Width="1.5" PointX="9.625" PointY="0.5" Height="2.364889322916667" />
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeNews">
-          <ConnectorPoint PointX="6.875" PointY="2.6076871744791665" />
-          <ConnectorPoint PointX="9.625" PointY="2.6076871744791665" />
+          <ConnectorPoint PointX="6.875" PointY="2.6151432291666667" />
+          <ConnectorPoint PointX="9.625" PointY="2.6151432291666667" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.DayEmployee">
           <ConnectorPoint PointX="2" PointY="2.6076871744791665" />
