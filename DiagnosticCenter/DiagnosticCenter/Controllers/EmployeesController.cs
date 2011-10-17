@@ -76,7 +76,7 @@ namespace DiagnosticCenter.Controllers
             string newUser = Request.Form["username"];
             string pass = sender.GeneratePassword();
            
-            Membership.CreateUser(newUser,sender.GeneratePassword(), Request.Form["e-mail"]);
+            Membership.CreateUser(newUser,pass, Request.Form["e-mail"]);
             string role = "";
             switch(Request.Form["position"])
             {
@@ -108,6 +108,8 @@ namespace DiagnosticCenter.Controllers
             IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name });
             List<Cabinet> cab = context.Cabinets.ToList();
             IEnumerable<SelectListItem> _cab = cab.Select(e => new SelectListItem { Value = e.ID_Cabinet.ToString(), Text = e.Number.ToString() });
+            MembershipUser curr_user = Membership.GetUser(empl.ID_User);
+            ViewBag.Email = curr_user.Email;
             ViewBag.Depts = _dept;
             ViewBag.Cabinets = _cab;          
             return View(empl);
@@ -173,8 +175,8 @@ namespace DiagnosticCenter.Controllers
         [HttpPost]
         public ActionResult Search(Employee requestedEmployee)
         {
-            IQueryable<Employee> employee = context.Employees;
-            int cabinet = Convert.ToInt32(Request.Form["Cabinets"]);
+            IQueryable<Employee> employee = context.Employees.Include("Department");
+           
             if (Request.Form["FirstName"].ToString().Trim() != "")
                 employee = employee.Where(p => p.FirstName.Contains(requestedEmployee.FirstName));
             if (Request.Form["Surname"].ToString().Trim() != "")
@@ -184,11 +186,17 @@ namespace DiagnosticCenter.Controllers
             if (Request.Form["Specialty"].ToString().Trim() != "")
                 employee = employee.Where(p => p.Category.Contains(requestedEmployee.Specialty));
             if (Request.Form["position"].ToString().Trim() != "")
-                employee = employee.Where(p => p.Position.Contains(requestedEmployee.Position));
-           // if (Request.Form["Cabinets"] != null)
-           //     employee = employee.Where(p => p.ID_Cabinet == );
-           // if (Request.Form["Depts"] != null)
-           //     employee = employee.Where(p => p.ID_Dept == requestedEmployee.ID_Dept);
+                employee = employee.Where(p => p.Position == requestedEmployee.Position);
+            if (Request.Form["Cabinets"].ToString() != "")
+            {
+                int cabinet = Convert.ToInt32(Request.Form["Cabinets"]);
+                employee = employee.Where(p => p.ID_Cabinet == cabinet);
+            }
+            if (Request.Form["Depts"].ToString() != "")
+            {
+                int dept = Convert.ToInt32(Request.Form["Depts"]);
+                employee = employee.Where(p => p.ID_Dept == dept);
+            }
             employee = employee.OrderBy(p => p.FirstName);
             model.FillModel(employee);
             return View("Index", model.lst.ToPagedList(1,5));
