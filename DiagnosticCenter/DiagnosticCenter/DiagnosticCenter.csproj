@@ -239,8 +239,10 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Search.cshtml" />
+    <Content Include="Views\Patients\SearchResult.cshtml" />
     <Content Include="Views\Departments\Edit.cshtml" />
     <Content Include="Views\Patients\SetReferral.cshtml" />
+    <Content Include="Views\Shared\_CultureChooserPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

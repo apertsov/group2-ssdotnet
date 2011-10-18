@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using DiagnosticCenter.Models;
+using System.Globalization;
 
 namespace DiagnosticCenter.Controllers
 {
@@ -189,5 +190,25 @@ namespace DiagnosticCenter.Controllers
             }
         }
         #endregion
+
+
+        // Culture, Set language
+        public ActionResult ChangeCulture(string lang, string returnUrl)
+        {
+            Session["Culture"] = new CultureInfo(lang);
+            return Redirect(returnUrl);
+        }
+        /**public ActionResult ChangeCulture(Culture lang, string returnUrl)
+        {
+            if (returnUrl.Length >= 3)
+            {
+                returnUrl = returnUrl.Substring(3);
+            }
+            return Redirect("/" + lang.ToString() + returnUrl);
+        }*/
+
     }
+
+
+
 }
