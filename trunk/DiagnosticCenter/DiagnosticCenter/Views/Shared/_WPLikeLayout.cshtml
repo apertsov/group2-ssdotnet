@@ -14,11 +14,16 @@
         <div id="header">        
             <div id="title">
                 <a href="@Url.Content("~")"><img src="@Url.Content("~/Content/wp-theme/images/icon_first_aid.png")" alt="Logo"/></a>
-                <span>Чернівецький Діагностичний Центр</span> 
+                <span>@ViewRes.SharedStrings.Headline</span> 
             </div>
+ 
+            <div id="culturedisplay">
+                @Html.Partial("_CultureChooserPartial")
+            </div> 
+            
             <div id="logindisplay">
                 @Html.Partial("_LogOnPartial")
-            </div>
+            </div>  
         </div>
     
         <div id="adminmenuback"></div>

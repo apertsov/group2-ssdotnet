@@ -15,7 +15,7 @@
                 <div class="menu-toggle" style="display: none;">
                     <br />
                 </div>
-                @Html.ActionLink("Налаштування", "Settings", "Admin", null, new { @class = "first-item menu-top menu-icon-settings" + ((ViewBag.Controller == "Settings") ? " current" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Settings, "Settings", "Admin", null, new { @class = "first-item menu-top menu-icon-settings" + ((ViewBag.Controller == "Settings") ? " current" : "") })                        
             </li>
         }
         
@@ -43,16 +43,16 @@
                 <div class="menu-toggle" style="@((newsExp) ? "" : "display: none;")">
                     <br />
                 </div>
-                @Html.ActionLink("Новини", "Index", "News", null, new { @class = "menu-top menu-icon-news menu-open" + ((newsClass != "") ? (" " + newsClass) : "")})
+                @Html.ActionLink(ViewRes.SharedStrings.News, "Index", "News", null, new { @class = "menu-top menu-icon-news menu-open" + ((newsClass != "") ? (" " + newsClass) : "") })
                 @if (newsExp) 
                 {
                     <div class="submenu">
                         <div class="submenu-wrap">
                             <div class="submenu-head">
-                                Новини</div>
+                                @ViewRes.SharedStrings.News</div>
                             <ul>
-                                <li class="first-item@((ViewBag.Action == "News.Index") ? " current" : "")">@Html.ActionLink("Всі новини", "Index", "News", null, ((ViewBag.Action == "News.Index") ? new { @class = "current" } : null))</li>
-                                <li class="@((ViewBag.Action == "News.Create") ? "current" : "")">@Html.ActionLink("Створити новину", "Create", "News", null, ((ViewBag.Action == "News.Create") ? new { @class = "current" } : null))</li>
+                                <li class="first-item@((ViewBag.Action == "News.Index") ? " current" : "")">@Html.ActionLink(@ViewRes.SharedStrings.AllNews, "Index", "News", null, ((ViewBag.Action == "News.Index") ? new { @class = "current" } : null))</li>
+                                <li class="@((ViewBag.Action == "News.Create") ? "current" : "")">@Html.ActionLink(@ViewRes.SharedStrings.AddNews, "Create", "News", null, ((ViewBag.Action == "News.Create") ? new { @class = "current" } : null))</li>
                             </ul>
                         </div>
                     </div>
@@ -84,16 +84,16 @@
                 <div class="menu-toggle" style="@((depsExp) ? "" : "display: none;")">
                     <br />
                 </div>
-                @Html.ActionLink("Відділення", "Index", "Departments", null, new { @class = "menu-top menu-icon-deps menu-open" + ((depsClass != "") ? (" " + depsClass) : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Departments, "Index", "Departments", null, new { @class = "menu-top menu-icon-deps menu-open" + ((depsClass != "") ? (" " + depsClass) : "") })
                 @if (depsExp)
                 {
                     <div class="submenu">
                         <div class="submenu-wrap">
                             <div class="submenu-head">
-                                Відділення</div>
+                                @ViewRes.SharedStrings.Departments</div>
                             <ul>
-                                <li class="first-item@((ViewBag.Action == "Departments.Index") ? " current" : "")">@Html.ActionLink("Всі відділення", "Index", "Departments", null, ((ViewBag.Action == "Departments.Index") ? new { @class = "current" } : null))</li>
-                                <li class="@((ViewBag.Action == "Departments.Create") ? "current" : "")">@Html.ActionLink("Створити відділення", "Create", "Departments", null, ((ViewBag.Action == "Departments.Create") ? new { @class = "current" } : null))</li>
+                                <li class="first-item@((ViewBag.Action == "Departments.Index") ? " current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AllDepartments, "Index", "Departments", null, ((ViewBag.Action == "Departments.Index") ? new { @class = "current" } : null))</li>
+                                <li class="@((ViewBag.Action == "Departments.Create") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AddDepartment, "Create", "Departments", null, ((ViewBag.Action == "Departments.Create") ? new { @class = "current" } : null))</li>
                             </ul>
                         </div>
                     </div>
@@ -123,16 +123,16 @@
                 <div class="menu-toggle" style="@((cabinetsExp) ? "" : "display: none;")">
                     <br />
                 </div>
-                @Html.ActionLink("Кабінети", "Index", "Cabinets", null, new { @class = "menu-top menu-icon-cabinets menu-open" + ((cabinetsClass != "") ? (" " + cabinetsClass) : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Cabinets, "Index", "Cabinets", null, new { @class = "menu-top menu-icon-cabinets menu-open" + ((cabinetsClass != "") ? (" " + cabinetsClass) : "") })
                 @if (cabinetsExp)
                 {
                     <div class="submenu">
                         <div class="submenu-wrap">
                             <div class="submenu-head">
-                                Кабінети</div>
+                                @ViewRes.SharedStrings.Cabinets</div>
                             <ul>
-                                <li class="first-item@((ViewBag.Action == "Cabinets.Index") ? " current" : "")">@Html.ActionLink("Всі кабінети", "Index", "Cabinets", null, ((ViewBag.Action == "Cabinets.Index") ? new { @class = "current" } : null))</li>
-                                <li class="@((ViewBag.Action == "Cabinets.Create") ? "current" : "")">@Html.ActionLink("Створити кабінет", "Create", "Cabinets", null, ((ViewBag.Action == "Cabinets.Create") ? new { @class = "current" } : null))</li>
+                                <li class="first-item@((ViewBag.Action == "Cabinets.Index") ? " current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AllCabinets, "Index", "Cabinets", null, ((ViewBag.Action == "Cabinets.Index") ? new { @class = "current" } : null))</li>
+                                <li class="@((ViewBag.Action == "Cabinets.Create") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AddCabinet, "Create", "Cabinets", null, ((ViewBag.Action == "Cabinets.Create") ? new { @class = "current" } : null))</li>
                             </ul>
                         </div>
                     </div>
@@ -150,17 +150,17 @@
                 <div class="menu-toggle">
                     <br />
                 </div>
-                @Html.ActionLink("Працівники", "Index", "Employees", null, new { @class = "has-submenu menu-top menu-icon-empl menu-open" + ((ViewBag.Controller == "Employees") ? " has-current-submenu" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Employees, "Index", "Employees", null, new { @class = "has-submenu menu-top menu-icon-empl menu-open" + ((ViewBag.Controller == "Employees") ? " has-current-submenu" : "") })
                 <div class="submenu">
                     <div class="submenu-wrap">
                         <div class="submenu-head">
-                            Працівники</div>
+                            @ViewRes.SharedStrings.Employees</div>
                         <ul>
-                            <li class="first-item@((ViewBag.Action == "Employees.Index") ? " current" : "")">@Html.ActionLink("Всі працівники", "Index", "Employees", null, ((ViewBag.Action == "Employees.Index") ? new { @class = "current" } : null))</li>
-                            <li class="@((ViewBag.Action == "Employees.Search") ? "current" : "")">@Html.ActionLink("Пошук працівника", "Search", "Employees", null, ((ViewBag.Action == "Employees.Search") ? new { @class = "current" } : null))</li>
+                            <li class="first-item@((ViewBag.Action == "Employees.Index") ? " current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AllEmployees, "Index", "Employees", null, ((ViewBag.Action == "Employees.Index") ? new { @class = "current" } : null))</li>
+                            <li class="@((ViewBag.Action == "Employees.Search") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.FindEmployee, "Search", "Employees", null, ((ViewBag.Action == "Employees.Search") ? new { @class = "current" } : null))</li>
                         @if (User.IsInRole("Administrator"))
                         { 
-                            <li class="@((ViewBag.Action == "Employees.Create") ? "current" : "")">@Html.ActionLink("Додати працівника", "Create", "Employees", null, ((ViewBag.Action == "Employees.Create") ? new { @class = "current" } : null))</li>
+                            <li class="@((ViewBag.Action == "Employees.Create") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AddEmployee, "Create", "Employees", null, ((ViewBag.Action == "Employees.Create") ? new { @class = "current" } : null))</li>
                         }
                         </ul>
                     </div>
@@ -180,17 +180,17 @@
                 <div class="menu-toggle">
                     <br />
                 </div>
-                @Html.ActionLink("Пацієнти", "Index", "Patients", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-patient" + ((ViewBag.Controller == "Patients") ? " has-current-submenu" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Patients, "Index", "Patients", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-patient" + ((ViewBag.Controller == "Patients") ? " has-current-submenu" : "") })
                 <div class="submenu">
                     <div class="submenu-wrap">
                         <div class="submenu-head">
-                            Пацієнти</div>
+                            @ViewRes.SharedStrings.Patients</div>
                         <ul>
-                            <li class="first-item@((ViewBag.Action == "Patients.Index") ? " current" : "")">@Html.ActionLink("Всі пацієнти", "Index", "Patients", null, ((ViewBag.Action == "Patients.Index") ? new { @class = "current" } : null))</li>
-                            <li class="@((ViewBag.Action == "Patients.Search") ? "current" : "")">@Html.ActionLink("Пошук пацієнта", "Search", "Patients", null, ((ViewBag.Action == "Patients.Search") ? new { @class = "current" } : null))</li>
+                            <li class="first-item@((ViewBag.Action == "Patients.Index") ? " current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AllPatients, "Index", "Patients", null, ((ViewBag.Action == "Patients.Index") ? new { @class = "current" } : null))</li>
+                            <li class="@((ViewBag.Action == "Patients.Search") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.FindPatient, "Search", "Patients", null, ((ViewBag.Action == "Patients.Search") ? new { @class = "current" } : null))</li>
                         @if (User.IsInRole("MedicalRegistrar"))
                         {
-                            <li class="@((ViewBag.Action == "Patients.Create") ? "current" : "")">@Html.ActionLink("Додати пацієнта", "Create", "Patients", null, ((ViewBag.Action == "Patients.Create") ? new { @class = "current" } : null))</li>
+                            <li class="@((ViewBag.Action == "Patients.Create") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AddPatient, "Create", "Patients", null, ((ViewBag.Action == "Patients.Create") ? new { @class = "current" } : null))</li>
                         }
                         </ul>
                     </div>
@@ -211,14 +211,14 @@
                 <div class="menu-toggle">
                     <br />
                 </div>
-                @Html.ActionLink("Шаблони обстежень", "Index", "ExaminationTemplates", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-extemplates" + ((ViewBag.Controller == "ExaminationTemplates") ? " has-current-submenu" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.ExaminationPatterns, "Index", "ExaminationTemplates", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-extemplates" + ((ViewBag.Controller == "ExaminationTemplates") ? " has-current-submenu" : "") })
                 <div class="submenu">
                     <div class="submenu-wrap">
                         <div class="submenu-head">
-                            Шаблони обстежень</div>
+                            @ViewRes.SharedStrings.ExaminationPatterns</div>
                         <ul>
-                            <li class="first-item@((ViewBag.Action == "ExaminationTemplates.Index") ? " current" : "")">@Html.ActionLink("Всі шаблони", "Index", "ExaminationTemplates", null, ((ViewBag.Action == "ExaminationTemplates.Index") ? new { @class = "current" } : null))</li>                           
-                            <li class="@((ViewBag.Action == "ExaminationTemplates.Create") ? "current" : "")">@Html.ActionLink("Створити шаблон", "Create", "ExaminationTemplates", null, ((ViewBag.Action == "ExaminationTemplates.Create") ? new { @class = "current" } : null))</li>
+                            <li class="first-item@((ViewBag.Action == "ExaminationTemplates.Index") ? " current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AllPatterns, "Index", "ExaminationTemplates", null, ((ViewBag.Action == "ExaminationTemplates.Index") ? new { @class = "current" } : null))</li>                           
+                            <li class="@((ViewBag.Action == "ExaminationTemplates.Create") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AddPattern, "Create", "ExaminationTemplates", null, ((ViewBag.Action == "ExaminationTemplates.Create") ? new { @class = "current" } : null))</li>
                         </ul>
                     </div>
                 </div>
@@ -249,16 +249,16 @@
             <div class="menu-toggle" style="@((planExp) ? "" : "display: none;")">
                 <br />
             </div>
-            @Html.ActionLink("Графік роботи", "Index", "Plan", null, new { @class = "menu-top menu-icon-plan menu-open" + ((planClass != "") ? (" " + planClass) : "")})
+            @Html.ActionLink(ViewRes.SharedStrings.Schedule, "Index", "Plan", null, new { @class = "menu-top menu-icon-plan menu-open" + ((planClass != "") ? (" " + planClass) : "") })
         @if (User.IsInRole("HeadNurse"))
         {
             <div class="submenu">
                 <div class="submenu-wrap">
                     <div class="submenu-head">
-                        Графік роботи</div>
+                        @ViewRes.SharedStrings.Schedule</div>
                     <ul>
-                        <li class="first-item@((ViewBag.Action == "Plan.Index") ? " current" : "")">@Html.ActionLink("Графік", "Index", "Plan", null, ((ViewBag.Action == "Plan.Index") ? new { @class = "current" } : null))</li>                           
-                        <li class="@((ViewBag.Action == "Plan.Edit") ? "current" : "")">@Html.ActionLink("Редагувати", "Edit", "Plan", null, ((ViewBag.Action == "Plan.Edit") ? new { @class = "current" } : null))</li>
+                        <li class="first-item@((ViewBag.Action == "Plan.Index") ? " current" : "")">@Html.ActionLink(ViewRes.SharedStrings.Schedule2, "Index", "Plan", null, ((ViewBag.Action == "Plan.Index") ? new { @class = "current" } : null))</li>                           
+                        <li class="@((ViewBag.Action == "Plan.Edit") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.Edit, "Edit", "Plan", null, ((ViewBag.Action == "Plan.Edit") ? new { @class = "current" } : null))</li>
                     </ul>
                 </div>
             </div>
@@ -272,7 +272,7 @@
                 <div>
                 </div>
             </div>
-            <span>Згорнути меню</span> 
+            <span>@ViewRes.SharedStrings.HideMenu</span> 
         </li>
     </ul>
 
