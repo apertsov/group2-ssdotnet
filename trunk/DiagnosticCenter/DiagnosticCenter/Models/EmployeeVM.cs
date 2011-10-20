@@ -17,7 +17,7 @@ namespace DiagnosticCenter.Models
         public int rate { get; set; }
         public string department { get; set; }
         public int cabinet { get; set; }
-   }
+    }
 
     public class EmployeesVM
     {

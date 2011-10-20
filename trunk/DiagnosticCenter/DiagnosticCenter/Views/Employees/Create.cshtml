@@ -77,11 +77,14 @@
         
         <div class="editor-label">
             @Html.Label("Нікнейм:")
-            @Html.TextBox("username")
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
         </div>
         <div class="editor-label">
             @Html.Label("Email:")
-            @Html.TextBox("e-mail")
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+
         </div>
         
 

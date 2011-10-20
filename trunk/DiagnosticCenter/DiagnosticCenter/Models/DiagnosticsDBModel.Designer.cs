@@ -830,7 +830,9 @@ namespace DiagnosticCenter.Models
         /// <param name="firstName">Initial value of the FirstName property.</param>
         /// <param name="surname">Initial value of the Surname property.</param>
         /// <param name="patronymic">Initial value of the Patronymic property.</param>
-        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet, global::System.Guid iD_User, global::System.String firstName, global::System.String surname, global::System.String patronymic)
+        /// <param name="username">Initial value of the Username property.</param>
+        /// <param name="email">Initial value of the Email property.</param>
+        public static Employee CreateEmployee(global::System.Int32 iD_Employee, global::System.String category, global::System.String specialty, global::System.String position, global::System.Int32 rate, global::System.Int32 iD_Dept, global::System.Int32 iD_Cabinet, global::System.Guid iD_User, global::System.String firstName, global::System.String surname, global::System.String patronymic, global::System.String username, global::System.String email)
         {
             Employee employee = new Employee();
             employee.ID_Employee = iD_Employee;
@@ -844,6 +846,8 @@ namespace DiagnosticCenter.Models
             employee.FirstName = firstName;
             employee.Surname = surname;
             employee.Patronymic = patronymic;
+            employee.Username = username;
+            employee.Email = email;
             return employee;
         }
 
@@ -1140,6 +1144,54 @@ namespace DiagnosticCenter.Models
         private global::System.String _Patronymic;
         partial void OnPatronymicChanging(global::System.String value);
         partial void OnPatronymicChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Username
+        {
+            get
+            {
+                return _Username;
+            }
+            set
+            {
+                OnUsernameChanging(value);
+                ReportPropertyChanging("Username");
+                _Username = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Username");
+                OnUsernameChanged();
+            }
+        }
+        private global::System.String _Username;
+        partial void OnUsernameChanging(global::System.String value);
+        partial void OnUsernameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
 
         #endregion
     
@@ -2246,7 +2298,7 @@ namespace DiagnosticCenter.Models
             {
                 OnFirstNameChanging(value);
                 ReportPropertyChanging("FirstName");
-                _FirstName = StructuralObject.SetValidValue(value,true);
+                _FirstName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FirstName");
                 OnFirstNameChanged();
             }
@@ -2462,7 +2514,7 @@ namespace DiagnosticCenter.Models
             {
                 OnEmailChanging(value);
                 ReportPropertyChanging("Email");
-               _Email = StructuralObject.SetValidValue(value, true);
+                _Email = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Email");
                 OnEmailChanged();
             }
@@ -2559,7 +2611,6 @@ namespace DiagnosticCenter.Models
                 OnCityChanging(value);
                 ReportPropertyChanging("City");
                 _City = StructuralObject.SetValidValue(value, true);
-               
                 ReportPropertyChanged("City");
                 OnCityChanged();
             }

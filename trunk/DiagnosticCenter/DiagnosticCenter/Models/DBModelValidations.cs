@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace DiagnosticCenter.Models
 {
@@ -78,6 +79,19 @@ namespace DiagnosticCenter.Models
         [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+(вич|вна)$", ErrorMessage = "Невірний формат")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Patronymic { get; set; }
+
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [Remote("UserExist", "Employees","Creating")]
+        [RegularExpression("^[a-zA-z][a-zA-Z1-9_$()]+$",ErrorMessage = "Невірний формат")]
+        public global::System.String Username { get; set; }
+
+        [RegularExpression("^(([^<>()[\\]\\.,;:\\s@\"]+(\\.[^<>()[\\]\\.,;:\\s@\"]+)*)|" +
+                          "(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]" +
+                          "{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$", ErrorMessage = "Невірний формат")]
+        [Remote("UserExists", "Employees", "Creating")]
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        public global::System.String Email { get; set; }
+        
         
     }
 //Examination
@@ -169,17 +183,17 @@ namespace DiagnosticCenter.Models
               
         [Required(ErrorMessage = "Обов'язкове поле")]
         [RegularExpression("^((пр-т\\.)|(вул\\.)|(б-р\\.)|(пл\\.)|(пер\\.))\\s" +
-                           "([А-ЯІЇЙЄ]\\.\\s)?([А-ЯІЇЙЄа-яійїє\\-])*\\s[1-9][0-9]" + 
+                           "([А-ЯІЇЙЄ]\\.\\s)?([А-ЯІЇЙЄа-яійїє\\-]*\\s?)+[1-9][0-9]" + 
                            "*[А-ЯІЇЙЄа-яійїє]?(/[1-9][0-9]*)?$", ErrorMessage = "Невірний формат")]
         public global::System.String Address {get; set;}
         
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^(([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2}))|" + 
-                           "([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^(([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})|" + 
+                           "([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})|([0-9]{10}))$", ErrorMessage = "Невірний формат")]
         public global::System.String Phone {get; set;}
 
         [Required(ErrorMessage = "Обов'язкове поле")]
-        //[RegularExpression("^[0-9]{2}/[0-9]{2}/[0-9]{4}$",ErrorMessage = "Невірний формат")]
+        [DataType(DataType.Date,ErrorMessage = "Невірний формат")]
         public global::System.DateTime BirthDate { get; set; }
        
         
