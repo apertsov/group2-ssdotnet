@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/18/2011 20:25:24
+-- Date Created: 10/21/2011 06:58:50
 -- Generated from EDMX file: D:\DC\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
@@ -133,7 +133,8 @@ CREATE TABLE [dbo].[Cabinets] (
     [ID_Cabinet] int IDENTITY(1,1) NOT NULL,
     [Number] int  NOT NULL,
     [Phone] nvarchar(max)  NOT NULL,
-    [Description] nvarchar(max)  NOT NULL
+    [Description] nvarchar(max)  NOT NULL,
+    [ID_Dept] int  NOT NULL
 );
 GO
 
@@ -427,6 +428,20 @@ ADD CONSTRAINT [FK_ExaminationTypeExamination]
 CREATE INDEX [IX_FK_ExaminationTypeExamination]
 ON [dbo].[ExaminationTypes]
     ([Examination_ID_Examination]);
+GO
+
+-- Creating foreign key on [ID_Dept] in table 'Cabinets'
+ALTER TABLE [dbo].[Cabinets]
+ADD CONSTRAINT [FK_DepartmentCabinet]
+    FOREIGN KEY ([ID_Dept])
+    REFERENCES [dbo].[Departments]
+        ([ID_Dept])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DepartmentCabinet'
+CREATE INDEX [IX_FK_DepartmentCabinet]
+ON [dbo].[Cabinets]
+    ([ID_Dept]);
 GO
 
 -- --------------------------------------------------

@@ -28,6 +28,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "PatientExamination", "Patient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Patient), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Examination), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ReferralExamination", "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Referral), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Examination))]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ExaminationTypeExamination", "ExaminationType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.ExaminationType), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Examination))]
+[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "DepartmentCabinet", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Department), "Cabinet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Cabinet), true)]
 
 #endregion
 
@@ -323,13 +324,15 @@ namespace DiagnosticCenter.Models
         /// <param name="number">Initial value of the Number property.</param>
         /// <param name="phone">Initial value of the Phone property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static Cabinet CreateCabinet(global::System.Int32 iD_Cabinet, global::System.Int32 number, global::System.String phone, global::System.String description)
+        /// <param name="iD_Dept">Initial value of the ID_Dept property.</param>
+        public static Cabinet CreateCabinet(global::System.Int32 iD_Cabinet, global::System.Int32 number, global::System.String phone, global::System.String description, global::System.Int32 iD_Dept)
         {
             Cabinet cabinet = new Cabinet();
             cabinet.ID_Cabinet = iD_Cabinet;
             cabinet.Number = number;
             cabinet.Phone = phone;
             cabinet.Description = description;
+            cabinet.ID_Dept = iD_Dept;
             return cabinet;
         }
 
@@ -434,6 +437,30 @@ namespace DiagnosticCenter.Models
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Dept
+        {
+            get
+            {
+                return _ID_Dept;
+            }
+            set
+            {
+                OnID_DeptChanging(value);
+                ReportPropertyChanging("ID_Dept");
+                _ID_Dept = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_Dept");
+                OnID_DeptChanged();
+            }
+        }
+        private global::System.Int32 _ID_Dept;
+        partial void OnID_DeptChanging(global::System.Int32 value);
+        partial void OnID_DeptChanged();
 
         #endregion
     
@@ -457,6 +484,44 @@ namespace DiagnosticCenter.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Employee>("DiagnosticsDBModel.CabinetEmployee", "Employee", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "DepartmentCabinet", "Department")]
+        public Department Department
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DiagnosticsDBModel.DepartmentCabinet", "Department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DiagnosticsDBModel.DepartmentCabinet", "Department").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Department> DepartmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DiagnosticsDBModel.DepartmentCabinet", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("DiagnosticsDBModel.DepartmentCabinet", "Department", value);
                 }
             }
         }
@@ -802,6 +867,28 @@ namespace DiagnosticCenter.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "DepartmentCabinet", "Cabinet")]
+        public EntityCollection<Cabinet> Cabinet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Cabinet>("DiagnosticsDBModel.DepartmentCabinet", "Cabinet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Cabinet>("DiagnosticsDBModel.DepartmentCabinet", "Cabinet", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -896,7 +983,7 @@ namespace DiagnosticCenter.Models
             {
                 OnCategoryChanging(value);
                 ReportPropertyChanging("Category");
-                _Category = StructuralObject.SetValidValue(value, true);
+                _Category = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Category");
                 OnCategoryChanged();
             }
@@ -920,7 +1007,7 @@ namespace DiagnosticCenter.Models
             {
                 OnSpecialtyChanging(value);
                 ReportPropertyChanging("Specialty");
-                _Specialty = StructuralObject.SetValidValue(value, true);
+                _Specialty = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Specialty");
                 OnSpecialtyChanged();
             }
@@ -944,7 +1031,7 @@ namespace DiagnosticCenter.Models
             {
                 OnPositionChanging(value);
                 ReportPropertyChanging("Position");
-                _Position = StructuralObject.SetValidValue(value, true);
+                _Position = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Position");
                 OnPositionChanged();
             }
@@ -1088,7 +1175,7 @@ namespace DiagnosticCenter.Models
             {
                 OnFirstNameChanging(value);
                 ReportPropertyChanging("FirstName");
-                _FirstName = StructuralObject.SetValidValue(value, true);
+                _FirstName = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("FirstName");
                 OnFirstNameChanged();
             }
@@ -1112,7 +1199,7 @@ namespace DiagnosticCenter.Models
             {
                 OnSurnameChanging(value);
                 ReportPropertyChanging("Surname");
-                _Surname = StructuralObject.SetValidValue(value, true);
+                _Surname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Surname");
                 OnSurnameChanged();
             }
@@ -1136,7 +1223,7 @@ namespace DiagnosticCenter.Models
             {
                 OnPatronymicChanging(value);
                 ReportPropertyChanging("Patronymic");
-                _Patronymic = StructuralObject.SetValidValue(value, true);
+                _Patronymic = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Patronymic");
                 OnPatronymicChanged();
             }
@@ -1184,7 +1271,7 @@ namespace DiagnosticCenter.Models
             {
                 OnEmailChanging(value);
                 ReportPropertyChanging("Email");
-                _Email = StructuralObject.SetValidValue(value, true);
+                _Email = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Email");
                 OnEmailChanged();
             }
@@ -2298,7 +2385,7 @@ namespace DiagnosticCenter.Models
             {
                 OnFirstNameChanging(value);
                 ReportPropertyChanging("FirstName");
-                _FirstName = StructuralObject.SetValidValue(value, true);
+                _FirstName = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("FirstName");
                 OnFirstNameChanged();
             }
@@ -2322,7 +2409,7 @@ namespace DiagnosticCenter.Models
             {
                 OnSpecialtyChanging(value);
                 ReportPropertyChanging("Specialty");
-                _Specialty = StructuralObject.SetValidValue(value, true);
+                _Specialty = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Specialty");
                 OnSpecialtyChanged();
             }
@@ -2346,7 +2433,7 @@ namespace DiagnosticCenter.Models
             {
                 OnAddressChanging(value);
                 ReportPropertyChanging("Address");
-                _Address = StructuralObject.SetValidValue(value, true);
+                _Address = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Address");
                 OnAddressChanged();
             }
@@ -2370,7 +2457,7 @@ namespace DiagnosticCenter.Models
             {
                 OnPhoneChanging(value);
                 ReportPropertyChanging("Phone");
-                _Phone = StructuralObject.SetValidValue(value, true);
+                _Phone = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Phone");
                 OnPhoneChanged();
             }
@@ -2466,7 +2553,7 @@ namespace DiagnosticCenter.Models
             {
                 OnSurnameChanging(value);
                 ReportPropertyChanging("Surname");
-                _Surname = StructuralObject.SetValidValue(value, true);
+                _Surname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Surname");
                 OnSurnameChanged();
             }
@@ -2490,7 +2577,7 @@ namespace DiagnosticCenter.Models
             {
                 OnPatronymicChanging(value);
                 ReportPropertyChanging("Patronymic");
-                _Patronymic = StructuralObject.SetValidValue(value, true);
+                _Patronymic = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Patronymic");
                 OnPatronymicChanged();
             }
@@ -2538,7 +2625,7 @@ namespace DiagnosticCenter.Models
             {
                 OnPasswordChanging(value);
                 ReportPropertyChanging("Password");
-                _Password = StructuralObject.SetValidValue(value, true);
+                _Password = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Password");
                 OnPasswordChanged();
             }
@@ -2586,7 +2673,7 @@ namespace DiagnosticCenter.Models
             {
                 OnSexChanging(value);
                 ReportPropertyChanging("Sex");
-                _Sex = StructuralObject.SetValidValue(value, true);
+                _Sex = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Sex");
                 OnSexChanged();
             }
@@ -2610,7 +2697,7 @@ namespace DiagnosticCenter.Models
             {
                 OnCityChanging(value);
                 ReportPropertyChanging("City");
-                _City = StructuralObject.SetValidValue(value, true);
+                _City = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("City");
                 OnCityChanged();
             }
