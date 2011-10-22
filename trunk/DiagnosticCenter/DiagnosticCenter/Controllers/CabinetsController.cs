@@ -32,6 +32,9 @@ namespace DiagnosticCenter.Controllers
 
         public ActionResult Create()
         {
+            List<Department> dept = Cabinets_db.Departments.ToList();
+            IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name });
+            ViewBag.Dept = _dept;
             return View();
         } 
 
@@ -40,6 +43,7 @@ namespace DiagnosticCenter.Controllers
         {
             if (ModelState.IsValid)
             {
+                cabinet.ID_Dept = Convert.ToInt32(Request.Form["Dept"]);
                 Cabinets_db.Cabinets.AddObject(cabinet);
                 Cabinets_db.SaveChanges();
                 return RedirectToAction("Index");  

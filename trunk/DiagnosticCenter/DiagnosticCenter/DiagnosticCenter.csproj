@@ -79,6 +79,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\PlanController.cs" />
+    <Compile Include="Controllers\ReferralController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +170,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\PagedList\PagedList.Mvc.js" />
+    <Content Include="Scripts\PagedList\PagedList.Mvc.Template.html" />
     <Content Include="Views\Plan\PlanScripts.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -250,8 +253,8 @@
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Search.cshtml" />
     <Content Include="Views\Departments\Edit.cshtml" />
-    <Content Include="Views\Patients\SetReferral.cshtml" />
     <Content Include="Views\Shared\_CultureChooserPartial.cshtml" />
+    <Content Include="Views\Referral\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Shared\SharedStrings.resx" />
