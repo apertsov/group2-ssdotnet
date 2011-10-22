@@ -2,7 +2,7 @@
 @using (Html.BeginForm())
 { 
     <p> 
-        Пошук по прізвищу: @Html.TextBox("SearchString") &nbsp; 
+        @EmployeesRes.EmployeesStrings.SearchBySurname @Html.TextBox("SearchString") &nbsp; 
         <input type="submit" value="Знайти" /></p> 
 }
 @{

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<DiagnosticCenter.Models.Department>
 
 @{
-    ViewBag.Title = "Список відділення";
+    ViewBag.Title = DepartmentsRes.DepartmentsStrings.DepartmentsList;
     
     ViewBag.Controller = "Departments";
     ViewBag.Action = "Departments.Index";
 }
 
-<h2>Список відділень</h2>
+<h2>@DepartmentsRes.DepartmentsStrings.DepartmentsList</h2>
 
 <table>
 @foreach (var item in Model) {
