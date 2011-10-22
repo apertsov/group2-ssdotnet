@@ -124,10 +124,10 @@
     <value>Add department</value>
   </data>
   <data name="AddEmployee" xml:space="preserve">
-    <value>Add Employee</value>
+    <value>Add employee</value>
   </data>
   <data name="AddNews" xml:space="preserve">
-    <value>Add News</value>
+    <value>Add news</value>
   </data>
   <data name="AddPatient" xml:space="preserve">
     <value>Add patient</value>
@@ -145,7 +145,7 @@
     <value>All employees</value>
   </data>
   <data name="AllNews" xml:space="preserve">
-    <value>All News</value>
+    <value>All news</value>
   </data>
   <data name="AllPatients" xml:space="preserve">
     <value>All patients</value>
@@ -169,7 +169,7 @@
     <value>Examination patterns</value>
   </data>
   <data name="FindEmployee" xml:space="preserve">
-    <value>Find Employee</value>
+    <value>Find employee</value>
   </data>
   <data name="FindPatient" xml:space="preserve">
     <value>Find patient</value>

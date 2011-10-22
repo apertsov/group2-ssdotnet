@@ -14,7 +14,10 @@
         <div id="header">        
             <div id="title">
                 <a href="@Url.Content("~")"><img src="@Url.Content("~/Content/wp-theme/images/icon_first_aid.png")" alt="Logo"/></a>
-                <span>@ViewRes.SharedStrings.Headline</span> 
+                <span>@if (Request.IsAuthenticated)
+                        {@ViewRes.SharedStrings.Headline}
+                      else {<text>Chernivtsi Diagnostic Center</text> }
+                </span> 
             </div>
  
             <div id="culturedisplay">

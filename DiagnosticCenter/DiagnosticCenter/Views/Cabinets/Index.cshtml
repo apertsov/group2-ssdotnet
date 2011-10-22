@@ -1,11 +1,11 @@
 ﻿@model PagedList.IPagedList<DiagnosticCenter.Models.Cabinet>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = CabinetsRes.CabinetsStrings.AddCabinet;
 }
 
 <p>
-    @Html.ActionLink("Додати кабінет", "Create")
+    @Html.ActionLink(CabinetsRes.CabinetsStrings.AddCabinet, "Create")
 </p>
 <table>
     <tr>
