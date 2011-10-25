@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/21/2011 06:58:50
--- Generated from EDMX file: D:\DC\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
+-- Date Created: 10/25/2011 17:50:31
+-- Generated from EDMX file: D:\dotNET\Diagnostic Center Repository\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -25,6 +25,9 @@ IF OBJECT_ID(N'[dbo].[FK_DayEmployee_Day]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_DayEmployee_Employee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DayEmployee] DROP CONSTRAINT [FK_DayEmployee_Employee];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DepartmentCabinet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Cabinets] DROP CONSTRAINT [FK_DepartmentCabinet];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DepartmentEmployee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_DepartmentEmployee];
@@ -103,9 +106,7 @@ CREATE TABLE [dbo].[Days] (
     [ID_Day] int IDENTITY(1,1) NOT NULL,
     [Date] datetime  NOT NULL,
     [StartTime] datetime  NOT NULL,
-    [EndTime] datetime  NOT NULL,
-    [StartBreak] datetime  NOT NULL,
-    [EndBreak] datetime  NOT NULL
+    [EndTime] datetime  NOT NULL
 );
 GO
 

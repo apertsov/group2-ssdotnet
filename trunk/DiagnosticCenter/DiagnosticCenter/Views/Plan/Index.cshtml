@@ -1,56 +1,234 @@
-﻿@model IEnumerable<DiagnosticCenter.Models.Day>
-
+﻿@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Формування розкладу роботи (" + ViewBag.DeptName + "):";
 }
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            Date
-        </th>
-        <th>
-            StartTime
-        </th>
-        <th>
-            EndTime
-        </th>
-        <th>
-            StartBreak
-        </th>
-        <th>
-            EndBreak
-        </th>
-        <th></th>
-    </tr>
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")">
+    <link href="@Url.Content("~/Content/Plan.css")" rel="stylesheet" type="text/css" />
+	
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.ui.core.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.ui.widget.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.ui.datepicker.js")"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        $("#datepicker").datepicker({
+	                altField: "#altDatePicker",
+			        altFormat: "dd.mm.yy",
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartBreak)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndBreak)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Day }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Day }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Day })
-        </td>
-    </tr>
+	                regional: "UK",
+	                dateFormat: "d MM, yy"
+	            });
+	    });
+	</script>
+
+    
+
+@using (Html.BeginForm("ChangeDate", "Plan"))
+{
+    <p>
+    
+        Date: @Html.TextBox("datepicker")
+        @Html.Hidden("altDatePicker")
+        <input type="submit" name ="DateChange" value="Оновити дані" />
+    </p>
+}  
+@using (Html.BeginForm("Index", "Plan"))
+{    
+    <input id="date" name="date" type="hidden" value="@ViewBag.Date" />
+    <input id="EmployeesOnPage" name="EmployeesOnPage" type="hidden" value="@ViewBag.EmployeesOnPage"/>
+    <input id="PageNo" name="PageNo" type="hidden" value="@ViewBag.PageNo"/>
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <th colspan= @(ViewBag.CabCount + 2)>
+                            Формування розкладу роботи (@ViewBag.DeptName):
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Дата
+                        </th>
+                        <th>
+                            Час
+                        </th>
+                        @foreach (var item in ViewBag.EmployeesWithCabinets)
+                        { 
+                            <th>
+                                Кабінет №@(item)
+                            </th>
+                        }
+                    </tr>
+                    <tr>
+                        <td rowspan="11">
+                            @ViewBag.Date                        
+                        </td>
+                    </tr>
+                    @{
+                       int rowIndex = 0;
+                       int j = 8;
+                       foreach (var hour in ViewBag.PlanChart)
+                       {
+                           int colIndex = 0; 
+                            @:<tr>
+
+                                <td>
+                                    @(j):00 - @(j + 1):00;
+                                    @{j++;}
+                                </td>
+                                    
+                                      foreach (var cab in hour)
+                                      {
+                            
+                                    @:<td>
+                                    if (ViewBag.modifyFlag)
+                                    {
+                                        @Html.DropDownList(string.Format("ID_Employee {0} {1}", rowIndex.ToString(), colIndex.ToString()),
+                                                            (List<SelectListItem>)cab,
+                                                            "- Оберіть лікаря -"
+                                            )
+                                    }
+                                    else
+                                    {
+                                        @Html.DropDownList(string.Format("ID_Employee {0} {1}", rowIndex.ToString(), colIndex.ToString()),
+                                                            (List<SelectListItem>)cab,
+                                                            "- Оберіть лікаря -",
+                                                            new
+                                                            {
+                                                                disabled = "disabled",
+                                                            }
+                                            )
+                                    }
+                                    colIndex++;
+                                    @:</td>
+                                }
+                                      rowIndex++;
+                            @:</tr>
+                        }
+                    }
+                </table>
+            </td>
+            <td valign="top">
+                <table>
+                    <tr>
+                        <th colspan="3">
+                            @switch (DateTime.Today.Month)
+                            {
+                                case 1:
+                                @Html.Label("Заплановано годин на січень") 
+                           break;
+                                case 2:
+                                @Html.Label("Заплановано годин на лютий") 
+                           break;
+                                case 3:
+                                @Html.Label("Заплановано годин на березень") 
+                           break;
+                                case 4:
+                                @Html.Label("Заплановано годин на квітень") 
+                           break;
+                                case 5:
+                                @Html.Label("Заплановано годин на травень") 
+                           break;
+                                case 6:
+                                @Html.Label("Заплановано годин на червень") 
+                           break;
+                                case 7:
+                                @Html.Label("Заплановано годин на липень") 
+                           break;
+                                case 8:
+                                @Html.Label("Заплановано годин на серпень") 
+                           break;
+                                case 9:
+                                @Html.Label("Заплановано годин на вересень") 
+                           break;
+                                case 10:
+                                @Html.Label("Заплановано годин на жовтень") 
+                           break;
+                                case 11:
+                                @Html.Label("Заплановано годин на листопад") 
+                           break;
+                                case 12:
+                                @Html.Label("Заплановано годин на грудень") 
+                           break;
+                            }
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Ім'я працівника
+                        </th>
+                        <th>
+                            К-сть годин
+                        </th>
+                        <th>
+                            Ставка
+                        </th>
+                    </tr>
+                    @foreach (var keyValuePair in ViewBag.EployeesRate)
+                    {
+                        if ((keyValuePair.Value[1] - keyValuePair.Value[0]) > 10)
+                        {
+                        @Html.Raw("<tr class=\"rate_green\">")
+                        }
+                        else if ((keyValuePair.Value[1] - keyValuePair.Value[0]) > 5)
+                        {
+                        @Html.Raw("<tr class=\"rate_yellow\">")
+                        }
+                        else
+                        {
+                        @Html.Raw("<tr class=\"rate_red\">")
+                        }
+                      
+                        <td>
+                            @keyValuePair.Key
+                        </td>
+                       foreach (var ratePair in keyValuePair.Value)
+                       {
+                        <td>
+                            @ratePair.ToString()
+                        </td>
+                       }
+                        @Html.Raw("</tr>")
+                        
+                    }
+                </table>
+            </td>
+        </tr>
+    </table>  
+    <div>
+        Сторінка @(ViewBag.PageCount < ViewBag.PageNo ? 0 : ViewBag.PageNo)
+        з @ViewBag.PageCount
+        &nbsp;
+        @if (ViewBag.HasPreviousPage)
+        { 
+            @Html.ActionLink("<<", "Index", new { page = 1, }) 
+            @Html.Raw("&nbsp;"); 
+            @Html.ActionLink("< Попередня", "Index", new { pageNo = ViewBag.PageNo - 1 }) 
+        }
+        else
+        { 
+            @:<<
+        @Html.Raw("&nbsp;"); 
+            @:< Попередня
+                    }
+        &nbsp;
+        @if (ViewBag.HasNextPage)
+        { 
+            @Html.ActionLink("Наступна >", "Index", new { pageNo = ViewBag.PageNo + 1 }) 
+            @Html.Raw("&nbsp;"); 
+            @Html.ActionLink(">>", "Index", new { pageNo = ViewBag.PageCount }) 
+        }
+        else
+        { 
+            @:Наступна >
+        @Html.Raw("&nbsp;") 
+            @:>>
+                    }
+    </div>
+   
+    <input type="submit" value="Зберегти зміни" formaction="Index?date=@ViewBag.Date"/>
+
 }
-
-</table>
-*@

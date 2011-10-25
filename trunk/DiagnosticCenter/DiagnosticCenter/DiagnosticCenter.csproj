@@ -79,7 +79,6 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\PlanController.cs" />
-    <Compile Include="Controllers\ReferralController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,6 +230,7 @@
     <Content Include="bin\PagedList.xml" />
     <Content Include="bin\ru\DiagnosticCenter.resources.dll" />
     <Content Include="bin\uk\DiagnosticCenter.resources.dll" />
+    <Content Include="Content\Plan.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -360,10 +360,6 @@
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
     <Content Include="Views\Plan\Index.cshtml" />
-    <Content Include="Views\Plan\Details.cshtml" />
-    <Content Include="Views\Plan\Create.cshtml" />
-    <Content Include="Views\Plan\Edit.cshtml" />
-    <Content Include="Views\Plan\Delete.cshtml" />
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Patients\Search.cshtml" />
@@ -375,6 +371,7 @@
     <Content Include="Views\Departments\Edit.cshtml" />
     <Content Include="Views\Shared\_CultureChooserPartial.cshtml" />
     <Content Include="Views\Referral\Index.cshtml" />
+    <Content Include="Views\Plan\ErrorMsg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Views\Account\AccountStrings.ru.resx">
@@ -533,7 +530,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>43632</DevelopmentServerPort>
+          <DevelopmentServerPort>1046</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
