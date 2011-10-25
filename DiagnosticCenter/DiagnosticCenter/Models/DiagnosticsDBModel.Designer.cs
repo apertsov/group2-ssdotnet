@@ -546,17 +546,13 @@ namespace DiagnosticCenter.Models
         /// <param name="date">Initial value of the Date property.</param>
         /// <param name="startTime">Initial value of the StartTime property.</param>
         /// <param name="endTime">Initial value of the EndTime property.</param>
-        /// <param name="startBreak">Initial value of the StartBreak property.</param>
-        /// <param name="endBreak">Initial value of the EndBreak property.</param>
-        public static Day CreateDay(global::System.Int32 iD_Day, global::System.DateTime date, global::System.DateTime startTime, global::System.DateTime endTime, global::System.DateTime startBreak, global::System.DateTime endBreak)
+        public static Day CreateDay(global::System.Int32 iD_Day, global::System.DateTime date, global::System.DateTime startTime, global::System.DateTime endTime)
         {
             Day day = new Day();
             day.ID_Day = iD_Day;
             day.Date = date;
             day.StartTime = startTime;
             day.EndTime = endTime;
-            day.StartBreak = startBreak;
-            day.EndBreak = endBreak;
             return day;
         }
 
@@ -661,54 +657,6 @@ namespace DiagnosticCenter.Models
         private global::System.DateTime _EndTime;
         partial void OnEndTimeChanging(global::System.DateTime value);
         partial void OnEndTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime StartBreak
-        {
-            get
-            {
-                return _StartBreak;
-            }
-            set
-            {
-                OnStartBreakChanging(value);
-                ReportPropertyChanging("StartBreak");
-                _StartBreak = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("StartBreak");
-                OnStartBreakChanged();
-            }
-        }
-        private global::System.DateTime _StartBreak;
-        partial void OnStartBreakChanging(global::System.DateTime value);
-        partial void OnStartBreakChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime EndBreak
-        {
-            get
-            {
-                return _EndBreak;
-            }
-            set
-            {
-                OnEndBreakChanging(value);
-                ReportPropertyChanging("EndBreak");
-                _EndBreak = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EndBreak");
-                OnEndBreakChanged();
-            }
-        }
-        private global::System.DateTime _EndBreak;
-        partial void OnEndBreakChanging(global::System.DateTime value);
-        partial void OnEndBreakChanged();
 
         #endregion
     
