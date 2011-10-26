@@ -1,22 +1,25 @@
 ﻿@model PagedList.IPagedList<DiagnosticCenter.Models.Cabinet>
 
 @{
-    ViewBag.Title = CabinetsRes.CabinetsStrings.AddCabinet;
+    ViewBag.Title = ViewRes.CabinetsStrings.AddCabinet;
 }
-
-<p>
-    @Html.ActionLink(CabinetsRes.CabinetsStrings.AddCabinet, "Create")
-</p>
+@using (Html.BeginForm())
+{
+    <p>
+        @ViewRes.CabinetsStrings.FilterTitle @Html.TextBox("SearchString") &nbsp; 
+        <input type="submit" value="@ViewRes.CabinetsStrings.FilterBtn" /> 
+    </p>
+}
 <table>
     <tr>
         <th>
-            Номер кабінету
+            @ViewRes.CabinetsStrings.CabinetNo
         </th>
         <th>
-            Номер телефону
+            @ViewRes.CabinetsStrings.CabinetPhoneNo
         </th>
         <th>
-            Опис
+            @ViewRes.CabinetsStrings.Description
         </th>
         <th></th>
     </tr>
@@ -33,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Редагувати", "Edit", new { id=item.ID_Cabinet }) |
-            @Html.ActionLink("Деталі", "Details", new { id=item.ID_Cabinet }) |
-            @Html.ActionLink("Видалити", "Delete", new { id=item.ID_Cabinet })
+            @Html.ActionLink(ViewRes.CabinetsStrings.Edit, "Edit", new { id=item.ID_Cabinet }) |
+            @Html.ActionLink(ViewRes.CabinetsStrings.Details, "Details", new { id=item.ID_Cabinet }) |
+            @Html.ActionLink(ViewRes.CabinetsStrings.Delete, "Delete", new { id=item.ID_Cabinet })
         </td>
     </tr>
 }
@@ -43,43 +46,31 @@
 </table>
 
 <div> 
-    Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount 
+    @ViewRes.CabinetsStrings.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) @ViewRes.CabinetsStrings.of @Model.PageCount 
     &nbsp; 
     @if (Model.HasPreviousPage) 
     { 
         @Html.ActionLink("<<", "Index", new { page = 1,}) 
         @Html.Raw("&nbsp;"); 
-        @Html.ActionLink("< Попередня", "Index", new { page = Model.PageNumber - 1 }) 
+        @Html.ActionLink("< " + ViewRes.CabinetsStrings.PrevPage, "Index", new { page = Model.PageNumber - 1 }) 
     } 
     else 
     { 
         @:<< 
         @Html.Raw("&nbsp;"); 
-        @:< Попередня 
+        @:< @ViewRes.CabinetsStrings.PrevPage 
     } 
     &nbsp; 
     @if (Model.HasNextPage) 
     { 
-        @Html.ActionLink("Наступна >", "Index", new { page = Model.PageNumber + 1}) 
+        @Html.ActionLink(@ViewRes.CabinetsStrings.NextPage + " >", "Index", new { page = Model.PageNumber + 1}) 
         @Html.Raw("&nbsp;"); 
         @Html.ActionLink(">>", "Index", new { page = Model.PageCount}) 
     } 
     else 
     { 
-        @:Наступна > 
+        @:@ViewRes.CabinetsStrings.NextPage > 
         @Html.Raw("&nbsp;") 
         @:>> 
     } 
 </div>
-
-@*@{ if (ViewBag.HasPrevious)
-   {
-       @Html.ActionLink("<<", "Index", new { page = (ViewBag.CurrentPage - 1) })
-  }
- }
-
-
-@{ if (ViewBag.HasMore)
-   {  @Html.ActionLink(">>", "Index", new { page = (ViewBag.CurrentPage + 1) }) 
-  }
- }*@

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using DiagnosticCenter.Models;
 using PagedList;
@@ -14,15 +12,20 @@ namespace DiagnosticCenter.Controllers
     {
         private DiagnosticsDBModelContainer Cabinets_db = new DiagnosticsDBModelContainer();
 
-        public ViewResult Index(int? page)
+        public ActionResult Index(string searchString, int? page)
         {
-
-            var pat = from p in Cabinets_db.Cabinets
-                      select p;
-            pat = pat.OrderBy(item => item.Number);
+            int itemsOnPage = 5; //TODO Read from Parameters table
+            
+            int cabNo = 0;
+            IOrderedQueryable<Cabinet> cab = Cabinets_db.Cabinets.OrderBy(c => c.Number); ;
+            if (int.TryParse(searchString, out cabNo))
+                cab = Cabinets_db.Cabinets.Where(c => c.Number == cabNo).OrderBy(c => c.Number);
+ 
             int pageIndex = (page ?? 1);
-            return View(pat.ToPagedList(pageIndex, 5));
+            return View(cab.ToPagedList(pageIndex, itemsOnPage));
         }
+
+
 
         public ViewResult Details(int id)
         {
@@ -77,11 +80,12 @@ namespace DiagnosticCenter.Controllers
                                         where cabinet.ID_Cabinet == id
                                         select cabinet;
 
-            foreach (var pat in query)
+            foreach (var cab in query)
             {
-                Cabinets_db.Cabinets.DeleteObject(pat);
+                Cabinets_db.Cabinets.DeleteObject(cab);
             }
             Cabinets_db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

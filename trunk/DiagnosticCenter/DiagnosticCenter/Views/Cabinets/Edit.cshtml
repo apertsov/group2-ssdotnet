@@ -1,7 +1,7 @@
 ﻿@model DiagnosticCenter.Models.Cabinet
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = ViewRes.CabinetsStrings.Cabinets + " - " + @ViewRes.CabinetsStrings.Edit;
 }
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
@@ -10,12 +10,12 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Кабінет</legend>
+        <legend>@ViewRes.CabinetsStrings.CabinetInfo</legend>
 
         @Html.HiddenFor(model => model.ID_Cabinet)
 
         <div class="editor-label">
-            Номер кабінету:
+            @ViewRes.CabinetsStrings.CabinetNo:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Number)
@@ -23,7 +23,7 @@
         </div>
 
         <div class="editor-label">
-            Номер телефону:
+            @ViewRes.CabinetsStrings.CabinetPhoneNo:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Phone)
@@ -31,7 +31,7 @@
         </div>
 
         <div class="editor-label">
-            Опис:
+            @ViewRes.CabinetsStrings.Description:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Description)
@@ -39,11 +39,11 @@
         </div>
 
         <p>
-            <input type="submit" value="Зберегти зміни" />
+            <input type="submit" value="@ViewRes.CabinetsStrings.SaveChanges" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Повернутись до списку кабінетів", "Index")
+    @Html.ActionLink(ViewRes.CabinetsStrings.ReturnToCabsList, "Index")
 </div>
