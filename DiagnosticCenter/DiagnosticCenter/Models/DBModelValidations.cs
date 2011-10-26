@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using DiagnosticCenter.Resources.Models.Cabinets;
+using DiagnosticCenter.Classes;
 
 namespace DiagnosticCenter.Models
 {
@@ -12,15 +11,18 @@ namespace DiagnosticCenter.Models
     public partial class Cabinet { }
     public class CabinetMetadata
     {     
-        [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^[0-9]+$", ErrorMessage = "Невірний формат")]
-        public global::System.Int32 Number {get; set;}
-        
-        [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})$", ErrorMessage = "Невірний формат")]
-        public global::System.String Phone {get; set;}
-        
-        public global::System.String Description {get; set;}
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
+        [RegularExpression("^[0-9]+$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
+        [LocalizedDisplayName("CabinetNo", NameResourceType = typeof(CabinetsFieldNames))]
+        public System.Int32 Number {get; set;}
+
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
+        [RegularExpression("^([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
+        [LocalizedDisplayName("CabinetPhoneNo", NameResourceType = typeof(CabinetsFieldNames))]
+        public System.String Phone {get; set;}
+
+        [LocalizedDisplayName("CabinetDescription", NameResourceType = typeof(CabinetsFieldNames))]
+        public System.String Description {get; set;}
     }
 
 //Day
@@ -29,15 +31,11 @@ namespace DiagnosticCenter.Models
     public class DayMetadata
     {
        
-        public global::System.DateTime Date {get; set;}
+        public System.DateTime Date {get; set;}
         
-        public global::System.DateTime StartTime {get; set;}
+        public System.DateTime StartTime {get; set;}
         
-        public global::System.DateTime EndTime {get; set;}
-        
-        public global::System.DateTime StartBreak {get; set;}
-        
-        public global::System.DateTime EndBreak {get; set;}
+        public System.DateTime EndTime {get; set;}
         
     }
 //Department

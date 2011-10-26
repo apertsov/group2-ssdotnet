@@ -1,5 +1,4 @@
 ﻿@using System.Web.Mvc.Html
-@using System.Web.UI.WebControls
 @{
     ViewBag.Title = "Формування розкладу роботи (" + ViewBag.DeptName + "):";
 }
@@ -29,9 +28,9 @@
 {
     <p>
     
-        Date: @Html.TextBox("datepicker")
+        @ViewRes.PlanStrings.Date: @Html.TextBox("datepicker")
         @Html.Hidden("altDatePicker")
-        <input type="submit" name ="DateChange" value="Оновити дані" />
+        <input type="submit" name ="DateChange" value="@ViewRes.PlanStrings.UpdateData" />
     </p>
 }  
 @using (Html.BeginForm("Index", "Plan"))
@@ -45,20 +44,20 @@
                 <table>
                     <tr>
                         <th colspan= @(ViewBag.CabCount + 2)>
-                            Формування розкладу роботи (@ViewBag.DeptName):
+                            @ViewRes.PlanStrings.GeneratingPlanOn (@ViewBag.DeptName):
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            Дата
+                            @ViewRes.PlanStrings.Date
                         </th>
                         <th>
-                            Час
+                            @ViewRes.PlanStrings.Time
                         </th>
                         @foreach (var item in ViewBag.EmployeesWithCabinets)
                         { 
                             <th>
-                                Кабінет №@(item)
+                                @ViewRes.PlanStrings.CabinetNo @(item)
                             </th>
                         }
                     </tr>
@@ -88,14 +87,14 @@
                                     {
                                         @Html.DropDownList(string.Format("ID_Employee {0} {1}", rowIndex.ToString(), colIndex.ToString()),
                                                             (List<SelectListItem>)cab,
-                                                            "- Оберіть лікаря -"
+                                                            ViewRes.PlanStrings.ChooseDoctor
                                             )
                                     }
                                     else
                                     {
                                         @Html.DropDownList(string.Format("ID_Employee {0} {1}", rowIndex.ToString(), colIndex.ToString()),
                                                             (List<SelectListItem>)cab,
-                                                            "- Оберіть лікаря -",
+                                                            ViewRes.PlanStrings.ChooseDoctor,
                                                             new
                                                             {
                                                                 disabled = "disabled",
@@ -111,60 +110,60 @@
                     }
                 </table>
             </td>
-            <td valign="top">
+            <td>
                 <table>
                     <tr>
                         <th colspan="3">
                             @switch (DateTime.Today.Month)
                             {
                                 case 1:
-                                @Html.Label("Заплановано годин на січень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn.ToLower() + " " + ViewRes.PlanStrings.January.ToLower() + ":") 
                            break;
                                 case 2:
-                                @Html.Label("Заплановано годин на лютий") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.February.ToLower() + ":")
                            break;
                                 case 3:
-                                @Html.Label("Заплановано годин на березень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.March.ToLower() + ":")
                            break;
                                 case 4:
-                                @Html.Label("Заплановано годин на квітень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.April.ToLower() + ":")
                            break;
                                 case 5:
-                                @Html.Label("Заплановано годин на травень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.May.ToLower() + ":")
                            break;
                                 case 6:
-                                @Html.Label("Заплановано годин на червень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.June.ToLower() + ":")
                            break;
                                 case 7:
-                                @Html.Label("Заплановано годин на липень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.July.ToLower() + ":")
                            break;
                                 case 8:
-                                @Html.Label("Заплановано годин на серпень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.August.ToLower() + ":")
                            break;
                                 case 9:
-                                @Html.Label("Заплановано годин на вересень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.September.ToLower() + ":")
                            break;
                                 case 10:
-                                @Html.Label("Заплановано годин на жовтень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.October.ToLower() + ":")
                            break;
                                 case 11:
-                                @Html.Label("Заплановано годин на листопад") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.November.ToLower() + ":")
                            break;
                                 case 12:
-                                @Html.Label("Заплановано годин на грудень") 
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.December.ToLower() + ":")
                            break;
                             }
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            Ім'я працівника
+                            @ViewRes.PlanStrings.EmployeeName
                         </th>
                         <th>
-                            К-сть годин
+                            @ViewRes.PlanStrings.EmployeeHours
                         </th>
                         <th>
-                            Ставка
+                            @ViewRes.PlanStrings.EmploeeRate
                         </th>
                     </tr>
                     @foreach (var keyValuePair in ViewBag.EployeesRate)
@@ -199,36 +198,36 @@
         </tr>
     </table>  
     <div>
-        Сторінка @(ViewBag.PageCount < ViewBag.PageNo ? 0 : ViewBag.PageNo)
-        з @ViewBag.PageCount
+        @ViewRes.PlanStrings.Page @(ViewBag.PageCount < ViewBag.PageNo ? 0 : ViewBag.PageNo)
+        @ViewRes.PlanStrings.of @ViewBag.PageCount
         &nbsp;
         @if (ViewBag.HasPreviousPage)
         { 
             @Html.ActionLink("<<", "Index", new { page = 1, }) 
-            @Html.Raw("&nbsp;"); 
-            @Html.ActionLink("< Попередня", "Index", new { pageNo = ViewBag.PageNo - 1 }) 
+            @Html.Raw("&nbsp;")
+            @Html.ActionLink("< " + ViewRes.PlanStrings.PrevPage, "Index", new { pageNo = ViewBag.PageNo - 1 }) 
         }
         else
         { 
             @:<<
-        @Html.Raw("&nbsp;"); 
-            @:< Попередня
+        @Html.Raw("&nbsp;")
+            @:< @ViewRes.PlanStrings.PrevPage
                     }
         &nbsp;
         @if (ViewBag.HasNextPage)
         { 
-            @Html.ActionLink("Наступна >", "Index", new { pageNo = ViewBag.PageNo + 1 }) 
-            @Html.Raw("&nbsp;"); 
+            @Html.ActionLink(ViewRes.PlanStrings.NextPage + " >", "Index", new { pageNo = ViewBag.PageNo + 1 }) 
+            @Html.Raw("&nbsp;")
             @Html.ActionLink(">>", "Index", new { pageNo = ViewBag.PageCount }) 
         }
         else
         { 
-            @:Наступна >
+            @:@ViewRes.PlanStrings.NextPage >
         @Html.Raw("&nbsp;") 
             @:>>
                     }
     </div>
    
-    <input type="submit" value="Зберегти зміни" formaction="Index?date=@ViewBag.Date"/>
+    <input type="submit" value="@ViewRes.PlanStrings.SaveChanges" formaction="Index?date=@ViewBag.Date"/>
 
 }

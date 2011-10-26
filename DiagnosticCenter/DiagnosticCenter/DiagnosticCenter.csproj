@@ -70,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\LocalizedDisplayName.cs" />
     <Compile Include="Classes\MailSender.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CabinetsController.cs" />
@@ -92,6 +93,31 @@
     </Compile>
     <Compile Include="Models\EmployeeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Models\Cabinets\CabinetsFieldNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabinetsFieldNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Cabinets\CabinetsFieldNames.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabinetsFieldNames.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Cabinets\CabinetsFieldNames.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabinetsFieldNames.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Cabinets\CabinetsValidationStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabinetsValidationStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Cabinets\CabinetsValidationStrings.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabinetsValidationStrings.ru.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Account\AccountStrings.ru.Designer.cs">
       <DependentUpon>AccountStrings.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -374,6 +400,27 @@
     <Content Include="Views\Plan\ErrorMsg.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CabinetsFieldNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CabinetsFieldNames.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CabinetsFieldNames.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsValidationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CabinetsValidationStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsValidationStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CabinetsValidationStrings.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsValidationStrings.uk.resx" />
     <EmbeddedResource Include="Resources\Views\Account\AccountStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AccountStrings.ru.Designer.cs</LastGenOutput>
@@ -392,17 +439,17 @@
     <EmbeddedResource Include="Resources\Views\Cabinets\CabinetsStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CabinetsStrings.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>CabinetsRes</CustomToolNamespace>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Cabinets\CabinetsStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CabinetsStrings.ru.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>CabinetsRes</CustomToolNamespace>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Cabinets\CabinetsStrings.uk.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CabinetsStrings.uk.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>CabinetsRes</CustomToolNamespace>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Departments\DepartmentsStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -482,17 +529,17 @@
     <EmbeddedResource Include="Resources\Views\Plan\PlanStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlanStrings.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>PlanRes</CustomToolNamespace>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Plan\PlanStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlanStrings.ru.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>PlanRes</CustomToolNamespace>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Plan\PlanStrings.uk.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlanStrings.uk.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>PlanRes</CustomToolNamespace>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\SharedStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -530,7 +577,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1046</DevelopmentServerPort>
+          <DevelopmentServerPort>1044</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

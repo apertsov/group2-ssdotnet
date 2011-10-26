@@ -35,7 +35,8 @@ namespace DiagnosticCenter.Controllers
             {
                 date = Convert.ToDateTime(dateValue).Date;
             }
-            ViewBag.Date = date;
+
+            ViewBag.Date = date.ToShortDateString();
             
             //Визначаємо відділ, для якого буде виведено розклад та право на зміну розкладу (за авторизованим користувачам)
             Guid idUser = (Guid)Membership.GetUser(User.Identity.Name).ProviderUserKey;

@@ -120,4 +120,64 @@
   <data name="AddCabinet" xml:space="preserve">
     <value>Add сabinet</value>
   </data>
+  <data name="Cabinet" xml:space="preserve">
+    <value>Cabinet</value>
+  </data>
+  <data name="CabinetInfo" xml:space="preserve">
+    <value>Cabinet info</value>
+  </data>
+  <data name="CabinetNo" xml:space="preserve">
+    <value>Cabinet No.</value>
+  </data>
+  <data name="CabinetPhoneNo" xml:space="preserve">
+    <value>Cabinet phone No.</value>
+  </data>
+  <data name="Cabinets" xml:space="preserve">
+    <value>Cabinets</value>
+  </data>
+  <data name="ChooseDepartment" xml:space="preserve">
+    <value>- Choose depurtment - </value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="FilterBtn" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FilterTitle" xml:space="preserve">
+    <value>Filter by Cabinet</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="PrevPage" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="ReturnToCabsList" xml:space="preserve">
+    <value>Return to Cabinets list</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
 </root>

@@ -120,4 +120,64 @@
   <data name="AddCabinet" xml:space="preserve">
     <value>Добавить кабінет</value>
   </data>
+  <data name="Cabinet" xml:space="preserve">
+    <value>Кабинет</value>
+  </data>
+  <data name="CabinetInfo" xml:space="preserve">
+    <value>Информация о кабинете</value>
+  </data>
+  <data name="CabinetNo" xml:space="preserve">
+    <value>Кабинет №</value>
+  </data>
+  <data name="CabinetPhoneNo" xml:space="preserve">
+    <value>№ телефона</value>
+  </data>
+  <data name="Cabinets" xml:space="preserve">
+    <value>Кабинеты</value>
+  </data>
+  <data name="ChooseDepartment" xml:space="preserve">
+    <value>- Виберете отдел - </value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Отделение</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Детали</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Правка</value>
+  </data>
+  <data name="FilterBtn" xml:space="preserve">
+    <value>Фильтровать</value>
+  </data>
+  <data name="FilterTitle" xml:space="preserve">
+    <value>Фильтр по номеру кабинета</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Следующая</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>из</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Страница</value>
+  </data>
+  <data name="PrevPage" xml:space="preserve">
+    <value>Предидущая</value>
+  </data>
+  <data name="ReturnToCabsList" xml:space="preserve">
+    <value>Вернутся к списку кабинетов</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Сохранить измениния</value>
+  </data>
 </root>
