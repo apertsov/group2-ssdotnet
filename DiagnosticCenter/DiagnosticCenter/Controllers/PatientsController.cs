@@ -132,22 +132,12 @@ namespace DiagnosticCenter.Controllers
             patient = patient.OrderBy(p => p.FirstName);
             return View("Index",patient.ToPagedList(1,5));
         }
-        
-        public ActionResult SetReferral(int id)
-        {
-            Patient patient = context.Patients.Where(p => p.ID_Patient == id).First();
-            ViewBag.PatName = patient.FirstName;
-            ViewBag.PatSurname = patient.Surname;
-            return View();
-        }
 
-        [HttpPost]
-        public ActionResult SetReferral(Referral new_ref)
+        public ActionResult GetReferral(int id)
         {
-               
-            context.AddToReferrals(new_ref);
-            context.SaveChanges();
-           return View("~/Views/Shared/Print.chtml");
+            TempData["id"] = id.ToString();
+            return RedirectToAction("Index", "Referral");
         }
     }
+
 }

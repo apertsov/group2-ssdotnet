@@ -1,0 +1,74 @@
+﻿@model DiagnosticCenter.Models.ReferralVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Print</title>
+    <style type="text/css">
+        table { border-style:solid; 
+                border-width:thin;
+                border-color:#ccc;
+                font-size: 20px;
+              }
+        td { border-width:thin;
+             border-style:solid;
+             border-color:#ccc;
+        }
+    </style>
+</head>
+<body onload="javascript:window.print()">
+
+    <div style="margin: 0 auto;">
+        <table align="center">
+            <tr><th colspan="2">Направлення до лікаря</th></tr>
+            <tr>
+                <td>
+                Пацієнт:
+                </td>
+               
+                <td>
+                 @Model.patient
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Відділення:
+                </td>
+               
+                <td>
+                 @ViewBag.department
+                </td>
+            </tr>
+            <tr>
+            <td>Кабінет:
+            </td>
+            <td>@ViewBag.cabinet</td>
+            </tr>
+            <tr>
+            <td>Лікар:
+            </td>
+            <td>@ViewBag.employee</td>
+            </tr>
+            <tr>
+            <td>Дата прийому:
+            </td>
+            <td>@Model.visitDate</td>
+            </tr>
+            <tr>
+            <td>Дата виписки:
+            </td>
+            <td>@Model.todayDate </td>
+            </tr>
+        </table>
+        
+       
+        
+        
+        
+    </div>
+</body>
+</html>
