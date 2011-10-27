@@ -6,11 +6,8 @@
         <input type="submit" value="Знайти" /></p> 
 }
 <table align = "center">
+   
 
-@{
-    ViewBag.Controller = "Patients";
-    ViewBag.Action = "Patients.Index";
-}
  <tr>
         <th>
            @Html.ActionLink("Прізвище", "Index", new { sortOrder = ViewBag.SurameSortParm }) 
@@ -52,7 +49,9 @@
             @Html.ActionLink("Правити |", "Edit", new { id = item.ID_Patient })  
             @Html.ActionLink("Деталі", "Details", new { id = item.ID_Patient }) 
             @if(!User.IsInRole("MedicalRegistrar")){ @Html.ActionLink("| Видалити", "Delete", new { id = item.ID_Patient })}
-            @Html.ActionLink("| Виписати направлення","Index", "Referral","http",new { id = item.ID_Patient })
+            @Html.ActionLink("| Виписати направлення","GetReferral", new { id = item.ID_Patient })
+            
+            
         </td>
     </tr>
 }

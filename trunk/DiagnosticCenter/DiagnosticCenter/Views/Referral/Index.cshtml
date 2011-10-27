@@ -1,0 +1,62 @@
+﻿@model DiagnosticCenter.Models.ReferralVM
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Dept").change(function () {
+            
+            var url = '@Url.Content("~/")' + "Referral/Cabinet";
+            var ddlsource = "#Dept";
+            var ddltarget = "#Cab";
+            $.getJSON(url, { deptName: $(ddlsource).val() }, function (data) {
+                $(ddltarget).empty();
+                $.each(data, function (index, optionData) {
+                    $(ddltarget).append("<option value='" + optionData.Value + "'>" + optionData.Text + "</option>");
+                });
+
+            });
+        });
+
+        $("#Cab").change(function () { 
+            var url = '@Url.Content("~/")' + "Referral/Employee";
+            var ddlsource = "#Cab";
+            var ddltarget = "#Empl";
+            $.getJSON(url, { cabName: $(ddlsource).val() }, function (data) {
+                $(ddltarget).empty();
+                $.each(data, function (index, optionData) {
+                    $(ddltarget).append("<option value='" + optionData.Value + "'>" + optionData.Text + "</option>");
+                });
+
+            });
+        });
+    });
+  </script>
+  
+  @using (Html.BeginForm())
+  {
+<h2>Index</h2>
+<p>
+    @Html.Label("Пацієнт:")
+    @Html.EditorFor(item => item.patient)
+</p>
+<p>
+    @Html.Label("Відділення:")
+    @Html.DropDownList("Dept", Model.department)
+    
+</p>
+<p>
+    @Html.Label("Кабінет:")
+    @Html.DropDownList("Cab", Model.cabinet)
+</p>
+<p>
+    @Html.Label("Лікар:")
+    @Html.DropDownList("Empl", Model.employee)
+</p>
+<p>@Html.Label("Дата візиту:")
+   @Html.TextBox("Date")
+</p>
+<p>@Html.Label("Дата виписування:")
+   @Html.EditorFor(item => item.todayDate)
+</p>
+<p>
+    <input type="submit" value="Виписати"  />
+</p>
+  }
