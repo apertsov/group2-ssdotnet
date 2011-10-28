@@ -180,4 +180,10 @@
   <data name="SaveChanges" xml:space="preserve">
     <value>Save changes</value>
   </data>
+  <data name="Error1Recomendation" xml:space="preserve">
+    <value>There is no way to delete cabinet while any emplotee is associated with it</value>
+  </data>
+  <data name="Error1Text" xml:space="preserve">
+    <value>Cabinet deleting error</value>
+  </data>
 </root>

@@ -178,6 +178,24 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no way to delete cabinet while any emplotee is associated with it.
+        /// </summary>
+        public static string Error1Recomendation {
+            get {
+                return ResourceManager.GetString("Error1Recomendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cabinet deleting error.
+        /// </summary>
+        public static string Error1Text {
+            get {
+                return ResourceManager.GetString("Error1Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter.
         /// </summary>
         public static string FilterBtn {

@@ -180,4 +180,10 @@
   <data name="SaveChanges" xml:space="preserve">
     <value>Зберегти зміни</value>
   </data>
+  <data name="Error1Recomendation" xml:space="preserve">
+    <value>Неможливо видалити кабінет, поки хоча б один працівник пов'язаний з ним</value>
+  </data>
+  <data name="Error1Text" xml:space="preserve">
+    <value>Помилка видалення кабінету</value>
+  </data>
 </root>
