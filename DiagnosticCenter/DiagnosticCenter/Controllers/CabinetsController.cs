@@ -82,7 +82,18 @@ namespace DiagnosticCenter.Controllers
 
             foreach (var cab in query)
             {
-                Cabinets_db.Cabinets.DeleteObject(cab);
+                DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+                var empl = context.Employees.Where(e => e.Cabinet.ID_Cabinet == cab.ID_Cabinet);
+                if (empl.Count() == 0)
+                    Cabinets_db.Cabinets.DeleteObject(cab);
+                else
+                    return RedirectToAction("Index", "ErrorPage", new
+                                                                    {
+                                                                        errTitle = ViewRes.CabinetsStrings.Error1Text,
+                                                                        errDescription = ViewRes.CabinetsStrings.Error1Recomendation,
+                                                                        errGoBackAction = "Index",
+                                                                        errGoBackController = "Cabinets"
+                                                                    }); 
             }
             Cabinets_db.SaveChanges();
 

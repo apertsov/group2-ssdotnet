@@ -180,4 +180,10 @@
   <data name="SaveChanges" xml:space="preserve">
     <value>Сохранить измениния</value>
   </data>
+  <data name="Error1Recomendation" xml:space="preserve">
+    <value>Невозможно удалить кабинет, пока хоть один работник связан с ним</value>
+  </data>
+  <data name="Error1Text" xml:space="preserve">
+    <value>Ошибка удалениея кабинета</value>
+  </data>
 </root>

@@ -16,7 +16,7 @@ namespace DiagnosticCenter.Controllers
             return RedirectToAction("Index", new { PageNo = 1, dateValue = altDatePicker });
         }
         
-        public ViewResult Index(int? pageNo, string dateValue)
+        public ActionResult Index(int? pageNo, string dateValue)
         {
 //-------ДОРОБИТИ------------            
             const int cabsOnPage = 4; //TODO: Read form Paramters Table
@@ -42,7 +42,15 @@ namespace DiagnosticCenter.Controllers
             Guid idUser = (Guid)Membership.GetUser(User.Identity.Name).ProviderUserKey;
             var currEmployee = context.Employees.Where(e => e.ID_User == idUser);
             if (currEmployee.Count() == 0)
-                return View("ErrorMsg");
+            {
+                return RedirectToAction("Index", "ErrorPage", new
+                                                                {
+                                                                    errTitle = ViewRes.PlanStrings.Error1Text,
+                                                                    errDescription = ViewRes.PlanStrings.Error1Recomendation,
+                                                                    errGoBackAction = "Index",
+                                                                    errGoBackController = "Plan"
+                                                                });   
+            }
             int depId = currEmployee.First().ID_Dept;
 
             //Встановлюємо атрибут enable/disable для випадаючих списків 
@@ -368,7 +376,8 @@ namespace DiagnosticCenter.Controllers
             {
                 foreach (int emplId in lEmployeesOnPage)
                 {
-                    Employee employee = context.Employees.Where(e => e.ID_Employee == emplId).First();
+                    int emp = emplId;
+                    Employee employee = context.Employees.Where(e => e.ID_Employee == emp).First();
                     if (day.Employee.Contains(employee))
                     {
                         DiagnosticsDBModelContainer container = new DiagnosticsDBModelContainer();
