@@ -51,8 +51,9 @@
             @if(!User.IsInRole("MedicalRegistrar")){ @Html.ActionLink("| Видалити", "Delete", new { id = item.ID_Patient })}
             @Html.ActionLink("| Виписати направлення","GetReferral", new { id = item.ID_Patient })
             
+            @Html.ActionLink("Обстеження", "Index", "Examinations", new { id = item.ID_Patient }, null)
             
-        </td>
+       </td>
     </tr>
 }
 

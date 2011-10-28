@@ -19,8 +19,8 @@ namespace DiagnosticCenter.Controllers
         public ActionResult About()
         {
             //int depID = 2;
-            //var context = new DiagnosticsDBModelContainer();
-            //var employees = context.Employees.Where(e => e.ID_Dept == depID).ToList();
+            var context = new DiagnosticsDBModelContainer();
+            var cabinets = context.Cabinets.Include("Employee").ToList();
 
             //employees[i].Cabinet.Number
 

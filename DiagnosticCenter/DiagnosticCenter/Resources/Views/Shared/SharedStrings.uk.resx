@@ -144,6 +144,9 @@
   <data name="AllEmployees" xml:space="preserve">
     <value>Всі працівники</value>
   </data>
+  <data name="AllExaminationTypes" xml:space="preserve">
+    <value>Всі види обстежень</value>
+  </data>
   <data name="AllNews" xml:space="preserve">
     <value>Всі новини</value>
   </data>
@@ -166,7 +169,13 @@
     <value>Працівники</value>
   </data>
   <data name="ExaminationPatterns" xml:space="preserve">
-    <value>Шаблони обстеження</value>
+    <value>Шаблони обстежень</value>
+  </data>
+  <data name="ExaminationTypeCreate" xml:space="preserve">
+    <value>Новий вид</value>
+  </data>
+  <data name="ExaminationTypes" xml:space="preserve">
+    <value>Види обстежень</value>
   </data>
   <data name="FindEmployee" xml:space="preserve">
     <value>Пошук працівника</value>
@@ -175,7 +184,7 @@
     <value>Пошук пацієнта</value>
   </data>
   <data name="Headline" xml:space="preserve">
-    <value>Чернівецький Діагностичний Центр</value>
+    <value>Діагностичний Центр</value>
   </data>
   <data name="HideMenu" xml:space="preserve">
     <value>Згорнути меню</value>

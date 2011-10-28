@@ -1,24 +1,21 @@
 ﻿@model DiagnosticCenter.Models.LogOnModel
 
 @{
+    Layout = "~/Views/Shared/_LogOnLayout.cshtml";
     ViewBag.Title = "Log On";
 }
-
-<h2>Log On</h2>
-<!--p>
-    Please enter your user name and password. @Html.ActionLink("Register", "Register") if you don't have an account.
-</p-->
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
-@using (Html.BeginForm()) {
-    <div>
-        <fieldset>
-            <legend>Account Information</legend>
+<h1>Diagnostic Center</h1>
 
+<div id="loginform">
+@using (Html.BeginForm()) {
+    <div>        
+        <div class="in"> 
             <div class="editor-label">
                 @Html.LabelFor(m => m.UserName)
             </div>
@@ -26,7 +23,8 @@
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
             </div>
-
+        </div>
+        <div class="in">
             <div class="editor-label">
                 @Html.LabelFor(m => m.Password)
             </div>
@@ -34,15 +32,18 @@
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
-
+        </div>
+        <div class="in forgetmenot">
             <div class="editor-label">
                 @Html.CheckBoxFor(m => m.RememberMe)
                 @Html.LabelFor(m => m.RememberMe)
             </div>
-
+        </div>
+        <div class="in submit">
             <p>
                 <input type="submit" value="Log On" />
             </p>
-        </fieldset>
+        </div>
     </div>
 }
+</div>

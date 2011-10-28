@@ -130,7 +130,7 @@
     <value>Создать новость</value>
   </data>
   <data name="AddPatient" xml:space="preserve">
-    <value>Добавить пацыента</value>
+    <value>Добавить пациента</value>
   </data>
   <data name="AddPattern" xml:space="preserve">
     <value>Создать шаблон</value>
@@ -143,6 +143,9 @@
   </data>
   <data name="AllEmployees" xml:space="preserve">
     <value>Все работники</value>
+  </data>
+  <data name="AllExaminationTypes" xml:space="preserve">
+    <value>Все типы</value>
   </data>
   <data name="AllNews" xml:space="preserve">
     <value>Все новости</value>
@@ -157,7 +160,7 @@
     <value>Кабинеты</value>
   </data>
   <data name="Departments" xml:space="preserve">
-    <value>Отделение</value>
+    <value>Отделения</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
@@ -166,7 +169,13 @@
     <value>Работники</value>
   </data>
   <data name="ExaminationPatterns" xml:space="preserve">
-    <value>Шаблон обследования</value>
+    <value>Шаблоны обследований</value>
+  </data>
+  <data name="ExaminationTypeCreate" xml:space="preserve">
+    <value>Новый тип</value>
+  </data>
+  <data name="ExaminationTypes" xml:space="preserve">
+    <value>Типы обследований</value>
   </data>
   <data name="FindEmployee" xml:space="preserve">
     <value>Поиск работника</value>
@@ -175,7 +184,7 @@
     <value>Поиск пациента</value>
   </data>
   <data name="Headline" xml:space="preserve">
-    <value>Черновицкий Диагностический Центр</value>
+    <value>Диагностический Центр</value>
   </data>
   <data name="HideMenu" xml:space="preserve">
     <value>Свернуть меню</value>
