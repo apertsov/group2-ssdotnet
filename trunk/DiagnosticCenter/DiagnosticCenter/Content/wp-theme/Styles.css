@@ -365,8 +365,9 @@ header, #header {
 
 .inner
 {
-    padding-top: 37px;
+    padding-top: 57px;
     padding-bottom: 70px;
+    padding-right: 10px;
 }
 
 /*
@@ -991,14 +992,133 @@ body.admin-bar #wphead, body.admin-bar #adminmenu {
 {
     padding-top: 3px;
 }
- .patient {margin: 0 auto; width:50%; text-align:center; margin-top:50px;}
-    #formholder { margin-left:25%; text-align:left;}
+
+
+
+table.fixed {
+    table-layout: fixed;
+}
+
+body #maincontent table.widefat {
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px; 
+    border-spacing: 0;
+    border-style: solid;
+    border-width: 1px;
+   
+    margin: 0;
+    width: 100%;
+}
+.widefat * {
+    word-wrap: break-word;
+}
+.widefat a {
+    text-decoration: none;
+}
+.widefat thead th:first-of-type {
+    border-top-left-radius: 3px;
+}
+.widefat thead th:last-of-type {
+    border-top-right-radius: 3px;
+}
+.widefat tfoot th:first-of-type {
+    border-bottom-left-radius: 3px;
+}
+.widefat tfoot th:last-of-type {
+    border-bottom-right-radius: 3px;
+}
+.widefat td, .widefat th {
+    border-style: solid;
+    border-width: 1px 0;
+}
+.widefat tfoot th {
+    border-bottom: medium none;
+}
+.widefat .no-items td {
+    border-bottom-width: 0;
+}
+.widefat td {
+    font-size: 12px;
+    padding: 4px 7px 2px;
+    vertical-align: top;
+}
+.widefat td p, .widefat td ol, .widefat td ul {
+    font-size: 12px;
+}
+.widefat th {
+    font-size: 14px;
+    line-height: 1.3em;
+    padding: 7px 7px 8px;
+    text-align: left;
+}
+.widefat th input {
+    margin: 0 0 0 8px;
+    padding: 0;
+    vertical-align: text-top;
+}
+.widefat .check-column {
+    padding: 11px 0 0;
+    vertical-align: top;
+    width: 2.2em;
+}
+.widefat tbody th.check-column {
+    padding: 9px 0 22px;
+}
+.widefat .num, .column-comments, .column-links, .column-posts {
+    text-align: center;
+}
+.widefat th#comments {
+    vertical-align: middle;
+}
+
+#maincontent form input[type="button"], 
+#maincontent form input[type="submit"], 
+#maincontent form input[type="reset"]
+{
+    -moz-box-sizing: content-box;
+    border-radius: 11px 11px 11px 11px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    font-size: 12px !important;
+    line-height: 13px;
+    padding: 3px 8px;
+    text-decoration: none;
+}
+
+
+.patient 
+{
+    margin: 0 auto; 
+    width:50%; 
+    text-align:center; 
+    margin-top:50px;
+}
+
+#formholder  
+{
+    margin-left:25%; 
+    text-align:left;
+}
     
-    #formholder .inputs {text-align:right;}
-    #formholder textarea {width:350px;}
-    
-    
-    .news_title { color:navy;
+#formholder .inputs 
+{
+    text-align:right;
+}
+#formholder textarea 
+{
+    width:350px;
+}
+
+.news_title  
+{
+    color:navy;
     text-decoration:underline;
-    }
-    .news_div{width:400px; border: 1px solid #aaa; padding:5px;}
+}
+.news_div
+{
+    width:400px; 
+    border: 1px solid #aaa; 
+    padding:5px;
+}

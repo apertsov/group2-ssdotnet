@@ -118,16 +118,22 @@ a:hover, #adminmenu a:hover {
     background: url("images/menu.png") no-repeat scroll -271px -1px transparent;
 }
 #adminmenu .menu-icon-plan div.menu-image {
-    background: url("images/menu.png") no-repeat scroll -150px -33px transparent;
+    background: url("images/menu.png") no-repeat scroll -210px -33px transparent;
 }
 #adminmenu .menu-icon-plan:hover div.menu-image, #adminmenu .menu-icon-plan.has-current-submenu div.menu-image {
-    background: url("images/menu.png") no-repeat scroll -150px -1px transparent;
+    background: url("images/menu.png") no-repeat scroll -210px -1px transparent;
 }
 #adminmenu .menu-icon-empl div.menu-image {
     background: url("images/menu.png") no-repeat scroll -331px -33px transparent;
 }
 #adminmenu .menu-icon-empl:hover div.menu-image, #adminmenu .menu-icon-empl.has-current-submenu div.menu-image, #adminmenu .menu-icon-empl.current div.menu-image {
     background: url("images/menu.png") no-repeat scroll -330px -1px transparent;
+}
+#adminmenu .menu-icon-extemplates div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -180px -33px transparent;
+}
+#adminmenu .menu-icon-extemplates:hover div.menu-image, #adminmenu .menu-icon-extemplates.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -180px -1px transparent;
 }
 
 
@@ -326,6 +332,17 @@ a, #adminmenu a, #poststuff #edButtonPreview, #poststuff #edButtonHTML, #the-com
 }
 .folded #collapse-button div {
     background-position: 0 -108px;
+}
+
+
+.widefat {
+    background-color: #F9F9F9;
+    border-color: #DFDFDF;
+}
+
+.widget .widget-top, .postbox h3, .stuffbox h3, .widefat thead tr th, .widefat tfoot tr th, h3.dashboard-widget-title, h3.dashboard-widget-title span, h3.dashboard-widget-title small, .find-box-head, .sidebar-name, #nav-menu-header, #nav-menu-footer, .menu-item-handle, #fullscreen-topbar {
+    background-color: #F1F1F1;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #ECECEC);
 }
 
 /*

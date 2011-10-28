@@ -27,8 +27,10 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "EmployeeExamination", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Employee), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Examination), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "PatientExamination", "Patient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Patient), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Examination), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ReferralExamination", "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Referral), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Examination))]
-[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ExaminationTypeExamination", "ExaminationType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.ExaminationType), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Examination))]
+[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ExaminationTypeExamination", "ExaminationType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.ExaminationType), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Examination))]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "DepartmentCabinet", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Department), "Cabinet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Cabinet), true)]
+[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ExaminationTypeExaminationTemplate", "ExaminationType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.ExaminationType), "ExaminationTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.ExaminationTemplate), true)]
+[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "EmployeeExaminationTemplate", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Employee), "ExaminationTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.ExaminationTemplate), true)]
 
 #endregion
 
@@ -223,6 +225,22 @@ namespace DiagnosticCenter.Models
             }
         }
         private ObjectSet<ExaminationType> _ExaminationTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ExaminationTemplate> ExaminationTemplates
+        {
+            get
+            {
+                if ((_ExaminationTemplates == null))
+                {
+                    _ExaminationTemplates = base.CreateObjectSet<ExaminationTemplate>("ExaminationTemplates");
+                }
+                return _ExaminationTemplates;
+            }
+        }
+        private ObjectSet<ExaminationTemplate> _ExaminationTemplates;
 
         #endregion
         #region AddTo Methods
@@ -297,6 +315,14 @@ namespace DiagnosticCenter.Models
         public void AddToExaminationTypes(ExaminationType examinationType)
         {
             base.AddObject("ExaminationTypes", examinationType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ExaminationTemplates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToExaminationTemplates(ExaminationTemplate examinationTemplate)
+        {
+            base.AddObject("ExaminationTemplates", examinationTemplate);
         }
 
         #endregion
@@ -1395,6 +1421,28 @@ namespace DiagnosticCenter.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "EmployeeExaminationTemplate", "ExaminationTemplate")]
+        public EntityCollection<ExaminationTemplate> ExaminationTemplates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ExaminationTemplate>("DiagnosticsDBModel.EmployeeExaminationTemplate", "ExaminationTemplate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ExaminationTemplate>("DiagnosticsDBModel.EmployeeExaminationTemplate", "ExaminationTemplate", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1846,6 +1894,270 @@ namespace DiagnosticCenter.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DiagnosticsDBModel", Name="ExaminationTemplate")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ExaminationTemplate : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ExaminationTemplate object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="body">Initial value of the Body property.</param>
+        /// <param name="examinationTypeID_ExmType">Initial value of the ExaminationTypeID_ExmType property.</param>
+        /// <param name="employeeID_Employee">Initial value of the EmployeeID_Employee property.</param>
+        /// <param name="isPrivate">Initial value of the IsPrivate property.</param>
+        public static ExaminationTemplate CreateExaminationTemplate(global::System.Int32 id, global::System.String name, global::System.String body, global::System.Int32 examinationTypeID_ExmType, global::System.Int32 employeeID_Employee, global::System.Boolean isPrivate)
+        {
+            ExaminationTemplate examinationTemplate = new ExaminationTemplate();
+            examinationTemplate.Id = id;
+            examinationTemplate.Name = name;
+            examinationTemplate.Body = body;
+            examinationTemplate.ExaminationTypeID_ExmType = examinationTypeID_ExmType;
+            examinationTemplate.EmployeeID_Employee = employeeID_Employee;
+            examinationTemplate.IsPrivate = isPrivate;
+            return examinationTemplate;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Body
+        {
+            get
+            {
+                return _Body;
+            }
+            set
+            {
+                OnBodyChanging(value);
+                ReportPropertyChanging("Body");
+                _Body = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Body");
+                OnBodyChanged();
+            }
+        }
+        private global::System.String _Body;
+        partial void OnBodyChanging(global::System.String value);
+        partial void OnBodyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ExaminationTypeID_ExmType
+        {
+            get
+            {
+                return _ExaminationTypeID_ExmType;
+            }
+            set
+            {
+                OnExaminationTypeID_ExmTypeChanging(value);
+                ReportPropertyChanging("ExaminationTypeID_ExmType");
+                _ExaminationTypeID_ExmType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ExaminationTypeID_ExmType");
+                OnExaminationTypeID_ExmTypeChanged();
+            }
+        }
+        private global::System.Int32 _ExaminationTypeID_ExmType;
+        partial void OnExaminationTypeID_ExmTypeChanging(global::System.Int32 value);
+        partial void OnExaminationTypeID_ExmTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EmployeeID_Employee
+        {
+            get
+            {
+                return _EmployeeID_Employee;
+            }
+            set
+            {
+                OnEmployeeID_EmployeeChanging(value);
+                ReportPropertyChanging("EmployeeID_Employee");
+                _EmployeeID_Employee = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EmployeeID_Employee");
+                OnEmployeeID_EmployeeChanged();
+            }
+        }
+        private global::System.Int32 _EmployeeID_Employee;
+        partial void OnEmployeeID_EmployeeChanging(global::System.Int32 value);
+        partial void OnEmployeeID_EmployeeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsPrivate
+        {
+            get
+            {
+                return _IsPrivate;
+            }
+            set
+            {
+                OnIsPrivateChanging(value);
+                ReportPropertyChanging("IsPrivate");
+                _IsPrivate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsPrivate");
+                OnIsPrivateChanged();
+            }
+        }
+        private global::System.Boolean _IsPrivate;
+        partial void OnIsPrivateChanging(global::System.Boolean value);
+        partial void OnIsPrivateChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "ExaminationTypeExaminationTemplate", "ExaminationType")]
+        public ExaminationType ExaminationType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExaminationType>("DiagnosticsDBModel.ExaminationTypeExaminationTemplate", "ExaminationType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExaminationType>("DiagnosticsDBModel.ExaminationTypeExaminationTemplate", "ExaminationType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ExaminationType> ExaminationTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExaminationType>("DiagnosticsDBModel.ExaminationTypeExaminationTemplate", "ExaminationType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ExaminationType>("DiagnosticsDBModel.ExaminationTypeExaminationTemplate", "ExaminationType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "EmployeeExaminationTemplate", "Employee")]
+        public Employee Employee
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DiagnosticsDBModel.EmployeeExaminationTemplate", "Employee").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DiagnosticsDBModel.EmployeeExaminationTemplate", "Employee").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Employee> EmployeeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DiagnosticsDBModel.EmployeeExaminationTemplate", "Employee");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DiagnosticsDBModel.EmployeeExaminationTemplate", "Employee", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="DiagnosticsDBModel", Name="ExaminationType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1860,13 +2172,15 @@ namespace DiagnosticCenter.Models
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="price">Initial value of the Price property.</param>
         /// <param name="duration">Initial value of the Duration property.</param>
-        public static ExaminationType CreateExaminationType(global::System.Int32 iD_ExmType, global::System.String description, global::System.Double price, global::System.Int32 duration)
+        /// <param name="name">Initial value of the Name property.</param>
+        public static ExaminationType CreateExaminationType(global::System.Int32 iD_ExmType, global::System.String description, global::System.Double price, global::System.Int32 duration, global::System.String name)
         {
             ExaminationType examinationType = new ExaminationType();
             examinationType.ID_ExmType = iD_ExmType;
             examinationType.Description = description;
             examinationType.Price = price;
             examinationType.Duration = duration;
+            examinationType.Name = name;
             return examinationType;
         }
 
@@ -1971,6 +2285,30 @@ namespace DiagnosticCenter.Models
         private global::System.Int32 _Duration;
         partial void OnDurationChanging(global::System.Int32 value);
         partial void OnDurationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
 
         #endregion
     
@@ -1983,33 +2321,39 @@ namespace DiagnosticCenter.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "ExaminationTypeExamination", "Examination")]
-        public Examination Examination
+        public EntityCollection<Examination> Examinations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Examination>("DiagnosticsDBModel.ExaminationTypeExamination", "Examination").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Examination>("DiagnosticsDBModel.ExaminationTypeExamination", "Examination").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Examination> ExaminationReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Examination>("DiagnosticsDBModel.ExaminationTypeExamination", "Examination");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Examination>("DiagnosticsDBModel.ExaminationTypeExamination", "Examination");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Examination>("DiagnosticsDBModel.ExaminationTypeExamination", "Examination", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Examination>("DiagnosticsDBModel.ExaminationTypeExamination", "Examination", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "ExaminationTypeExaminationTemplate", "ExaminationTemplate")]
+        public EntityCollection<ExaminationTemplate> ExaminationTemplates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ExaminationTemplate>("DiagnosticsDBModel.ExaminationTypeExaminationTemplate", "ExaminationTemplate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ExaminationTemplate>("DiagnosticsDBModel.ExaminationTypeExaminationTemplate", "ExaminationTemplate", value);
                 }
             }
         }

@@ -2,10 +2,58 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using DiagnosticCenter.Resources.Models.Cabinets;
+using DiagnosticCenter.Resources.Models.Examinations;
 using DiagnosticCenter.Classes;
 
 namespace DiagnosticCenter.Models
 {
+// ExaminationType
+    [MetadataType(typeof(ExaminationTypeMetadata))]
+    public partial class ExaminationType { }
+    public class ExaminationTypeMetadata
+    {
+        [Required(ErrorMessageResourceName = "NameRequired", ErrorMessageResourceType = typeof(ExaminationTypesStrings))]
+        [Display(ResourceType = typeof(ExaminationTypesStrings), Name = "ExaminationTypeName")]
+        public global::System.String Name;
+
+        [Required(ErrorMessageResourceName = "DescriptionRequired", ErrorMessageResourceType = typeof(ExaminationTypesStrings))]
+        [Display(ResourceType = typeof(ExaminationTypesStrings), Name = "ExaminationTypeDescription")]
+        public global::System.String Description;
+
+        [Required(ErrorMessageResourceName = "PriceRequired", ErrorMessageResourceType = typeof(ExaminationTypesStrings))]
+        [Display(ResourceType = typeof(ExaminationTypesStrings), Name = "ExaminationTypePrice")]
+        public global::System.Double Price;
+
+        [Required(ErrorMessageResourceName = "DurationRequired", ErrorMessageResourceType = typeof(ExaminationTypesStrings))]
+        [Display(ResourceType = typeof(ExaminationTypesStrings), Name = "ExaminationTypeDuration")]
+        public global::System.Int32 Duration;
+    }
+
+// ExaminationTemplate
+    [MetadataType(typeof(ExaminationTemplateMetadata))]
+    public partial class ExaminationTemplate { }
+    public class ExaminationTemplateMetadata
+    {
+        [Required(ErrorMessageResourceName = "NameRequired", ErrorMessageResourceType = typeof(ExaminationTemplatesStrings))]
+        [Display(ResourceType = typeof(ExaminationTemplatesStrings), Name = "TemplateName")]
+        public global::System.String Name;
+
+        [Required(ErrorMessageResourceName = "BodyRequired", ErrorMessageResourceType = typeof(ExaminationTemplatesStrings))]
+        [Display(ResourceType = typeof(ExaminationTemplatesStrings), Name = "TemplateBody")]
+        public global::System.String Body;
+
+        [Required(ErrorMessageResourceName = "TypeRequired", ErrorMessageResourceType = typeof(ExaminationTemplatesStrings))]
+        [Display(ResourceType = typeof(ExaminationTemplatesStrings), Name = "ExaminationType")]
+        public global::System.Int32 ExaminationTypeID_ExmType;
+
+        [Required(ErrorMessageResourceName = "AuthorRequired", ErrorMessageResourceType = typeof(ExaminationTemplatesStrings))]
+        [Display(ResourceType = typeof(ExaminationTemplatesStrings), Name = "Author")]
+        public global::System.Int32 EmployeeID_Employee;
+
+        [Display(ResourceType = typeof(ExaminationTemplatesStrings), Name = "IsRequired")]
+        public global::System.Boolean IsPrivate;
+    }
+
 //Cabinet    
     [MetadataType(typeof(CabinetMetadata))]
     public partial class Cabinet { }
@@ -13,15 +61,15 @@ namespace DiagnosticCenter.Models
     {     
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
         [RegularExpression("^[0-9]+$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
-        [LocalizedDisplayName("CabinetNo", NameResourceType = typeof(CabinetsFieldNames))]
+        //[LocalizedDisplayName("CabinetNo", NameResourceType = typeof(CabinetsFieldNames))]
         public System.Int32 Number {get; set;}
 
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
         [RegularExpression("^([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
-        [LocalizedDisplayName("CabinetPhoneNo", NameResourceType = typeof(CabinetsFieldNames))]
+        //[LocalizedDisplayName("CabinetPhoneNo", NameResourceType = typeof(CabinetsFieldNames))]
         public System.String Phone {get; set;}
 
-        [LocalizedDisplayName("CabinetDescription", NameResourceType = typeof(CabinetsFieldNames))]
+        //[LocalizedDisplayName("CabinetDescription", NameResourceType = typeof(CabinetsFieldNames))]
         public System.String Description {get; set;}
     }
 
@@ -116,20 +164,7 @@ namespace DiagnosticCenter.Models
         public global::System.Int32 ID_ExmType {get; set;}
         
     }
-//ExaminationType
-    [MetadataType(typeof(ExaminationTypeMetadata))]
-    public partial class ExaminationType { }
-    public class ExaminationTypeMetadata
-    {
-        public global::System.Int32 ID_ExmType {get; set;}
-        
-        public global::System.String Description {get; set;}
-        
-        public global::System.Double Price {get; set;}
-        
-        public global::System.Int32 Duration {get; set;}
-        
-    }
+
 //News
     [MetadataType(typeof(NewsMetadata))]
     public partial class News { }

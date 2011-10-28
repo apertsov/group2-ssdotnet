@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.ExaminationTemplate>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Controller = "ExaminationTemplates";
+    ViewBag.Action = "ExaminationTemplates.Index";
+}
+
+<h2>@ViewRes.SharedStrings.ExaminationPatterns</h2>
+
+<p>
+    @Html.ActionLink(@ViewRes.SharedStrings.AddPattern, "Create")
+</p>
+<table class="widefat fixed" cellspacing="0">
+    <thead>
+    <tr>
+        <th>
+            @ExaminationRes.ExaminationStrings.ExaminationTemplateName
+        </th>        
+        <th>
+            @ExaminationRes.ExaminationStrings.ExaminationType
+        </th>
+        <th>
+            @ExaminationRes.ExaminationStrings.Author
+        </th>
+        <th>
+            @ExaminationRes.ExaminationStrings.IsPrivate
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.ExaminationType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+            @Html.DisplayFor(modelItem => item.Employee.Surname)
+            @Html.DisplayFor(modelItem => item.Employee.Patronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPrivate)
+        </td>
+        <td>
+            @*@if (User.IsInRole("Administrator") || item.IsPrivate)
+            {*@
+                @Html.ActionLink(ExaminationRes.ExaminationStrings._Edit, "Edit", new { id = item.Id }) <text>|</text>
+            @*}*@
+            @Html.ActionLink(ExaminationRes.ExaminationStrings._Details, "Details", new { id = item.Id }) 
+            @*@if (User.IsInRole("Administrator") || item.IsPrivate)
+            {*@
+               <text>|</text> @Html.ActionLink(ExaminationRes.ExaminationStrings._Delete, "Delete", new { id = item.Id })
+           @* }*@
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

@@ -197,6 +197,33 @@
                 </div>
             </li>
         } 
+
+        @if (User.IsInRole("Administrator") || User.IsInRole("DepartmentChiefDoctor") || User.IsInRole("HeadDoctor") || User.IsInRole("Doctor"))
+        {
+            <li id="menu-examtypes" class="has-submenu @((ViewBag.Controller == "ExaminationTypes") ? "has-current-submenu" : "") menu-open menu-top menu-icon-examtypes">
+                <div class="menu-image">
+                    @Html.ActionLink(" ", "Index", "ExaminationTypes")
+                </div>
+                <div class="menu-arrow">
+                    <div>
+                    </div>
+                </div>
+                <div class="menu-toggle">
+                    <br />
+                </div>
+                @Html.ActionLink(ViewRes.SharedStrings.ExaminationTypes, "Index", "ExaminationTypes", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-examtypes" + ((ViewBag.Controller == "ExaminationTypes") ? " has-current-submenu" : "") })
+                <div class="submenu">
+                    <div class="submenu-wrap">
+                        <div class="submenu-head">
+                            @ViewRes.SharedStrings.ExaminationTypes</div>
+                        <ul>
+                            <li class="first-item@((ViewBag.Action == "ExaminationTypes.Index") ? " current" : "")">@Html.ActionLink(ViewRes.SharedStrings.AllExaminationTypes, "Index", "ExaminationTypes", null, ((ViewBag.Action == "ExaminationTypes.Index") ? new { @class = "current" } : null))</li>                           
+                            <li class="@((ViewBag.Action == "ExaminationTypes.Create") ? "current" : "")">@Html.ActionLink(ViewRes.SharedStrings.ExaminationTypeCreate, "Create", "ExaminationTypes", null, ((ViewBag.Action == "ExaminationTypes.Create") ? new { @class = "current" } : null))</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        } 
         
         @if (User.IsInRole("Administrator") || User.IsInRole("DepartmentChiefDoctor") || User.IsInRole("HeadDoctor") || User.IsInRole("Doctor"))
         {

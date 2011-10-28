@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/25/2011 17:50:31
--- Generated from EDMX file: D:\dotNET\Diagnostic Center Repository\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
+-- Date Created: 10/28/2011 13:40:45
+-- Generated from EDMX file: E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,8 +17,14 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_DepartmentEmployee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_DepartmentEmployee];
+GO
 IF OBJECT_ID(N'[dbo].[FK_CabinetEmployee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_CabinetEmployee];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeNews]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[News] DROP CONSTRAINT [FK_EmployeeNews];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DayEmployee_Day]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DayEmployee] DROP CONSTRAINT [FK_DayEmployee_Day];
@@ -26,58 +32,49 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DayEmployee_Employee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DayEmployee] DROP CONSTRAINT [FK_DayEmployee_Employee];
 GO
-IF OBJECT_ID(N'[dbo].[FK_DepartmentCabinet]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Cabinets] DROP CONSTRAINT [FK_DepartmentCabinet];
-GO
-IF OBJECT_ID(N'[dbo].[FK_DepartmentEmployee]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Employees] DROP CONSTRAINT [FK_DepartmentEmployee];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeeExamination]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_EmployeeExamination];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EmployeeNews]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[News] DROP CONSTRAINT [FK_EmployeeNews];
+IF OBJECT_ID(N'[dbo].[FK_PatientReferral]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_PatientReferral];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeeReferral]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_EmployeeReferral];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ExaminationTypeExamination]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ExaminationTypes] DROP CONSTRAINT [FK_ExaminationTypeExamination];
+IF OBJECT_ID(N'[dbo].[FK_EmployeeExamination]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_EmployeeExamination];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PatientExamination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_PatientExamination];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PatientReferral]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_PatientReferral];
-GO
 IF OBJECT_ID(N'[dbo].[FK_ReferralExamination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_ReferralExamination];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ExaminationTypeExamination]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ExaminationTypes] DROP CONSTRAINT [FK_ExaminationTypeExamination];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DepartmentCabinet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Cabinets] DROP CONSTRAINT [FK_DepartmentCabinet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ExaminationTypeExaminationTemplate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ExaminationTemplates] DROP CONSTRAINT [FK_ExaminationTypeExaminationTemplate];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeExaminationTemplate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ExaminationTemplates] DROP CONSTRAINT [FK_EmployeeExaminationTemplate];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Cabinets]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Cabinets];
-GO
-IF OBJECT_ID(N'[dbo].[DayEmployee]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DayEmployee];
+IF OBJECT_ID(N'[dbo].[Departments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Departments];
 GO
 IF OBJECT_ID(N'[dbo].[Days]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Days];
 GO
-IF OBJECT_ID(N'[dbo].[Departments]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Departments];
-GO
 IF OBJECT_ID(N'[dbo].[Employees]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Employees];
 GO
-IF OBJECT_ID(N'[dbo].[Examinations]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Examinations];
-GO
-IF OBJECT_ID(N'[dbo].[ExaminationTypes]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ExaminationTypes];
+IF OBJECT_ID(N'[dbo].[Cabinets]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cabinets];
 GO
 IF OBJECT_ID(N'[dbo].[News]', 'U') IS NOT NULL
     DROP TABLE [dbo].[News];
@@ -87,6 +84,18 @@ IF OBJECT_ID(N'[dbo].[Patients]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Referrals]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Referrals];
+GO
+IF OBJECT_ID(N'[dbo].[Examinations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Examinations];
+GO
+IF OBJECT_ID(N'[dbo].[ExaminationTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ExaminationTypes];
+GO
+IF OBJECT_ID(N'[dbo].[ExaminationTemplates]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ExaminationTemplates];
+GO
+IF OBJECT_ID(N'[dbo].[DayEmployee]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DayEmployee];
 GO
 
 -- --------------------------------------------------
@@ -104,9 +113,9 @@ GO
 -- Creating table 'Days'
 CREATE TABLE [dbo].[Days] (
     [ID_Day] int IDENTITY(1,1) NOT NULL,
-    [Date] datetime  NOT NULL,
-    [StartTime] datetime  NOT NULL,
-    [EndTime] datetime  NOT NULL
+    [Date] datetime2(7)  NOT NULL,
+    [StartTime] datetime2(7)  NOT NULL,
+    [EndTime] datetime2(7)  NOT NULL
 );
 GO
 
@@ -164,7 +173,7 @@ CREATE TABLE [dbo].[Patients] (
     [Patronymic] nvarchar(max)  NOT NULL,
     [Email] nvarchar(50)  NULL,
     [Password] nvarchar(16)  NOT NULL,
-    [BirthDate] datetime  NOT NULL,
+    [BirthDate] datetime2(7)  NOT NULL,
     [Sex] nvarchar(10)  NOT NULL,
     [City] nvarchar(max)  NOT NULL
 );
@@ -173,8 +182,8 @@ GO
 -- Creating table 'Referrals'
 CREATE TABLE [dbo].[Referrals] (
     [ID_Referral] int IDENTITY(1,1) NOT NULL,
-    [CreationDate] datetime  NOT NULL,
-    [VisitDate] datetime  NOT NULL,
+    [CreationDate] datetime2(7)  NOT NULL,
+    [VisitDate] datetime2(7)  NOT NULL,
     [ID_Patient] int  NOT NULL,
     [ID_Employee] int  NOT NULL,
     [ID_Examination] int  NULL,
@@ -190,10 +199,11 @@ CREATE TABLE [dbo].[Examinations] (
     [Conclusion] nvarchar(max)  NOT NULL,
     [Recommendation] nvarchar(max)  NOT NULL,
     [Consultation] nvarchar(max)  NOT NULL,
-    [StartTime] datetime  NOT NULL,
+    [StartTime] datetime2(7)  NOT NULL,
     [ID_Employee] int  NOT NULL,
     [ID_Patient] int  NOT NULL,
-    [ID_ExmType] int  NOT NULL
+    [ID_ExmType] int  NOT NULL,
+    [ExaminationType_ID_ExmType] int  NOT NULL
 );
 GO
 
@@ -203,7 +213,18 @@ CREATE TABLE [dbo].[ExaminationTypes] (
     [Description] nvarchar(max)  NOT NULL,
     [Price] float  NOT NULL,
     [Duration] int  NOT NULL,
-    [Examination_ID_Examination] int  NOT NULL
+    [Name] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'ExaminationTemplates'
+CREATE TABLE [dbo].[ExaminationTemplates] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Body] nvarchar(max)  NOT NULL,
+    [ExaminationTypeID_ExmType] int  NOT NULL,
+    [EmployeeID_Employee] int  NOT NULL,
+    [IsPrivate] bit  NOT NULL
 );
 GO
 
@@ -270,6 +291,12 @@ GO
 ALTER TABLE [dbo].[ExaminationTypes]
 ADD CONSTRAINT [PK_ExaminationTypes]
     PRIMARY KEY CLUSTERED ([ID_ExmType] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ExaminationTemplates'
+ALTER TABLE [dbo].[ExaminationTemplates]
+ADD CONSTRAINT [PK_ExaminationTemplates]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Day_ID_Day], [Employee_ID_Employee] in table 'DayEmployee'
@@ -417,18 +444,18 @@ ON [dbo].[Referrals]
     ([Examination_ID_Examination]);
 GO
 
--- Creating foreign key on [Examination_ID_Examination] in table 'ExaminationTypes'
-ALTER TABLE [dbo].[ExaminationTypes]
+-- Creating foreign key on [ExaminationType_ID_ExmType] in table 'Examinations'
+ALTER TABLE [dbo].[Examinations]
 ADD CONSTRAINT [FK_ExaminationTypeExamination]
-    FOREIGN KEY ([Examination_ID_Examination])
-    REFERENCES [dbo].[Examinations]
-        ([ID_Examination])
+    FOREIGN KEY ([ExaminationType_ID_ExmType])
+    REFERENCES [dbo].[ExaminationTypes]
+        ([ID_ExmType])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ExaminationTypeExamination'
 CREATE INDEX [IX_FK_ExaminationTypeExamination]
-ON [dbo].[ExaminationTypes]
-    ([Examination_ID_Examination]);
+ON [dbo].[Examinations]
+    ([ExaminationType_ID_ExmType]);
 GO
 
 -- Creating foreign key on [ID_Dept] in table 'Cabinets'
@@ -443,6 +470,34 @@ ADD CONSTRAINT [FK_DepartmentCabinet]
 CREATE INDEX [IX_FK_DepartmentCabinet]
 ON [dbo].[Cabinets]
     ([ID_Dept]);
+GO
+
+-- Creating foreign key on [ExaminationTypeID_ExmType] in table 'ExaminationTemplates'
+ALTER TABLE [dbo].[ExaminationTemplates]
+ADD CONSTRAINT [FK_ExaminationTypeExaminationTemplate]
+    FOREIGN KEY ([ExaminationTypeID_ExmType])
+    REFERENCES [dbo].[ExaminationTypes]
+        ([ID_ExmType])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ExaminationTypeExaminationTemplate'
+CREATE INDEX [IX_FK_ExaminationTypeExaminationTemplate]
+ON [dbo].[ExaminationTemplates]
+    ([ExaminationTypeID_ExmType]);
+GO
+
+-- Creating foreign key on [EmployeeID_Employee] in table 'ExaminationTemplates'
+ALTER TABLE [dbo].[ExaminationTemplates]
+ADD CONSTRAINT [FK_EmployeeExaminationTemplate]
+    FOREIGN KEY ([EmployeeID_Employee])
+    REFERENCES [dbo].[Employees]
+        ([ID_Employee])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeExaminationTemplate'
+CREATE INDEX [IX_FK_EmployeeExaminationTemplate]
+ON [dbo].[ExaminationTemplates]
+    ([EmployeeID_Employee]);
 GO
 
 -- --------------------------------------------------
