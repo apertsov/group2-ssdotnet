@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/29/2011 20:10:25
+-- Date Created: 10/29/2011 20:50:07
 -- Generated from EDMX file: E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
@@ -45,7 +45,7 @@ IF OBJECT_ID(N'[dbo].[FK_PatientExamination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_PatientExamination];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ReferralExamination]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_ReferralExamination];
+    ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_ReferralExamination];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ExaminationTypeExamination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_ExaminationTypeExamination];
@@ -202,7 +202,7 @@ CREATE TABLE [dbo].[Examinations] (
     [ID_Employee] int  NOT NULL,
     [ID_Patient] int  NOT NULL,
     [ID_ExmType] int  NOT NULL,
-    [Referral_ID_Referral] int  NOT NULL,
+    [Referral_ID_Referral] int  NULL,
     [ExaminationType_ID_ExmType] int  NOT NULL
 );
 GO
