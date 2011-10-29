@@ -719,8 +719,6 @@
     <Content Include="Views\Departments\Edit.cshtml" />
     <Content Include="Views\Shared\_CultureChooserPartial.cshtml" />
     <Content Include="Views\Plan\ErrorMsg.cshtml" />
-    <Content Include="Views\Referral\Index.cshtml" />
-    <Content Include="Views\Referral\Print.cshtml" />
     <Content Include="Views\ErrorPage\Index.cshtml" />
     <Content Include="Views\Shared\_LogOnLayout.cshtml" />
     <Content Include="Views\ExaminationTemplates\Index.cshtml" />
@@ -738,6 +736,8 @@
     <Content Include="Views\Examinations\Create.cshtml" />
     <Content Include="Views\Examinations\Edit.cshtml" />
     <Content Include="Views\Examinations\Delete.cshtml" />
+    <Content Include="Views\Referral\Index.cshtml" />
+    <Content Include="Views\Referral\Print.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.resx">
