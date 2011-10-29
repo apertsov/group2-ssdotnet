@@ -161,7 +161,6 @@
     <Property Name="ID_Patient" Type="int" Nullable="false" />
     <Property Name="ID_Employee" Type="int" Nullable="false" />
     <Property Name="ID_Examination" Type="int" Nullable="true" />
-    <Property Name="Examination_ID_Examination" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Examinations">
     <Key>
@@ -177,6 +176,7 @@
     <Property Name="ID_Employee" Type="int" Nullable="false" />
     <Property Name="ID_Patient" Type="int" Nullable="false" />
     <Property Name="ID_ExmType" Type="int" Nullable="false" />
+    <Property Name="Referral_ID_Referral" Type="int" Nullable="false" />
     <Property Name="ExaminationType_ID_ExmType" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ExaminationTypes">
@@ -293,14 +293,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ReferralExamination">
-    <End Role="Referral" Type="DiagnosticsDBModel.Store.Referrals" Multiplicity="*" />
-    <End Role="Examination" Type="DiagnosticsDBModel.Store.Examinations" Multiplicity="1" />
+    <End Role="Referral" Type="DiagnosticsDBModel.Store.Referrals" Multiplicity="1" />
+    <End Role="Examination" Type="DiagnosticsDBModel.Store.Examinations" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Examination">
-        <PropertyRef Name="ID_Examination" />
+      <Principal Role="Referral">
+        <PropertyRef Name="ID_Referral" />
       </Principal>
-      <Dependent Role="Referral">
-        <PropertyRef Name="Examination_ID_Examination" />
+      <Dependent Role="Examination">
+        <PropertyRef Name="Referral_ID_Referral" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -671,7 +671,7 @@
         </Association>
         <Association Name="ReferralExamination">
           <End Type="DiagnosticsDBModel.Referral" Role="Referral" Multiplicity="1" />
-          <End Type="DiagnosticsDBModel.Examination" Role="Examination" Multiplicity="1" />
+          <End Type="DiagnosticsDBModel.Examination" Role="Examination" Multiplicity="0..1" />
         </Association>
         <Association Name="ExaminationTypeExamination">
           <End Type="DiagnosticsDBModel.ExaminationType" Role="ExaminationType" Multiplicity="1" />
@@ -874,12 +874,12 @@
         <ScalarProperty Name="ID_Employee" ColumnName="Employee_ID_Employee" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ReferralExamination" TypeName="DiagnosticsDBModel.ReferralExamination" StoreEntitySet="Referrals">
-      <EndProperty Name="Examination">
-        <ScalarProperty Name="ID_Examination" ColumnName="Examination_ID_Examination" />
-      </EndProperty>
+    <AssociationSetMapping Name="ReferralExamination" TypeName="DiagnosticsDBModel.ReferralExamination" StoreEntitySet="Examinations">
       <EndProperty Name="Referral">
-        <ScalarProperty Name="ID_Referral" ColumnName="ID_Referral" />
+        <ScalarProperty Name="ID_Referral" ColumnName="Referral_ID_Referral" />
+      </EndProperty>
+      <EndProperty Name="Examination">
+        <ScalarProperty Name="ID_Examination" ColumnName="ID_Examination" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="ExaminationTypeExamination" TypeName="DiagnosticsDBModel.ExaminationTypeExamination" StoreEntitySet="Examinations">
@@ -920,19 +920,13 @@
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.CabinetEmployee">
           <ConnectorPoint PointX="7.5" PointY="2.3074446614583328" />
-          <ConnectorPoint PointX="7.333333333333333" PointY="2.3074446614583324" />
-          <ConnectorPoint PointX="7.166666666666667" PointY="2.3074446614583328" />
           <ConnectorPoint PointX="6.875" PointY="2.3074446614583328" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DiagnosticsDBModel.News" Width="1.5" PointX="9.75" PointY="0.5" Height="2.364889322916667" />
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeNews">
-          <ConnectorPoint PointX="6" PointY="1.75" />
-          <ConnectorPoint PointX="6" PointY="1.5" />
-          <ConnectorPoint PointX="7.25" PointY="1.5" />
-          <ConnectorPoint PointX="7.25" PointY="3.1148893229166656" />
-          <ConnectorPoint PointX="9.375" PointY="3.1148893229166656" />
-          <ConnectorPoint PointX="9.375" PointY="1.6824446614583333" />
-          <ConnectorPoint PointX="9.75" PointY="1.6824446614583333" />
+          <ConnectorPoint PointX="6.875" PointY="3.2005998307291676" />
+          <ConnectorPoint PointX="9.78125" PointY="3.2005998307291676" />
+          <ConnectorPoint PointX="9.78125" PointY="2.864889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.DayEmployee">
           <ConnectorPoint PointX="2" PointY="2.5379036458333335" />
@@ -948,24 +942,26 @@
           <ConnectorPoint PointX="5.125" PointY="4.24974609375" />
           <ConnectorPoint PointX="4.25" PointY="4.24974609375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="DiagnosticsDBModel.Examination" Width="1.5" PointX="7.25" PointY="3.25" Height="3.7109993489583317" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Examination" Width="1.5" PointX="7.5" PointY="4.25" Height="3.7109993489583317" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.ExaminationType" Width="1.5" PointX="9.875" PointY="3.375" Height="2.3648893229166656" />
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeExamination">
-          <ConnectorPoint PointX="6.875" PointY="4.9324039713541659" />
-          <ConnectorPoint PointX="7.25" PointY="4.9324039713541659" />
+          <ConnectorPoint PointX="6.875" PointY="5.5285546875" />
+          <ConnectorPoint PointX="7.5" PointY="5.5285546875" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.PatientExamination">
-          <ConnectorPoint PointX="2" PointY="6.9153043619791656" />
-          <ConnectorPoint PointX="7.25" PointY="6.9153043619791656" />
+          <ConnectorPoint PointX="2" PointY="7.3287565104166656" />
+          <ConnectorPoint PointX="3.4166666666666665" PointY="7.3287565104166648" />
+          <ConnectorPoint PointX="3.5833333333333335" PointY="7.3287565104166656" />
+          <ConnectorPoint PointX="7.5" PointY="7.3287565104166656" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.ReferralExamination">
           <ConnectorPoint PointX="3.5" PointY="5.6244921875" />
-          <ConnectorPoint PointX="3.5" PointY="6.8924568684895826" />
-          <ConnectorPoint PointX="7.25" PointY="6.8924568684895826" />
+          <ConnectorPoint PointX="3.5" PointY="7.6761304296874995" />
+          <ConnectorPoint PointX="7.5" PointY="7.6761304296874995" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.ExaminationTypeExamination">
-          <ConnectorPoint PointX="9.875" PointY="4.5574446614583328" />
-          <ConnectorPoint PointX="8.75" PointY="4.5574446614583328" />
+          <ConnectorPoint PointX="9.875" PointY="4.9949446614583328" />
+          <ConnectorPoint PointX="9" PointY="4.9949446614583328" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.DepartmentCabinet">
           <ConnectorPoint PointX="4.5" PointY="0.95883707682291686" />
@@ -977,12 +973,10 @@
           <ConnectorPoint PointX="10.8125" PointY="6.5" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeExaminationTemplate">
-          <ConnectorPoint PointX="6.875" PointY="3.0211393229166661" />
-          <ConnectorPoint PointX="7.166666666666667" PointY="3.0211393229166656" />
-          <ConnectorPoint PointX="7.333333333333333" PointY="3.0211393229166661" />
-          <ConnectorPoint PointX="9.2916666666666661" PointY="3.0211393229166656" />
-          <ConnectorPoint PointX="9.4583333333333339" PointY="3.0211393229166661" />
-          <ConnectorPoint PointX="11.59375" PointY="3.0211393229166661" />
+          <ConnectorPoint PointX="6.875" PointY="3.0261946614583333" />
+          <ConnectorPoint PointX="9.6979166666666661" PointY="3.0261946614583328" />
+          <ConnectorPoint PointX="9.8645833333333339" PointY="3.0261946614583333" />
+          <ConnectorPoint PointX="11.59375" PointY="3.0261946614583333" />
           <ConnectorPoint PointX="11.59375" PointY="6.5" />
         </AssociationConnector>
       </Diagram>
