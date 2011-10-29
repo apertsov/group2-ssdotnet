@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/28/2011 13:40:45
+-- Date Created: 10/29/2011 20:10:25
 -- Generated from EDMX file: E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
@@ -48,7 +48,7 @@ IF OBJECT_ID(N'[dbo].[FK_ReferralExamination]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Referrals] DROP CONSTRAINT [FK_ReferralExamination];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ExaminationTypeExamination]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ExaminationTypes] DROP CONSTRAINT [FK_ExaminationTypeExamination];
+    ALTER TABLE [dbo].[Examinations] DROP CONSTRAINT [FK_ExaminationTypeExamination];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DepartmentCabinet]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Cabinets] DROP CONSTRAINT [FK_DepartmentCabinet];
@@ -186,8 +186,7 @@ CREATE TABLE [dbo].[Referrals] (
     [VisitDate] datetime2(7)  NOT NULL,
     [ID_Patient] int  NOT NULL,
     [ID_Employee] int  NOT NULL,
-    [ID_Examination] int  NULL,
-    [Examination_ID_Examination] int  NOT NULL
+    [ID_Examination] int  NULL
 );
 GO
 
@@ -203,6 +202,7 @@ CREATE TABLE [dbo].[Examinations] (
     [ID_Employee] int  NOT NULL,
     [ID_Patient] int  NOT NULL,
     [ID_ExmType] int  NOT NULL,
+    [Referral_ID_Referral] int  NOT NULL,
     [ExaminationType_ID_ExmType] int  NOT NULL
 );
 GO
@@ -430,18 +430,18 @@ ON [dbo].[Examinations]
     ([ID_Patient]);
 GO
 
--- Creating foreign key on [Examination_ID_Examination] in table 'Referrals'
-ALTER TABLE [dbo].[Referrals]
+-- Creating foreign key on [Referral_ID_Referral] in table 'Examinations'
+ALTER TABLE [dbo].[Examinations]
 ADD CONSTRAINT [FK_ReferralExamination]
-    FOREIGN KEY ([Examination_ID_Examination])
-    REFERENCES [dbo].[Examinations]
-        ([ID_Examination])
+    FOREIGN KEY ([Referral_ID_Referral])
+    REFERENCES [dbo].[Referrals]
+        ([ID_Referral])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ReferralExamination'
 CREATE INDEX [IX_FK_ReferralExamination]
-ON [dbo].[Referrals]
-    ([Examination_ID_Examination]);
+ON [dbo].[Examinations]
+    ([Referral_ID_Referral]);
 GO
 
 -- Creating foreign key on [ExaminationType_ID_ExmType] in table 'Examinations'
