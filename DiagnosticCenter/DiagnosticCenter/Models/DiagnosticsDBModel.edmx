@@ -176,7 +176,7 @@
     <Property Name="ID_Employee" Type="int" Nullable="false" />
     <Property Name="ID_Patient" Type="int" Nullable="false" />
     <Property Name="ID_ExmType" Type="int" Nullable="false" />
-    <Property Name="Referral_ID_Referral" Type="int" Nullable="false" />
+    <Property Name="Referral_ID_Referral" Type="int" Nullable="true" />
     <Property Name="ExaminationType_ID_ExmType" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ExaminationTypes">
@@ -293,7 +293,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ReferralExamination">
-    <End Role="Referral" Type="DiagnosticsDBModel.Store.Referrals" Multiplicity="1" />
+    <End Role="Referral" Type="DiagnosticsDBModel.Store.Referrals" Multiplicity="0..1" />
     <End Role="Examination" Type="DiagnosticsDBModel.Store.Examinations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Referral">
@@ -670,7 +670,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ReferralExamination">
-          <End Type="DiagnosticsDBModel.Referral" Role="Referral" Multiplicity="1" />
+          <End Type="DiagnosticsDBModel.Referral" Role="Referral" Multiplicity="0..1" />
           <End Type="DiagnosticsDBModel.Examination" Role="Examination" Multiplicity="0..1" />
         </Association>
         <Association Name="ExaminationTypeExamination">
@@ -881,6 +881,7 @@
       <EndProperty Name="Examination">
         <ScalarProperty Name="ID_Examination" ColumnName="ID_Examination" />
       </EndProperty>
+      <Condition ColumnName="Referral_ID_Referral" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="ExaminationTypeExamination" TypeName="DiagnosticsDBModel.ExaminationTypeExamination" StoreEntitySet="Examinations">
       <EndProperty Name="ExaminationType">

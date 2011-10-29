@@ -73,6 +73,18 @@ namespace DiagnosticCenter.Controllers
             ViewBag.EmployeeID_Employee = new SelectList(db.Employees, "ID_Employee", "Category", examinationtemplate.EmployeeID_Employee);
             return View(examinationtemplate);
         }
+
+        public JsonResult GetTemplate(int id)
+        {
+            JsonResult result = new JsonResult();
+
+            var template = db.ExaminationTemplates.Where(e => e.Id == id).First();
+            string templateText = template.Body;
+
+            result.Data = templateText;           
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return result;
+        }
         
         //
         // GET: /ExaminationTemplates/Edit/5

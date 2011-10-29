@@ -215,7 +215,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-
     <Compile Include="Resources\Views\ErrorPage\ErrorPageStrings.Designer.cs" />
     <Compile Include="Resources\Views\ErrorPage\ErrorPageStrings.ru.Designer.cs" />
     <Compile Include="Resources\Views\ErrorPage\ErrorPageStrings.uk.Designer.cs" />
@@ -723,7 +722,6 @@
     <Content Include="Views\Referral\Index.cshtml" />
     <Content Include="Views\Referral\Print.cshtml" />
     <Content Include="Views\ErrorPage\Index.cshtml" />
-
     <Content Include="Views\Shared\_LogOnLayout.cshtml" />
     <Content Include="Views\ExaminationTemplates\Index.cshtml" />
     <Content Include="Views\ExaminationTemplates\Details.cshtml" />
@@ -850,7 +848,6 @@
     <EmbeddedResource Include="Resources\Views\ErrorPage\ErrorPageStrings.resx" />
     <EmbeddedResource Include="Resources\Views\ErrorPage\ErrorPageStrings.ru.resx" />
     <EmbeddedResource Include="Resources\Views\ErrorPage\ErrorPageStrings.uk.resx" />
-
     <EmbeddedResource Include="Resources\Views\Examinations\ExaminationStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ExaminationStrings.Designer.cs</LastGenOutput>

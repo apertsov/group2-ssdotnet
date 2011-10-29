@@ -2,12 +2,14 @@
 
 @{
     ViewBag.Title = "Index";
+
+    DiagnosticCenter.Models.Patient patient = ViewBag.Patient;
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { id = patient.ID_Patient })
 </p>
 <table>
     <tr>
