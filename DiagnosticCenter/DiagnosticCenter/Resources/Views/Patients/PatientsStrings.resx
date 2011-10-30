@@ -117,7 +117,100 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Additional" xml:space="preserve">
+    <value>Additional</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>Birth date:</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City:</value>
+  </data>
+  <data name="CivilServant" xml:space="preserve">
+    <value>Civil servant</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditPatient" xml:space="preserve">
+    <value>Edit patient's information</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="Employed" xml:space="preserve">
+    <value>Employed</value>
+  </data>
+  <data name="Exam" xml:space="preserve">
+    <value>Examination</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>female</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FindPatients" xml:space="preserve">
+    <value>Find patient</value>
+  </data>
+  <data name="Include" xml:space="preserve">
+    <value>Include additional options</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>male</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="PatientCreate" xml:space="preserve">
+    <value>Create new patient</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Patronymic:</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone:</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Prev</value>
+  </data>
+  <data name="Profession" xml:space="preserve">
+    <value>Specialty:</value>
+  </data>
+  <data name="Referral" xml:space="preserve">
+    <value>Write referral</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="SearchBySurname" xml:space="preserve">
     <value>Search by surname</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Sex:</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname:</value>
   </data>
 </root>

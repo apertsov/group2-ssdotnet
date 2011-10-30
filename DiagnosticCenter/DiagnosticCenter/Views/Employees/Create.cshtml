@@ -6,82 +6,83 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Форма створення працівників</legend>
+        <legend>@EmployeesRes.EmployeesStrings.CreateEmployee</legend>
 
         <div class="editor-label">
-            @Html.Label("Ім'я:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Name)
         
             @Html.EditorFor(model => model.FirstName)
             @Html.ValidationMessageFor(model => model.FirstName)
         </div>
 
         <div class="editor-label">
-            @Html.Label("Прізвище:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Surname)
         
             @Html.EditorFor(model => model.Surname)
             @Html.ValidationMessageFor(model => model.Surname)
         </div>
 
         <div class="editor-label">
-            @Html.Label("По батькові:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Patronymic)
         
             @Html.EditorFor(model => model.Patronymic)
             @Html.ValidationMessageFor(model => model.Patronymic)
         </div>
         <div class="editor-label">
-            @Html.Label("Категорія:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Category)
        
             @Html.EditorFor(model => model.Category)
             @Html.ValidationMessageFor(model => model.Category)
         </div>
 
         <div class="editor-label">
-            @Html.Label("Спеціальність:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Specialty)
         
             @Html.EditorFor(model => model.Specialty)
             @Html.ValidationMessageFor(model => model.Specialty)
         </div>
 
         <div class="editor-label">
-            @Html.Label("Посада:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Position)
             <select name = "position">
-                <option value = "зав. відділом">Зав. відділом</option>
-                <option value = "головний лікар">Головний лікар</option>
-                <option value = "лікар">Лікар</option>
-                <option value = "головна медсестра">Головна медсестра</option>
-                <option value = "медсестра">Медсестра</option>
-                <option value = "реєстратура">Працівник реєстратури</option>
+                <option value = "">@EmployeesRes.EmployeesStrings.ChoosePosition</option>
+                <option value = "зав. відділом">@EmployeesRes.EmployeesStrings.departmentchief</option>
+                <option value = "головний лікар">@EmployeesRes.EmployeesStrings.headdoctor</option>
+                <option value = "лікар">@EmployeesRes.EmployeesStrings.doctor</option>
+                <option value = "головна медсестра">@EmployeesRes.EmployeesStrings.headnurse</option>
+                <option value = "медсестра">@EmployeesRes.EmployeesStrings.nurse</option>
+                <option value = "реєстратура">@EmployeesRes.EmployeesStrings.registar</option>
              </select>
                     
         </div>
 
         <div class="editor-label">
-            @Html.Label("Ставка:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Rate)
         
             @Html.EditorFor(model => model.Rate)
             @Html.ValidationMessageFor(model => model.Rate)
         </div>
 
         <div class="editor-label">
-            @Html.Label("Відділення:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Department)
             @Html.DropDownList("Depts")
           
         </div>
 
         <div class="editor-label">
-            @Html.Label("Кабінет:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Cabinet)
             @Html.DropDownList("Cabinets")
        
             
         </div>
         
         <div class="editor-label">
-            @Html.Label("Нікнейм:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Nickname)
             @Html.EditorFor(model => model.Username)
             @Html.ValidationMessageFor(model => model.Username)
         </div>
         <div class="editor-label">
-            @Html.Label("Email:")
+            @Html.Label(PatientsRes.PatientsStrings.Email)
             @Html.EditorFor(model => model.Email)
             @Html.ValidationMessageFor(model => model.Email)
 
@@ -89,7 +90,7 @@
         
 
         <p>
-            <input type="submit" value="Зареєструвати" />
+            <input type="submit" value=@PatientsRes.PatientsStrings.ButtonOk />
         </p>
     </fieldset>
 }

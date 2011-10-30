@@ -9,13 +9,13 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Редагування даних</legend>
+        <legend>@PatientsRes.PatientsStrings.EditPatient</legend>
 
         @Html.HiddenFor(model => model.ID_Employee)
         @Html.HiddenFor(model => model.ID_User)
         
         <div class="editor-label">
-           @Html.Label("Ім'я:")
+           @Html.Label(EmployeesRes.EmployeesStrings.Name)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.FirstName)
@@ -23,7 +23,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.Label("Прізвище:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Surname)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Surname)
@@ -31,14 +31,14 @@
         </div>
 
         <div class="editor-label">
-             @Html.Label("По батькові:")
+             @Html.Label(EmployeesRes.EmployeesStrings.Patronymic)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Patronymic)
             @Html.ValidationMessageFor(model => model.Patronymic)
         </div>
         <div class="editor-label">
-           @Html.Label("Категорія:")
+           @Html.Label(EmployeesRes.EmployeesStrings.Category)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Category)
@@ -46,7 +46,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.Label("Спеціальність:")
+            @Html.Label(EmployeesRes.EmployeesStrings.Specialty)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Specialty)
@@ -54,18 +54,19 @@
         </div>
 
         <div class="editor-label">
-        @Html.Label("Посада:")
+        @Html.Label(EmployeesRes.EmployeesStrings.Position)
              <select name = "position">
-                <option value = "зав. відділом">Зав. відділом</option>
-                <option value = "головний лікар">Головний лікар</option>
-                <option value = "лікар">Лікар</option>
-                <option value = "головна медсестра">Головна медсестра</option>
-                <option value = "медсестра">Медсестра</option>
-                <option value = "реєстратура">Працівник реєстратури</option>
+                <option value = "">@EmployeesRes.EmployeesStrings.ChoosePosition</option>
+                <option value = "зав. відділом">@EmployeesRes.EmployeesStrings.departmentchief</option>
+                <option value = "головний лікар">@EmployeesRes.EmployeesStrings.headdoctor</option>
+                <option value = "лікар">@EmployeesRes.EmployeesStrings.doctor</option>
+                <option value = "головна медсестра">@EmployeesRes.EmployeesStrings.headnurse</option>
+                <option value = "медсестра">@EmployeesRes.EmployeesStrings.nurse</option>
+                <option value = "реєстратура">@EmployeesRes.EmployeesStrings.registar</option>
              </select>
         </div>
         <div class="editor-label">
-            @Html.Label("Ставка")
+            @Html.Label(EmployeesRes.EmployeesStrings.Rate)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Rate)
@@ -73,22 +74,22 @@
         </div>
 
         <div class="editor-label">
-            @Html.Label("Кабінет")
+            @Html.Label(EmployeesRes.EmployeesStrings.Cabinet)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("Cabinets","--Виберіть кабінет--")
+            @Html.DropDownList("Cabinets",EmployeesRes.EmployeesStrings.ChooseCab)
          </div>
 
         <div class="editor-label">
-            @Html.Label("Відділення")
+            @Html.Label(EmployeesRes.EmployeesStrings.Department)
         </div>
         <div class="editor-field">
          
-        @Html.DropDownList("Depts", "--Виберіть відділення--")
+        @Html.DropDownList("Depts", EmployeesRes.EmployeesStrings.ChooseDept)
         </div>
         
         <p>
-            <input type="submit" value="Зберегти зміни" />
+            <input type="submit" value=@PatientsRes.PatientsStrings.Save />
         </p>
     </fieldset>
 }

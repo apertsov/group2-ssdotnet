@@ -117,7 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cabinet" xml:space="preserve">
+    <value>Кабінет:</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категорія:</value>
+  </data>
+  <data name="ChooseCab" xml:space="preserve">
+    <value>Виберіть кабінет</value>
+  </data>
+  <data name="ChooseDept" xml:space="preserve">
+    <value>Виберіть відділення</value>
+  </data>
+  <data name="ChoosePosition" xml:space="preserve">
+    <value>Виберіть посаду</value>
+  </data>
+  <data name="CreateEmployee" xml:space="preserve">
+    <value>Створення працівника</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Відділення:</value>
+  </data>
+  <data name="departmentchief" xml:space="preserve">
+    <value>Зав. відділом</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Лікар</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Знайти</value>
+  </data>
+  <data name="FindEmployee" xml:space="preserve">
+    <value>Пошук пацієнтів</value>
+  </data>
+  <data name="headdoctor" xml:space="preserve">
+    <value>Головний лікар</value>
+  </data>
+  <data name="headnurse" xml:space="preserve">
+    <value>Головна медсестра</value>
+  </data>
+  <data name="HoursPerDay" xml:space="preserve">
+    <value>год. в день.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ім'я:</value>
+  </data>
+  <data name="Nickname" xml:space="preserve">
+    <value>Логін</value>
+  </data>
+  <data name="nurse" xml:space="preserve">
+    <value>Медсестра</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>По батькові:</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Посада:</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Ставка:</value>
+  </data>
+  <data name="registar" xml:space="preserve">
+    <value>Працівник реєстратури</value>
+  </data>
   <data name="SearchBySurname" xml:space="preserve">
     <value>Пошук по прізвищу:</value>
+  </data>
+  <data name="Specialty" xml:space="preserve">
+    <value>Спеціальність:</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Прізвище:</value>
   </data>
 </root>

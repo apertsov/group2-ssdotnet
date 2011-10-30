@@ -3,7 +3,7 @@
 { 
     <p> 
         @EmployeesRes.EmployeesStrings.SearchBySurname @Html.TextBox("SearchString") &nbsp; 
-        <input type="submit" value="Знайти" /></p> 
+        <input type="submit" value=@PatientsRes.PatientsStrings.Find /></p> 
 }
 @{
     ViewBag.Controller = "Employees";
@@ -12,20 +12,20 @@
 <table>
     <tr>
         <th>
-          @Html.ActionLink("Прізвище", "Index", new { sortOrder = ViewBag.SurnameSortParm })
+          @Html.ActionLink(EmployeesRes.EmployeesStrings.Surname, "Index", new { sortOrder = ViewBag.SurnameSortParm })
         </th>
         <th>
-             @Html.ActionLink("Ім'я", "Index", new { sortOrder = ViewBag.FirstNameSortParm })
+             @Html.ActionLink(EmployeesRes.EmployeesStrings.Name, "Index", new { sortOrder = ViewBag.FirstNameSortParm })
            
         </th>
         <th>
-            По батькові
+            @EmployeesRes.EmployeesStrings.Patronymic
         </th>
         <th>
-            Посада
+            @EmployeesRes.EmployeesStrings.Position
         </th>
         <th>
-            @Html.ActionLink("Відділення", "Index", new { sortOrder = ViewBag.DepartmentSortParm })
+            @Html.ActionLink(EmployeesRes.EmployeesStrings.Department, "Index", new { sortOrder = ViewBag.DepartmentSortParm })
             
         </th>
         <th></th>
@@ -49,39 +49,39 @@
             @Html.DisplayFor(modelItem => item.department)
         </td>
         <td>
-            @Html.ActionLink("Правити", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Деталі", "Details", new { id=item.id }) |
-            @Html.ActionLink("Видалити", "Delete", new { id=item.id })
+            @Html.ActionLink(PatientsRes.PatientsStrings.Edit, "Edit", new { id=item.id }) |
+            @Html.ActionLink(PatientsRes.PatientsStrings.Details, "Details", new { id=item.id }) |
+            @Html.ActionLink(PatientsRes.PatientsStrings.Delete, "Delete", new { id=item.id })
         </td>
     </tr>
 }
 
 </table>
 <div> 
-    Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount 
+     @PatientsRes.PatientsStrings.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) ... @Model.PageCount 
     &nbsp; 
     @if (Model.HasPreviousPage)
     { 
         @Html.ActionLink("<<", "Index", new { page = 1, }) 
         @Html.Raw("&nbsp;"); 
-        @Html.ActionLink("< Попередня", "Index", new { page = Model.PageNumber - 1 }) 
+        @Html.ActionLink("< "+ PatientsRes.PatientsStrings.Prev, "Index", new { page = Model.PageNumber - 1 }) 
     }
     else
     { 
         @:<< 
         @Html.Raw("&nbsp;"); 
-        @:< Попередня 
+        @:< @PatientsRes.PatientsStrings.Prev
     } 
     &nbsp; 
     @if (Model.HasNextPage)
     { 
-        @Html.ActionLink("Наступна >", "Index", new { page = Model.PageNumber + 1 }) 
+        @Html.ActionLink(PatientsRes.PatientsStrings.Next+ " >", "Index", new { page = Model.PageNumber + 1 }) 
         @Html.Raw("&nbsp;"); 
         @Html.ActionLink(">>", "Index", new { page = Model.PageCount }) 
     }
     else
     { 
-        @:Наступна > 
+        @:@PatientsRes.PatientsStrings.Next > 
         @Html.Raw("&nbsp;") 
         @:>> 
     } 

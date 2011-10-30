@@ -12,12 +12,10 @@ namespace DiagnosticCenter.Controllers
         DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
         ReferralVM model = new ReferralVM();
         
-        public ActionResult Index()
-        {
-            
-            
-            model.SetModel(Convert.ToInt32(TempData["id"]));
-            ViewData["IDP"] = TempData["id"];
+        public ActionResult Index(int id)
+        {          
+            model.SetModel(id);
+            ViewData["IDP"] = id;
             return View(model);
         }
         [HttpPost]
@@ -58,7 +56,7 @@ namespace DiagnosticCenter.Controllers
 
             List<SelectListItem> c = _cab.ToList();
             SelectListItem i = new SelectListItem();
-            i.Text = "--Кабінет--";
+            i.Text = ReferralRes.ReferralStrings.ChooseCab;
             i.Value = "0";
             c.Insert(0, i);
             result.Data = c;
@@ -77,7 +75,7 @@ namespace DiagnosticCenter.Controllers
 
             List<SelectListItem> c = _empl.ToList();
             SelectListItem i = new SelectListItem();
-            i.Text = "--Лікар--";
+            i.Text =ReferralRes.ReferralStrings.ChooseDoctor;
             i.Value = "0";
             c.Insert(0, i);
             result.Data = c;

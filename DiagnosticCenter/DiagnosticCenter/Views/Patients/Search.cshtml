@@ -4,53 +4,53 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 @using (Html.BeginForm()) {
-        <h3>Пошук пацієнтів</h3>
+        <h3>@PatientsRes.PatientsStrings.FindPatients</h3>
         <table>
             <tr>
                 <td>
-                    Ім'я:<br />
+                    @PatientsRes.PatientsStrings.Name<br />
                     <input type = "text" name = "FirstName"/>
                 </td>
                 <td>
-                    Прізвище:<br />
+                    @PatientsRes.PatientsStrings.Surname<br />
                     <input type = "text" name="Surname"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Дата народження:<br />
+                    @PatientsRes.PatientsStrings.BirthDate<br />
                      <input type = "text" name = "BirthDate"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Місто:<br />
+                    @PatientsRes.PatientsStrings.City<br />
                      <input type = "text" name="City"/>
                 </td>
                 <td>
-                   Адреса:<br />
+                   @PatientsRes.PatientsStrings.Address<br />
                      <input type = "text" name="Address"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Телефон:<br />
+                    @PatientsRes.PatientsStrings.Phone<br />
                      <input type = "text" name="Phone"/>
                 </td>
                 <td>
-                   Електронна адреса:<br />
+                   @PatientsRes.PatientsStrings.Email<br />
                      <input type = "text" name="Email"/>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <fieldset>
-                        <legend>Додатково</legend>
-                            <input type="checkbox" name = "worker" /> Працевлаштований(-на)<br />
-                            <input type="checkbox" name = "civil"  /> Держслужбовець<br />
+                        <legend>@PatientsRes.PatientsStrings.Additional</legend>
+                            <input type="checkbox" name = "worker" />@PatientsRes.PatientsStrings.Employed<br />
+                            <input type="checkbox" name = "civil"  />@PatientsRes.PatientsStrings.CivilServant<br />
                         </fieldset>
-                    <input type="checkbox" name = "optional" onclick="additional()" /> Включити в пошук додаткові опції<br /><br />
-                    <input type="submit" value="Знайти" />
+                    <input type="checkbox" name = "optional" onclick="additional()" /> @PatientsRes.PatientsStrings.Include<br /><br />
+                    <input type="submit" value=@PatientsRes.PatientsStrings.Find />
                 </td>
             </tr>
         </table>

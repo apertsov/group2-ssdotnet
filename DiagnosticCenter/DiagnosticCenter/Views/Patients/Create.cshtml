@@ -12,12 +12,12 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-    <h2 align="center">Форма реєстрації пацієнта</h2>
+    <h2 align="center">@PatientsRes.PatientsStrings.PatientCreate</h2>
     <table id="formholder">
         
         <tr>
             <td>
-              @Html.Label("Ім'я:")
+              @Html.Label(PatientsRes.PatientsStrings.Name)
             </td>
             <td>
                 @Html.EditorFor(model => model.FirstName, "i_FirstName")
@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>
-              @Html.Label("Прізвище:")
+              @Html.Label(PatientsRes.PatientsStrings.Surname)
             </td>
             <td>
                 @Html.EditorFor(model => model.Surname)
@@ -35,7 +35,7 @@
         </tr>    
         <tr>
             <td>
-              @Html.Label("По батькові:")
+              @Html.Label(PatientsRes.PatientsStrings.Patronymic)
             </td>
             <td>
                 @Html.EditorFor(model => model.Patronymic)
@@ -44,16 +44,16 @@
         </tr>
          <tr>
             <td>
-              @Html.Label("Стать:")<br />
+              @Html.Label(PatientsRes.PatientsStrings.Sex)<br />
             </td>
             <td>
-                @Html.RadioButton("Sex","жіноча",true)&nbsp;жіноча
-                @Html.RadioButton("Sex", "чоловіча")&nbsp;чоловіча
+                @Html.RadioButton("Sex","жіноча",true)&nbsp;@PatientsRes.PatientsStrings.female
+                @Html.RadioButton("Sex", "чоловіча")&nbsp;@PatientsRes.PatientsStrings.male
             </td>
         </tr>  
         <tr> 
             <td>
-                @Html.Label("Дата народження:")
+                @Html.Label(PatientsRes.PatientsStrings.BirthDate)
             </td>
             <td>
                 @Html.EditorFor(model => model.BirthDate)
@@ -62,7 +62,7 @@
         </tr>    
         <tr>
             <td>
-              @Html.Label("Електронна адреса:")
+              @Html.Label(PatientsRes.PatientsStrings.Email)
             </td>
             <td>
                 @Html.EditorFor(model => model.Email)
@@ -71,7 +71,7 @@
         </tr>           
         <tr> 
             <td>
-                @Html.Label("Професія:")
+                @Html.Label(PatientsRes.PatientsStrings.Profession)
             </td>
             <td>
                 @Html.EditorFor(model => model.Specialty)
@@ -80,7 +80,7 @@
         </tr>    
         <tr> 
             <td>
-                @Html.Label("Місто:")
+                @Html.Label(PatientsRes.PatientsStrings.City)
             </td>
             <td>
                 @Html.EditorFor(model => model.City)
@@ -89,7 +89,7 @@
         </tr>    
         <tr> 
             <td>
-                @Html.Label("Адреса:")
+                @Html.Label(PatientsRes.PatientsStrings.Address)
             </td>
             <td>
                 @Html.EditorFor(model => model.Address)
@@ -98,7 +98,7 @@
         </tr>    
         <tr> 
             <td>
-                @Html.Label("Телефон:")
+                @Html.Label(PatientsRes.PatientsStrings.Phone)
             </td>
             <td>
                 @Html.EditorFor(model => model.Phone)
@@ -110,7 +110,8 @@
                 @Html.CheckBoxFor(model => model.Workplace)
             </td>
             <td>
-                @Html.Label("Працевлаштований(-на)")
+                @Html.Label(PatientsRes.PatientsStrings.Employed)
+
             </td>
         </tr>    
         <tr> 
@@ -118,17 +119,17 @@
                 @Html.CheckBoxFor(model => model.Civil_Servant)
             </td>
             <td>
-                @Html.Label("Держслужбовець")
+                @Html.Label(PatientsRes.PatientsStrings.CivilServant)
             </td>
         </tr>    
         <tr> 
             <td colspan = "2" align = "left">
-                @Html.Label("Коментар")<br />
+                @Html.Label(PatientsRes.PatientsStrings.Comment)<br />
            
             
                 @Html.TextAreaFor(model => model.Comment)
                <br />
-                <input type="submit" value="Зареєструвати" />
+                <input type="submit" value=@PatientsRes.PatientsStrings.ButtonOk />
             </td>
         </tr>    
     </table>
