@@ -1,0 +1,72 @@
+﻿@model DiagnosticCenter.Models.EmployeeVM
+<div style="margin:0 auto;">
+<table align="center">
+    <tr>
+        <th>
+            @EmployeesRes.EmployeesStrings.Surname
+        </th>
+        <th>
+           @EmployeesRes.EmployeesStrings.Name
+        </th>
+        <th>
+            @EmployeesRes.EmployeesStrings.Patronymic
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(item => item.surname)
+        </td>
+         <td>
+            @Html.DisplayFor(item => item.firstName)
+        </td>
+         <td>
+            @Html.DisplayFor(item => item.patronymic)
+        </td>
+    </tr>
+    <tr>    
+        <td colspan="3">
+            <br />
+            <b>@EmployeesRes.EmployeesStrings.Department</b>
+            @Html.DisplayFor(item => item.department)<br />
+             <b>@EmployeesRes.EmployeesStrings.Cabinet</b>
+            @Html.DisplayFor(item => item.cabinet)<br />
+             <b> @EmployeesRes.EmployeesStrings.Position</b>
+            @Html.DisplayFor(item => item.position)<br />
+             <b> @EmployeesRes.EmployeesStrings.Category</b>
+            @Html.DisplayFor(item => item.category)<br />
+            <b> @EmployeesRes.EmployeesStrings.Specialty</b>
+            @Html.DisplayFor(item => item.specialty)<br />
+            <b> @EmployeesRes.EmployeesStrings.Rate</b>
+            @Html.DisplayFor(item => item.rate) @EmployeesRes.EmployeesStrings.HoursPerDay
+        </td>
+    </tr>
+</table>
+<br />
+<table align="center">
+<th align="center" colspan="2">
+    Статистика діагностичного центру
+</th>
+<tr>
+    <td>
+    Кількість хворих за сьогодні: </td>
+    <td>
+      @ViewBag.PatientsToday
+    </td>
+</tr>
+<tr>
+<td>
+    Кількість хворих за останній місяць:
+</td>
+<td>
+    @ViewBag.PatientsMonth
+</td>
+</tr>
+<tr>
+<td>
+    Загальна кількість хворих:
+</td>
+<td>
+    @ViewBag.PatientsTotal
+</td>
+</tr>
+</table></div>

@@ -17,6 +17,20 @@ namespace DiagnosticCenter.Models
         public int rate { get; set; }
         public string department { get; set; }
         public int cabinet { get; set; }
+
+        public void SetModel(Employee empl)
+        {
+            this.id = empl.ID_Employee;
+            this.firstName = empl.FirstName;
+            this.surname = empl.Surname;
+            this.patronymic = empl.Patronymic;
+            this.category = empl.Category;
+            this.position = empl.Position;
+            this.specialty = empl.Specialty;
+            this.rate = empl.Rate;
+            this.department = empl.Department.Name;
+            this.cabinet = empl.Cabinet.Number;
+        }
     }
 
     public class EmployeesVM
