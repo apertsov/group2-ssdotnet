@@ -1,5 +1,5 @@
 ﻿@model DiagnosticCenter.Models.EmployeeVM
-<div style="margin:0 auto;">
+<div id = "left_content">
 <table align="center">
     <tr>
         <th>
@@ -70,3 +70,7 @@
 </td>
 </tr>
 </table></div>
+<div id="right_content">
+<img src="@Url.Action("PieChart")" alt="SimpleChart" /> <br /><img src="@Url.Action("ColumnChart")" alt="SimpleChart" />
+</div>
+<div id="clear_c"></div>

@@ -1122,3 +1122,23 @@ body #maincontent table.widefat {
     border: 1px solid #aaa; 
     padding:5px;
 }
+
+#left_content 
+{
+    margin-top: 10px; 
+    width: 300px; 
+    padding: 0 10px; 
+    float: left;  
+}
+#right_content
+{
+    margin-left: 130px;
+    padding: 10px; 
+    background: #fff; 
+}
+#clear_c
+{
+    
+    padding: 5px; 
+    clear: left; 
+}
