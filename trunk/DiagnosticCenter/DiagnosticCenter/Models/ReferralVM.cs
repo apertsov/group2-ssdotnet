@@ -44,7 +44,7 @@ namespace DiagnosticCenter.Models
                                                   .Select(e => new SelectListItem { Value = e.Number.ToString(), Text = e.Number.ToString() });
             List<SelectListItem> c = _cab.ToList();
             SelectListItem i = new SelectListItem();
-            i.Text = "--Кабінет--";
+            i.Text = ReferralRes.ReferralStrings.ChooseCab;
             i.Value = "0";
             c.Insert(0, i);
             return c;
@@ -57,7 +57,7 @@ namespace DiagnosticCenter.Models
                                                     .Select(e => new SelectListItem { Value = e.ID_Employee.ToString(), Text = e.FirstName + " " + e.Surname });
             List<SelectListItem> c = _empl.ToList();
             SelectListItem i = new SelectListItem();
-            i.Text = "--Лікар--";
+            i.Text = ReferralRes.ReferralStrings.ChooseDoctor;
             i.Value = "0";
             c.Insert(0, i);
             return  c;

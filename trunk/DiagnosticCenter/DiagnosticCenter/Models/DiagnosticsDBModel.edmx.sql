@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/29/2011 20:50:07
--- Generated from EDMX file: E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
+-- Date Created: 10/29/2011 23:17:31
+-- Generated from EDMX file: D:\1\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -113,9 +113,9 @@ GO
 -- Creating table 'Days'
 CREATE TABLE [dbo].[Days] (
     [ID_Day] int IDENTITY(1,1) NOT NULL,
-    [Date] datetime2(7)  NOT NULL,
-    [StartTime] datetime2(7)  NOT NULL,
-    [EndTime] datetime2(7)  NOT NULL
+    [Date] datetime  NOT NULL,
+    [StartTime] datetime  NOT NULL,
+    [EndTime] datetime  NOT NULL
 );
 GO
 
@@ -173,7 +173,7 @@ CREATE TABLE [dbo].[Patients] (
     [Patronymic] nvarchar(max)  NOT NULL,
     [Email] nvarchar(50)  NULL,
     [Password] nvarchar(16)  NOT NULL,
-    [BirthDate] datetime2(7)  NOT NULL,
+    [BirthDate] datetime  NOT NULL,
     [Sex] nvarchar(10)  NOT NULL,
     [City] nvarchar(max)  NOT NULL
 );
@@ -182,8 +182,8 @@ GO
 -- Creating table 'Referrals'
 CREATE TABLE [dbo].[Referrals] (
     [ID_Referral] int IDENTITY(1,1) NOT NULL,
-    [CreationDate] datetime2(7)  NOT NULL,
-    [VisitDate] datetime2(7)  NOT NULL,
+    [CreationDate] datetime  NOT NULL,
+    [VisitDate] datetime  NOT NULL,
     [ID_Patient] int  NOT NULL,
     [ID_Employee] int  NOT NULL,
     [ID_Examination] int  NULL
@@ -198,7 +198,7 @@ CREATE TABLE [dbo].[Examinations] (
     [Conclusion] nvarchar(max)  NOT NULL,
     [Recommendation] nvarchar(max)  NOT NULL,
     [Consultation] nvarchar(max)  NOT NULL,
-    [StartTime] datetime2(7)  NOT NULL,
+    [StartTime] datetime  NOT NULL,
     [ID_Employee] int  NOT NULL,
     [ID_Patient] int  NOT NULL,
     [ID_ExmType] int  NOT NULL,

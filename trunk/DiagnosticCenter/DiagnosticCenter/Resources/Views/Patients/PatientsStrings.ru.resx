@@ -117,7 +117,100 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Additional" xml:space="preserve">
+    <value>Дополнительно</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес:</value>
+  </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>Дата рождения:</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>Зарегистрировать</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Город:</value>
+  </data>
+  <data name="CivilServant" xml:space="preserve">
+    <value>Госслужащий</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Детали</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
+  <data name="EditPatient" xml:space="preserve">
+    <value>Редактирование информации</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Електронный адрес:</value>
+  </data>
+  <data name="Employed" xml:space="preserve">
+    <value>Трудоустроен(-а)</value>
+  </data>
+  <data name="Exam" xml:space="preserve">
+    <value>Обследование</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>женский</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Найти</value>
+  </data>
+  <data name="FindPatients" xml:space="preserve">
+    <value>Поиск пациента</value>
+  </data>
+  <data name="Include" xml:space="preserve">
+    <value>Включить в поиск дополнительные опции</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>мужской</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>След.</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Страница</value>
+  </data>
+  <data name="PatientCreate" xml:space="preserve">
+    <value>Создать нового пациента</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Отчество:</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон:</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Пред.</value>
+  </data>
+  <data name="Profession" xml:space="preserve">
+    <value>Профессия:</value>
+  </data>
+  <data name="Referral" xml:space="preserve">
+    <value>Выписать направление</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
   <data name="SearchBySurname" xml:space="preserve">
     <value>Поиск по фамилии:</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Пол:</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Фамилия:</value>
   </data>
 </root>

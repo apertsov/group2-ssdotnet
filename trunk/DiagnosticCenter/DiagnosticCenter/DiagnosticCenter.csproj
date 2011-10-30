@@ -293,6 +293,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Views\Referral\ReferralStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReferralStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Referral\ReferralStrings.ru.Designer.cs">
+      <DependentUpon>ReferralStrings.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Referral\ReferralStrings.uk.Designer.cs">
+      <DependentUpon>ReferralStrings.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Views\Shared\SharedStrings.ru1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -922,6 +937,21 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlanStrings.uk.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Referral\ReferralStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReferralStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ReferralRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Referral\ReferralStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReferralStrings.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ReferralRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Referral\ReferralStrings.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReferralStrings.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ReferralRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\SharedStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

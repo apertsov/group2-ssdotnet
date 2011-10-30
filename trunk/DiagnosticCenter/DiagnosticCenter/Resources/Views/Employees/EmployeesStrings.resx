@@ -117,7 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cabinet" xml:space="preserve">
+    <value>Cabinet:</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="ChooseCab" xml:space="preserve">
+    <value>Choose cabinet</value>
+  </data>
+  <data name="ChooseDept" xml:space="preserve">
+    <value>Choose department</value>
+  </data>
+  <data name="ChoosePosition" xml:space="preserve">
+    <value>Choose position</value>
+  </data>
+  <data name="CreateEmployee" xml:space="preserve">
+    <value>Create new employee</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department:</value>
+  </data>
+  <data name="departmentchief" xml:space="preserve">
+    <value>Department chief doctor</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FindEmployee" xml:space="preserve">
+    <value>Find employee</value>
+  </data>
+  <data name="headdoctor" xml:space="preserve">
+    <value>Head doctor</value>
+  </data>
+  <data name="headnurse" xml:space="preserve">
+    <value>Head nurse</value>
+  </data>
+  <data name="HoursPerDay" xml:space="preserve">
+    <value>hours per day</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Nickname" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="nurse" xml:space="preserve">
+    <value>Nurse</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Patronymic</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position:</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="registar" xml:space="preserve">
+    <value>Registar</value>
+  </data>
   <data name="SearchBySurname" xml:space="preserve">
     <value>Search by surname</value>
+  </data>
+  <data name="Specialty" xml:space="preserve">
+    <value>Specialty:</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname:</value>
   </data>
 </root>

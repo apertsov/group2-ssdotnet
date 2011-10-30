@@ -3,13 +3,13 @@
 <table>
     <tr>
         <th>
-            Прізвище
+            @EmployeesRes.EmployeesStrings.Surname
         </th>
         <th>
-            Ім'я
+           @EmployeesRes.EmployeesStrings.Name
         </th>
         <th>
-            По батькові
+            @EmployeesRes.EmployeesStrings.Patronymic
         </th>
     </tr>
 @foreach(var item in Model){   
@@ -27,18 +27,18 @@
     <tr>    
         <td colspan="3">
             <br />
-            <b>Відділення:</b>
+            <b>@EmployeesRes.EmployeesStrings.Department</b>
             @Html.DisplayFor(modelItem => item.department)<br />
-             <b>Кабінет:</b>
+             <b>@EmployeesRes.EmployeesStrings.Cabinet</b>
             @Html.DisplayFor(modelItem => item.cabinet)<br />
-             <b> Посада:</b>
+             <b> @EmployeesRes.EmployeesStrings.Position</b>
             @Html.DisplayFor(modelItem => item.position)<br />
-             <b> Категорія:</b>
+             <b> @EmployeesRes.EmployeesStrings.Category</b>
             @Html.DisplayFor(modelItem => item.category)<br />
-            <b> Спеціальність:</b>
+            <b> @EmployeesRes.EmployeesStrings.Specialty</b>
             @Html.DisplayFor(modelItem => item.specialty)<br />
-            <b> Ставка:</b>
-            @Html.DisplayFor(modelItem => item.rate) год. в день.
+            <b> @EmployeesRes.EmployeesStrings.Rate</b>
+            @Html.DisplayFor(modelItem => item.rate) @EmployeesRes.EmployeesStrings.HoursPerDay
         </td>
     </tr>
 }

@@ -38,8 +38,10 @@
                 });
 
             });
+           
         });
 
+        
         $("#Empl").change(function () {
             var source = "#Empl";
             if ($(source).val() == "0") { $("#sub").attr("disabled", "disabled"); }
@@ -54,32 +56,32 @@
 <h2>Index</h2>
 <p>
     @Html.HiddenFor(item => item.patient)
-    @Html.Label("Пацієнт:")
+    @Html.Label(ReferralRes.ReferralStrings.Patient)
     @Html.DisplayFor(item => item.patient)
 </p>
 <p>
-    @Html.Label("Відділення:")
+    @Html.Label(ReferralRes.ReferralStrings.Department)
     @Html.DropDownList("Dept", Model.department)
     
 </p>
 <p>
-    @Html.Label("Кабінет:")
+    @Html.Label(ReferralRes.ReferralStrings.Cabinet)
     @Html.DropDownList("Cab", Model.cabinet)
 </p>
 <p>
-    @Html.Label("Лікар:")
+    @Html.Label(ReferralRes.ReferralStrings.Doctor)
     @Html.DropDownList("Empl", Model.employee)
 </p>
-<p>@Html.Label("Дата візиту:")
+<p>@Html.Label(ReferralRes.ReferralStrings.VisitDate)
    @Html.TextBoxFor(item => item.visitDate)
    @Html.ValidationMessageFor(item => item.visitDate)
 </p>
-<p>@Html.Label("Дата виписування:")
+<p>@Html.Label(ReferralRes.ReferralStrings.CreationDate)
    @Html.DisplayFor(item => item.todayDate)
    @Html.HiddenFor(item => item.todayDate)
 </p>
 <p>
-    <input type="submit" value="Виписати" id="sub" disabled="disabled" />
+    <input type="submit" value=@ReferralRes.ReferralStrings.Print id="sub" disabled="disabled" />
 </p>
       @Html.Hidden("idp",ViewData["IDP"])
   }
