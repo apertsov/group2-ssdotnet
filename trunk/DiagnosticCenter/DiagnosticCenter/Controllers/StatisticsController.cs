@@ -6,12 +6,16 @@ using System.Web.Mvc;
 using DiagnosticCenter.Models;
 using System.Web.Security;
 using System.Web.Profile;
+using System.Web.Helpers;
+
+
 
 namespace DiagnosticCenter.Controllers
 {
     public class StatisticsController : Controller
     {
         DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+        
         public ActionResult Index()
         {
             MembershipUser current = Membership.GetUser(User.Identity.Name);
@@ -26,5 +30,31 @@ namespace DiagnosticCenter.Controllers
             return View(model);
         }
 
+        public ActionResult PieChart()
+        {
+            String dept = context.Departments.ToString();
+            var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle("Кількість пацієнтів у відділах за останній місяць")
+                .AddLegend("Відділення")
+                .AddSeries(
+                   chartType: "pie",
+                   xValue: new[] {"відділ 1","відділ 2","відділ 3","відділ 4"},
+                   yValues: new[] {"20","70","35","60"} )
+               .Write();
+
+            return null;
+        }
+
+        public ActionResult ColumnChart()
+        {
+            String dept = context.Departments.ToString();
+            var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle("Кількість пацієнтів по місяцях")
+                .AddSeries(
+                   chartType: "column",
+                   xValue: new[] { "Січ", "Лют", "Бер", "Кві", "Тра","Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру" },
+                   yValues: new[] { "100", "270", "35", "160", "100", "270", "35", "160", "100", "270", "35", "160"})
+               .Write();
+
+            return null;
+        }
     }
 }
