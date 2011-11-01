@@ -60,10 +60,19 @@ namespace DiagnosticCenter.Controllers
         {
             List<Department> dept = context.Departments.ToList();
             IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name });
-            List<Cabinet> cab = context.Cabinets.ToList();
-            IEnumerable<SelectListItem> _cab = cab.Select(e => new SelectListItem { Value = e.ID_Cabinet.ToString(), Text = e.Number.ToString() });
-            ViewBag.Depts = _dept;
-            ViewBag.Cabinets = _cab;
+            List<SelectListItem> d = _dept.ToList();
+            SelectListItem i = new SelectListItem();
+            i.Text = "Выберите отделение";
+            i.Value = "0";
+            d.Insert(0, i);
+   
+            List<SelectListItem> c = new List<SelectListItem>();
+            i = new SelectListItem();
+            i.Text = ReferralRes.ReferralStrings.ChooseCab;
+            i.Value = "0";
+            c.Insert(0, i);
+            ViewBag.Dept = d;
+            ViewBag.Cab = c;
             return View();
         }
 
@@ -91,8 +100,8 @@ namespace DiagnosticCenter.Controllers
 
             MembershipUser curr_user = Membership.GetUser(newUser);
             new_empl.ID_User = (Guid)curr_user.ProviderUserKey;
-            new_empl.ID_Dept = System.Convert.ToInt32(Request.Form["Depts"]);
-            new_empl.ID_Cabinet = System.Convert.ToInt32(Request.Form["Cabinets"]);
+            new_empl.ID_Dept = System.Convert.ToInt32(Request.Form["Dept"]);
+            new_empl.ID_Cabinet = System.Convert.ToInt32(Request.Form["Cab"]);
 
             context.AddToEmployees(new_empl);
             context.SaveChanges();
@@ -104,14 +113,15 @@ namespace DiagnosticCenter.Controllers
         public ActionResult Edit(int id)
         {
             string[] role = Roles.GetAllRoles();
-            Employee empl = context.Employees.Include("Department").Include("Cabinet").Where(i => i.ID_Employee == id).First();
+            Employee empl = context.Employees.Include("Department").Include("Cabinet").Where(e => e.ID_Employee == id).First();
             List<Department> dept = context.Departments.ToList();
             IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name, Selected = e.ID_Dept == empl.ID_Dept });
-            List<Cabinet> cab = context.Cabinets.ToList();
+            List<Cabinet> cab = context.Cabinets.Where(e => e.ID_Dept == empl.ID_Dept).ToList();
             IEnumerable<SelectListItem> _cab = cab.Select(e => new SelectListItem { Value = e.ID_Cabinet.ToString(), Text = e.Number.ToString(), Selected = e.ID_Cabinet == empl.ID_Cabinet });
             MembershipUser curr_user = Membership.GetUser(empl.ID_User);
-            ViewBag.Depts = _dept;
-            ViewBag.Cabinets = _cab;
+            List<SelectListItem> c = _cab.ToList();
+            ViewBag.Dept = _dept;
+            ViewBag.Cab = c;
             ViewBag.Email = curr_user.Email;
             return View(empl);
             
@@ -144,8 +154,8 @@ namespace DiagnosticCenter.Controllers
                 }
             Roles.AddUserToRole(curr_user.UserName, role);
             curr_user.Email = edit_empl.Email;
-            edit_empl.ID_Dept = System.Convert.ToInt32(Request.Form["Depts"]);
-            edit_empl.ID_Cabinet = System.Convert.ToInt32(Request.Form["Cabinets"]);
+            edit_empl.ID_Dept = System.Convert.ToInt32(Request.Form["Dept"]);
+            edit_empl.ID_Cabinet = System.Convert.ToInt32(Request.Form["Cab"]);
             context.ApplyCurrentValues(original_empl.EntityKey.EntitySetName, edit_empl);
             context.SaveChanges();
             return RedirectToAction("Index");
@@ -169,8 +179,8 @@ namespace DiagnosticCenter.Controllers
             IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name });
             List<Cabinet> cab = context.Cabinets.ToList();
             IEnumerable<SelectListItem> _cab = cab.Select(e => new SelectListItem { Value = e.ID_Cabinet.ToString(), Text = e.Number.ToString() });
-            ViewBag.Depts = _dept;
-            ViewBag.Cabinets = _cab;
+            ViewBag.Dept = _dept;
+            ViewBag.Cab = _cab;
             return View();
         }
 
@@ -189,14 +199,14 @@ namespace DiagnosticCenter.Controllers
                 employee = employee.Where(p => p.Category.Contains(requestedEmployee.Specialty));
             if (Request.Form["position"].ToString().Trim() != "")
                 employee = employee.Where(p => p.Position == requestedEmployee.Position);
-            if (Request.Form["Cabinets"].ToString() != "")
+            if (Request.Form["Cab"].ToString() != "")
             {
-                int cabinet = Convert.ToInt32(Request.Form["Cabinets"]);
+                int cabinet = Convert.ToInt32(Request.Form["Cab"]);
                 employee = employee.Where(p => p.ID_Cabinet == cabinet);
             }
-            if (Request.Form["Depts"].ToString() != "")
+            if (Request.Form["Dept"].ToString() != "")
             {
-                int dept = Convert.ToInt32(Request.Form["Depts"]);
+                int dept = Convert.ToInt32(Request.Form["Dept"]);
                 employee = employee.Where(p => p.ID_Dept == dept);
             }
             employee = employee.OrderBy(p => p.FirstName);
@@ -236,6 +246,41 @@ namespace DiagnosticCenter.Controllers
             {
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        public JsonResult Cabinet(string deptName)
+        {
+            JsonResult result = new JsonResult();
+            List<Cabinet> cab = context.Cabinets.Include("Department").ToList();
+            IEnumerable<SelectListItem> _cab = cab.Where(e => e.Department.ID_Dept == Convert.ToInt32(deptName)).Select(e => new SelectListItem
+            {
+                Text = e.Number.ToString(),
+                Value = e.ID_Cabinet.ToString()
+            });
+
+            List<SelectListItem> c = _cab.ToList();
+            SelectListItem i = new SelectListItem();
+            i.Text = ReferralRes.ReferralStrings.ChooseCab;
+            i.Value = "0";
+            c.Insert(0, i);
+            result.Data = c;
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return result;
+        }
+
+        public JsonResult EditCabinet(string deptName)
+        {
+            JsonResult result = new JsonResult();
+            List<Cabinet> cab = context.Cabinets.Include("Department").ToList();
+            IEnumerable<SelectListItem> _cab = cab.Where(e => e.Department.ID_Dept == Convert.ToInt32(deptName)).Select(e => new SelectListItem
+            {
+                Text = e.Number.ToString(),
+                Value = e.ID_Cabinet.ToString()
+            });
+            List<SelectListItem> c = _cab.ToList();
+            result.Data = c;
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return result;
         }
     }
 }
