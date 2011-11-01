@@ -1073,7 +1073,7 @@ body #maincontent table.widefat {
 }
 
 #maincontent form input[type="button"], 
-#maincontent form input[type="submit"], 
+ 
 #maincontent form input[type="reset"]
 {
     -moz-box-sizing: content-box;
