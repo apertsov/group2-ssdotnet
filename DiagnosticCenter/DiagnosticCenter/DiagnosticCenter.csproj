@@ -750,6 +750,7 @@
     <Content Include="App_Data\web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.csdl" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.msl" />
@@ -796,7 +797,11 @@
     <Content Include="Views\Referral\Index.cshtml" />
     <Content Include="Views\Referral\Print.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
+
+    <Content Include="Views\Statistics\StatPage.cshtml" />
+
     <Content Include="Views\Settings\Edit.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.resx">
