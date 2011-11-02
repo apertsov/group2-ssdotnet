@@ -797,11 +797,8 @@
     <Content Include="Views\Referral\Index.cshtml" />
     <Content Include="Views\Referral\Print.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
-
     <Content Include="Views\Statistics\StatPage.cshtml" />
-
     <Content Include="Views\Settings\Edit.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.resx">
@@ -1076,7 +1073,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1284</DevelopmentServerPort>
+          <DevelopmentServerPort>1045</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

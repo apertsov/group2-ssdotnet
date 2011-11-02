@@ -187,6 +187,24 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, contact System Administrator to resolve a problem. .
+        /// </summary>
+        public static string Error3Recomendation {
+            get {
+                return ResourceManager.GetString("Error3Recomendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Records in Plan table does not correspont to workday settings..
+        /// </summary>
+        public static string Error3Text {
+            get {
+                return ResourceManager.GetString("Error3Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to February.
         /// </summary>
         public static string February {

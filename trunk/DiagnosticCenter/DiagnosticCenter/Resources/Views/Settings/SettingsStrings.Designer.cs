@@ -61,6 +61,24 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blue.
+        /// </summary>
+        public static string BlueTheme {
+            get {
+                return ResourceManager.GetString("BlueTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gray.
+        /// </summary>
+        public static string GrayTheme {
+            get {
+                return ResourceManager.GetString("GrayTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Localization.
         /// </summary>
         public static string Localization {

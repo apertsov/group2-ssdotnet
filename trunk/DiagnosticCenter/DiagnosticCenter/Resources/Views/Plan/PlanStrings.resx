@@ -213,4 +213,10 @@
   <data name="Error2Text" xml:space="preserve">
     <value>Working day start and finish time settings are invalid.</value>
   </data>
+  <data name="Error3Recomendation" xml:space="preserve">
+    <value>Please, contact System Administrator to resolve a problem. </value>
+  </data>
+  <data name="Error3Text" xml:space="preserve">
+    <value>Records in Plan table does not correspont to workday settings.</value>
+  </data>
 </root>

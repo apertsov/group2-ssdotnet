@@ -213,4 +213,10 @@
   <data name="Error2Text" xml:space="preserve">
     <value>Налаштування початку та завершення роботи задані невірно.</value>
   </data>
+  <data name="Error3Recomendation" xml:space="preserve">
+    <value>Звернітся до адміністратора системи для вирішення проблеми.</value>
+  </data>
+  <data name="Error3Text" xml:space="preserve">
+    <value>Записи в таблиці розкладів не відповідають налаштуванням робочого дня.</value>
+  </data>
 </root>

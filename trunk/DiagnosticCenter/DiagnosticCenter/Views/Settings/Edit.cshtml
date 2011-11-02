@@ -54,7 +54,10 @@
                                                             new SelectListItem{Value = "ru        ", Text = @"Russian (Русский)"}})
                         <br />
                         @Html.LabelFor(model => model.ThemeId)
-                        @Html.TextBoxFor(model => model.ThemeId)
+                        
+                        @Html.DropDownListFor(model => model.ThemeId, new BindingList<SelectListItem>
+                                                            {new SelectListItem{Value = "gray", Text = ViewRes.SettingsStrings.GrayTheme},
+                                                            new SelectListItem{Value = "blue", Text = ViewRes.SettingsStrings.BlueTheme}})
                     </fieldset>
                 </td>
                 <td>
