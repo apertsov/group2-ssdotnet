@@ -169,6 +169,24 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, contact System Administrator to resolve a problem. .
+        /// </summary>
+        public static string Error2Recomendation {
+            get {
+                return ResourceManager.GetString("Error2Recomendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Working day start and finish time settings are invalid..
+        /// </summary>
+        public static string Error2Text {
+            get {
+                return ResourceManager.GetString("Error2Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to February.
         /// </summary>
         public static string February {
