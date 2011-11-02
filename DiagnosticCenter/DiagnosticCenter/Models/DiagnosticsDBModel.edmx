@@ -16,6 +16,7 @@
     <EntitySet Name="Examinations" EntityType="DiagnosticsDBModel.Store.Examinations" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ExaminationTypes" EntityType="DiagnosticsDBModel.Store.ExaminationTypes" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ExaminationTemplates" EntityType="DiagnosticsDBModel.Store.ExaminationTemplates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Settings" EntityType="DiagnosticsDBModel.Store.Settings" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DayEmployee" EntityType="DiagnosticsDBModel.Store.DayEmployee" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="DepartmentEmployee" Association="DiagnosticsDBModel.Store.DepartmentEmployee">
       <End Role="Department" EntitySet="Departments" />
@@ -199,6 +200,20 @@
     <Property Name="ExaminationTypeID_ExmType" Type="int" Nullable="false" />
     <Property Name="EmployeeID_Employee" Type="int" Nullable="false" />
     <Property Name="IsPrivate" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="ID_Settings" />
+    </Key>
+    <Property Name="ID_Settings" Type="int" Nullable="false" />
+    <Property Name="CenterName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenterDetails" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenterAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenterPhoneNo" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LanguageId" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="ThemeId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WorkDayStartHour" Type="int" Nullable="false" />
+    <Property Name="WorkDayEndHour" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DayEmployee">
     <Key>
@@ -443,6 +458,7 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="ExaminationTemplate" EntitySet="ExaminationTemplates" />
           </AssociationSet>
+          <EntitySet Name="Settings" EntityType="DiagnosticsDBModel.Settings" />
         </EntityContainer>
         <EntityType Name="Department">
           <Key>
@@ -726,6 +742,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="ID_Settings" />
+          </Key>
+          <Property Type="Int32" Name="ID_Settings" Nullable="false" />
+          <Property Type="String" Name="CenterName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CenterDetails" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CenterAddress" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CenterPhoneNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LanguageId" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="ThemeId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="WorkDayStartHour" Nullable="false" />
+          <Property Type="Int32" Name="WorkDayEndHour" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -866,6 +896,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Settings)">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="ID_Settings" ColumnName="ID_Settings" />
+          <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+          <ScalarProperty Name="CenterDetails" ColumnName="CenterDetails" />
+          <ScalarProperty Name="CenterAddress" ColumnName="CenterAddress" />
+          <ScalarProperty Name="CenterPhoneNo" ColumnName="CenterPhoneNo" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+          <ScalarProperty Name="WorkDayStartHour" ColumnName="WorkDayStartHour" />
+          <ScalarProperty Name="WorkDayEndHour" ColumnName="WorkDayEndHour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="DayEmployee" TypeName="DiagnosticsDBModel.DayEmployee" StoreEntitySet="DayEmployee">
       <EndProperty Name="Day">
         <ScalarProperty Name="ID_Day" ColumnName="Day_ID_Day" />
@@ -910,7 +955,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="DiagnosticsDBModel" >
+      <Diagram Name="DiagnosticsDBModel" ZoomLevel="86" >
         <EntityTypeShape EntityType="DiagnosticsDBModel.Department" Width="1.5" PointX="3" PointY="0.5" Height="1.7566536458333335" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.Day" Width="1.5" PointX="0.5" PointY="1" Height="1.7566536458333335" />
         <EntityTypeShape EntityType="DiagnosticsDBModel.Employee" Width="1.75" PointX="5.125" PointY="1.75" Height="4.8648079427083317" />
@@ -950,15 +995,15 @@
           <ConnectorPoint PointX="7.5" PointY="5.5285546875" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.PatientExamination">
-          <ConnectorPoint PointX="2" PointY="7.3287565104166656" />
-          <ConnectorPoint PointX="3.4166666666666665" PointY="7.3287565104166648" />
-          <ConnectorPoint PointX="3.5833333333333335" PointY="7.3287565104166656" />
-          <ConnectorPoint PointX="7.5" PointY="7.3287565104166656" />
+          <ConnectorPoint PointX="2" PointY="6.56795277719754" />
+          <ConnectorPoint PointX="3.4166666666666665" PointY="6.5679527771975392" />
+          <ConnectorPoint PointX="3.5833333333333335" PointY="6.56795277719754" />
+          <ConnectorPoint PointX="7.5" PointY="6.56795277719754" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.ReferralExamination">
-          <ConnectorPoint PointX="3.5" PointY="5.6244921875" />
-          <ConnectorPoint PointX="3.5" PointY="7.6761304296874995" />
-          <ConnectorPoint PointX="7.5" PointY="7.6761304296874995" />
+          <ConnectorPoint PointX="3.5" PointY="5.28904296875" />
+          <ConnectorPoint PointX="3.5" PointY="7.0581186997966867" />
+          <ConnectorPoint PointX="7.5" PointY="7.0581186997966867" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.ExaminationTypeExamination">
           <ConnectorPoint PointX="9.875" PointY="4.9949446614583328" />
@@ -980,6 +1025,7 @@
           <ConnectorPoint PointX="11.59375" PointY="3.0261946614583333" />
           <ConnectorPoint PointX="11.59375" PointY="6.5" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DiagnosticsDBModel.Settings" Width="1.5" PointX="0.5" PointY="7.625" Height="2.4140429687500031" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

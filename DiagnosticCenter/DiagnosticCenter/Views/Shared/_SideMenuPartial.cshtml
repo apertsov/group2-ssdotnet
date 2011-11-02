@@ -4,9 +4,9 @@
        
         @if (User.IsInRole("Administrator"))
         {
-            <li id="menu-settings" class="first-item @((ViewBag.Controller == "Settings") ? "current" : "") menu-top menu-icon-settings">
+            <li id="menu-settings" class="first-item @((ViewBag.Controller == "Parameters") ? "current" : "") menu-top menu-icon-settings">
                 <div class="menu-image">
-                    @Html.ActionLink(" ", "Settings", "Admin")
+                    @Html.ActionLink(" ", "Edit", "Settings")
                 </div>
                 <div class="menu-arrow">
                     <div>
@@ -15,7 +15,7 @@
                 <div class="menu-toggle" style="display: none;">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.Settings, "Settings", "Admin", null, new { @class = "first-item menu-top menu-icon-settings" + ((ViewBag.Controller == "Settings") ? " current" : "") })                        
+                @Html.ActionLink(ViewRes.SharedStrings.Settings, "Edit", "Settings", null, new { @class = "first-item menu-top menu-icon-settings" + ((ViewBag.Controller == "Settings") ? " current" : "") })                        
             </li>
         }
         

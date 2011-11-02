@@ -1,12 +1,50 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using DiagnosticCenter.Resources.Models.Cabinets;
 using DiagnosticCenter.Resources.Models.Examinations;
 using DiagnosticCenter.Classes;
+using DiagnosticCenter.Resources.Models.Settings;
 
 namespace DiagnosticCenter.Models
 {
+// Settings
+    [MetadataType(typeof(SettingsMetadata))]
+    public partial class Settings { }
+    public class SettingsMetadata
+    {
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "CenterName")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.String CenterName { get; set; }
+
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "CenterDetails")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.String CenterDetails { get; set; }
+
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "CenterAddress")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.String CenterAddress { get; set; }
+
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "CenterPhoneNo")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.String CenterPhoneNo { get; set; }
+
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "DefaultLanguage")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.String LanguageId { get; set; }
+
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "DefaultTheme")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.String ThemeId { get; set; }
+
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "StartHour")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.Int32 WorkDayStartHour { get; set; }
+
+        [Display(ResourceType = typeof(SettingsFieldNames), Name = "EndHour")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(SettingsValidationStrings))]
+        public System.Int32 WorkDayEndHour { get; set; }
+    }
+
 // ExaminationType
     [MetadataType(typeof(ExaminationTypeMetadata))]
     public partial class ExaminationType { }
