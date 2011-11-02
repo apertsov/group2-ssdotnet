@@ -204,6 +204,9 @@
   <data name="Settings" xml:space="preserve">
     <value>Налаштування</value>
   </data>
+  <data name="Stat" xml:space="preserve">
+    <value>Статистика діагностичного центру</value>
+  </data>
   <data name="Welcomе" xml:space="preserve">
     <value>Вітаємо</value>
   </data>

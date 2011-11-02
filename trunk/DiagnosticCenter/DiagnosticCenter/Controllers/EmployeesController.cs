@@ -10,6 +10,7 @@ using PagedList;
 
 namespace DiagnosticCenter.Controllers
 {
+
     public class EmployeesController : Controller
     {
         DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer(); //контекст моделі бд

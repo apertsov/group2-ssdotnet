@@ -204,6 +204,9 @@
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="Stat" xml:space="preserve">
+    <value>Diagnostic center statistics</value>
+  </data>
   <data name="Welcomе" xml:space="preserve">
     <value>Welcomе</value>
   </data>

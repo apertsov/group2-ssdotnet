@@ -24,21 +24,34 @@ namespace DiagnosticCenter.Controllers
             Employee empl = context.Employees.Include("Department").Include("Cabinet").Where(i => i.ID_User == c).First();
             model.SetModel(empl);
 
-            ViewBag.PatientsToday = context.Referrals.Where(i => i.CreationDate.Day == DateTime.Now.Day).Count();
-            ViewBag.PatientsMonth = context.Referrals.Where(i => i.CreationDate.Month == DateTime.Now.Month).Count();
-            ViewBag.PatientsTotal = context.Referrals.Count();
+            
             return View(model);
         }
 
         public ActionResult PieChart()
         {
-            String dept = context.Departments.ToString();
+            List<Department> dept = context.Departments.ToList();
+            List<int> c_dept = new List<int>();
+            foreach (Department d in dept)
+            {
+                int sum = 0;
+                List<Employee> empl = context.Employees.Where(e => e.ID_Dept == d.ID_Dept).ToList();
+                foreach (Employee e in empl)
+                {
+                    sum += e.Referral.Count();
+                }
+                c_dept.Add(sum);
+            }
+            List<string> str_dept = new List<string>();
+            foreach( Department d in dept)
+                str_dept.Add(d.Name);
+
             var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle("Кількість пацієнтів у відділах за останній місяць")
                 .AddLegend("Відділення")
                 .AddSeries(
                    chartType: "pie",
-                   xValue: new[] {"відділ 1","відділ 2","відділ 3","відділ 4"},
-                   yValues: new[] {"20","70","35","60"} )
+                   xValue: str_dept,
+                   yValues: c_dept )
                .Write();
 
             return null;
@@ -46,15 +59,30 @@ namespace DiagnosticCenter.Controllers
 
         public ActionResult ColumnChart()
         {
-            String dept = context.Departments.ToString();
+            
+            List<int> c_reff = new List<int>();
+            for (int i = 1; i <= 12; i++)
+            {
+                DateTime mnth = new DateTime(2011, i, 10);
+                int reff = context.Referrals.Where(item => item.CreationDate.Month == mnth.Month).Count();
+                c_reff.Add(reff);
+            }
             var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle("Кількість пацієнтів по місяцях")
                 .AddSeries(
                    chartType: "column",
                    xValue: new[] { "Січ", "Лют", "Бер", "Кві", "Тра","Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру" },
-                   yValues: new[] { "100", "270", "35", "160", "100", "270", "35", "160", "100", "270", "35", "160"})
+                   yValues: c_reff)
                .Write();
-
             return null;
         }
+
+        public ActionResult StatPage()
+        {
+            ViewBag.PatientsToday = context.Referrals.Where(i => i.CreationDate.Day == DateTime.Now.Day).Count();
+            ViewBag.PatientsMonth = context.Referrals.Where(i => i.CreationDate.Month == DateTime.Now.Month).Count();
+            ViewBag.PatientsTotal = context.Referrals.Count();
+            return View();
+        }
     }
+
 }
