@@ -263,13 +263,9 @@ namespace DiagnosticCenter.Controllers
             return View();
         }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         [HttpPost]
         public ActionResult Index(FormCollection inputData)
         {
-            int cabPageNo = 1; //TODO: Read from Index
-
             var context = new DiagnosticsDBModelContainer();
 
             //Читаємо дані з форми
@@ -390,8 +386,7 @@ namespace DiagnosticCenter.Controllers
 
                         editedDay.Employee.Remove(employee);
                         context.ApplyCurrentValues(originalDay.EntityKey.EntitySetName, editedDay);
-                        context.SaveChanges();
-                        
+                        context.SaveChanges();    
                     }
                 }
             }
@@ -414,7 +409,6 @@ namespace DiagnosticCenter.Controllers
                         startHour = rowIndex;
                     else if (((currentCellVal != prevCellVal)) || (rowIndex >= col.Count()))
                     {
-                        
                         endHour = rowIndex;
                     }
 
@@ -427,8 +421,6 @@ namespace DiagnosticCenter.Controllers
 
                     if ((startHour >= 0) && (endHour >= 0) && (startHour < endHour))
                     {
-                        
-                        
                         hours = new KeyValuePair<int, int>(startHour, endHour);
                         hoursCell = new KeyValuePair<int, KeyValuePair<int, int>>(Convert.ToInt32(col[startHour]), hours);
 
@@ -456,7 +448,6 @@ namespace DiagnosticCenter.Controllers
 
                             context.AddToDays(newDay);
                             context.SaveChanges();
-                            
                         }
                         else if (!lDay.First().Employee.Contains(qEmployee.First()))
                         {
@@ -486,6 +477,5 @@ namespace DiagnosticCenter.Controllers
 
             return RedirectToAction("Index", new { PageNo = pageNo});
         }
-
     }
 }

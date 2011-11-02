@@ -87,6 +87,7 @@
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\PlanController.cs" />
     <Compile Include="Controllers\ReferralController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,6 +158,31 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExaminationTypesStrings.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Settings\SettingsValidationStrings.Designer.cs">
+      <DependentUpon>SettingsValidationStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\Settings\SettingsValidationStrings.ru.Designer.cs">
+      <DependentUpon>SettingsValidationStrings.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\Settings\SettingsFieldNames.uk.Designer.cs">
+      <DependentUpon>SettingsFieldNames.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\Settings\SettingsFieldNames.ru.Designer.cs">
+      <DependentUpon>SettingsFieldNames.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\Settings\SettingsFieldNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsFieldNames.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Account\AccountStrings.ru.Designer.cs">
       <DependentUpon>AccountStrings.ru.resx</DependentUpon>
@@ -310,6 +336,21 @@
       <DependentUpon>ReferralStrings.uk.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Settings\SettingsStrings.uk.Designer.cs">
+      <DependentUpon>SettingsStrings.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Settings\SettingsStrings.ru.Designer.cs">
+      <DependentUpon>SettingsStrings.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Settings\SettingsStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsStrings.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Shared\SharedStrings.ru1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -757,6 +798,7 @@
     <Content Include="Views\Referral\Index.cshtml" />
     <Content Include="Views\Referral\Print.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Settings\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.resx">
@@ -803,6 +845,27 @@
     <EmbeddedResource Include="Resources\Models\Examinations\ExaminationTypesStrings.uk.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ExaminationTypesStrings.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Settings\SettingsValidationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsValidationStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Settings\SettingsValidationStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsValidationStrings.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Settings\SettingsValidationStrings.uk.resx" />
+    <EmbeddedResource Include="Resources\Models\Settings\SettingsFieldNames.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsFieldNames.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Settings\SettingsFieldNames.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsFieldNames.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Settings\SettingsFieldNames.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsFieldNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\AccountStrings.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -957,6 +1020,21 @@
       <LastGenOutput>ReferralStrings.uk.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ReferralRes</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Settings\SettingsStrings.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsStrings.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Settings\SettingsStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsStrings.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Settings\SettingsStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\SharedStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SharedStrings1.Designer.cs</LastGenOutput>
@@ -995,7 +1073,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1044</DevelopmentServerPort>
+          <DevelopmentServerPort>1045</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
