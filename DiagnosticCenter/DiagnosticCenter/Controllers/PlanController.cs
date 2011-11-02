@@ -20,11 +20,33 @@ namespace DiagnosticCenter.Controllers
         {
 //-------ДОРОБИТИ------------            
             const int cabsOnPage = 4; //TODO: Read form Paramters Table
-            const int dayWorkingHours = 10; //TODO: Read form Paramters Table
+            
 //---------------------------            
             //Контекст для запитів
             var context = new DiagnosticsDBModelContainer();
-            
+
+            //Ініціальзуємо змінні робочого дня
+            Settings settings = context.Settings.FirstOrDefault();
+            int dayStartHour = 0;
+            int dayEndHour = 0;
+            int dayWorkingHours = 10;
+            if (settings != null)
+            {
+                dayStartHour = settings.WorkDayStartHour;
+                dayEndHour = settings.WorkDayEndHour;
+                dayWorkingHours = dayEndHour - dayStartHour;
+            }
+            if (dayWorkingHours <= 0)
+                return RedirectToAction("Index", "ErrorPage", new
+                {
+                    errTitle = ViewRes.PlanStrings.Error2Text,
+                    errDescription = ViewRes.PlanStrings.Error2Recomendation,
+                    errGoBackAction = "Index",
+                    errGoBackController = "Plan"
+                });
+
+            ViewBag.startHour = dayStartHour;
+            ViewBag.workingHours = dayWorkingHours;
             //Визначаємо дату
             DateTime date = new DateTime();
             if (dateValue == null)
@@ -272,6 +294,8 @@ namespace DiagnosticCenter.Controllers
             DateTime date = new DateTime();
             int emplDropListCount = 0;
             int pageNo = 0;
+            int workDayStartHour = 0;
+            int workingHours = 0;
             string sEmployeesOnPage = "";
             foreach (var item in inputData)
             {
@@ -283,6 +307,12 @@ namespace DiagnosticCenter.Controllers
 
                 if (item.ToString().Contains("PageNo"))
                     pageNo = Convert.ToInt32(Request.Form[item.ToString()]);
+
+                if (item.ToString().Contains("StartHour"))
+                    workDayStartHour = Convert.ToInt32(Request.Form[item.ToString()]);
+
+                if (item.ToString().Contains("workingHours"))
+                    workingHours = Convert.ToInt32(Request.Form[item.ToString()]);
 
                 if (item.ToString().Contains("ID_Employee"))
                     emplDropListCount++;
@@ -310,7 +340,7 @@ namespace DiagnosticCenter.Controllers
             for (int i = 0; i < pageCabCount; i++)
             {
                 List<string> tmp = new List<string>();
-                for (int l = 0; l < 10; l++)
+                for (int l = 0; l < workingHours; l++)
                 {
                     tmp.Add("0");
                 }
@@ -424,8 +454,8 @@ namespace DiagnosticCenter.Controllers
                         hours = new KeyValuePair<int, int>(startHour, endHour);
                         hoursCell = new KeyValuePair<int, KeyValuePair<int, int>>(Convert.ToInt32(col[startHour]), hours);
 
-                        DateTime start = date.AddHours(startHour + 8);
-                        DateTime end = date.AddHours(endHour + 8);
+                        DateTime start = date.AddHours(startHour + workDayStartHour);
+                        DateTime end = date.AddHours(endHour + workDayStartHour);
 
                         hoursList.Add(hoursCell);
 

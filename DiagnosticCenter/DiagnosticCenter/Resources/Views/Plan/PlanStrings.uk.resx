@@ -207,4 +207,10 @@
   <data name="Error1Text" xml:space="preserve">
     <value>Користувач не маэ валідного запису в таблиці користувачів.</value>
   </data>
+  <data name="Error2Recomendation" xml:space="preserve">
+    <value>Звернітся до адміністратора системи для вирішення проблеми.</value>
+  </data>
+  <data name="Error2Text" xml:space="preserve">
+    <value>Налаштування початку та завершення роботи задані невірно.</value>
+  </data>
 </root>

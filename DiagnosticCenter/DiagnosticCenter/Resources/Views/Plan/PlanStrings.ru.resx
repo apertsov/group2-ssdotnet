@@ -202,9 +202,15 @@
     <value>Ошибка</value>
   </data>
   <data name="Error1Recomendation" xml:space="preserve">
-    <value>Звяжитесь с администратором системы для решения проблемы.</value>
+    <value>Cвяжитесь с администратором системы для решения проблемы.</value>
   </data>
   <data name="Error1Text" xml:space="preserve">
     <value>У пользователя отсутствует валидная запись в таблице работников.</value>
+  </data>
+  <data name="Error2Recomendation" xml:space="preserve">
+    <value>Cвяжитесь с администратором системы для решения проблемы.</value>
+  </data>
+  <data name="Error2Text" xml:space="preserve">
+    <value>Настройки начала и конца рабочего дня заданы неверно.</value>
   </data>
 </root>

@@ -117,100 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="April" xml:space="preserve">
-    <value>April</value>
+  <data name="Localization" xml:space="preserve">
+    <value>Локализация</value>
   </data>
-  <data name="August" xml:space="preserve">
-    <value>August</value>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
-  <data name="CabinetNo" xml:space="preserve">
-    <value>Cabinet No.</value>
+  <data name="Settigs" xml:space="preserve">
+    <value>Настройки</value>
   </data>
-  <data name="ChooseDoctor" xml:space="preserve">
-    <value>- Choose Doctor - </value>
-  </data>
-  <data name="Date" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="December" xml:space="preserve">
-    <value>December</value>
-  </data>
-  <data name="EmploeeRate" xml:space="preserve">
-    <value>Mounth rate</value>
-  </data>
-  <data name="EmployeeHours" xml:space="preserve">
-    <value>Hours planed</value>
-  </data>
-  <data name="EmployeeName" xml:space="preserve">
-    <value>Employee name</value>
-  </data>
-  <data name="February" xml:space="preserve">
-    <value>February</value>
-  </data>
-  <data name="GeneratingPlanOn" xml:space="preserve">
-    <value>Generating workplan on</value>
-  </data>
-  <data name="HoursPlanedOn" xml:space="preserve">
-    <value>Hours planed on</value>
-  </data>
-  <data name="January" xml:space="preserve">
-    <value>January</value>
-  </data>
-  <data name="July" xml:space="preserve">
-    <value>July</value>
-  </data>
-  <data name="June" xml:space="preserve">
-    <value>June</value>
-  </data>
-  <data name="March" xml:space="preserve">
-    <value>March</value>
-  </data>
-  <data name="May" xml:space="preserve">
-    <value>May</value>
-  </data>
-  <data name="NextPage" xml:space="preserve">
-    <value>Next</value>
-  </data>
-  <data name="November" xml:space="preserve">
-    <value>Novender</value>
-  </data>
-  <data name="October" xml:space="preserve">
-    <value>October</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>of</value>
-  </data>
-  <data name="Page" xml:space="preserve">
-    <value>Page</value>
-  </data>
-  <data name="PrevPage" xml:space="preserve">
-    <value>Previous</value>
-  </data>
-  <data name="SaveChanges" xml:space="preserve">
-    <value>Save changes</value>
-  </data>
-  <data name="September" xml:space="preserve">
-    <value>September</value>
-  </data>
-  <data name="Time" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="UpdateData" xml:space="preserve">
-    <value>Update data</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Error occured</value>
-  </data>
-  <data name="Error1Recomendation" xml:space="preserve">
-    <value>Please, contact System Administrator to resolve a problem. </value>
-  </data>
-  <data name="Error1Text" xml:space="preserve">
-    <value>User has no valid record in Employees table</value>
-  </data>
-  <data name="Error2Recomendation" xml:space="preserve">
-    <value>Please, contact System Administrator to resolve a problem. </value>
-  </data>
-  <data name="Error2Text" xml:space="preserve">
-    <value>Working day start and finish time settings are invalid.</value>
+  <data name="WorkDayParameters" xml:space="preserve">
+    <value>Настройки рабочего дня</value>
   </data>
 </root>

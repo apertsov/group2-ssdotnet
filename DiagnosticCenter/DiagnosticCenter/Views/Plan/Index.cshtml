@@ -38,6 +38,8 @@
     <input id="date" name="date" type="hidden" value="@ViewBag.Date" />
     <input id="EmployeesOnPage" name="EmployeesOnPage" type="hidden" value="@ViewBag.EmployeesOnPage"/>
     <input id="PageNo" name="PageNo" type="hidden" value="@ViewBag.PageNo"/>
+    <input id="StartHour" name="StartHour" type="hidden" value="@ViewBag.startHour"/>
+    <input id="workingHours" name="wokingHours" type="hidden" value="@ViewBag.workingHours"/>
     <table>
         <tr>
             <td>
@@ -68,7 +70,7 @@
                     </tr>
                     @{
                        int rowIndex = 0;
-                       int j = 8;
+                       int j = ViewBag.startHour;
                        foreach (var hour in ViewBag.PlanChart)
                        {
                            int colIndex = 0; 

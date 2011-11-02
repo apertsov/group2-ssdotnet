@@ -750,7 +750,6 @@
     <Content Include="App_Data\web.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\DiagnosticsDB2.bak" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.csdl" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.msl" />
@@ -777,7 +776,6 @@
     <Content Include="Views\Employees\Search.cshtml" />
     <Content Include="Views\Departments\Edit.cshtml" />
     <Content Include="Views\Shared\_CultureChooserPartial.cshtml" />
-    <Content Include="Views\Plan\ErrorMsg.cshtml" />
     <Content Include="Views\ErrorPage\Index.cshtml" />
     <Content Include="Views\Shared\_LogOnLayout.cshtml" />
     <Content Include="Views\ExaminationTemplates\Index.cshtml" />
@@ -1073,7 +1071,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1045</DevelopmentServerPort>
+          <DevelopmentServerPort>1284</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
