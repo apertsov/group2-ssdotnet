@@ -1,0 +1,38 @@
+﻿<h2> @ViewRes.SharedStrings.Stat </h2>
+
+<div>
+<img src="@Url.Action("PieChart")" alt="SimpleChart" /> 
+</div>
+<div>
+<img src="@Url.Action("ColumnChart")" alt="SimpleChart" />
+</div>
+<div>
+<table align="center">
+<th align="center" colspan="2">
+    Статистика діагностичного центру
+</th>
+<tr>
+    <td>
+    Кількість хворих за сьогодні: </td>
+    <td>
+      @ViewBag.PatientsToday
+    </td>
+</tr>
+<tr>
+<td>
+    Кількість хворих за останній місяць:
+</td>
+<td>
+    @ViewBag.PatientsMonth
+</td>
+</tr>
+<tr>
+<td>
+    Загальна кількість хворих:
+</td>
+<td>
+    @ViewBag.PatientsTotal
+</td>
+</tr>
+</table>
+</div>
