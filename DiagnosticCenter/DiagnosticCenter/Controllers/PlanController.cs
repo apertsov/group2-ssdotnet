@@ -20,8 +20,7 @@ namespace DiagnosticCenter.Controllers
         {
 //-------ДОРОБИТИ------------            
             const int cabsOnPage = 4; //TODO: Read form Paramters Table
-            
-//---------------------------            
+                      
             //Контекст для запитів
             var context = new DiagnosticsDBModelContainer();
 
@@ -227,10 +226,23 @@ namespace DiagnosticCenter.Controllers
                             int i = 0;
                             foreach (var item in lEmployeesDataByCabinets[cabIndex])
                             {
-
-
                                 if (empl.ID_Employee == item.Key)
-                                    planChart[hour - 8][cabIndex][i].Selected = true;
+                                {
+                                    try
+                                    {
+                                        planChart[hour - dayStartHour + 1][cabIndex][i].Selected = true;
+                                    }
+                                    catch(System.ArgumentOutOfRangeException e)
+                                    {
+                                        return RedirectToAction("Index", "ErrorPage", new
+                                        {
+                                            errTitle = ViewRes.PlanStrings.Error3Text,
+                                            errDescription = ViewRes.PlanStrings.Error3Recomendation,
+                                            errGoBackAction = "Index",
+                                            errGoBackController = "Plan"
+                                        });
+                                    }
+                                }
                                 i++;
                             }
                             hour++;
@@ -335,7 +347,7 @@ namespace DiagnosticCenter.Controllers
             }
 
             //Ініціалізуємо таблицю planChart
-            int pageCabCount = emplDropListCount / 10;
+            int pageCabCount = emplDropListCount / workingHours;
             List<List<string>> planChart = new List<List<string>>();
             for (int i = 0; i < pageCabCount; i++)
             {
@@ -454,8 +466,8 @@ namespace DiagnosticCenter.Controllers
                         hours = new KeyValuePair<int, int>(startHour, endHour);
                         hoursCell = new KeyValuePair<int, KeyValuePair<int, int>>(Convert.ToInt32(col[startHour]), hours);
 
-                        DateTime start = date.AddHours(startHour + workDayStartHour);
-                        DateTime end = date.AddHours(endHour + workDayStartHour);
+                        DateTime start = date.AddHours(startHour + workDayStartHour - 1);
+                        DateTime end = date.AddHours(endHour + workDayStartHour - 1);
 
                         hoursList.Add(hoursCell);
 

@@ -16,7 +16,7 @@
 	                altField: "#altDatePicker",
 			        altFormat: "dd.mm.yy",
 
-	                regional: "UK",
+	                regional: "uk",
 	                dateFormat: "d MM, yy"
 	            });
 	    });
@@ -39,9 +39,9 @@
     <input id="EmployeesOnPage" name="EmployeesOnPage" type="hidden" value="@ViewBag.EmployeesOnPage"/>
     <input id="PageNo" name="PageNo" type="hidden" value="@ViewBag.PageNo"/>
     <input id="StartHour" name="StartHour" type="hidden" value="@ViewBag.startHour"/>
-    <input id="workingHours" name="wokingHours" type="hidden" value="@ViewBag.workingHours"/>
+    <input id="workingHours" name="workingHours" type="hidden" value="@ViewBag.workingHours"/>
     <table>
-        <tr>
+        <tr valign="top">
             <td>
                 <table>
                     <tr>
@@ -64,7 +64,7 @@
                         }
                     </tr>
                     <tr>
-                        <td rowspan="11">
+                        <td rowspan="@(ViewBag.workingHours + 1)">
                             @ViewBag.Date                        
                         </td>
                     </tr>

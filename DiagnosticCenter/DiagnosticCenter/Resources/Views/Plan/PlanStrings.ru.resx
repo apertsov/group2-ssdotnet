@@ -213,4 +213,10 @@
   <data name="Error2Text" xml:space="preserve">
     <value>Настройки начала и конца рабочего дня заданы неверно.</value>
   </data>
+  <data name="Error3Recomendation" xml:space="preserve">
+    <value>Cвяжитесь с администратором системы для решения проблемы.</value>
+  </data>
+  <data name="Error3Text" xml:space="preserve">
+    <value>Записи в таблице расписаний не соответствуют настройкам рабочего дня.</value>
+  </data>
 </root>
