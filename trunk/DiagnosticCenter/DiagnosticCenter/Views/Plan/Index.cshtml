@@ -30,16 +30,12 @@
     
         @ViewRes.PlanStrings.Date: @Html.TextBox("datepicker")
         @Html.Hidden("altDatePicker")
+        <input id="pageName" name="pageName" type="hidden" value="Index" />
         <input type="submit" name ="DateChange" value="@ViewRes.PlanStrings.UpdateData" />
     </p>
 }  
 @using (Html.BeginForm("Index", "Plan"))
 {    
-    <input id="date" name="date" type="hidden" value="@ViewBag.Date" />
-    <input id="EmployeesOnPage" name="EmployeesOnPage" type="hidden" value="@ViewBag.EmployeesOnPage"/>
-    <input id="PageNo" name="PageNo" type="hidden" value="@ViewBag.PageNo"/>
-    <input id="StartHour" name="StartHour" type="hidden" value="@ViewBag.startHour"/>
-    <input id="workingHours" name="workingHours" type="hidden" value="@ViewBag.workingHours"/>
     <table>
         <tr valign="top">
             <td>
@@ -77,7 +73,7 @@
                             @:<tr>
 
                                 <td>
-                                    @(j):00 - @(j + 1):00;
+                                    @(j):00 - @(j + 1):00
                                     @{j++;}
                                 </td>
                                     
@@ -85,24 +81,7 @@
                                       {
                             
                                     @:<td>
-                                    if (ViewBag.modifyFlag)
-                                    {
-                                        @Html.DropDownList(string.Format("ID_Employee {0} {1}", rowIndex.ToString(), colIndex.ToString()),
-                                                            (List<SelectListItem>)cab,
-                                                            ViewRes.PlanStrings.ChooseDoctor
-                                            )
-                                    }
-                                    else
-                                    {
-                                        @Html.DropDownList(string.Format("ID_Employee {0} {1}", rowIndex.ToString(), colIndex.ToString()),
-                                                            (List<SelectListItem>)cab,
-                                                            ViewRes.PlanStrings.ChooseDoctor,
-                                                            new
-                                                            {
-                                                                disabled = "disabled",
-                                                            }
-                                            )
-                                    }
+                                          @:@cab
                                     colIndex++;
                                     @:</td>
                                 }
@@ -229,7 +208,4 @@
             @:>>
                     }
     </div>
-   
-    <input type="submit" value="@ViewRes.PlanStrings.SaveChanges" formaction="Index?date=@ViewBag.Date"/>
-
 }

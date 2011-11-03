@@ -11,16 +11,17 @@ namespace DiagnosticCenter.Controllers
     public class PlanController : Controller
     {
         //Дата з DataPicker
-        public ActionResult ChangeDate(string altDatePicker)
+        public ActionResult ChangeDate(string altDatePicker, string pageName)
         {
-            return RedirectToAction("Index", new { PageNo = 1, dateValue = altDatePicker });
+            
+            return RedirectToAction(pageName, new { PageNo = 1, dateValue = altDatePicker });
         }
-        
+
+        [Authorize(Roles = "Administrator, DepartmentChiefDoctor, Doctor, HeadDoctor, HeadNurse, Nurse")]
         public ActionResult Index(int? pageNo, string dateValue)
         {
-//-------ДОРОБИТИ------------            
             const int cabsOnPage = 4; //TODO: Read form Paramters Table
-                      
+
             //Контекст для запитів
             var context = new DiagnosticsDBModelContainer();
 
@@ -58,6 +59,268 @@ namespace DiagnosticCenter.Controllers
             }
 
             ViewBag.Date = date.ToShortDateString();
+
+            //Визначаємо відділ, для якого буде виведено розклад та право на зміну розкладу (за авторизованим користувачам)
+            Guid idUser = (Guid)Membership.GetUser(User.Identity.Name).ProviderUserKey;
+            var currEmployee = context.Employees.Where(e => e.ID_User == idUser);
+            if (currEmployee.Count() == 0)
+            {
+                return RedirectToAction("Index", "ErrorPage", new
+                {
+                    errTitle = ViewRes.PlanStrings.Error1Text,
+                    errDescription = ViewRes.PlanStrings.Error1Recomendation,
+                    errGoBackAction = "Index",
+                    errGoBackController = "Plan"
+                });
+            }
+            int depId = currEmployee.First().ID_Dept;
+
+            //Передаємо назву відділення
+            ViewBag.DeptName = context.Employees.Where(e => e.ID_User == idUser).First().Department.Description;
+
+            context = new DiagnosticsDBModelContainer();
+            var qEmployeesWithCabinets = context.Employees.Include("Cabinet")
+                                                          .Where(e => e.ID_Dept == depId)
+                                                          .OrderBy(e => e.Cabinet.Number)
+                                                          .GroupBy(e => e.ID_Cabinet)
+                                                          .ToList();
+
+
+            //Kількість кабінетів
+            int cabCount = qEmployeesWithCabinets.Count();
+            ViewBag.CabCount = cabCount;
+
+            //Paging Logic
+            int addCount = cabsOnPage;
+            int skipCount;
+            int counter;
+            if (pageNo != null)
+            {
+                skipCount = (int)((pageNo - 1) * cabsOnPage);
+            }
+            else
+            {
+                pageNo = 1;
+                skipCount = (int)((pageNo - 1) * cabsOnPage);
+            }
+            ViewBag.PageNo = pageNo;
+
+            if (cabCount % cabsOnPage == 0)
+                ViewBag.PageCount = cabCount / cabsOnPage;
+            else
+                ViewBag.PageCount = cabCount / cabsOnPage + 1;
+
+            ViewBag.HasNextPage = (pageNo * cabsOnPage) < cabCount;
+            ViewBag.HasPreviousPage = (pageNo) > 1;
+
+            //Мапер індексів кабінетів
+            int[] cabinetMap = new int[cabCount];
+            int mapIndex = 0;
+
+            //Cписок номерів кабінетів (для шапки)
+            List<int> lEmployeesWithCabinets = new List<int>();
+
+            //Виводимо список лікарів по кабінетах, для реалізації випадаючих списків
+            List<List<KeyValuePair<int, string>>> lEmployeesDataByCabinets;
+            lEmployeesDataByCabinets = new List<List<KeyValuePair<int, string>>>();
+
+            foreach (var item in qEmployeesWithCabinets)
+            {
+                //Cписок номерів кабінетів (для шапки)
+                lEmployeesWithCabinets.Add(item.First().Cabinet.Number);
+
+                cabinetMap[mapIndex] = item.First().ID_Cabinet;
+                mapIndex++;
+
+                //Виводимо список лікарів по кабінетах, для реалізації випадаючих списків
+                List<KeyValuePair<int, string>> selList = new List<KeyValuePair<int, string>>();
+
+                foreach (var i in item)
+                {
+                    KeyValuePair<int, string> listItem;
+                    listItem = new KeyValuePair<int, string>(i.ID_Employee, (i.FirstName + " " + i.Surname));
+
+                    selList.Add(listItem);
+                }
+                lEmployeesDataByCabinets.Add(selList);
+            }
+
+            List<int> cabTitles = new List<int>();
+            counter = 0;
+            foreach (int cabinet in lEmployeesWithCabinets)
+            {
+                if ((counter >= skipCount) && (counter < (skipCount + addCount)))
+                    cabTitles.Add(cabinet);
+                counter++;
+            }
+            ViewBag.EmployeesWithCabinets = cabTitles;
+
+            List<List<KeyValuePair<int, string>>> emplDataList = new List<List<KeyValuePair<int, string>>>();
+            string EmployeesOnPage = string.Empty;
+            counter = 0;
+            foreach (List<KeyValuePair<int, string>> cabinet in lEmployeesDataByCabinets)
+            {
+                if ((counter >= skipCount) && (counter < (skipCount + addCount)))
+                {
+                    emplDataList.Add(cabinet);
+
+                    foreach (var keyValuePair in cabinet)
+                        EmployeesOnPage = EmployeesOnPage + keyValuePair.Key.ToString() + ";";
+                }
+                counter++;
+            }
+            ViewBag.EmployeesNamesByCabinets = emplDataList;
+            ViewBag.EmployeesOnPage = EmployeesOnPage;
+
+            //Читаэмо таблиці Days та Employees для формувння розкладу
+
+            //Ініціалізація planChart
+            List<List<string>> planChart = new List<List<string>>();
+
+            for (int i = 0; i < dayWorkingHours; i++)
+            {
+                List<string> listOfStrings = new List<string>();
+                for (int j = 0; j < cabCount; j++)
+                    listOfStrings.Add(String.Empty);
+
+                planChart.Add(listOfStrings);
+            }
+
+            //Заповненна даними planChart
+            var qEmployeesByDept = context.Days.Include("Employee")
+                                               .Where(d => d.Date == date)
+                                               .GroupBy(d => d.Date);
+
+            foreach (var group in qEmployeesByDept)
+            {
+                List<DateTime> emplTimeChart = new List<DateTime>();
+
+                foreach (var day in group)
+                {
+                    foreach (var empl in day.Employee)
+                    {
+                        int cabIndex = 0;
+                        while (empl.ID_Cabinet != cabinetMap[cabIndex])
+                            cabIndex++;
+
+                        int hour = day.StartTime.Hour;
+                        while (hour < day.EndTime.Hour)
+                        {
+                            int i = 0;
+                            foreach (var item in lEmployeesDataByCabinets[cabIndex])
+                            {
+                                if (empl.ID_Employee == item.Key)
+                                {
+                                    try
+                                    {
+                                        planChart[hour - dayStartHour + 1][cabIndex] = String.Format("{0} {1}", empl.FirstName, empl.Surname);
+                                    }
+                                    catch (System.ArgumentOutOfRangeException e)
+                                    {
+                                        return RedirectToAction("Index", "ErrorPage", new
+                                        {
+                                            errTitle = ViewRes.PlanStrings.Error3Text,
+                                            errDescription = ViewRes.PlanStrings.Error3Recomendation,
+                                            errGoBackAction = "Edit",
+                                            errGoBackController = "Plan"
+                                        });
+                                    }
+                                }
+                                i++;
+                            }
+                            hour++;
+                        }
+                    }
+                }
+            }
+
+            //Paging logic
+            List<List<string>> planChartList = new List<List<string>>();
+            foreach (List<string> list in planChart)
+            {
+                counter = 0;
+                List<string> lst = new List<string>();
+                foreach (string emplName in list)
+                {
+                    if ((counter >= skipCount) && (counter < (skipCount + addCount)))
+                        lst.Add(emplName);
+                    counter++;
+                }
+                planChartList.Add(lst);
+            }
+            ViewBag.PlanChart = planChart;
+
+            //Обчислюємо напрвцювання працівника за місяць
+            DateTime mounthStart = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime mounthEnd = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
+
+            var qEmployees = context.Employees.Include("Day")
+                                               .Where(e => e.ID_Dept == depId)
+                                               .OrderBy(e => e.ID_Employee);
+
+            List<KeyValuePair<string, List<int>>> emplRate = new List<KeyValuePair<string, List<int>>>();
+
+            foreach (Employee empl in qEmployees)
+            {
+                var query = empl.Day.Where(d => ((d.Date >= mounthStart) && (d.Date <= mounthEnd)));
+                int r = 0;
+                foreach (var day in query)
+                    r += day.EndTime.Hour - day.StartTime.Hour;
+                List<int> rateList = new List<int>();
+
+                rateList.Add(r);
+                rateList.Add(empl.Rate);
+                emplRate.Add(new KeyValuePair<string, List<int>>(string.Format("{1} {0} {2}", empl.FirstName, empl.Surname, empl.Patronymic), rateList));
+            }
+            ViewBag.EployeesRate = emplRate.ToList();
+
+            return View();
+        }
+        
+        
+        [Authorize(Roles = "HeadDoctor, HeadNurse")]
+        public ActionResult Edit(int? pageNo, string dateValue)
+        {
+        
+            const int cabsOnPage = 4; //TODO: Read form Paramters Table
+                      
+            //Контекст для запитів
+            var context = new DiagnosticsDBModelContainer();
+
+            //Ініціальзуємо змінні робочого дня
+            Settings settings = context.Settings.FirstOrDefault();
+            int dayStartHour = 0;
+            int dayEndHour = 0;
+            int dayWorkingHours = 10;
+            if (settings != null)
+            {
+                dayStartHour = settings.WorkDayStartHour;
+                dayEndHour = settings.WorkDayEndHour;
+                dayWorkingHours = dayEndHour - dayStartHour;
+            }
+            if (dayWorkingHours <= 0)
+                return RedirectToAction("Index", "ErrorPage", new
+                {
+                    errTitle = ViewRes.PlanStrings.Error2Text,
+                    errDescription = ViewRes.PlanStrings.Error2Recomendation,
+                    errGoBackAction = "Edit",
+                    errGoBackController = "Plan"
+                });
+
+            ViewBag.startHour = dayStartHour;
+            ViewBag.workingHours = dayWorkingHours;
+            //Визначаємо дату
+            DateTime date = new DateTime();
+            if (dateValue == null)
+            {
+                date = DateTime.Today.Date;
+            }
+            else
+            {
+                date = Convert.ToDateTime(dateValue).Date;
+            }
+
+            ViewBag.Date = date.ToShortDateString();
             
             //Визначаємо відділ, для якого буде виведено розклад та право на зміну розкладу (за авторизованим користувачам)
             Guid idUser = (Guid)Membership.GetUser(User.Identity.Name).ProviderUserKey;
@@ -68,7 +331,7 @@ namespace DiagnosticCenter.Controllers
                                                                 {
                                                                     errTitle = ViewRes.PlanStrings.Error1Text,
                                                                     errDescription = ViewRes.PlanStrings.Error1Recomendation,
-                                                                    errGoBackAction = "Index",
+                                                                    errGoBackAction = "Edit",
                                                                     errGoBackController = "Plan"
                                                                 });   
             }
@@ -238,7 +501,7 @@ namespace DiagnosticCenter.Controllers
                                         {
                                             errTitle = ViewRes.PlanStrings.Error3Text,
                                             errDescription = ViewRes.PlanStrings.Error3Recomendation,
-                                            errGoBackAction = "Index",
+                                            errGoBackAction = "Edit",
                                             errGoBackController = "Plan"
                                         });
                                     }
@@ -298,7 +561,7 @@ namespace DiagnosticCenter.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(FormCollection inputData)
+        public ActionResult Edit(FormCollection inputData)
         {
             var context = new DiagnosticsDBModelContainer();
 
@@ -517,7 +780,7 @@ namespace DiagnosticCenter.Controllers
             }
 
 
-            return RedirectToAction("Index", new { PageNo = pageNo});
+            return RedirectToAction("Edit", new { PageNo = pageNo});
         }
     }
 }
