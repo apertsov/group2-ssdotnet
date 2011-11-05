@@ -968,11 +968,10 @@
           <ConnectorPoint PointX="7.5" PointY="2.3074446614583328" />
           <ConnectorPoint PointX="6.875" PointY="2.3074446614583328" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="DiagnosticsDBModel.News" Width="1.5" PointX="9.75" PointY="0.5" Height="2.364889322916667" />
+        <EntityTypeShape EntityType="DiagnosticsDBModel.News" Width="1.5" PointX="9.75" PointY="0.5" Height="2.2496956380208331" />
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeNews">
-          <ConnectorPoint PointX="6.875" PointY="3.2005998307291676" />
-          <ConnectorPoint PointX="9.78125" PointY="3.2005998307291676" />
-          <ConnectorPoint PointX="9.78125" PointY="2.864889322916667" />
+          <ConnectorPoint PointX="6.875" PointY="2.69877197265625" />
+          <ConnectorPoint PointX="9.75" PointY="2.69877197265625" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.DayEmployee">
           <ConnectorPoint PointX="2" PointY="2.5379036458333335" />
@@ -1019,10 +1018,8 @@
           <ConnectorPoint PointX="10.8125" PointY="6.5" />
         </AssociationConnector>
         <AssociationConnector Association="DiagnosticsDBModel.EmployeeExaminationTemplate">
-          <ConnectorPoint PointX="6.875" PointY="3.0261946614583333" />
-          <ConnectorPoint PointX="9.6979166666666661" PointY="3.0261946614583328" />
-          <ConnectorPoint PointX="9.8645833333333339" PointY="3.0261946614583333" />
-          <ConnectorPoint PointX="11.59375" PointY="3.0261946614583333" />
+          <ConnectorPoint PointX="6.875" PointY="3.0623478190104167" />
+          <ConnectorPoint PointX="11.59375" PointY="3.0623478190104167" />
           <ConnectorPoint PointX="11.59375" PointY="6.5" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DiagnosticsDBModel.Settings" Width="1.5" PointX="0.5" PointY="7.625" Height="2.4140429687500031" />
