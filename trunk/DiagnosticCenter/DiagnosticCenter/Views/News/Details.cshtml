@@ -1,0 +1,55 @@
+﻿@model List<DiagnosticCenter.Models.NewsVM>
+
+<table>
+    <tr>
+        <th>
+            @NewsRes.NewsStrings.Topic
+        </th>
+        <th>
+            @NewsRes.NewsStrings.Text
+        </th>
+        <th>
+            @NewsRes.NewsStrings.ID_Employee
+        </th>
+        <th>
+            @NewsRes.NewsStrings.ID_Dept
+        </th>
+        <th>
+            @NewsRes.NewsStrings.Type
+        </th>
+    </tr>
+@foreach(var item in Model){   
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.topic)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.text)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.id_employee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_dept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+    </tr>
+    <tr>    
+        <td colspan="5">
+            <br />
+            <b>@NewsRes.NewsStrings.Topic</b>
+            @Html.DisplayFor(modelItem => item.topic)<br />
+             <b>@NewsRes.NewsStrings.Text</b>
+            @Html.DisplayFor(modelItem => item.text)<br />
+             <b> @NewsRes.NewsStrings.ID_Employee</b>
+            @Html.DisplayFor(modelItem => item.id_employee)<br />
+             <b> @NewsRes.NewsStrings.ID_Dept</b>
+            @Html.DisplayFor(modelItem => item.id_dept)<br />
+            <b> @NewsRes.NewsStrings.Type</b>
+            @Html.DisplayFor(modelItem => item.type)<br />
+        </td>
+    </tr>
+}
+</table>

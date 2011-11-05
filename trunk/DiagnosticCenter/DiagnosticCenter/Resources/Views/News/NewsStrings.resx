@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_Dept" xml:space="preserve">
+    <value>Відділення</value>
+  </data>
+  <data name="ID_Employee" xml:space="preserve">
+    <value>Працівник</value>
+  </data>
   <data name="NewsDC" xml:space="preserve">
     <value>Diagnostic Center News</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Зміст</value>
+  </data>
+  <data name="Topic" xml:space="preserve">
+    <value>Тема новини</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип новини</value>
   </data>
 </root>

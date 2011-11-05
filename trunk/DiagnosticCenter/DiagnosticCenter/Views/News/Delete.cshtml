@@ -1,0 +1,21 @@
+﻿@model DiagnosticCenter.Models.News
+
+@{
+    ViewBag.Title = "Видалення новини";
+}
+
+<h2>Видалення новини</h2>
+
+<h3>Ви точно хочете видалити цю новину "@Model.Topic" ?</h3>
+<fieldset>
+    <legend>Текст</legend>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Видалити" /> |
+        @Html.ActionLink("Стрічка новин", "Index")
+    </p>
+}
