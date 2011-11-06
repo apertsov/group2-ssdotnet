@@ -130,7 +130,7 @@ namespace DiagnosticCenter.Models
     public class DepartmentMetadata
     {
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression(@"^[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [RegularExpression(@"^[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Неправильний формат")]
         public global::System.String Name {get; set;}
         
         public global::System.String Description {get; set;}
@@ -142,36 +142,36 @@ namespace DiagnosticCenter.Models
     public class EmployeeMetadata
     {
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([а-яійїєА-Яійїє0-9]+\\s?)+$",ErrorMessage = "Невірний формат")]
+        [RegularExpression("^([а-яійїєА-Яійїє0-9]+\\s?)+$", ErrorMessage = "Неправильний формат")]
         public global::System.String Category {get; set;}
         
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Specialty {get; set;}
-        
-        [RegularExpression("[2-8]",ErrorMessage="Невірна кількість годин")]
+
+        [RegularExpression("[2-8]", ErrorMessage = "Неправильна кількість годин")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.Int32 Rate {get; set;}
 
-        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Неправильний формат")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String FirstName { get; set; }
 
-        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*-?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*-?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Неправильний формат")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Surname { get; set; }
 
-        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+(вич|вна)$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+(вич|вна)$", ErrorMessage = "Неправильний формат")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Patronymic { get; set; }
 
         [Required(ErrorMessage = "Обов'язкове поле")]
         [Remote("UserExist", "Employees","Creating")]
-        [RegularExpression("^[a-zA-z][a-zA-Z1-9_$()]+$",ErrorMessage = "Невірний формат")]
+        [RegularExpression("^[a-zA-z][a-zA-Z1-9_$()]+$", ErrorMessage = "Неправильний формат")]
         public global::System.String Username { get; set; }
 
         [RegularExpression("^(([^<>()[\\]\\.,;:\\s@\"]+(\\.[^<>()[\\]\\.,;:\\s@\"]+)*)|" +
                           "(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]" +
-                          "{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$", ErrorMessage = "Невірний формат")]
+                          "{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$", ErrorMessage = "Неправильний формат")]
         [Remote("UserExists", "Employees", "Creating")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Email { get; set; }
@@ -209,16 +209,21 @@ namespace DiagnosticCenter.Models
     public class NewsMetadata
     {
         public global::System.Int32 ID_News {get; set;}
-        
-        public global::System.Int32 ID_Dept {get; set;}
-        
+
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [RegularExpression("^([а-яійїє':А-Яійїє0-9]+\\s?)+$", ErrorMessage = "Неправильний формат")]
+        public global::System.String Topic { get; set; }
+
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [RegularExpression("^([а-яійїє':А-Яійїє0-9\\.]+\\s?)+$", ErrorMessage = "Неправильний формат")]
         public global::System.String Text {get; set;}
-        
+
+        public global::System.Int32 ID_Employee { get; set; }
+
+        public global::System.Int32 ID_Dept { get; set; }
+
         public global::System.Byte Type {get; set;}
-        
-        public global::System.Int32 ID_Employee {get; set;}
-        
-    }
+     }
 //Patient
     [MetadataType(typeof(PatientMetadata))]
     public partial class Patient { }
@@ -226,45 +231,45 @@ namespace DiagnosticCenter.Models
     {
 
 
-        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Неправильний формат")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String FirstName {get; set;}
 
-        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*-?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*-?[А-ЯЇІЙЄа-яіїйє]+$", ErrorMessage = "Неправильний формат")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Surname { get; set; }
 
-        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+(вич|вна)$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^[А-ЯЇІЙЄа-яіїйє][А-ЯЇІЙЄа-яіїйє]*'?[А-ЯЇІЙЄа-яіїйє]+(вич|вна)$", ErrorMessage = "Неправильний формат")]
         [Required(ErrorMessage = "Обов'язкове поле")]
         public global::System.String Patronymic { get; set; }
 
         [RegularExpression("^(([^<>()[\\]\\.,;:\\s@\"]+(\\.[^<>()[\\]\\.,;:\\s@\"]+)*)|" +
                            "(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]" +
-                           "{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$", ErrorMessage = "Невірний формат")]
+                           "{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$", ErrorMessage = "Неправильний формат")]
         public global::System.String Email { get; set; }
         
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s?)+", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^([А-ЯЇІЙа-яіїй]+\\s?)+", ErrorMessage = "Неправильнийй формат")]
         public global::System.String Specialty {get; set;}
         
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([А-ЯЇІЙа-яіїй]+(\\s|-)?)+", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^([А-ЯЇІЙа-яіїй]+(\\s|-)?)+", ErrorMessage = "Неправильний формат")]
         public global::System.String City {get; set;}
         
               
         [Required(ErrorMessage = "Обов'язкове поле")]
         [RegularExpression("^((пр-т\\.)|(вул\\.)|(б-р\\.)|(пл\\.)|(пер\\.))\\s" +
-                           "([А-ЯІЇЙЄ]\\.\\s)?([А-ЯІЇЙЄа-яійїє\\-]*\\s?)+[1-9][0-9]" + 
-                           "*[А-ЯІЇЙЄа-яійїє]?(/[1-9][0-9]*)?$", ErrorMessage = "Невірний формат")]
+                           "([А-ЯІЇЙЄ]\\.\\s)?([А-ЯІЇЙЄа-яійїє\\-]*\\s?)+[1-9][0-9]" +
+                           "*[А-ЯІЇЙЄа-яійїє]?(/[1-9][0-9]*)?$", ErrorMessage = "Неправильний формат")]
         public global::System.String Address {get; set;}
         
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^(([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})|" + 
-                           "([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})|([0-9]{10}))$", ErrorMessage = "Невірний формат")]
+        [RegularExpression("^(([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})|" +
+                           "([0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2})|([0-9]{10}))$", ErrorMessage = "Неправильний формат")]
         public global::System.String Phone {get; set;}
 
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [DataType(DataType.Date,ErrorMessage = "Невірний формат")]
+        [DataType(DataType.Date, ErrorMessage = "Неправильний формат")]
         public global::System.DateTime BirthDate { get; set; }
        
         
