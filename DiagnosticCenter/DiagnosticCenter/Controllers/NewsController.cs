@@ -13,6 +13,7 @@ namespace DiagnosticCenter.Controllers
 {
     public class NewsController : Controller
     {
+        private DiagnosticsDBModelContainer db = new DiagnosticsDBModelContainer();
         DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();    //контекст моделі бд
         AllNewsVM model = new AllNewsVM();     //ViewModel для відображення новин
         string[] r = { "Doctor", "HeadDoctor", "Nurse", "HeadNurse", "DepartmentChiefDoctor", "MedicalRegistrar" }; // масив ролей
@@ -139,11 +140,24 @@ namespace DiagnosticCenter.Controllers
         //------Видалення новин-------//
         public ActionResult Delete(int id)
         {
-            News news = context.News.Where(n => n.ID_News == id).First();
-            context.News.DeleteObject(news);
-            context.SaveChanges();
+            //News news = context.News.Where(n => n.ID_News == id).First();
+            //context.News.DeleteObject(news);
+            //context.SaveChanges();
+            //return RedirectToAction("Index");
+            News news = db.News.Single(n => n.ID_News == id);
+            return View(news);
+        
+        }
+        
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            News news = db.News.Single(n => n.ID_News == id);
+            db.News.DeleteObject(news);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         //-------Пошук новин-------//
         public ActionResult Search()
