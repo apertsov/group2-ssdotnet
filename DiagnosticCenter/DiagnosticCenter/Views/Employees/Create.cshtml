@@ -21,6 +21,13 @@
             });
 
         });
+        $("#Dept").change(function () {
+            var source = "#Dept";
+            if ($(source).val() == "0" || $("#Cab").val() == "0") { $("#sub").attr("disabled", "disabled"); }
+            else
+                $("#sub").attr("disabled", "");
+        });
+        
         $("#position").change(function () {
             var source = "#position";
             if ($(source).val() == "" || $("#Cab").val() == "0") { $("#sub").attr("disabled", "disabled"); }
@@ -120,8 +127,6 @@
             @Html.ValidationMessageFor(model => model.Email)
 
         </div>
-        
-
         <p>
             <input type="submit" value=@PatientsRes.PatientsStrings.ButtonOk disabled="disabled" name="sub" id="sub"/>
         </p>

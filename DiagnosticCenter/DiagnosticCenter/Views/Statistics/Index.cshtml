@@ -1,4 +1,20 @@
 ﻿@model DiagnosticCenter.Models.EmployeeVM
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#pass").click(function () {
+            if ($("#cpass").css("display") == "none")
+                $("#cpass").css("display", "block");
+            else $("#cpass").css("display", "none");
+        });
+        $("#newPass").change(function () {
+            var val = $("#newPass").val();
+            if (val.length < 6)
+                $("#passOk").attr("disabled", "disabled");
+            else
+                $("#passOk").attr("disabled", "");
+        });
+    });
+</script>
 <div id = "left_content">
 <table align="center">
     <tr>
@@ -44,5 +60,24 @@
 <br />
 </div>
 <p>
-@Html.ActionLink("Переглянути статистику", "StatPage") 
+@Html.ActionLink(ViewRes.SharedStrings.Stat, "StatPage") 
 </p>
+<p>
+@ViewRes.StatisticsStrings.ChString
+<input type="button" id="pass" name="pass" value=@ViewRes.StatisticsStrings.ChangePass /> @ViewBag.Error
+</p>
+@using (Html.BeginForm())
+{
+<div id="cpass" style="display:none;">
+   <table>
+   <tr><td align="left">@ViewRes.StatisticsStrings.CurrentPass</td><td >@Html.Password("oldPass")</td></tr>
+   <tr><td align="left">@ViewRes.StatisticsStrings.NewPass</td><td><input type="password" id="newPass" name="newPass" />@ViewRes.StatisticsStrings.CountPass</td></tr>
+   <tr><td align="left">@ViewRes.StatisticsStrings.RepeatPass</td><td> @Html.Password("confirmPass")</td></tr>
+    <tr>
+    <td colspan="2">
+    <input type="submit" value=@ViewRes.StatisticsStrings.BtnChange  id="passOk" disabled="disabled"/>
+    </td>
+    </tr>
+  </table>
+</div>
+}

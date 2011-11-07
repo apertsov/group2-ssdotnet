@@ -1,65 +1,43 @@
-﻿@model DiagnosticCenter.Models.EmployeeVM
-
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>@EmployeesRes.EmployeesStrings.FindEmployee</legend>
-
-        <div class="editor-label">
-            @Html.Label(EmployeesRes.EmployeesStrings.Name)
-        
-            <input type = "text" name = "FirstName"/>
-           
-        </div>
-
-        <div class="editor-label">
-            @Html.Label(EmployeesRes.EmployeesStrings.Surname)
-        
-            <input type = "text" name="Surname"/>
-          
-        </div>
-
-        <div class="editor-label">
-            @Html.Label(EmployeesRes.EmployeesStrings.Category)
-       
-            <input type="text" name="Category" />
-            
-        </div>
-
-        <div class="editor-label">
-            @Html.Label(EmployeesRes.EmployeesStrings.Specialty)
-            <input type="text" name="Specialty" />
-           
-        </div>
-
-        <div class="editor-label">
-            @Html.Label(EmployeesRes.EmployeesStrings.Position)
-            <select name = "position">
-                <option value = "">@EmployeesRes.EmployeesStrings.ChoosePosition</option>
-                <option value = "зав. відділом">@EmployeesRes.EmployeesStrings.departmentchief</option>
-                <option value = "головний лікар">@EmployeesRes.EmployeesStrings.headdoctor</option>
-                <option value = "лікар">@EmployeesRes.EmployeesStrings.doctor</option>
-                <option value = "головна медсестра">@EmployeesRes.EmployeesStrings.headnurse</option>
-                <option value = "медсестра">@EmployeesRes.EmployeesStrings.nurse</option>
-                <option value = "реєстратура">@EmployeesRes.EmployeesStrings.registar</option>
-             </select>
-        </div>
-               
-
-        <div class="editor-label">
-            @Html.Label(EmployeesRes.EmployeesStrings.Department)
-            @Html.DropDownList("Dept", EmployeesRes.EmployeesStrings.ChooseDept)
-          
-        </div>
-
-        <div class="editor-label">
-            @Html.Label(EmployeesRes.EmployeesStrings.Cabinet)
-            @Html.DropDownList("Cab",EmployeesRes.EmployeesStrings.ChooseCab)
-       
-            
-        </div>
-        <p>
-            <input type="submit" value=@EmployeesRes.EmployeesStrings.Find />
-        </p>
-    </fieldset>
+﻿@using (Html.BeginForm())
+{
+<fieldset>
+    <legend>@EmployeesRes.EmployeesStrings.FindEmployee</legend>
+    <div class="editor-label">
+        @Html.Label(EmployeesRes.EmployeesStrings.Name)
+        <input type = "text" name = "FirstName"/>
+    </div>
+    <div class="editor-label">
+        @Html.Label(EmployeesRes.EmployeesStrings.Surname)
+        <input type = "text" name="Surname"/>
+    </div>
+    <div class="editor-label">
+        @Html.Label(EmployeesRes.EmployeesStrings.Category)
+        <input type="text" name="Category" />
+    </div>
+    <div class="editor-label">
+        @Html.Label(EmployeesRes.EmployeesStrings.Specialty)
+        <input type="text" name="Specialty" />
+    </div>
+    <div class="editor-label">
+        @Html.Label(EmployeesRes.EmployeesStrings.Position)
+        <select name = "position">
+            <option value = "">@EmployeesRes.EmployeesStrings.ChoosePosition</option>
+            <option value = "зав. відділом">@EmployeesRes.EmployeesStrings.departmentchief</option>
+            <option value = "головний лікар">@EmployeesRes.EmployeesStrings.headdoctor</option>
+            <option value = "лікар">@EmployeesRes.EmployeesStrings.doctor</option>
+            <option value = "головна медсестра">@EmployeesRes.EmployeesStrings.headnurse</option>
+            <option value = "медсестра">@EmployeesRes.EmployeesStrings.nurse</option>
+            <option value = "реєстратура">@EmployeesRes.EmployeesStrings.registar</option>
+        </select>
+    </div>
+    <div class="editor-label">
+        @Html.Label(EmployeesRes.EmployeesStrings.Department)
+        @Html.DropDownList("Dept", EmployeesRes.EmployeesStrings.ChooseDept)
+    </div>
+    <div class="editor-label">
+        @Html.Label(EmployeesRes.EmployeesStrings.Cabinet)
+        @Html.DropDownList("Cab", EmployeesRes.EmployeesStrings.ChooseCab)
+    </div>
+    <p><input type="submit" value=@EmployeesRes.EmployeesStrings.Find /></p>
+</fieldset>
 }

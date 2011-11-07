@@ -22,8 +22,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "CabinetEmployee", "Cabinet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Cabinet), "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Employee), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "EmployeeNews", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Employee), "News", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.News), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "DayEmployee", "Day", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Day), "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Employee))]
-[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "PatientReferral", "Patient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Patient), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Referral), true)]
-[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "EmployeeReferral", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Employee), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Referral), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "EmployeeExamination", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Employee), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Examination), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "PatientExamination", "Patient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Patient), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Examination), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ReferralExamination", "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DiagnosticCenter.Models.Referral), "Examination", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DiagnosticCenter.Models.Examination))]
@@ -31,6 +29,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "DepartmentCabinet", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Department), "Cabinet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Cabinet), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "ExaminationTypeExaminationTemplate", "ExaminationType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.ExaminationType), "ExaminationTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.ExaminationTemplate), true)]
 [assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "EmployeeExaminationTemplate", "Employee", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Employee), "ExaminationTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.ExaminationTemplate), true)]
+[assembly: EdmRelationshipAttribute("DiagnosticsDBModel", "DepartmentReferral", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DiagnosticCenter.Models.Department), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DiagnosticCenter.Models.Referral), true)]
 
 #endregion
 
@@ -257,6 +256,22 @@ namespace DiagnosticCenter.Models
             }
         }
         private ObjectSet<Settings> _Settings;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Position> Positions
+        {
+            get
+            {
+                if ((_Positions == null))
+                {
+                    _Positions = base.CreateObjectSet<Position>("Positions");
+                }
+                return _Positions;
+            }
+        }
+        private ObjectSet<Position> _Positions;
 
         #endregion
         #region Методы AddTo
@@ -347,6 +362,14 @@ namespace DiagnosticCenter.Models
         public void AddToSettings(Settings settings)
         {
             base.AddObject("Settings", settings);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Positions. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToPositions(Position position)
+        {
+            base.AddObject("Positions", position);
         }
 
         #endregion
@@ -887,6 +910,28 @@ namespace DiagnosticCenter.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "DepartmentReferral", "Referral")]
+        public EntityCollection<Referral> Referral
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("DiagnosticsDBModel.DepartmentReferral", "Referral");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("DiagnosticsDBModel.DepartmentReferral", "Referral", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1398,28 +1443,6 @@ namespace DiagnosticCenter.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Day>("DiagnosticsDBModel.DayEmployee", "Day", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "EmployeeReferral", "Referral")]
-        public EntityCollection<Referral> Referral
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("DiagnosticsDBModel.EmployeeReferral", "Referral");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("DiagnosticsDBModel.EmployeeReferral", "Referral", value);
                 }
             }
         }
@@ -3032,28 +3055,6 @@ namespace DiagnosticCenter.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "PatientReferral", "Referral")]
-        public EntityCollection<Referral> Referral
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("DiagnosticsDBModel.PatientReferral", "Referral");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("DiagnosticsDBModel.PatientReferral", "Referral", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "PatientExamination", "Examination")]
         public EntityCollection<Examination> Examination
         {
@@ -3076,6 +3077,87 @@ namespace DiagnosticCenter.Models
     /// <summary>
     /// Нет доступной документации по метаданным.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DiagnosticsDBModel", Name="Position")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Position : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Position.
+        /// </summary>
+        /// <param name="iD_Position">Исходное значение свойства ID_Position.</param>
+        /// <param name="name">Исходное значение свойства Name.</param>
+        public static Position CreatePosition(global::System.Int32 iD_Position, global::System.String name)
+        {
+            Position position = new Position();
+            position.ID_Position = iD_Position;
+            position.Name = name;
+            return position;
+        }
+
+        #endregion
+        #region Свойства-примитивы
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Position
+        {
+            get
+            {
+                return _ID_Position;
+            }
+            set
+            {
+                if (_ID_Position != value)
+                {
+                    OnID_PositionChanging(value);
+                    ReportPropertyChanging("ID_Position");
+                    _ID_Position = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_Position");
+                    OnID_PositionChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_Position;
+        partial void OnID_PositionChanging(global::System.Int32 value);
+        partial void OnID_PositionChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="DiagnosticsDBModel", Name="Referral")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -3091,7 +3173,8 @@ namespace DiagnosticCenter.Models
         /// <param name="visitDate">Исходное значение свойства VisitDate.</param>
         /// <param name="iD_Patient">Исходное значение свойства ID_Patient.</param>
         /// <param name="iD_Employee">Исходное значение свойства ID_Employee.</param>
-        public static Referral CreateReferral(global::System.Int32 iD_Referral, global::System.DateTime creationDate, global::System.DateTime visitDate, global::System.Int32 iD_Patient, global::System.Int32 iD_Employee)
+        /// <param name="iD_Dept">Исходное значение свойства ID_Dept.</param>
+        public static Referral CreateReferral(global::System.Int32 iD_Referral, global::System.DateTime creationDate, global::System.DateTime visitDate, global::System.Int32 iD_Patient, global::System.Int32 iD_Employee, global::System.Int32 iD_Dept)
         {
             Referral referral = new Referral();
             referral.ID_Referral = iD_Referral;
@@ -3099,6 +3182,7 @@ namespace DiagnosticCenter.Models
             referral.VisitDate = visitDate;
             referral.ID_Patient = iD_Patient;
             referral.ID_Employee = iD_Employee;
+            referral.ID_Dept = iD_Dept;
             return referral;
         }
 
@@ -3251,86 +3335,34 @@ namespace DiagnosticCenter.Models
         private Nullable<global::System.Int32> _ID_Examination;
         partial void OnID_ExaminationChanging(Nullable<global::System.Int32> value);
         partial void OnID_ExaminationChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Dept
+        {
+            get
+            {
+                return _ID_Dept;
+            }
+            set
+            {
+                OnID_DeptChanging(value);
+                ReportPropertyChanging("ID_Dept");
+                _ID_Dept = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_Dept");
+                OnID_DeptChanged();
+            }
+        }
+        private global::System.Int32 _ID_Dept;
+        partial void OnID_DeptChanging(global::System.Int32 value);
+        partial void OnID_DeptChanged();
 
         #endregion
     
         #region Свойства навигации
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "PatientReferral", "Patient")]
-        public Patient Patient
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Patient>("DiagnosticsDBModel.PatientReferral", "Patient").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Patient>("DiagnosticsDBModel.PatientReferral", "Patient").Value = value;
-            }
-        }
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Patient> PatientReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Patient>("DiagnosticsDBModel.PatientReferral", "Patient");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Patient>("DiagnosticsDBModel.PatientReferral", "Patient", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "EmployeeReferral", "Employee")]
-        public Employee Employee
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DiagnosticsDBModel.EmployeeReferral", "Employee").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DiagnosticsDBModel.EmployeeReferral", "Employee").Value = value;
-            }
-        }
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Employee> EmployeeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employee>("DiagnosticsDBModel.EmployeeReferral", "Employee");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employee>("DiagnosticsDBModel.EmployeeReferral", "Employee", value);
-                }
-            }
-        }
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -3366,6 +3398,44 @@ namespace DiagnosticCenter.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Examination>("DiagnosticsDBModel.ReferralExamination", "Examination", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DiagnosticsDBModel", "DepartmentReferral", "Department")]
+        public Department Department
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DiagnosticsDBModel.DepartmentReferral", "Department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DiagnosticsDBModel.DepartmentReferral", "Department").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Department> DepartmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DiagnosticsDBModel.DepartmentReferral", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("DiagnosticsDBModel.DepartmentReferral", "Department", value);
                 }
             }
         }

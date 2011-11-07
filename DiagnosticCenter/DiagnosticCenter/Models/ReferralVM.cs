@@ -8,10 +8,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DiagnosticCenter.Models
 {
+    /// <summary>
+    /// Клас призначений для створення моделі представлення направлення
+    /// </summary>
+    /// <param name="patient">Ім'я і прізвище пацієнта</param>
+    /// <param name="idp">Id пацієнта</param>
+    /// <param name="department">Список відділень</param>
+    /// <param name="cabinet">Список кабінетів</param>
+    /// <param name="employee">Список працівників</param>
+    /// <param name="visitDate">Дата відвідування</param>
+    /// <param name="todayDate">Дата створення</param>
     public class ReferralVM
     {
         public string patient { get; set; }
         public int idp { get; set; }
+        
         public List<SelectListItem> department { get; set; }
         public List<SelectListItem> cabinet { get; set; }
         public List<SelectListItem> employee { get; set; }
@@ -22,6 +33,10 @@ namespace DiagnosticCenter.Models
         
         public DateTime todayDate { get; set; }
 
+        /// <summary>
+        /// Метод для заповнення моделі даними
+        /// </summary>
+        /// <param name="pat">Id пацієнта</param>
         public void SetModel(int pat)
         {
             DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
@@ -35,7 +50,14 @@ namespace DiagnosticCenter.Models
             this.employee = GetEmployee(this.cabinet.First().Text);
             this.idp = pat;
             
+           
         }
+
+        /// <summary>
+        /// Створення списку кабінетів
+        /// </summary>
+        /// <param name="department">Назва відділення</param>
+        /// <returns>Список кабінетів</returns>
         public List<SelectListItem> GetCabinet(string department)
         {
             DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
@@ -49,6 +71,12 @@ namespace DiagnosticCenter.Models
             c.Insert(0, i);
             return c;
         }
+
+        /// <summary>
+        /// Створення списку працівників
+        /// </summary>
+        /// <param name="number">Номер кабінету</param>
+        /// <returns>Список кабінетів</returns>
         public List<SelectListItem> GetEmployee(string number)
         {
             DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();

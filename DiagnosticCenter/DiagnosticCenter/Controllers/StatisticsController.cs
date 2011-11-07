@@ -7,56 +7,94 @@ using DiagnosticCenter.Models;
 using System.Web.Security;
 using System.Web.Profile;
 using System.Web.Helpers;
+using System.Web.ApplicationServices;
 
 
 
 namespace DiagnosticCenter.Controllers
 {
+    /// <summary>
+    /// Контроллер описує функціональну частину 
+    /// для підрахування та виводу статистики і профілю користувача
+    /// </summary>
     public class StatisticsController : Controller
     {
         DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
         
+        /// <summary>
+        /// Вивід сторінки профілю користувача
+        /// </summary>
+        /// <returns>Index View</returns>
+        [Authorize(Roles = "Administrator,DepartmentChiefDoctor,Doctor,HeadNurse,MedicalRegistrar,Nurse")]
         public ActionResult Index()
         {
+            ViewBag.Title = TitleRes.TitleStrings.ProfileTitle;
             MembershipUser current = Membership.GetUser(User.Identity.Name);
             EmployeeVM model = new EmployeeVM();
             Guid c =  (Guid)current.ProviderUserKey;
             Employee empl = context.Employees.Include("Department").Include("Cabinet").Where(i => i.ID_User == c).First();
             model.SetModel(empl);
-
-            
             return View(model);
         }
+        
+        /// <summary>
+        /// Зміна паролю
+        /// </summary>
+        /// <param name="id">Id працівника</param>
+        /// <returns>View із результатом зміни</returns>
+        [HttpPost]
+        public ActionResult Index(int? id)
+        {
+            MembershipUser user = Membership.GetUser();
+            string oldPass = Request.Form["oldPass"].ToString();
+            string newPass = Request.Form["newPass"].ToString();
+            string confirmPass = Request.Form["confirmPass"].ToString();
+            string pass = user.GetPassword();
+              
+            if ((Membership.ValidateUser(user.UserName,oldPass)) && (newPass == confirmPass))
+              
+                    {
+                        user.ChangePassword(oldPass, newPass);
+                        ViewBag.Error = ViewRes.StatisticsStrings.Applied;
+                        return View();
+                    }
+                else
+                {
+                    ViewBag.Error = ViewRes.StatisticsStrings.NotApplied;
+                    return View();
+                }
+            
+        }
 
-        public ActionResult PieChart()
+        /// <summary>
+        /// Створення діаграми для статистики по відділеннях
+        /// </summary>
+        public void PieChart()
         {
             List<Department> dept = context.Departments.ToList();
             List<int> c_dept = new List<int>();
+            List<Referral> reff = context.Referrals.ToList();
             foreach (Department d in dept)
             {
-                int sum = 0;
-                List<Employee> empl = context.Employees.Where(e => e.ID_Dept == d.ID_Dept).ToList();
-                foreach (Employee e in empl)
-                {
-                    sum += e.Referral.Count();
-                }
+                int sum = reff.Where(i => i.CreationDate.Month == DateTime.Now.Month).Where(i => i.ID_Dept == d.ID_Dept).Count();
                 c_dept.Add(sum);
             }
             List<string> str_dept = new List<string>();
             foreach( Department d in dept)
                 str_dept.Add(d.Name);
 
-            var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle("Кількість пацієнтів у відділах за останній місяць")
-                .AddLegend("Відділення")
+            var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle(ViewRes.StatisticsStrings.TitlePieChart)
+                .AddLegend(ViewRes.StatisticsStrings.LegendPieChart)
                 .AddSeries(
                    chartType: "pie",
                    xValue: str_dept,
                    yValues: c_dept )
                .Write();
-
-            return null;
         }
-
+        /// <summary>
+        /// Створення діаграми для загальної статистики по пацієнтах
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ColumnChart()
         {
             
@@ -67,17 +105,26 @@ namespace DiagnosticCenter.Controllers
                 int reff = context.Referrals.Where(item => item.CreationDate.Month == mnth.Month).Count();
                 c_reff.Add(reff);
             }
-            var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle("Кількість пацієнтів по місяцях")
+            var key = new Chart(width: 500, height: 200, theme: ChartTheme.Blue).AddTitle(ViewRes.StatisticsStrings.TitleColumnChart)
                 .AddSeries(
                    chartType: "column",
-                   xValue: new[] { "Січ", "Лют", "Бер", "Кві", "Тра","Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру" },
+                   xValue: new[] { ViewRes.StatisticsStrings.Jan, ViewRes.StatisticsStrings.Feb, ViewRes.StatisticsStrings.Mar, 
+                                   ViewRes.StatisticsStrings.Apr, ViewRes.StatisticsStrings.May,ViewRes.StatisticsStrings.Jun, 
+                                   ViewRes.StatisticsStrings.Jul, ViewRes.StatisticsStrings.Aug, ViewRes.StatisticsStrings.Sep, 
+                                   ViewRes.StatisticsStrings.Oct, ViewRes.StatisticsStrings.Nov, ViewRes.StatisticsStrings.Dec },
                    yValues: c_reff)
                .Write();
             return null;
         }
 
+        /// <summary>
+        /// Сторінка статистики
+        /// </summary>
+        /// <returns>View на сторінку статистики</returns>
+        [Authorize(Roles = "Administrator,DepartmentChiefDoctor,Doctor,HeadNurse,MedicalRegistrar,Nurse")]
         public ActionResult StatPage()
         {
+            ViewBag.Title = TitleRes.TitleStrings.StatTitle;
             ViewBag.PatientsToday = context.Referrals.Where(i => i.CreationDate.Day == DateTime.Now.Day).Count();
             ViewBag.PatientsMonth = context.Referrals.Where(i => i.CreationDate.Month == DateTime.Now.Month).Count();
             ViewBag.PatientsTotal = context.Referrals.Count();

@@ -9,18 +9,18 @@
 <div>
 <table align="center">
 <th align="center" colspan="2">
-    Статистика діагностичного центру
+    @ViewRes.StatisticsStrings.NumOfPat
 </th>
 <tr>
     <td>
-    Кількість хворих за сьогодні: </td>
+    @ViewRes.StatisticsStrings.Today </td>
     <td>
       @ViewBag.PatientsToday
     </td>
 </tr>
 <tr>
 <td>
-    Кількість хворих за останній місяць:
+    @ViewRes.StatisticsStrings.Month
 </td>
 <td>
     @ViewBag.PatientsMonth
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 <td>
-    Загальна кількість хворих:
+    @ViewRes.StatisticsStrings.Total
 </td>
 <td>
     @ViewBag.PatientsTotal

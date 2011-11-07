@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,16 +10,30 @@ using PagedList;
 
 namespace DiagnosticCenter.Controllers
 {
-
+    /// <summary>
+    /// Контроллер <c>EmployeesController</c> описує функціональну частину
+    /// для керування записами про працівників діагностичного центру
+    /// </summary>
+    /// <param name="context">Екземпляр моделі <c>DiagnosticsDBModel</c></param>
+    /// <param name="model">Екземпляр класу <c>EmployeesVM</c></param>
+    /// <param name="role">Масив стрічок з назвою ролей користувачів</param>
     public class EmployeesController : Controller
     {
-        DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer(); //контекст моделі бд
-        EmployeesVM model = new EmployeesVM(); //  ViewModel для відображення інформації працівників
-        string[] r = { "Doctor", "HeadDoctor", "Nurse", "HeadNurse", "DepartmentChiefDoctor", "MedicalRegistrar" }; // масив ролей  
+        DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+        EmployeesVM model = new EmployeesVM();
+        string[] role = { "Doctor", "HeadDoctor", "Nurse", "HeadNurse", "DepartmentChiefDoctor", "MedicalRegistrar" };  
 
-        //-------Всі працівники-------//
+        /// <summary>
+        /// Action для сторінки з відображенням списку працівників
+        /// </summary>
+        /// <param name="sortOrder">Порядок сортування</param>
+        /// <param name="searchString">Стрічка з даними для пошуку</param>
+        /// <param name="page">Індикатор сторінки для Paging</param>
+        /// <returns>View зі списком працівників</returns>
+        [Authorize(Roles = "Administrator,DepartmentChiefDoctor,Doctor,HeadNurse,MedicalRegistrar,Nurse")]
         public ViewResult Index(string sortOrder, string searchString, int? page)
         {
+            ViewBag.Title = TitleRes.TitleStrings.IndexTitleEmpl;
             IQueryable<Employee> employee = context.Employees.Include("Department").Include("Cabinet");
             ViewBag.FirstNameSortParm = String.IsNullOrEmpty(sortOrder) ? "FirstName desc" : "";
             ViewBag.SurnameSortParm = String.IsNullOrEmpty(sortOrder) ? "Surname desc" : "";
@@ -48,56 +62,74 @@ namespace DiagnosticCenter.Controllers
             return View(model.lst.ToPagedList(pageIndex, 5));
         }
 
-        //-------Детальна інформація-------//
+        /// <summary>
+        /// Action для сторінки з відображенням детальної інформації про працівника
+        /// </summary>
+        /// <param name="id">Id працівника</param>
+        /// <returns>View із детальною інформацією</returns>
+        [Authorize(Roles = "Administrator,DepartmentChiefDoctor,Doctor,HeadNurse,MedicalRegistrar,Nurse")]
         public ActionResult Details(int id)
         {
+            ViewBag.Title = TitleRes.TitleStrings.DetailsTitle;
             IQueryable<Employee> employee = context.Employees.Include("Department").Include("Cabinet").Where(i => i.ID_Employee == id);
             model.FillModel(employee);
             return View(model.lst.ToList());
         }
 
-        //-------Створення працівників-------//
+        /// <summary>
+        /// Action для сторінки створення нового працівника
+        /// </summary>
+        /// <returns>View з формою для створення</returns>
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
+            ViewBag.Title = TitleRes.TitleStrings.AddTitleEmpl;
             List<Department> dept = context.Departments.ToList();
             IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name });
             List<SelectListItem> d = _dept.ToList();
-            SelectListItem i = new SelectListItem();
-            i.Text = "Выберите отделение";
-            i.Value = "0";
-            d.Insert(0, i);
-   
+            SelectListItem item = new SelectListItem();
+            item.Text = EmployeesRes.EmployeesStrings.ChooseDept;
+            item.Value = "0";
+            d.Insert(0, item);
             List<SelectListItem> c = new List<SelectListItem>();
-            i = new SelectListItem();
-            i.Text = ReferralRes.ReferralStrings.ChooseCab;
-            i.Value = "0";
-            c.Insert(0, i);
+            item = new SelectListItem();
+            item.Text = ReferralRes.ReferralStrings.ChooseCab;
+            item.Value = "0";
+            c.Insert(0, item);
             ViewBag.Dept = d;
             ViewBag.Cab = c;
             return View();
         }
 
+        /// <summary>
+        /// Action обробки вхідних даних з форми створення працівника
+        /// </summary>
+        /// <remarks>Метод заповнює основні дані в таблицю бази даних,
+        /// а також відправляє електронний лист на пошту працівника
+        /// із даними для авторизації
+        /// </remarks>
+        /// <param name="new_empl">Новий екземпляр моделі<c>Employee</c></param>
+        /// <returns>Перехід на<c>Index</c>Action або View для повторного вводу даних</returns>
         [HttpPost]
         public ActionResult Create(Employee new_empl)
         {
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid) 
+                return View();
             Classes.MailSender sender = new Classes.MailSender();
-
             string newUser = new_empl.Username;
             string pass = sender.GeneratePassword();
-
             Membership.CreateUser(newUser, pass, new_empl.Email);
-            string role = "";
+            string r = "";
             switch (Request.Form["position"])
             {
-                case "лікар": role = r[0]; break;
-                case "головний лікар": role = r[1]; break;
-                case "медсестра": role = r[2]; break;
-                case "головна медсестра": role = r[3]; break;
-                case "зав. відділом": role = r[4]; break;
-                case "реєстратура": role = r[5]; break;
+                case "лікар": r = role[0]; break;
+                case "головний лікар": r = role[1]; break;
+                case "медсестра": r = role[2]; break;
+                case "головна медсестра": r = role[3]; break;
+                case "зав. відділом": r = role[4]; break;
+                case "реєстратура": r = role[5]; break;
             }
-            Roles.AddUserToRole(newUser, role);
+            Roles.AddUserToRole(newUser, r);
 
             MembershipUser curr_user = Membership.GetUser(newUser);
             new_empl.ID_User = (Guid)curr_user.ProviderUserKey;
@@ -106,55 +138,78 @@ namespace DiagnosticCenter.Controllers
 
             context.AddToEmployees(new_empl);
             context.SaveChanges();
-            sender.SendPassword(new_empl.Email);
+            sender.SendPassword(new_empl.Email, newUser);
             return RedirectToAction("Index");
         }
 
-        //-------Редагування інформації------//
+        /// <summary>
+        /// Action для сторінки редагування інформації працівника
+        /// </summary>
+        /// <param name="id">Id працівника</param>
+        /// <returns>View з формою редагування інформації</returns>
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id)
         {
-            string[] role = Roles.GetAllRoles();
+            ViewBag.Title = TitleRes.TitleStrings.EditTitle;
             Employee empl = context.Employees.Include("Department").Include("Cabinet").Where(e => e.ID_Employee == id).First();
             List<Department> dept = context.Departments.ToList();
-            IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name, Selected = e.ID_Dept == empl.ID_Dept });
+            IEnumerable<SelectListItem> _dept = dept.Select(e => 
+                                                              new SelectListItem { Value = e.ID_Dept.ToString(), 
+                                                                                   Text = e.Name, 
+                                                                                   Selected = e.ID_Dept == empl.ID_Dept });
             List<Cabinet> cab = context.Cabinets.Where(e => e.ID_Dept == empl.ID_Dept).ToList();
-            IEnumerable<SelectListItem> _cab = cab.Select(e => new SelectListItem { Value = e.ID_Cabinet.ToString(), Text = e.Number.ToString(), Selected = e.ID_Cabinet == empl.ID_Cabinet });
+            IEnumerable<SelectListItem> _cab = cab.Select(e => 
+                                                            new SelectListItem { Value = e.ID_Cabinet.ToString(), 
+                                                                                 Text = e.Number.ToString(), 
+                                                                                 Selected = e.ID_Cabinet == empl.ID_Cabinet });
             MembershipUser curr_user = Membership.GetUser(empl.ID_User);
             List<SelectListItem> c = _cab.ToList();
+            List<Position> pos = context.Positions.ToList();
+            IEnumerable <SelectListItem> _pos = pos.Select(e => 
+                                                            new SelectListItem { Value = e.Name, 
+                                                                                 Text = e.Name, 
+                                                                                 Selected = e.Name == empl.Position });
+            ViewBag.Pos = _pos;
             ViewBag.Dept = _dept;
             ViewBag.Cab = c;
             ViewBag.Email = curr_user.Email;
             return View(empl);
-            
         }
 
+        /// <summary>
+        /// Action обробки введеної інформації з форми для редагування
+        /// </summary>
+        /// <param name="edit_empl">Екземпляр Employee для редагування</param>
+        /// <returns>Перехід на Index Action</returns>
         [HttpPost]
         public ActionResult Edit(Employee edit_empl)
         {
-           
-            Employee original_empl = context.Employees.Include("Department").Include("Cabinet").Where(i => i.ID_Employee == edit_empl.ID_Employee).First();
-
+           Employee original_empl = context.Employees.Include("Department")
+                                                     .Include("Cabinet")
+                                                     .Where(i =>i.ID_Employee == edit_empl.ID_Employee)
+                                                     .First();
             edit_empl.Email = original_empl.Email;
             edit_empl.Username = original_empl.Username;
-            string role = "";
-            switch (Request.Form["position"])
+            string r = "";
+            switch (Request.Form["Pos"])
             {
-                case "лікар": role = r[0]; break;
-                case "головний лікар": role = r[1]; break;
-                case "медсестра": role = r[2]; break;
-                case "головна медсестра": role = r[3]; break;
-                case "зав. відділом": role = r[4]; break;
-                case "реєстратура": role = r[5]; break;
+                case "лікар": r = role[0]; break;
+                case "головний лікар": r = role[1]; break;
+                case "медсестра": r = role[2]; break;
+                case "головна медсестра": r = role[3]; break;
+                case "зав. відділом": r = role[4]; break;
+                case "реєстратура": r = role[5]; break;
             }
             MembershipUser curr_user = Membership.GetUser(edit_empl.ID_User);
-            foreach (string item in r)
+            foreach (string item in role)
                 if (Roles.IsUserInRole(curr_user.UserName, item))
                 {
                     Roles.RemoveUserFromRole(curr_user.UserName, item);
                     break;
                 }
-            Roles.AddUserToRole(curr_user.UserName, role);
+            Roles.AddUserToRole(curr_user.UserName, r);
             curr_user.Email = edit_empl.Email;
+            edit_empl.Position = Request.Form["Pos"];
             edit_empl.ID_Dept = System.Convert.ToInt32(Request.Form["Dept"]);
             edit_empl.ID_Cabinet = System.Convert.ToInt32(Request.Form["Cab"]);
             context.ApplyCurrentValues(original_empl.EntityKey.EntitySetName, edit_empl);
@@ -162,7 +217,12 @@ namespace DiagnosticCenter.Controllers
             return RedirectToAction("Index");
         }
 
-        //------Видалення працівників-------//
+        /// <summary>
+        /// Action для видалення працівника
+        /// </summary>
+        /// <param name="id">Id працівника</param>
+        /// <returns>Перехід на Index Action</returns>
+        [Authorize(Roles = "Administrator,DepartmentChiefDoctor")]
         public ActionResult Delete(int id)
         {
             Employee employee = context.Employees.Where(e => e.ID_Employee == id).First();
@@ -173,9 +233,14 @@ namespace DiagnosticCenter.Controllers
             return RedirectToAction("Index");
         }
 
-        //-------Пошук працівників-------//
+        /// <summary>
+        /// Пошук працівника
+        /// </summary>
+        /// <returns>Delete View</returns>
+        [Authorize(Roles = "Administrator,DepartmentChiefDoctor,Doctor,HeadNurse,MedicalRegistrar,Nurse")]
         public ActionResult Search()
         {
+            ViewBag.Title = TitleRes.TitleStrings.SearchTitle;
             List<Department> dept = context.Departments.ToList();
             IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), Text = e.Name });
             List<Cabinet> cab = context.Cabinets.ToList();
@@ -185,21 +250,26 @@ namespace DiagnosticCenter.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Обробка інформації для пошуку
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>View зі списком результату пошуку</returns>
         [HttpPost]
-        public ActionResult Search(Employee requestedEmployee)
+        public ActionResult Search(int? id)
         {
             IQueryable<Employee> employee = context.Employees.Include("Department").Include("Cabinet");
 
             if (Request.Form["FirstName"].ToString().Trim() != "")
-                employee = employee.Where(p => p.FirstName.Contains(requestedEmployee.FirstName));
+                employee = employee.Where(p => p.FirstName.Contains(Request.Form["FirstName"].ToString()));
             if (Request.Form["Surname"].ToString().Trim() != "")
-                employee = employee.Where(p => p.Surname.Contains(requestedEmployee.Surname));
+                employee = employee.Where(p => p.Surname.Contains(Request.Form["Surname"].ToString()));
             if (Request.Form["Category"].ToString().Trim() != "")
-                employee = employee.Where(p => p.Category.Contains(requestedEmployee.Category));
+                employee = employee.Where(p => p.Category.Contains(Request.Form["Category"].ToString()));
             if (Request.Form["Specialty"].ToString().Trim() != "")
-                employee = employee.Where(p => p.Category.Contains(requestedEmployee.Specialty));
+                employee = employee.Where(p => p.Category.Contains(Request.Form["Specialty"].ToString()));
             if (Request.Form["position"].ToString().Trim() != "")
-                employee = employee.Where(p => p.Position == requestedEmployee.Position);
+                employee = employee.Where(p => p.Position == Request.Form["position"].ToString());
             if (Request.Form["Cab"].ToString() != "")
             {
                 int cabinet = Convert.ToInt32(Request.Form["Cab"]);
@@ -215,7 +285,11 @@ namespace DiagnosticCenter.Controllers
             return View("Index", model.lst.ToPagedList(1, 5));
         }
 
-
+        /// <summary>
+        /// Перевірка існування Username користувача
+        /// </summary>
+        /// <param name="username">Username користувача</param>
+        /// <returns>JSON з результатом перевірки</returns>
         public JsonResult UserExist(string username)
         {
             var users = System.Web.Security.Membership.FindUsersByName(username);
@@ -232,6 +306,12 @@ namespace DiagnosticCenter.Controllers
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
         }
+
+        /// <summary>
+        /// Перевірка існування електронної адреси користувача
+        /// </summary>
+        /// <param name="username">Email користувача</param>
+        /// <returns>JSON з результатом перевірки</returns>
         public JsonResult UserExists(string email)
         {
             var users = System.Web.Security.Membership.FindUsersByEmail(email);
@@ -249,6 +329,11 @@ namespace DiagnosticCenter.Controllers
             }
         }
 
+        /// <summary>
+        /// Створення списку кабінетів
+        /// </summary>
+        /// <param name="deptName">Назва відділу для визначення кабінетів</param>
+        /// <returns>Список кабінетів</returns>
         public JsonResult Cabinet(string deptName)
         {
             JsonResult result = new JsonResult();
@@ -269,6 +354,11 @@ namespace DiagnosticCenter.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Створення списку кабінетів для Edit View
+        /// </summary>
+        /// <param name="deptName">Назва відділу для визначення кабінетів</param>
+        /// <returns>Список кабінетів</returns>
         public JsonResult EditCabinet(string deptName)
         {
             JsonResult result = new JsonResult();

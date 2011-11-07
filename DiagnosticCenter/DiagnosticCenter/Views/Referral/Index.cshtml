@@ -41,7 +41,12 @@
            
         });
 
-        
+        $("#Cab").change(function () {
+            var source = "#Cab";
+            if ($(source).val() == "0" || $("#Empl").val() == "0") { $("#sub").attr("disabled", "disabled"); }
+            else $("#sub").attr("disabled", "");
+        });
+
         $("#Empl").change(function () {
             var source = "#Empl";
             if ($(source).val() == "0") { $("#sub").attr("disabled", "disabled"); }

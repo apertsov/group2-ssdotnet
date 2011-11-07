@@ -368,6 +368,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SharedStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Statistics\StatisticsStrings.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatisticsStrings.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Statistics\StatisticsStrings.ru.Designer.cs">
+      <DependentUpon>StatisticsStrings.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Statistics\StatisticsStrings.Designer.cs">
+      <DependentUpon>StatisticsStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Titles\TitleStrings.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TitleStrings.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Titles\TitleStrings.ru.Designer.cs">
+      <DependentUpon>TitleStrings.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Titles\TitleStrings.Designer.cs">
+      <DependentUpon>TitleStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ASPNETDB.MDF" />
@@ -751,7 +781,12 @@
     <Content Include="App_Data\web.config" />
   </ItemGroup>
   <ItemGroup>
+
     <None Include="App_Data\DiagnosticsDB.bak" />
+    <None Include="ClassDiagram1.cd" />
+
+    <None Include="App_Data\DiagnosticsDB.bak" />
+
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.csdl" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.msl" />
@@ -1055,6 +1090,36 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SharedStrings.uk1.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Statistics\StatisticsStrings.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StatisticsStrings.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Statistics\StatisticsStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StatisticsStrings.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Statistics\StatisticsStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StatisticsStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ViewRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Titles\TitleStrings.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TitleStrings.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>TitleRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Titles\TitleStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TitleStrings.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>TitleRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Titles\TitleStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TitleStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>TitleRes</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
