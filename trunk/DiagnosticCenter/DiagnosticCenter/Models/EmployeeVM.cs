@@ -5,6 +5,19 @@ using System.Web;
 using DiagnosticCenter.Models;
 namespace DiagnosticCenter.Models
 {
+    /// <summary>
+    /// Клас описує модель представлення працівника
+    /// </summary>
+    /// <param name="id">Id працівника</param>
+    /// <param name="firstName">Ім'я працівника</param>
+    /// <param name="surname">Прізвище працівника</param>
+    /// <param name="patronymic">По батькові працівника</param>
+    /// <param name="category">Категорія працівника</param>
+    /// <param name="position">Посада працівника</param>
+    /// <param name="specialty">Спеціальність працівника</param>
+    /// <param name="rate">Ставка пацієнта</param>
+    /// <param name="department">Назва відділення</param>
+    /// <param name="cabinet">Номер кабінету</param>
     public class EmployeeVM
     {
         public int id { get; set; }
@@ -17,7 +30,11 @@ namespace DiagnosticCenter.Models
         public int rate { get; set; }
         public string department { get; set; }
         public int cabinet { get; set; }
-
+        
+        /// <summary>
+        /// Заповнення моделі даними
+        /// </summary>
+        /// <param name="empl">Екземпляр Employee</param>
         public void SetModel(Employee empl)
         {
             this.id = empl.ID_Employee;
@@ -33,15 +50,27 @@ namespace DiagnosticCenter.Models
         }
     }
 
+    /// <summary>
+    /// Клас для створення колекції моделі представлення EmployeeVM
+    /// </summary>
+    /// <param name="lst">Список моделей представлення</param>
     public class EmployeesVM
     {
        public List<EmployeeVM> lst { get; set; }
 
+       /// <summary>
+       /// Конструкор по замовчуванню
+       /// </summary>
        public EmployeesVM()
        {
            this.lst = new List<EmployeeVM>();
        }
-        public void FillModel(IQueryable<Employee> query)
+
+       /// <summary>
+       /// Метод для заповнення моделі даними
+       /// </summary>
+       /// <param name="query">Результат запиту з таблиці Employee</param>
+       public void FillModel(IQueryable<Employee> query)
        {
            lst.Clear();
            foreach (Employee e in query)
