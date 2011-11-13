@@ -19,7 +19,7 @@ namespace DiagnosticCenter.Controllers
     /// </summary>
     public class StatisticsController : Controller
     {
-        DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+        DiagnosticsDBEntities context = new DiagnosticsDBEntities();
         
         /// <summary>
         /// Вивід сторінки профілю користувача
@@ -31,7 +31,7 @@ namespace DiagnosticCenter.Controllers
             ViewBag.Title = TitleRes.TitleStrings.ProfileTitle;
             MembershipUser current = Membership.GetUser(User.Identity.Name);
             EmployeeVM model = new EmployeeVM();
-            Guid c =  (Guid)current.ProviderUserKey;
+            int c =  (int)current.ProviderUserKey;
             Employee empl = context.Employees.Include("Department").Include("Cabinet").Where(i => i.ID_User == c).First();
             model.SetModel(empl);
             return View(model);

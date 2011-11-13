@@ -15,7 +15,7 @@ namespace DiagnosticCenter.Controllers
     /// <param name="context">Екземпляр моделі бази даних</param>
     public class PatientsController : Controller
     {
-        private DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+        private DiagnosticsDBEntities context = new DiagnosticsDBEntities();
 
         /// <summary>
         /// Action для сторінки з відображенням списку пацієнтів

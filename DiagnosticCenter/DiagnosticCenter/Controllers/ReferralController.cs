@@ -13,7 +13,7 @@ namespace DiagnosticCenter.Controllers
     /// <param name="model">Еземпляр класу <c>ReferralVM</c></param>
     public class ReferralController : Controller
     {
-        DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+        DiagnosticsDBEntities context = new DiagnosticsDBEntities();
         ReferralVM model = new ReferralVM();
 
         /// <summary>

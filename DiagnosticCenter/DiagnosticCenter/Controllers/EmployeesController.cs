@@ -19,7 +19,7 @@ namespace DiagnosticCenter.Controllers
     /// <param name="role">Масив стрічок з назвою ролей користувачів</param>
     public class EmployeesController : Controller
     {
-        DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+        DiagnosticsDBEntities context = new DiagnosticsDBEntities();
         EmployeesVM model = new EmployeesVM();
         string[] role = { "Doctor", "HeadDoctor", "Nurse", "HeadNurse", "DepartmentChiefDoctor", "MedicalRegistrar" };  
 
@@ -132,7 +132,7 @@ namespace DiagnosticCenter.Controllers
             Roles.AddUserToRole(newUser, r);
 
             MembershipUser curr_user = Membership.GetUser(newUser);
-            new_empl.ID_User = (Guid)curr_user.ProviderUserKey;
+            new_empl.ID_User = (int)curr_user.ProviderUserKey;
             new_empl.ID_Dept = System.Convert.ToInt32(Request.Form["Dept"]);
             new_empl.ID_Cabinet = System.Convert.ToInt32(Request.Form["Cab"]);
 

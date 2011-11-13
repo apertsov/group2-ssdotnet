@@ -12,7 +12,7 @@ namespace DiagnosticCenter.Controllers
 { 
     public class ExaminationTemplatesController : Controller
     {
-        private DiagnosticsDBModelContainer db = new DiagnosticsDBModelContainer();
+        private DiagnosticsDBEntities db = new DiagnosticsDBEntities();
 
         //
         // GET: /ExaminationTemplates/
@@ -51,7 +51,7 @@ namespace DiagnosticCenter.Controllers
             if (ModelState.IsValid)
             {
                 MembershipUser currUser = Membership.GetUser();
-                Employee employee = db.Employees.Where(e => e.ID_User == (Guid)currUser.ProviderUserKey).First();
+                Employee employee = db.Employees.Where(e => e.ID_User == (int)currUser.ProviderUserKey).First();
                 
                 //temporary section start
                 //if (employee == null)

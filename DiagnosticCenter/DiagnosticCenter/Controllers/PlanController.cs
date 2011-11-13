@@ -23,7 +23,7 @@ namespace DiagnosticCenter.Controllers
             const int cabsOnPage = 4; //TODO: Read form Paramters Table
 
             //Контекст для запитів
-            var context = new DiagnosticsDBModelContainer();
+            var context = new DiagnosticsDBEntities();
 
             //Ініціальзуємо змінні робочого дня
             Settings settings = context.Settings.FirstOrDefault();
@@ -61,7 +61,7 @@ namespace DiagnosticCenter.Controllers
             ViewBag.Date = date.ToShortDateString();
 
             //Визначаємо відділ, для якого буде виведено розклад та право на зміну розкладу (за авторизованим користувачам)
-            Guid idUser = (Guid)Membership.GetUser(User.Identity.Name).ProviderUserKey;
+            int idUser = (int)Membership.GetUser(User.Identity.Name).ProviderUserKey;
             var currEmployee = context.Employees.Where(e => e.ID_User == idUser);
             if (currEmployee.Count() == 0)
             {
@@ -78,7 +78,7 @@ namespace DiagnosticCenter.Controllers
             //Передаємо назву відділення
             ViewBag.DeptName = context.Employees.Where(e => e.ID_User == idUser).First().Department.Description;
 
-            context = new DiagnosticsDBModelContainer();
+            context = new DiagnosticsDBEntities();
             var qEmployeesWithCabinets = context.Employees.Include("Cabinet")
                                                           .Where(e => e.ID_Dept == depId)
                                                           .OrderBy(e => e.Cabinet.Number)
@@ -285,7 +285,7 @@ namespace DiagnosticCenter.Controllers
             const int cabsOnPage = 4; //TODO: Read form Paramters Table
                       
             //Контекст для запитів
-            var context = new DiagnosticsDBModelContainer();
+            var context = new DiagnosticsDBEntities();
 
             //Ініціальзуємо змінні робочого дня
             Settings settings = context.Settings.FirstOrDefault();
@@ -323,7 +323,7 @@ namespace DiagnosticCenter.Controllers
             ViewBag.Date = date.ToShortDateString();
             
             //Визначаємо відділ, для якого буде виведено розклад та право на зміну розкладу (за авторизованим користувачам)
-            Guid idUser = (Guid)Membership.GetUser(User.Identity.Name).ProviderUserKey;
+            int idUser = (int)Membership.GetUser(User.Identity.Name).ProviderUserKey;
             var currEmployee = context.Employees.Where(e => e.ID_User == idUser);
             if (currEmployee.Count() == 0)
             {
@@ -346,7 +346,7 @@ namespace DiagnosticCenter.Controllers
             //Передаємо назву відділення
             ViewBag.DeptName = context.Employees.Where(e => e.ID_User == idUser).First().Department.Description;
 
-            context = new DiagnosticsDBModelContainer();
+            context = new DiagnosticsDBEntities();
             var qEmployeesWithCabinets = context.Employees.Include("Cabinet")
                                                           .Where(e => e.ID_Dept == depId)
                                                           .OrderBy(e => e.Cabinet.Number)
@@ -563,7 +563,7 @@ namespace DiagnosticCenter.Controllers
         [HttpPost]
         public ActionResult Edit(FormCollection inputData)
         {
-            var context = new DiagnosticsDBModelContainer();
+            var context = new DiagnosticsDBEntities();
 
             //Читаємо дані з форми
             DateTime date = new DateTime();
@@ -681,7 +681,7 @@ namespace DiagnosticCenter.Controllers
                     Employee employee = context.Employees.Where(e => e.ID_Employee == emp).First();
                     if (day.Employee.Contains(employee))
                     {
-                        DiagnosticsDBModelContainer container = new DiagnosticsDBModelContainer();
+                        DiagnosticsDBEntities container = new DiagnosticsDBEntities();
                         
                         Day originalDay = new Day();
                         Day editedDay = new Day();
@@ -734,7 +734,7 @@ namespace DiagnosticCenter.Controllers
 
                         hoursList.Add(hoursCell);
 
-                        context = new DiagnosticsDBModelContainer();
+                        context = new DiagnosticsDBEntities();
                         
                         int emplId = Convert.ToInt32(col[startHour]);
                         var qEmployee = context.Employees.Where(e => e.ID_Employee == emplId);

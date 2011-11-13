@@ -39,7 +39,7 @@ namespace DiagnosticCenter.Models
         /// <param name="pat">Id пацієнта</param>
         public void SetModel(int pat)
         {
-            DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+            DiagnosticsDBEntities context = new DiagnosticsDBEntities();
             List<Department> dept = context.Departments.ToList();
             IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.Name, Text = e.Name });
             Patient _pat = context.Patients.Where(p => p.ID_Patient == pat).First();
@@ -60,7 +60,7 @@ namespace DiagnosticCenter.Models
         /// <returns>Список кабінетів</returns>
         public List<SelectListItem> GetCabinet(string department)
         {
-            DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+            DiagnosticsDBEntities context = new DiagnosticsDBEntities();
             List<Cabinet> cab = context.Cabinets.Include("Department").ToList();
             IEnumerable<SelectListItem> _cab = cab.Where(e => e.Department.Name == department)
                                                   .Select(e => new SelectListItem { Value = e.Number.ToString(), Text = e.Number.ToString() });
@@ -79,7 +79,7 @@ namespace DiagnosticCenter.Models
         /// <returns>Список кабінетів</returns>
         public List<SelectListItem> GetEmployee(string number)
         {
-            DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+            DiagnosticsDBEntities context = new DiagnosticsDBEntities();
             List<Employee> empl = context.Employees.Include("Cabinet").ToList();
             IEnumerable<SelectListItem> _empl = empl.Where(e => e.Cabinet.Number.ToString() == number)
                                                     .Select(e => new SelectListItem { Value = e.ID_Employee.ToString(), Text = e.FirstName + " " + e.Surname });

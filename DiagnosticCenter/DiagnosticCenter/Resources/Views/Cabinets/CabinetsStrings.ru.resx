@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddCabinet" xml:space="preserve">
-    <value>Добавить кабінет</value>
+    <value>Добавить кабинет</value>
   </data>
   <data name="Cabinet" xml:space="preserve">
     <value>Кабинет</value>
@@ -136,7 +136,7 @@
     <value>Кабинеты</value>
   </data>
   <data name="ChooseDepartment" xml:space="preserve">
-    <value>- Виберете отдел - </value>
+    <value>- Виберите отдел - </value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
@@ -172,7 +172,7 @@
     <value>Страница</value>
   </data>
   <data name="PrevPage" xml:space="preserve">
-    <value>Предидущая</value>
+    <value>Предыдущая</value>
   </data>
   <data name="ReturnToCabsList" xml:space="preserve">
     <value>Вернутся к списку кабинетов</value>
@@ -184,6 +184,9 @@
     <value>Невозможно удалить кабинет, пока хоть один работник связан с ним</value>
   </data>
   <data name="Error1Text" xml:space="preserve">
-    <value>Ошибка удалениея кабинета</value>
+    <value>Ошибка удаления кабинета</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>ыход</value>
   </data>
 </root>

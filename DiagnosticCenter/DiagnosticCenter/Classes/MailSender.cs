@@ -40,6 +40,8 @@ namespace DiagnosticCenter.Classes
         /// <param name="username">Ім'я користувача</param>
         internal void SendPassword(string sendTo, string username)
         {
+           
+            
             message.From = new MailAddress("ss.aspnet.team2@gmail.com");
             message.To.Add(new MailAddress(sendTo));
             
