@@ -12,7 +12,7 @@ namespace DiagnosticCenter.Controllers
 { 
     public class ExaminationsController : Controller
     {
-        private DiagnosticsDBModelContainer db = new DiagnosticsDBModelContainer();
+        private DiagnosticsDBEntities db = new DiagnosticsDBEntities();
 
         //
         // GET: /Examinations/
@@ -46,7 +46,7 @@ namespace DiagnosticCenter.Controllers
             ViewBag.ID_ExmType = new SelectList(db.ExaminationTypes, "ID_ExmType", "Name");
 
             MembershipUser currUser = Membership.GetUser();
-            Employee currEmployee = db.Employees.Include("Department").Where(e => e.ID_User == (Guid)currUser.ProviderUserKey).First();
+            Employee currEmployee = db.Employees.Include("Department").Where(e => e.ID_User == (int)currUser.ProviderUserKey).First();
             
             //temporary section start
             //if (employee == null)
@@ -84,7 +84,7 @@ namespace DiagnosticCenter.Controllers
                 examination.Patient = patient;
 
                 MembershipUser currUser = Membership.GetUser();
-                Employee employee = db.Employees.Where(e => e.ID_User == (Guid)currUser.ProviderUserKey).First();
+                Employee employee = db.Employees.Where(e => e.ID_User == (int)currUser.ProviderUserKey).First();
                 examination.Employee = employee;
 
                 ExaminationType examType = db.ExaminationTypes.Where(e => e.ID_ExmType == examination.ID_ExmType).First();

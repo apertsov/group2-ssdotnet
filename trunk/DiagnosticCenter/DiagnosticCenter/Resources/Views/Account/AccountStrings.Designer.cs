@@ -63,9 +63,9 @@ namespace AccountRes {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Log off.
         /// </summary>
-        public static string LogOff {
+        public static string Log {
             get {
-                return ResourceManager.GetString("LogOff", resourceCulture);
+                return ResourceManager.GetString("Log", resourceCulture);
             }
         }
         

@@ -9,7 +9,7 @@ namespace DiagnosticCenter.Models
     public class Departments
     {
         public static Departments Instance = new Departments();
-        DiagnosticsDBModelContainer DB = new DiagnosticsDBModelContainer();
+        DiagnosticsDBEntities DB = new DiagnosticsDBEntities();
         public Departments()
         {
         }

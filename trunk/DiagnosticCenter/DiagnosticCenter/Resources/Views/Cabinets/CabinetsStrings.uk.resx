@@ -186,4 +186,7 @@
   <data name="Error1Text" xml:space="preserve">
     <value>Помилка видалення кабінету</value>
   </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Вийти</value>
+  </data>
 </root>

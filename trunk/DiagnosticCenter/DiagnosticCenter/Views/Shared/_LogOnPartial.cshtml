@@ -1,7 +1,8 @@
 ﻿@if(Request.IsAuthenticated) {
     <text>@ViewRes.SharedStrings.Welcomе <strong>@User.Identity.Name</strong>!
     [@Html.ActionLink(AccountRes.AccountStrings.Profile,"Index","Statistics")] &nbsp;
-    [@Html.ActionLink(AccountRes.AccountStrings.LogOff, "LogOff", "Account")]</text>
+    [@Html.ActionLink(ViewRes.CabinetsStrings.LogOff, "LogOff", "Account")]</text>
+   
 }
 else {
     @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]

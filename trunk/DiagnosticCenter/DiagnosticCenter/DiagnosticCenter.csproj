@@ -72,8 +72,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\CMembershipProvider.cs" />
+    <Compile Include="App_Data\CRoleProvider.cs" />
     <Compile Include="Classes\LocalizedDisplayName.cs" />
     <Compile Include="Classes\MailSender.cs" />
+    <Compile Include="Classes\UserRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CabinetsController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
@@ -185,11 +188,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SettingsFieldNames.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Views\Account\AccountStrings.ru.Designer.cs">
-      <DependentUpon>AccountStrings.ru.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Resources\Views\Account\AccountStrings.uk.Designer.cs">
       <DependentUpon>AccountStrings.uk.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -199,6 +197,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Account\AccountStrings.ru.Designer.cs">
+      <DependentUpon>AccountStrings.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Resources\Views\Cabinets\CabinetsStrings.Designer.cs">
       <DependentUpon>CabinetsStrings.resx</DependentUpon>
@@ -400,10 +403,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ASPNETDB.MDF" />
-    <Content Include="App_Data\aspnetdb_log.ldf">
-      <DependentUpon>ASPNETDB.MDF</DependentUpon>
-    </Content>
     <Content Include="bin\DiagnosticCenter.dll" />
     <Content Include="bin\DiagnosticCenter.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -442,6 +441,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Models\DiagnosticsDBModel.edmx.sql" />
     <Content Include="Scripts\editor.js" />
     <Content Include="Scripts\tiny_mce\jquery.tinymce.js" />
     <Content Include="Scripts\tiny_mce\langs\en.js" />
@@ -709,7 +709,6 @@
     <Content Include="Content\wp-theme\js\Scripts.js" />
     <Content Include="Content\wp-theme\Styles.css" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DiagnosticsDBModel.edmx.sql" />
     <Content Include="obj\Debug\DiagnosticCenter.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\DiagnosticCenter.dll" />
     <Content Include="obj\Debug\DiagnosticCenter.pdb" />
@@ -731,15 +730,6 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\PagedList\PagedList.Mvc.js" />
     <Content Include="Scripts\PagedList\PagedList.Mvc.Template.html" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -772,21 +762,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\web.config" />
+  </ItemGroup>
+  <ItemGroup>
     <EntityDeploy Include="Models\DiagnosticsDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiagnosticsDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Data\web.config" />
-  </ItemGroup>
-  <ItemGroup>
-
-    <None Include="App_Data\DiagnosticsDB.bak" />
-    <None Include="ClassDiagram1.cd" />
-
-    <None Include="App_Data\DiagnosticsDB.bak" />
-
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.csdl" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.msl" />
@@ -840,6 +822,7 @@
     <Content Include="Views\News\Delete.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.resx">
@@ -908,11 +891,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SettingsFieldNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Views\Account\AccountStrings.ru.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AccountStrings.ru.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>AccountRes</CustomToolNamespace>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\AccountStrings.uk.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AccountStrings.uk.Designer.cs</LastGenOutput>
@@ -921,6 +899,11 @@
     <EmbeddedResource Include="Resources\Views\Account\AccountStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AccountStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>AccountRes</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\AccountStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountStrings.ru.Designer.cs</LastGenOutput>
       <CustomToolNamespace>AccountRes</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Cabinets\CabinetsStrings.resx">

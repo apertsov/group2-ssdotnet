@@ -10,7 +10,7 @@ namespace DiagnosticCenter.Controllers
 { 
     public class CabinetsController : Controller
     {
-        private DiagnosticsDBModelContainer Cabinets_db = new DiagnosticsDBModelContainer();
+        private DiagnosticsDBEntities Cabinets_db = new DiagnosticsDBEntities();
 
         public ActionResult Index(string searchString, int? page)
         {
@@ -82,7 +82,7 @@ namespace DiagnosticCenter.Controllers
 
             foreach (var cab in query)
             {
-                DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();
+                DiagnosticsDBEntities context = new DiagnosticsDBEntities();
                 var empl = context.Employees.Where(e => e.Cabinet.ID_Cabinet == cab.ID_Cabinet);
                 if (empl.Count() == 0)
                     Cabinets_db.Cabinets.DeleteObject(cab);

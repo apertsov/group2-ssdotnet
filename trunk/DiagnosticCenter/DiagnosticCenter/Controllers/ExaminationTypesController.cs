@@ -11,8 +11,8 @@ namespace DiagnosticCenter.Controllers
 { 
     public class ExaminationTypesController : Controller
     {
-        private DiagnosticsDBModelContainer db = new DiagnosticsDBModelContainer();
-
+        private DiagnosticsDBEntities db = new DiagnosticsDBEntities();
+        
         //
         // GET: /ExaminationTypes/
 

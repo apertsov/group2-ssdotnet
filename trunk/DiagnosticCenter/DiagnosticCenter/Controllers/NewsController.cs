@@ -13,8 +13,8 @@ namespace DiagnosticCenter.Controllers
 {
     public class NewsController : Controller
     {
-        private DiagnosticsDBModelContainer db = new DiagnosticsDBModelContainer();
-        DiagnosticsDBModelContainer context = new DiagnosticsDBModelContainer();    //контекст моделі бд
+        private DiagnosticsDBEntities db = new DiagnosticsDBEntities();
+        DiagnosticsDBEntities context = new DiagnosticsDBEntities();    //контекст моделі бд
         AllNewsVM model = new AllNewsVM();     //ViewModel для відображення новин
         string[] r = { "Doctor", "HeadDoctor", "Nurse", "HeadNurse", "DepartmentChiefDoctor", "MedicalRegistrar" }; // масив ролей
 
