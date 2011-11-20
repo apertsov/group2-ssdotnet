@@ -1,0 +1,113 @@
+﻿<navigation:Page xmlns:my="clr-namespace:DCExternalSite.Controls"  xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" 
+  x:Class="DCExternalSite.Home" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  xmlns:ds="clr-namespace:DCExternalSite.Web.Services"
+  
+  mc:Ignorable="d"
+  Style="{StaticResource PageStyle}" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+  <Grid x:Name="LayoutRoot">
+    <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
+
+      <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
+                <Grid Name="grid1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width=".75*" />
+                    </Grid.ColumnDefinitions>
+                    <Image  HorizontalAlignment="Left" Margin="0,1,0,0" Name="image1" VerticalAlignment="Top" Source="/DCExternalSite;component/Img/i5-1183346161_IMG_0016.JPG" Stretch="None" Grid.Row="1" />
+                    <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" Text="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}" Grid.Column="1" Margin="0,6,0,0" Height="22" VerticalAlignment="Top" />
+                    <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" Grid.Column="1" Margin="27,1,0,0" Width="469" xml:space="preserve" Grid.Row="1" MinHeight="300">
+                    <TextBlock.Text>Обласний медичний діагностичний центр - це багатопрофільний амбулаторно-поліклінічний медичний заклад вищого рівня акредитації, який дає змогу провести комплексне і якісне обстеження до 700 пацієнтів на протязі робочого дня.
+В структуру діагностичного центру входять: 
+- апарат управління 
+- 2 спеціалізованих центри:
+центр антенатальної охорони плоду та медичної генетики
+центр планування сім'ї та репродукції людини
+- 9 відділів:
+прийому хворих та консультацій, реєстратура 
+променевої діагностики
+ендоскопії
+ультразвукової діагностики
+функціональної діагностики
+клініко-діагностичних та цито-морфологічних досліджень
+кабінет обліку медичної статистики
+інженерний відділ та відділ автоматизованої системи управління
+господарсько-обслуговуюча служба.
+Досконала сучасна апаратура, висококваліфіковані фахівці, автоматизоване використання комп'ютерної техніки дозволяють здійснити комплексне обстеження пацієнтів та сприяють забезпеченню зворотнього зв'язку між лікарем і пацієнтом. 
+
+В діагностичному центрі працюють 269 працівників, з них – 103 лікарі, 83 - середніх медичних працівників. З числа працюючих 2 лікаря мають звання Заслужений лікар України, 6 кандидатів медичних наук, 1 лауреат премії ім. Залозецького, 5 лауреатів премії ім.Радзіховського. 50 лікарів мають вищу атестаційну категорію, 21 – першу, 17 - другу. Атестовано 58 середніх медичних працівників.
+                                   </TextBlock.Text>
+                    </TextBlock>
+                                       
+                </Grid>
+                <TextBlock Height="22" Name="textBlock1" Style="{StaticResource HeaderTextStyle}" Text="Новини центру:" Grid.Row="1" Margin="100,15,0,4" />
+
+                <riaControls:DomainDataSource Name="newsDataSource" LoadSize="20" QueryName="GetNews" AutoLoad="True">
+                    <riaControls:DomainDataSource.DomainContext>
+                        <ds:DCDomainContext/>
+                    </riaControls:DomainDataSource.DomainContext>
+                    <riaControls:DomainDataSource.SortDescriptors>
+                        <riaControls:SortDescriptor PropertyPath="ID_News" Direction="Descending" />
+                    </riaControls:DomainDataSource.SortDescriptors>
+                </riaControls:DomainDataSource>
+          
+          <my:BusyIndicator IsBusy="{Binding ElementName=newsDataSource, Path=IsBusy}" BusyContent="Дані завантажуються...">
+          
+                <sdk:DataGrid x:Name="dataGrid1" Grid.Row="1"  HorizontalAlignment="Center"  VerticalAlignment="Top" 
+                              Width="600" Grid.ColumnSpan="2" IsReadOnly="True" MinHeight="300" ItemsSource="{Binding ElementName=newsDataSource, Path=Data}" 
+                              HeadersVisibility="None" HorizontalScrollBarVisibility="Disabled" GridLinesVisibility="None" RowDetailsVisibilityMode="Collapsed" 
+                              RowHeight="79" Height="400" AutoGenerateColumns="False" HorizontalGridLinesBrush="#50FFFFFF" VerticalGridLinesBrush="#82C9CACA" RowBackground="#AAFFFFFF"
+                              MouseLeftButtonUp="dataGrid1_MouseLeftButtonUp">
+                    <sdk:DataGrid.BorderBrush>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#50617584" Offset="1" />
+                            <GradientStop Color="#FFA3AEB9" Offset="0" />
+                            <GradientStop Color="#FF718597" Offset="0" />
+                            <GradientStop Color="#FF8399A9" Offset="0.0059999823570251465" />
+                        </LinearGradientBrush>
+                    </sdk:DataGrid.BorderBrush>
+                    <sdk:DataGrid.Columns>
+                            <sdk:DataGridTemplateColumn Width="600">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation = "Vertical">
+                                            <TextBlock Text="{Binding Path=Topic}" Height="20" TextWrapping="Wrap" FontWeight="Bold" />
+                                            <TextBlock Text="{Binding Path=Text}" Height="58" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>                            
+
+                    </sdk:DataGrid.Columns>
+                        <sdk:DataGrid.AlternatingRowBackground>
+                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                <GradientStop Color="#FFFABDBD" Offset="0.005" />
+                                <GradientStop Color="White" Offset="1" />
+                                <GradientStop Color="#FFFFCACA" Offset="0.07" />
+                            </LinearGradientBrush>
+                        </sdk:DataGrid.AlternatingRowBackground>
+                        <sdk:DataGrid.Background>
+                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                <GradientStop Color="#505BC2E6" Offset="0" />
+                                <GradientStop Color="#50FFFFFF" Offset="1" />
+                            </LinearGradientBrush>
+                        </sdk:DataGrid.Background>
+                    </sdk:DataGrid>
+                </my:BusyIndicator>
+
+                <sdk:DataPager HorizontalAlignment="Center" Name="dataPager1"  VerticalAlignment="Top" Width="179"
+                                   PageSize="5" Source="{Binding Data, ElementName=newsDataSource}"  Background="#7CF2F3F4" Grid.Row="2" Height="23" Visibility="Visible" />
+            
+          </StackPanel>
+
+    </ScrollViewer>
+  </Grid>
+</navigation:Page>

@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DiagnosticsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ASPNETDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cabinets" EntityType="DiagnosticsDBModel.Cabinets" />
+    <EntitySet Name="Days" EntityType="DiagnosticsDBModel.Days" />
+    <EntitySet Name="Departments" EntityType="DiagnosticsDBModel.Departments" />
+    <EntitySet Name="Employees" EntityType="DiagnosticsDBModel.Employees" />
+    <EntitySet Name="Examinations" EntityType="DiagnosticsDBModel.Examinations" />
+    <EntitySet Name="ExaminationTypes" EntityType="DiagnosticsDBModel.ExaminationTypes" />
+    <EntitySet Name="News" EntityType="DiagnosticsDBModel.News" />
+    <EntitySet Name="Patients" EntityType="DiagnosticsDBModel.Patients" />
+    <EntitySet Name="Referrals" EntityType="DiagnosticsDBModel.Referrals" />
+    <AssociationSet Name="FK_CabinetEmployee" Association="DiagnosticsDBModel.FK_CabinetEmployee">
+      <End Role="Cabinets" EntitySet="Cabinets" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentEmployee" Association="DiagnosticsDBModel.FK_DepartmentEmployee">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeExamination" Association="DiagnosticsDBModel.FK_EmployeeExamination">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Examinations" EntitySet="Examinations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeNews" Association="DiagnosticsDBModel.FK_EmployeeNews">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeReferral" Association="DiagnosticsDBModel.FK_EmployeeReferral">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Referrals" EntitySet="Referrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExaminationTypeExamination" Association="DiagnosticsDBModel.FK_ExaminationTypeExamination">
+      <End Role="Examinations" EntitySet="Examinations" />
+      <End Role="ExaminationTypes" EntitySet="ExaminationTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientExamination" Association="DiagnosticsDBModel.FK_PatientExamination">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Examinations" EntitySet="Examinations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReferralExamination" Association="DiagnosticsDBModel.FK_ReferralExamination">
+      <End Role="Examinations" EntitySet="Examinations" />
+      <End Role="Referrals" EntitySet="Referrals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientReferral" Association="DiagnosticsDBModel.FK_PatientReferral">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Referrals" EntitySet="Referrals" />
+    </AssociationSet>
+    <AssociationSet Name="DayEmployee" Association="DiagnosticsDBModel.DayEmployee">
+      <End Role="Days" EntitySet="Days" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cabinets">
+    <Key>
+      <PropertyRef Name="ID_Cabinet" />
+    </Key>
+    <Property Name="ID_Cabinet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Employees" Relationship="DiagnosticsDBModel.FK_CabinetEmployee" FromRole="Cabinets" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Days">
+    <Key>
+      <PropertyRef Name="ID_Day" />
+    </Key>
+    <Property Name="ID_Day" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" />
+    <Property Name="StartBreak" Type="DateTime" Nullable="false" />
+    <Property Name="EndBreak" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="DiagnosticsDBModel.DayEmployee" FromRole="Days" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="ID_Dept" />
+    </Key>
+    <Property Name="ID_Dept" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Employees" Relationship="DiagnosticsDBModel.FK_DepartmentEmployee" FromRole="Departments" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="ID_Employee" />
+    </Key>
+    <Property Name="ID_Employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Specialty" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Position" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Rate" Type="Int32" Nullable="false" />
+    <Property Name="ID_Dept" Type="Int32" Nullable="false" />
+    <Property Name="ID_Cabinet" Type="Int32" Nullable="false" />
+    <Property Name="AtWork" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+    <Property Name="ID_User" Type="Guid" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Cabinets" Relationship="DiagnosticsDBModel.FK_CabinetEmployee" FromRole="Employees" ToRole="Cabinets" />
+    <NavigationProperty Name="Departments" Relationship="DiagnosticsDBModel.FK_DepartmentEmployee" FromRole="Employees" ToRole="Departments" />
+    <NavigationProperty Name="Examinations" Relationship="DiagnosticsDBModel.FK_EmployeeExamination" FromRole="Employees" ToRole="Examinations" />
+    <NavigationProperty Name="News" Relationship="DiagnosticsDBModel.FK_EmployeeNews" FromRole="Employees" ToRole="News" />
+    <NavigationProperty Name="Referrals" Relationship="DiagnosticsDBModel.FK_EmployeeReferral" FromRole="Employees" ToRole="Referrals" />
+    <NavigationProperty Name="Days" Relationship="DiagnosticsDBModel.DayEmployee" FromRole="Employees" ToRole="Days" />
+  </EntityType>
+  <EntityType Name="Examinations">
+    <Key>
+      <PropertyRef Name="ID_Examination" />
+    </Key>
+    <Property Name="ID_Examination" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="Protocol" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Conclusion" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Recommendation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Consultation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" />
+    <Property Name="ID_Employee" Type="Int32" Nullable="false" />
+    <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+    <Property Name="ID_ExmType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="DiagnosticsDBModel.FK_EmployeeExamination" FromRole="Examinations" ToRole="Employees" />
+    <NavigationProperty Name="ExaminationTypes" Relationship="DiagnosticsDBModel.FK_ExaminationTypeExamination" FromRole="Examinations" ToRole="ExaminationTypes" />
+    <NavigationProperty Name="Patients" Relationship="DiagnosticsDBModel.FK_PatientExamination" FromRole="Examinations" ToRole="Patients" />
+    <NavigationProperty Name="Referrals" Relationship="DiagnosticsDBModel.FK_ReferralExamination" FromRole="Examinations" ToRole="Referrals" />
+  </EntityType>
+  <EntityType Name="ExaminationTypes">
+    <Key>
+      <PropertyRef Name="ID_ExmType" />
+    </Key>
+    <Property Name="ID_ExmType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="Examination_ID_Examination" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Examinations" Relationship="DiagnosticsDBModel.FK_ExaminationTypeExamination" FromRole="ExaminationTypes" ToRole="Examinations" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="ID_News" />
+    </Key>
+    <Property Name="ID_News" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Dept" Type="Int32" Nullable="false" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="ID_Employee" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="DiagnosticsDBModel.FK_EmployeeNews" FromRole="News" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="ID_Patient" />
+    </Key>
+    <Property Name="ID_Patient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Specialty" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Workplace" Type="Boolean" Nullable="false" />
+    <Property Name="Civil_Servant" Type="Boolean" Nullable="false" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" />
+    <Property Name="Sex" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Examinations" Relationship="DiagnosticsDBModel.FK_PatientExamination" FromRole="Patients" ToRole="Examinations" />
+    <NavigationProperty Name="Referrals" Relationship="DiagnosticsDBModel.FK_PatientReferral" FromRole="Patients" ToRole="Referrals" />
+  </EntityType>
+  <EntityType Name="Referrals">
+    <Key>
+      <PropertyRef Name="ID_Referral" />
+    </Key>
+    <Property Name="ID_Referral" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+    <Property Name="VisitDate" Type="DateTime" Nullable="false" />
+    <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+    <Property Name="ID_Employee" Type="Int32" Nullable="false" />
+    <Property Name="ID_Examination" Type="Int32" Nullable="false" />
+    <Property Name="Examination_ID_Examination" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="DiagnosticsDBModel.FK_EmployeeReferral" FromRole="Referrals" ToRole="Employees" />
+    <NavigationProperty Name="Examinations" Relationship="DiagnosticsDBModel.FK_ReferralExamination" FromRole="Referrals" ToRole="Examinations" />
+    <NavigationProperty Name="Patients" Relationship="DiagnosticsDBModel.FK_PatientReferral" FromRole="Referrals" ToRole="Patients" />
+  </EntityType>
+  <Association Name="FK_CabinetEmployee">
+    <End Role="Cabinets" Type="DiagnosticsDBModel.Cabinets" Multiplicity="1" />
+    <End Role="Employees" Type="DiagnosticsDBModel.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinets">
+        <PropertyRef Name="ID_Cabinet" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="ID_Cabinet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentEmployee">
+    <End Role="Departments" Type="DiagnosticsDBModel.Departments" Multiplicity="1" />
+    <End Role="Employees" Type="DiagnosticsDBModel.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="ID_Dept" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="ID_Dept" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeExamination">
+    <End Role="Employees" Type="DiagnosticsDBModel.Employees" Multiplicity="1" />
+    <End Role="Examinations" Type="DiagnosticsDBModel.Examinations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="Examinations">
+        <PropertyRef Name="ID_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeNews">
+    <End Role="Employees" Type="DiagnosticsDBModel.Employees" Multiplicity="1" />
+    <End Role="News" Type="DiagnosticsDBModel.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="ID_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeReferral">
+    <End Role="Employees" Type="DiagnosticsDBModel.Employees" Multiplicity="1" />
+    <End Role="Referrals" Type="DiagnosticsDBModel.Referrals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="Referrals">
+        <PropertyRef Name="ID_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExaminationTypeExamination">
+    <End Role="Examinations" Type="DiagnosticsDBModel.Examinations" Multiplicity="1" />
+    <End Role="ExaminationTypes" Type="DiagnosticsDBModel.ExaminationTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examinations">
+        <PropertyRef Name="ID_Examination" />
+      </Principal>
+      <Dependent Role="ExaminationTypes">
+        <PropertyRef Name="Examination_ID_Examination" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientExamination">
+    <End Role="Patients" Type="DiagnosticsDBModel.Patients" Multiplicity="1" />
+    <End Role="Examinations" Type="DiagnosticsDBModel.Examinations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="ID_Patient" />
+      </Principal>
+      <Dependent Role="Examinations">
+        <PropertyRef Name="ID_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReferralExamination">
+    <End Role="Examinations" Type="DiagnosticsDBModel.Examinations" Multiplicity="1" />
+    <End Role="Referrals" Type="DiagnosticsDBModel.Referrals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examinations">
+        <PropertyRef Name="ID_Examination" />
+      </Principal>
+      <Dependent Role="Referrals">
+        <PropertyRef Name="Examination_ID_Examination" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientReferral">
+    <End Role="Patients" Type="DiagnosticsDBModel.Patients" Multiplicity="1" />
+    <End Role="Referrals" Type="DiagnosticsDBModel.Referrals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="ID_Patient" />
+      </Principal>
+      <Dependent Role="Referrals">
+        <PropertyRef Name="ID_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DayEmployee">
+    <End Role="Days" Type="DiagnosticsDBModel.Days" Multiplicity="*" />
+    <End Role="Employees" Type="DiagnosticsDBModel.Employees" Multiplicity="*" />
+  </Association>
+</Schema>
