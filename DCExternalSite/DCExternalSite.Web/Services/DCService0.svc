@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="DCExternalSite.Web.Services.DCService0" CodeBehind="DCService0.svc.cs" %>

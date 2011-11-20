@@ -1,0 +1,9 @@
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\bin\DCExternalSite.Web.dll
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\bin\DCExternalSite.Web.pdb
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.ValidationErrorResources.resources
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.RegistrationDataResources.resources
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\GenerateResource.read.1.tlog
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\GenerateResource.write.1.tlog
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.dll
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.pdb
