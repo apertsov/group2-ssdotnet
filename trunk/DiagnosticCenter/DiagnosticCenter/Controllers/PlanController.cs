@@ -62,18 +62,18 @@ namespace DiagnosticCenter.Controllers
 
             //Визначаємо відділ, для якого буде виведено розклад та право на зміну розкладу (за авторизованим користувачам)
             int idUser = (int)Membership.GetUser(User.Identity.Name).ProviderUserKey;
-            var currEmployee = context.Employees.Where(e => e.ID_User == idUser);
-            if (currEmployee.Count() == 0)
-            {
-                return RedirectToAction("Index", "ErrorPage", new
-                {
-                    errTitle = ViewRes.PlanStrings.Error1Text,
-                    errDescription = ViewRes.PlanStrings.Error1Recomendation,
-                    errGoBackAction = "Index",
-                    errGoBackController = "Plan"
-                });
-            }
-            int depId = currEmployee.First().ID_Dept;
+            //var currEmployee = context.Employees.Where(e => e.ID_User == idUser);
+            //if (currEmployee.Count() == 0)
+            //{
+            //    return RedirectToAction("Index", "ErrorPage", new
+            //    {
+            //        errTitle = ViewRes.PlanStrings.Error1Text,
+            //        errDescription = ViewRes.PlanStrings.Error1Recomendation,
+            //        errGoBackAction = "Index",
+            //        errGoBackController = "Plan"
+            //    });
+            //}
+            int depId = context.Employees.Where(e => e.ID_User == idUser).FirstOrDefault().ID_Dept;
 
             //Передаємо назву відділення
             ViewBag.DeptName = context.Employees.Where(e => e.ID_User == idUser).First().Department.Description;
