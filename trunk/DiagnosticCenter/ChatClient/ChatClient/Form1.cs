@@ -77,6 +77,7 @@ namespace ChatClient
 
             loginPanel.Hide();
             panel.Show();
+            Height = panel.Height;
         }
 
 
@@ -130,6 +131,7 @@ namespace ChatClient
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Height = loginPanel.Height;
         }
 
         private void Form1_Resize(object sender, EventArgs e)

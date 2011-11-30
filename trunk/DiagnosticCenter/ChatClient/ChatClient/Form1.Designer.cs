@@ -68,15 +68,15 @@
             this.loginPanel.Controls.Add(this.userPassword);
             this.loginPanel.Controls.Add(this.userName);
             this.loginPanel.Controls.Add(this.LogOn);
-            this.loginPanel.Location = new System.Drawing.Point(6, 12);
+            this.loginPanel.Location = new System.Drawing.Point(2, 3);
             this.loginPanel.Name = "loginPanel";
-            this.loginPanel.Size = new System.Drawing.Size(359, 66);
+            this.loginPanel.Size = new System.Drawing.Size(359, 58);
             this.loginPanel.TabIndex = 18;
             // 
             // freeEntre
             // 
             this.freeEntre.AutoSize = true;
-            this.freeEntre.Location = new System.Drawing.Point(270, 17);
+            this.freeEntre.Location = new System.Drawing.Point(263, 10);
             this.freeEntre.Name = "freeEntre";
             this.freeEntre.Size = new System.Drawing.Size(86, 17);
             this.freeEntre.TabIndex = 24;
@@ -86,7 +86,7 @@
             // 
             // Register
             // 
-            this.Register.Location = new System.Drawing.Point(204, 40);
+            this.Register.Location = new System.Drawing.Point(197, 33);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(109, 20);
             this.Register.TabIndex = 23;
@@ -97,7 +97,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 40);
+            this.label4.Location = new System.Drawing.Point(3, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 22;
@@ -106,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 16);
+            this.label3.Location = new System.Drawing.Point(3, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 21;
@@ -114,21 +114,23 @@
             // 
             // userPassword
             // 
-            this.userPassword.Location = new System.Drawing.Point(56, 40);
+            this.userPassword.Location = new System.Drawing.Point(49, 33);
             this.userPassword.Name = "userPassword";
+            this.userPassword.PasswordChar = '*';
             this.userPassword.Size = new System.Drawing.Size(142, 20);
             this.userPassword.TabIndex = 20;
+            this.userPassword.UseWaitCursor = true;
             // 
             // userName
             // 
-            this.userName.Location = new System.Drawing.Point(56, 14);
+            this.userName.Location = new System.Drawing.Point(49, 7);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(142, 20);
             this.userName.TabIndex = 19;
             // 
             // LogOn
             // 
-            this.LogOn.Location = new System.Drawing.Point(204, 14);
+            this.LogOn.Location = new System.Drawing.Point(197, 7);
             this.LogOn.Name = "LogOn";
             this.LogOn.Size = new System.Drawing.Size(60, 20);
             this.LogOn.TabIndex = 18;
@@ -146,16 +148,16 @@
             this.panel.Controls.Add(this.Message);
             this.panel.Controls.Add(this.Send);
             this.panel.Controls.Add(this.users);
-            this.panel.Location = new System.Drawing.Point(6, 12);
+            this.panel.Location = new System.Drawing.Point(2, 3);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(359, 216);
+            this.panel.Size = new System.Drawing.Size(359, 234);
             this.panel.TabIndex = 19;
             this.panel.Visible = false;
             // 
             // Private
             // 
             this.Private.AutoSize = true;
-            this.Private.Location = new System.Drawing.Point(257, 186);
+            this.Private.Location = new System.Drawing.Point(60, 212);
             this.Private.Name = "Private";
             this.Private.Size = new System.Drawing.Size(72, 17);
             this.Private.TabIndex = 23;
@@ -166,7 +168,7 @@
             // 
             this.toAll.AutoSize = true;
             this.toAll.Checked = true;
-            this.toAll.Location = new System.Drawing.Point(204, 186);
+            this.toAll.Location = new System.Drawing.Point(7, 212);
             this.toAll.Name = "toAll";
             this.toAll.Size = new System.Drawing.Size(47, 17);
             this.toAll.TabIndex = 22;
@@ -177,7 +179,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 10);
+            this.label2.Location = new System.Drawing.Point(235, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 21;
@@ -186,7 +188,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 20;
@@ -195,21 +197,21 @@
             // Messages
             // 
             this.Messages.FormattingEnabled = true;
-            this.Messages.Location = new System.Drawing.Point(5, 26);
+            this.Messages.Location = new System.Drawing.Point(7, 26);
             this.Messages.Name = "Messages";
-            this.Messages.Size = new System.Drawing.Size(193, 147);
+            this.Messages.Size = new System.Drawing.Size(219, 147);
             this.Messages.TabIndex = 19;
             // 
             // Message
             // 
-            this.Message.Location = new System.Drawing.Point(5, 186);
+            this.Message.Location = new System.Drawing.Point(7, 186);
             this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(119, 20);
+            this.Message.Size = new System.Drawing.Size(264, 20);
             this.Message.TabIndex = 18;
             // 
             // Send
             // 
-            this.Send.Location = new System.Drawing.Point(130, 186);
+            this.Send.Location = new System.Drawing.Point(277, 186);
             this.Send.Name = "Send";
             this.Send.Size = new System.Drawing.Size(68, 20);
             this.Send.TabIndex = 17;
@@ -220,16 +222,18 @@
             // users
             // 
             this.users.FormattingEnabled = true;
-            this.users.Location = new System.Drawing.Point(204, 26);
+            this.users.Location = new System.Drawing.Point(232, 25);
             this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(109, 147);
+            this.users.Size = new System.Drawing.Size(113, 147);
             this.users.TabIndex = 16;
+            this.users.SelectedIndexChanged += new System.EventHandler(this.users_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 233);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(365, 240);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
