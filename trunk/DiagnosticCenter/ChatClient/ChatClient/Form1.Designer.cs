@@ -40,16 +40,21 @@
             this.userName = new System.Windows.Forms.TextBox();
             this.LogOn = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
-            this.Private = new System.Windows.Forms.RadioButton();
-            this.toAll = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.Messages = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.users = new System.Windows.Forms.ListBox();
+            this.Private = new System.Windows.Forms.RadioButton();
+            this.toAll = new System.Windows.Forms.RadioButton();
             this.Message = new System.Windows.Forms.TextBox();
             this.Send = new System.Windows.Forms.Button();
-            this.users = new System.Windows.Forms.ListBox();
             this.loginPanel.SuspendLayout();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -140,24 +145,90 @@
             // 
             // panel
             // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.Controls.Add(this.splitContainer1);
             this.panel.Controls.Add(this.Private);
             this.panel.Controls.Add(this.toAll);
-            this.panel.Controls.Add(this.label2);
-            this.panel.Controls.Add(this.label1);
-            this.panel.Controls.Add(this.Messages);
             this.panel.Controls.Add(this.Message);
             this.panel.Controls.Add(this.Send);
-            this.panel.Controls.Add(this.users);
             this.panel.Location = new System.Drawing.Point(2, 3);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(359, 234);
+            this.panel.Size = new System.Drawing.Size(359, 264);
             this.panel.TabIndex = 19;
             this.panel.Visible = false;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.AllowDrop = true;
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.Messages);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Controls.Add(this.users);
+            this.splitContainer1.Size = new System.Drawing.Size(353, 209);
+            this.splitContainer1.SplitterDistance = 183;
+            this.splitContainer1.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(44, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Повідомлення";
+            // 
+            // Messages
+            // 
+            this.Messages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.Messages.FormattingEnabled = true;
+            this.Messages.Location = new System.Drawing.Point(3, 16);
+            this.Messages.Name = "Messages";
+            this.Messages.Size = new System.Drawing.Size(177, 186);
+            this.Messages.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "користувачі в чаті";
+            // 
+            // users
+            // 
+            this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.users.FormattingEnabled = true;
+            this.users.Location = new System.Drawing.Point(3, 16);
+            this.users.Name = "users";
+            this.users.Size = new System.Drawing.Size(160, 186);
+            this.users.TabIndex = 22;
+            this.users.SelectedIndexChanged += new System.EventHandler(this.users_SelectedIndexChanged);
+            // 
             // Private
             // 
+            this.Private.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Private.AutoSize = true;
-            this.Private.Location = new System.Drawing.Point(60, 212);
+            this.Private.Location = new System.Drawing.Point(59, 244);
             this.Private.Name = "Private";
             this.Private.Size = new System.Drawing.Size(72, 17);
             this.Private.TabIndex = 23;
@@ -166,9 +237,10 @@
             // 
             // toAll
             // 
+            this.toAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.toAll.AutoSize = true;
             this.toAll.Checked = true;
-            this.toAll.Location = new System.Drawing.Point(7, 212);
+            this.toAll.Location = new System.Drawing.Point(6, 244);
             this.toAll.Name = "toAll";
             this.toAll.Size = new System.Drawing.Size(47, 17);
             this.toAll.TabIndex = 22;
@@ -176,42 +248,19 @@
             this.toAll.Text = "всім";
             this.toAll.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(235, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "користувачі в чаті";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Повідомлення";
-            // 
-            // Messages
-            // 
-            this.Messages.FormattingEnabled = true;
-            this.Messages.Location = new System.Drawing.Point(7, 26);
-            this.Messages.Name = "Messages";
-            this.Messages.Size = new System.Drawing.Size(219, 147);
-            this.Messages.TabIndex = 19;
-            // 
             // Message
             // 
-            this.Message.Location = new System.Drawing.Point(7, 186);
+            this.Message.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.Message.Location = new System.Drawing.Point(6, 218);
             this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(264, 20);
+            this.Message.Size = new System.Drawing.Size(275, 20);
             this.Message.TabIndex = 18;
             // 
             // Send
             // 
-            this.Send.Location = new System.Drawing.Point(277, 186);
+            this.Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Send.Location = new System.Drawing.Point(285, 218);
             this.Send.Name = "Send";
             this.Send.Size = new System.Drawing.Size(68, 20);
             this.Send.TabIndex = 17;
@@ -219,24 +268,13 @@
             this.Send.UseVisualStyleBackColor = true;
             this.Send.Click += new System.EventHandler(this.Send_Click);
             // 
-            // users
-            // 
-            this.users.FormattingEnabled = true;
-            this.users.Location = new System.Drawing.Point(232, 25);
-            this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(113, 147);
-            this.users.TabIndex = 16;
-            this.users.SelectedIndexChanged += new System.EventHandler(this.users_SelectedIndexChanged);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(365, 240);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(367, 272);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.loginPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(0, 104);
             this.Name = "Form1";
             this.Text = "Чат";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
@@ -246,6 +284,12 @@
             this.loginPanel.PerformLayout();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -264,11 +308,12 @@
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.RadioButton Private;
         private System.Windows.Forms.RadioButton toAll;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox Messages;
         private System.Windows.Forms.TextBox Message;
         private System.Windows.Forms.Button Send;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox Messages;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox users;
     }
 }
