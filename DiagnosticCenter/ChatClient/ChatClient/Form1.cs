@@ -15,7 +15,7 @@ namespace ChatClient
 
     public partial class Form1 : Form
     {
-        private IChatService chat;
+        private IChatService chat = null;
         private string target;
 
         public Form1()
@@ -77,7 +77,7 @@ namespace ChatClient
 
             loginPanel.Hide();
             panel.Show();
-            Height = panel.Height;
+            Height += 300;
         }
 
 
