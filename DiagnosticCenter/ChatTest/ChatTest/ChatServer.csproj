@@ -8,8 +8,8 @@
     <ProjectGuid>{555AAADC-1036-4737-8CE3-FD3F60D79273}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChatTest</RootNamespace>
-    <AssemblyName>ChatTest</AssemblyName>
+    <RootNamespace>ChatServer</RootNamespace>
+    <AssemblyName>ChatServer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ChatCore">
-      <HintPath>..\..\SHIIIITTT\ChatCore\ChatCore\bin\Release\ChatCore.dll</HintPath>
+      <HintPath>..\..\ChatCore\ChatCore\bin\Release\ChatCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

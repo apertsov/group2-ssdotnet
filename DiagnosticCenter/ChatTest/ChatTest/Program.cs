@@ -5,7 +5,7 @@ using System.Text;
 using System.ServiceModel;
 using ChatCore;
 
-namespace ChatTest
+namespace ChatServer
 {
     class Program
     {
