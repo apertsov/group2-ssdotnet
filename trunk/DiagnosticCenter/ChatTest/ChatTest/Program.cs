@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using ChatCore;
+using System.IO;
 
 namespace ChatServer
 {
@@ -15,7 +16,7 @@ namespace ChatServer
             ServiceHost host = new ServiceHost(typeof(ChatService));
 
             NetTcpBinding binding = new NetTcpBinding(SecurityMode.None);
-            Uri adress = new Uri("net.tcp://localhost:20010/ChatService");
+            Uri adress = new Uri(new StreamReader("uri.txt").ReadLine());
             host.AddServiceEndpoint(typeof(IChatService), binding, adress.ToString());
             //Открываем порт и сервис ожидает клиентов
             host.Open();
