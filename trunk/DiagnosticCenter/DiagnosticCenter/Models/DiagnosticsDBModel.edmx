@@ -20,6 +20,7 @@
     <EntitySet Name="Roles" EntityType="DiagnosticsDBModel.Store.Roles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Settings" EntityType="DiagnosticsDBModel.Store.Settings" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="DiagnosticsDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserSettingsSet" EntityType="DiagnosticsDBModel.Store.UserSettingsSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DayEmployee" EntityType="DiagnosticsDBModel.Store.DayEmployee" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserRole" EntityType="DiagnosticsDBModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_CabinetEmployee" Association="DiagnosticsDBModel.Store.FK_CabinetEmployee">
@@ -253,6 +254,16 @@
     <Property Name="IsActivated" Type="bit" Nullable="false" />
     <Property Name="IsLockedOut" Type="bit" Nullable="false" />
     <Property Name="LastLockedOutDate" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UserSettingsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="PropName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PropValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DefaultValue" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="DayEmployee">
     <Key>
@@ -521,6 +532,7 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="UserSettingsSet" EntityType="DiagnosticsDBModel.UserSettings" />
         </EntityContainer>
         <EntityType Name="Cabinet">
           <Key>
@@ -859,6 +871,16 @@
           <End Role="Roles" Type="DiagnosticsDBModel.Role" Multiplicity="*" />
           <End Role="Users" Type="DiagnosticsDBModel.User" Multiplicity="*" />
         </Association>
+        <EntityType Name="UserSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="PropName" Nullable="false" />
+          <Property Type="String" Name="PropValue" Nullable="false" />
+          <Property Type="String" Name="DefaultValue" Nullable="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1050,6 +1072,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserSettingsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.UserSettings)">
+        <MappingFragment StoreEntitySet="UserSettingsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropName" ColumnName="PropName" />
+          <ScalarProperty Name="PropValue" ColumnName="PropValue" />
+          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="DayEmployee" TypeName="DiagnosticsDBModel.DayEmployee" StoreEntitySet="DayEmployee">
       <EndProperty Name="Days">
         <ScalarProperty Name="ID_Day" ColumnName="Day_ID_Day" />
@@ -1169,6 +1202,7 @@
           <ConnectorPoint PointX="11.25" PointY="11.672841796875002" />
           <ConnectorPoint PointX="12" PointY="11.672841796875002" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DiagnosticsDBModel.UserSettings" Width="1.5" PointX="9.75" PointY="13.125" Height="1.9802864583333335" />
       </Diagram>
     </Diagrams>
   </Designer>

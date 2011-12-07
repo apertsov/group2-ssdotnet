@@ -239,5 +239,23 @@ namespace ExaminationRes {
                 return ResourceManager.GetString("Price", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        public static string StatComplete {
+            get {
+                return ResourceManager.GetString("StatComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In progress.
+        /// </summary>
+        public static string StatInProgress {
+            get {
+                return ResourceManager.GetString("StatInProgress", resourceCulture);
+            }
+        }
     }
 }

@@ -162,6 +162,12 @@
   <data name="Price" xml:space="preserve">
     <value>Price</value>
   </data>
+  <data name="StatComplete" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="StatInProgress" xml:space="preserve">
+    <value>In progress</value>
+  </data>
   <data name="_Create" xml:space="preserve">
     <value>Create</value>
   </data>

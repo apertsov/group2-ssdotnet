@@ -1,10 +1,11 @@
 ﻿@if (Request.IsAuthenticated)
 {
+    DiagnosticCenter.Classes.AllMenuSettings settings = DiagnosticCenter.Classes.UserSettings.GetMenuSettings();
     <ul id="adminmenu">
        
         @if (User.IsInRole("Administrator"))
         {
-            <li id="menu-settings" class="first-item @((ViewBag.Controller == "Parameters") ? "current" : "") menu-top menu-icon-settings">
+            <li id="menusettings" class="first-item @((ViewBag.Controller == "Parameters") ? "current" : "") menu-top menu-icon-settings">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Edit", "Settings")
                 </div>
@@ -20,19 +21,22 @@
         }
         
         @{
-            bool newsExp = User.IsInRole("Administrator") || User.IsInRole("DepartmentChiefDoctor") || User.IsInRole("HeadDoctor");
-            string newsClass = "";
-            if (newsExp)
-            {
-                newsClass = (ViewBag.Controller == "News") ? "has-current-submenu" : "has-submenu";
-            }
-            else
-            {
-                newsClass = (ViewBag.Controller == "News") ? "current" : "";
-            }   
+        bool newsExp = User.IsInRole("Administrator") || User.IsInRole("DepartmentChiefDoctor") || User.IsInRole("HeadDoctor");
+        string newsClass = "";
+        if (newsExp)
+        {
+            newsClass = (ViewBag.Controller == "News") ? "has-current-submenu" : "has-submenu";
+        }
+        else
+        {
+            newsClass = (ViewBag.Controller == "News") ? "current" : "";
+        }
+        //string menuOpenNews = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menunews") == "o" ? " menu-open" : "";
+        //string menuOpenNews = " menu-open";
+        string menuOpenNews = settings.menunews == "o" ? " menu-open" : "";
         }
           
-            <li id="menu-news" class="menu-top @(newsClass) menu-icon-news menu-open">
+            <li id="menunews" class="menu-top @(newsClass) menu-icon-news@(menuOpenNews)">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Index", "News")
                 </div>
@@ -43,8 +47,8 @@
                 <div class="menu-toggle" style="@((newsExp) ? "" : "display: none;")">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.News, "Index", "News", null, new { @class = "menu-top menu-icon-news menu-open" + ((newsClass != "") ? (" " + newsClass) : "") })
-                @if (newsExp) 
+                @Html.ActionLink(ViewRes.SharedStrings.News, "Index", "News", null, new { @class = "menu-top menu-icon-news" + menuOpenNews + ((newsClass != "") ? (" " + newsClass) : "") })
+                @if (newsExp)
                 {
                     <div class="submenu">
                         <div class="submenu-wrap">
@@ -60,20 +64,22 @@
             </li> 
 
         @{
-            bool depsExp = User.IsInRole("Administrator");
-            string depsClass = "";
-            if (depsExp)
-            {
-                depsClass = (ViewBag.Controller == "Departments") ? "has-current-submenu" : "has-submenu";
-            }
-            else
-            {
-                depsClass = (ViewBag.Controller == "Departments") ? "current" : "";
-            }   
+                bool depsExp = User.IsInRole("Administrator");
+                string depsClass = "";
+                if (depsExp)
+                {
+                    depsClass = (ViewBag.Controller == "Departments") ? "has-current-submenu" : "has-submenu";
+                }
+                else
+                {
+                    depsClass = (ViewBag.Controller == "Departments") ? "current" : "";
+                }
+                //string menuOpenDeps = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menudeps") == "o" ? " menu-open" : "";  
+                string menuOpenDeps = settings.menudeps == "o" ? " menu-open" : "";
         }
 
         
-            <li id="menu-deps" class="menu-top @(depsClass) menu-icon-deps menu-open">
+            <li id="menudeps" class="menu-top @(depsClass) menu-icon-deps@(menuOpenDeps)">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Index", "Departments")
                 </div>
@@ -84,7 +90,7 @@
                 <div class="menu-toggle" style="@((depsExp) ? "" : "display: none;")">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.Departments, "Index", "Departments", null, new { @class = "menu-top menu-icon-deps menu-open" + ((depsClass != "") ? (" " + depsClass) : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Departments, "Index", "Departments", null, new { @class = "menu-top menu-icon-deps" + menuOpenDeps + ((depsClass != "") ? (" " + depsClass) : "") })
                 @if (depsExp)
                 {
                     <div class="submenu">
@@ -101,18 +107,20 @@
             </li>  
     
         @{
-            bool cabinetsExp = User.IsInRole("Administrator");
-            string cabinetsClass = "";
-            if (cabinetsExp)
-            {
-                cabinetsClass = (ViewBag.Controller == "Cabinets") ? "has-current-submenu" : "has-submenu";
-            }
-            else
-            {
-                cabinetsClass = (ViewBag.Controller == "Cabinets") ? "current" : "";
-            }   
+                bool cabinetsExp = User.IsInRole("Administrator");
+                string cabinetsClass = "";
+                if (cabinetsExp)
+                {
+                    cabinetsClass = (ViewBag.Controller == "Cabinets") ? "has-current-submenu" : "has-submenu";
+                }
+                else
+                {
+                    cabinetsClass = (ViewBag.Controller == "Cabinets") ? "current" : "";
+                }
+                //string menuOpenCabs = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menucabinets") == "o" ? " menu-open" : "";
+                string menuOpenCabs = settings.menucabinets == "o" ? " menu-open" : "";
         }        
-            <li id="menu-cabinets" class="menu-top @(cabinetsClass) menu-icon-cabinets menu-open">
+            <li id="menucabinets" class="menu-top @(cabinetsClass) menu-icon-cabinets@(menuOpenCabs)">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Index", "Cabinets")
                 </div>
@@ -123,7 +131,7 @@
                 <div class="menu-toggle" style="@((cabinetsExp) ? "" : "display: none;")">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.Cabinets, "Index", "Cabinets", null, new { @class = "menu-top menu-icon-cabinets menu-open" + ((cabinetsClass != "") ? (" " + cabinetsClass) : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Cabinets, "Index", "Cabinets", null, new { @class = "menu-top menu-icon-cabinets" + menuOpenCabs + ((cabinetsClass != "") ? (" " + cabinetsClass) : "") })
                 @if (cabinetsExp)
                 {
                     <div class="submenu">
@@ -138,8 +146,13 @@
                     </div>
                 }
             </li>
+
+        @{
+            //string menuOpenEmpl = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menuempl") == "o" ? " menu-open" : "";
+            string menuOpenEmpl = settings.menuempl == "o" ? " menu-open" : "";;
+        }
         
-            <li id="menu-empl" class="has-submenu @((ViewBag.Controller == "Employees") ? "has-current-submenu" : "") menu-top menu-icon-empl menu-open">
+            <li id="menuempl" class="has-submenu @((ViewBag.Controller == "Employees") ? "has-current-submenu" : "") menu-top menu-icon-empl@(menuOpenEmpl)">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Index", "Employees")
                 </div>
@@ -150,7 +163,7 @@
                 <div class="menu-toggle">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.Employees, "Index", "Employees", null, new { @class = "has-submenu menu-top menu-icon-empl menu-open" + ((ViewBag.Controller == "Employees") ? " has-current-submenu" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Employees, "Index", "Employees", null, new { @class = "has-submenu menu-top menu-icon-empl" + menuOpenEmpl + ((ViewBag.Controller == "Employees") ? " has-current-submenu" : "") })
                 <div class="submenu">
                     <div class="submenu-wrap">
                         <div class="submenu-head">
@@ -167,9 +180,13 @@
                 </div>
             </li>      
 
+        @{
+            //string menuOpenPat = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menupatients") == "o" ? " menu-open" : "";
+            string menuOpenPat = settings.menupatients == "o" ? " menu-open" : "";
+        }
         @if (!(User.IsInRole("Nurse") || User.IsInRole("HeadNurse")))
         {
-            <li id="menu-patients" class="has-submenu @((ViewBag.Controller == "Patients") ? "has-current-submenu" : "") menu-open menu-top menu-top-first menu-icon-patient">
+            <li id="menupatients" class="has-submenu @((ViewBag.Controller == "Patients") ? "has-current-submenu" : "")@(menuOpenPat) menu-top menu-top-first menu-icon-patient">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Index", "Patients")
                 </div>
@@ -180,7 +197,7 @@
                 <div class="menu-toggle">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.Patients, "Index", "Patients", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-patient" + ((ViewBag.Controller == "Patients") ? " has-current-submenu" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.Patients, "Index", "Patients", null, new { @class = "has-submenu menu-top menu-top-first menu-icon-patient" + menuOpenPat + ((ViewBag.Controller == "Patients") ? " has-current-submenu" : "") })
                 <div class="submenu">
                     <div class="submenu-wrap">
                         <div class="submenu-head">
@@ -198,9 +215,13 @@
             </li>
         } 
 
+         @{
+            //string menuOpenTypes = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menuexamtypes") == "o" ? " menu-open" : "";
+            string menuOpenTypes = settings.menuexamtypes == "o" ? " menu-open" : "";
+        }
         @if (User.IsInRole("Administrator") || User.IsInRole("DepartmentChiefDoctor") || User.IsInRole("HeadDoctor") || User.IsInRole("Doctor"))
         {
-            <li id="menu-examtypes" class="has-submenu @((ViewBag.Controller == "ExaminationTypes") ? "has-current-submenu" : "") menu-open menu-top menu-icon-examtypes">
+            <li id="menuexamtypes" class="has-submenu @((ViewBag.Controller == "ExaminationTypes") ? "has-current-submenu" : "")@(menuOpenTypes) menu-top menu-icon-examtypes">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Index", "ExaminationTypes")
                 </div>
@@ -211,7 +232,7 @@
                 <div class="menu-toggle">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.ExaminationTypes, "Index", "ExaminationTypes", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-examtypes" + ((ViewBag.Controller == "ExaminationTypes") ? " has-current-submenu" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.ExaminationTypes, "Index", "ExaminationTypes", null, new { @class = "has-submenu menu-top menu-top-first menu-icon-examtypes" + menuOpenTypes + ((ViewBag.Controller == "ExaminationTypes") ? " has-current-submenu" : "") })
                 <div class="submenu">
                     <div class="submenu-wrap">
                         <div class="submenu-head">
@@ -225,9 +246,13 @@
             </li>
         } 
         
+         @{
+            //string menuOpenTempl = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menuexamtemplates") == "o" ? " menu-open" : "";
+            string menuOpenTempl = settings.menuexamtemplates == "o" ? " menu-open" : "";
+        }
         @if (User.IsInRole("Administrator") || User.IsInRole("DepartmentChiefDoctor") || User.IsInRole("HeadDoctor") || User.IsInRole("Doctor"))
         {
-            <li id="menu-examtemplates" class="has-submenu @((ViewBag.Controller == "ExaminationTemplates") ? "has-current-submenu" : "") menu-open menu-top menu-icon-extemplates">
+            <li id="menuexamtemplates" class="has-submenu @((ViewBag.Controller == "ExaminationTemplates") ? "has-current-submenu" : "")@(menuOpenTempl) menu-top menu-icon-extemplates">
                 <div class="menu-image">
                     @Html.ActionLink(" ", "Index", "ExaminationTemplates")
                 </div>
@@ -238,7 +263,7 @@
                 <div class="menu-toggle">
                     <br />
                 </div>
-                @Html.ActionLink(ViewRes.SharedStrings.ExaminationPatterns, "Index", "ExaminationTemplates", null, new { @class = "has-submenu menu-open menu-top menu-top-first menu-icon-extemplates" + ((ViewBag.Controller == "ExaminationTemplates") ? " has-current-submenu" : "") })
+                @Html.ActionLink(ViewRes.SharedStrings.ExaminationPatterns, "Index", "ExaminationTemplates", null, new { @class = "has-submenu menu-top menu-top-first menu-icon-extemplates" + menuOpenTempl + ((ViewBag.Controller == "ExaminationTemplates") ? " has-current-submenu" : "") })
                 <div class="submenu">
                     <div class="submenu-wrap">
                         <div class="submenu-head">
@@ -253,19 +278,22 @@
         } 
         
         @{
-    bool planExp = User.IsInRole("HeadNurse");
-            string planClass = "";
-            if (planExp)
-            {
-                planClass = (ViewBag.Controller == "Plan") ? "has-current-submenu" : "has-submenu";
-            }
-            else
-            {
-                planClass = (ViewBag.Controller == "Plan") ? "current" : "";
-            }   
+        bool planExp = User.IsInRole("HeadNurse");
+        string planClass = "";
+        if (planExp)
+        {
+            planClass = (ViewBag.Controller == "Plan") ? "has-current-submenu" : "has-submenu";
+        }
+        else
+        {
+            planClass = (ViewBag.Controller == "Plan") ? "current" : "";
+        }
+
+        //string menuOpenPlan = (string)HttpContext.Current.Profile.GetProfileGroup("MenuProps").GetPropertyValue("menuplan") == "o" ? " menu-open" : "";
+        string menuOpenPlan = settings.menuplan == "o" ? " menu-open" : "";
         }              
       
-        <li id="menu-plan" class="menu-top @(planClass) menu-icon-plan menu-open">
+        <li id="menuplan" class="menu-top @(planClass) menu-icon-plan@(menuOpenPlan)">
             <div class="menu-image">
                 @Html.ActionLink(" ", "Index", "Plan")
             </div>
@@ -276,7 +304,7 @@
             <div class="menu-toggle" style="@((planExp) ? "" : "display: none;")">
                 <br />
             </div>
-            @Html.ActionLink(ViewRes.SharedStrings.Schedule, "Index", "Plan", null, new { @class = "menu-top menu-icon-plan menu-open" + ((planClass != "") ? (" " + planClass) : "") })
+            @Html.ActionLink(ViewRes.SharedStrings.Schedule, "Index", "Plan", null, new { @class = "menu-top menu-icon-plan" + menuOpenPlan + ((planClass != "") ? (" " + planClass) : "") })
         @if (User.IsInRole("HeadNurse"))
         {
             <div class="submenu">

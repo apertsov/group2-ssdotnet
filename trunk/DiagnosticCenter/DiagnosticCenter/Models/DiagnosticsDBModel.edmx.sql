@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/13/2011 08:21:13
--- Generated from EDMX file: D:\Programming\DC\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
+-- Date Created: 12/01/2011 21:48:51
+-- Generated from EDMX file: E:\Repositories\SSTrainingRep\DiagnosticCenter\DiagnosticCenter\Models\DiagnosticsDBModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -291,6 +291,16 @@ CREATE TABLE [dbo].[Users] (
 );
 GO
 
+-- Creating table 'UserSettingsSet'
+CREATE TABLE [dbo].[UserSettingsSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [UserId] int  NOT NULL,
+    [PropName] nvarchar(max)  NOT NULL,
+    [PropValue] nvarchar(max)  NOT NULL,
+    [DefaultValue] nvarchar(max)  NULL
+);
+GO
+
 -- Creating table 'DayEmployee'
 CREATE TABLE [dbo].[DayEmployee] (
     [Day_ID_Day] int  NOT NULL,
@@ -391,6 +401,12 @@ GO
 ALTER TABLE [dbo].[Users]
 ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([UserID] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'UserSettingsSet'
+ALTER TABLE [dbo].[UserSettingsSet]
+ADD CONSTRAINT [PK_UserSettingsSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Day_ID_Day], [Employee_ID_Employee] in table 'DayEmployee'

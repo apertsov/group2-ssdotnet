@@ -162,6 +162,12 @@
   <data name="Price" xml:space="preserve">
     <value>Ціна</value>
   </data>
+  <data name="StatComplete" xml:space="preserve">
+    <value>Завершене</value>
+  </data>
+  <data name="StatInProgress" xml:space="preserve">
+    <value>В процесі</value>
+  </data>
   <data name="_Create" xml:space="preserve">
     <value>Створити</value>
   </data>

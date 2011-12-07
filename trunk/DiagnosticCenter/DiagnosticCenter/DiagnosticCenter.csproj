@@ -77,6 +77,7 @@
     <Compile Include="Classes\LocalizedDisplayName.cs" />
     <Compile Include="Classes\MailSender.cs" />
     <Compile Include="Classes\UserRepository.cs" />
+    <Compile Include="Classes\UserSettings.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CabinetsController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Controllers\ReferralController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\UserSettingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -412,6 +414,18 @@
     <Content Include="bin\PagedList.xml" />
     <Content Include="bin\ru\DiagnosticCenter.resources.dll" />
     <Content Include="bin\uk\DiagnosticCenter.resources.dll" />
+    <Content Include="Content\blue\Colors.css" />
+    <Content Include="Content\blue\images\arrows-dark.png" />
+    <Content Include="Content\blue\images\arrows.png" />
+    <Content Include="Content\blue\images\header-bg - копия.png" />
+    <Content Include="Content\blue\images\header-bg.png" />
+    <Content Include="Content\blue\images\icon_first_aid.png" />
+    <Content Include="Content\blue\images\menu-arrow-frame.png" />
+    <Content Include="Content\blue\images\menu-shadow.png" />
+    <Content Include="Content\blue\images\menu.png" />
+    <Content Include="Content\blue\images\Snake-32.png" />
+    <Content Include="Content\blue\js\Scripts.js" />
+    <Content Include="Content\blue\Styles.css" />
     <Content Include="Content\LogOn.css" />
     <Content Include="Content\Plan.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -769,6 +783,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiagnosticsDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.csdl" />
     <None Include="obj\Debug\edmxResourcesToEmbed\Models\DiagnosticsDBModel.msl" />
@@ -823,6 +838,7 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Shared\_BlueLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Models\Cabinets\CabinetsFieldNames.resx">
