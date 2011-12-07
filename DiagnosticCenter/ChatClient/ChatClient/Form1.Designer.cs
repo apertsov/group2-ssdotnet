@@ -155,7 +155,7 @@
             this.panel.Controls.Add(this.Send);
             this.panel.Location = new System.Drawing.Point(2, 3);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(359, 264);
+            this.panel.Size = new System.Drawing.Size(405, 334);
             this.panel.TabIndex = 19;
             this.panel.Visible = false;
             // 
@@ -172,20 +172,21 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.Messages);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.users);
-            this.splitContainer1.Size = new System.Drawing.Size(353, 209);
-            this.splitContainer1.SplitterDistance = 183;
+            this.splitContainer1.Size = new System.Drawing.Size(399, 279);
+            this.splitContainer1.SplitterDistance = 218;
             this.splitContainer1.TabIndex = 24;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 0);
+            this.label1.Location = new System.Drawing.Point(68, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 23;
@@ -196,17 +197,19 @@
             this.Messages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.Messages.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Messages.FormattingEnabled = true;
-            this.Messages.Location = new System.Drawing.Point(3, 16);
+            this.Messages.ItemHeight = 15;
+            this.Messages.Location = new System.Drawing.Point(8, 16);
             this.Messages.Name = "Messages";
-            this.Messages.Size = new System.Drawing.Size(177, 186);
+            this.Messages.Size = new System.Drawing.Size(207, 259);
             this.Messages.TabIndex = 21;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 0);
+            this.label2.Location = new System.Drawing.Point(44, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 23;
@@ -217,10 +220,12 @@
             this.users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.users.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.users.FormattingEnabled = true;
-            this.users.Location = new System.Drawing.Point(3, 16);
+            this.users.ItemHeight = 15;
+            this.users.Location = new System.Drawing.Point(8, 16);
             this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(160, 186);
+            this.users.Size = new System.Drawing.Size(164, 259);
             this.users.TabIndex = 22;
             this.users.SelectedIndexChanged += new System.EventHandler(this.users_SelectedIndexChanged);
             // 
@@ -228,7 +233,7 @@
             // 
             this.Private.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Private.AutoSize = true;
-            this.Private.Location = new System.Drawing.Point(59, 244);
+            this.Private.Location = new System.Drawing.Point(59, 314);
             this.Private.Name = "Private";
             this.Private.Size = new System.Drawing.Size(72, 17);
             this.Private.TabIndex = 23;
@@ -240,7 +245,7 @@
             this.toAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.toAll.AutoSize = true;
             this.toAll.Checked = true;
-            this.toAll.Location = new System.Drawing.Point(6, 244);
+            this.toAll.Location = new System.Drawing.Point(6, 314);
             this.toAll.Name = "toAll";
             this.toAll.Size = new System.Drawing.Size(47, 17);
             this.toAll.TabIndex = 22;
@@ -252,15 +257,15 @@
             // 
             this.Message.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.Message.Location = new System.Drawing.Point(6, 218);
+            this.Message.Location = new System.Drawing.Point(6, 288);
             this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(275, 20);
+            this.Message.Size = new System.Drawing.Size(321, 20);
             this.Message.TabIndex = 18;
             // 
             // Send
             // 
             this.Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Send.Location = new System.Drawing.Point(285, 218);
+            this.Send.Location = new System.Drawing.Point(331, 288);
             this.Send.Name = "Send";
             this.Send.Size = new System.Drawing.Size(68, 20);
             this.Send.TabIndex = 17;
@@ -271,7 +276,7 @@
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(367, 272);
+            this.ClientSize = new System.Drawing.Size(411, 341);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.loginPanel);
             this.MinimumSize = new System.Drawing.Size(0, 104);
