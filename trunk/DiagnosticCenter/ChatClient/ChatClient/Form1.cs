@@ -8,11 +8,10 @@ using System.Text;
 using System.Windows.Forms;
 using System.ServiceModel;
 using ChatCore;
+using System.IO;
 
 namespace ChatClient
 {
-
-
     public partial class Form1 : Form
     {
         private IChatService chat = null;
@@ -35,12 +34,14 @@ namespace ChatClient
 
         public void Receive(string name, string msg)
         {
-            Messages.Items.Add( "(" + name + "): " + msg );
+            string text = msg.Replace("|", "(" + name + ")" );
+            Messages.Items.Add( text );
         }
 
         public void ReceivePrivate(string name, string msg)
         {
-            Messages.Items.Add("[" + name + "]: " + msg);
+            string text = msg.Replace("|", "[" + name + "]");
+            Messages.Items.Add(text);
         }
 
 
@@ -50,7 +51,7 @@ namespace ChatClient
             InstanceContext context = new InstanceContext(new ChatCallbackHandler(this));
             NetTcpBinding binding = new NetTcpBinding(SecurityMode.None);
             DuplexChannelFactory<IChatService> factory = new DuplexChannelFactory<IChatService>(context, binding);
-            Uri adress = new Uri("net.tcp://localhost:20010/ChatService");
+            Uri adress = new Uri(new StreamReader("uri.txt").ReadLine());
             EndpointAddress endpoint = new EndpointAddress(adress.ToString());
             //Связь с сервером не устанавливается до тех пор, пока не будет вызван метод Join  
             chat = factory.CreateChannel(endpoint);
@@ -77,7 +78,7 @@ namespace ChatClient
 
             loginPanel.Hide();
             panel.Show();
-            Height += 300;
+            this. Height += 300;
         }
 
 
@@ -93,10 +94,11 @@ namespace ChatClient
 
         private void Send_Click(object sender, EventArgs e)
         {
+            string msg = DateTime.Now.ToLongTimeString().ToString() + " | " + Message.Text;
             if(toAll.Checked)
-                chat.Send(Message.Text);
+                chat.Send( msg );
             else
-                chat.SendPrivate( target, Message.Text );
+                chat.SendPrivate( target, msg );
         }
 
         private void PrivateSend_Click(object sender, EventArgs e)
@@ -144,6 +146,11 @@ namespace ChatClient
         {
             Show();
             WindowState = FormWindowState.Normal;
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     
