@@ -1,0 +1,1144 @@
+﻿html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body {
+    background-color: #fff; /*#5c87b2;*/
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+     /*height: 100%*/
+}
+
+a:link {
+    color: #034af3;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #505abc;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*a:hover, a:active, a:focus {
+    color: #D54E21;
+}*/
+
+p, ul {
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    padding: 0 0 10px 0;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active {
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    background-color: #fff;
+    color: #000;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+input[type="text"], 
+input[type="password"] {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+    width: 200px;
+}
+
+select {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+input[type="submit"] {
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table {
+    border: solid 1px #e8eef4;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 5px;
+    border: solid 1px #e8eef4;
+}
+
+table th {
+    padding: 6px 5px;
+    text-align: left;
+    background-color: #e8eef4;
+    border: solid 1px #e8eef4;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+    clear: both;
+}
+
+.error {
+    color: Red;
+}
+
+nav, 
+#menucontainer {
+    margin-top: 40px;
+}
+
+div#title {
+    display: block;
+    float: left;
+    text-align: left;
+    padding-top: 2px;
+}
+
+div#title img {
+    vertical-align: middle;
+    margin-top: 2px;
+}
+
+div#title span {
+    vertical-align: middle;    
+    font-size: 1.5em;
+}
+
+#culturedisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: center;
+    margin: 5px;
+    color: White;
+    width: 20%;
+    float: left;
+}
+
+#culturedisplay a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+#culturedisplay a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#culturedisplay a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 5px;
+    color: White;
+    width: 20%;
+    float: left;
+}
+
+#logindisplay a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, 
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.display-field, 
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.text-box {
+    width: 30em;
+}
+
+.text-box.multi-line {
+    height: 6.5em;
+}
+
+.tri-state {
+    width: 6em;
+}
+
+
+
+/* Styles 
+----------------------------------------------------------*/
+
+/*html { height: 100%; } 
+ body { min-height: 100%; } 
+ * html body { height: 100%; }*/
+ 
+ /* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+#wrap {
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    height: auto;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+header, #header {
+    position: fixed;
+    top: 0;
+    margin-bottom: 0px;   
+    color: #DDDDDD;
+    padding: 0;
+    height: 37px;
+    font: 12px/28px Arial,Helvetica,sans-serif;
+    width: 100%;
+    z-index: 99999;
+    /*background-image: -moz-linear-gradient(center bottom , #3F3F3F, #696969 5px);*/
+    background: #464646 url("images/header-bg.png") repeat-x;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+}
+
+.inner
+{
+    padding-top: 57px;
+    padding-bottom: 70px;
+    padding-right: 10px;
+}
+
+/*
+header h1, #header h1 {
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-size: 32px !important;
+    text-shadow: 1px 1px 2px #111;
+}*/
+
+#main 
+{
+    margin-top: 37px;
+    /*padding:  30px 30px 15px 30px;*/
+    padding: 0px;
+     /*background-color: #ececec;*/
+    border-radius: 4px 0 0 0;
+    -webkit-border-radius: 4px 0 0 0;
+    -moz-border-radius: 4px 0 0 0;
+    min-height: 100%;
+    position: relative;
+    
+    
+}
+/*
+#maincontent
+{   
+    margin-left: 165px;
+    height: 100%;
+    min-height: 100%;
+}*/
+
+#wrap {
+    height: auto;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+#maincontent {
+    height: 100%;
+}
+#maincontent, #footer {
+    margin-left: 165px;
+}
+
+#footer {
+    border-style: solid;
+    border-top: 1px solid;
+    bottom: 0;
+    left: 0;
+    margin-right: 20px;
+    padding: 10px 0;
+    position: absolute;
+    right: 0;
+}
+#footer, #footer a {
+    font-size: 12px;
+}
+#footer p {
+    line-height: 20px;
+    margin: 0;
+}
+#footer a {
+    text-decoration: none;
+}
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/*
+footer, 
+#footer {
+    background-color: #fff;
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0 0 30px 0;
+    font-size: .9em;
+    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+}*/
+
+.clear {
+    clear: both;
+}
+
+ 
+ 
+ 
+body #adminmenu
+{
+    padding-top: 37px;
+}
+
+
+
+/*
+a, #adminmenu a {
+    text-decoration: none;
+}
+
+#adminmenuback, #adminmenuwrap {
+    border-style: solid;
+    border-width: 0 1px 0 0;
+}
+#adminmenuwrap {
+    position: relative;
+}
+#adminmenushadow {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    z-index: 20;
+}
+#adminmenu * {
+    -moz-user-select: none;
+}
+#adminmenu .submenu {
+    display: none;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+#adminmenu .submenu a {
+    font-size: 12px;
+    line-height: 18px;
+}
+#adminmenu .submenu li.current, #adminmenu .submenu li.current a, #adminmenu .submenu li.current a:hover {
+    font-weight: bold;
+}
+#adminmenu a.menu-top, #adminmenu .submenu-head {
+    font-size: 13px;
+    line-height: 18px;
+}
+#adminmenu div.submenu-head {
+    display: none;
+}
+.js.folded #adminmenu div.submenu-head {
+    display: block;
+}
+.js.folded #adminmenu a.menu-top, body.no-js #adminmenu .menu-toggle, .js.folded #adminmenu div.menu-toggle {
+    display: none;
+}
+body.js #adminmenu li.menu-open .submenu, body.no-js #adminmenu .open-if-no-js .submenu, body.no-js #adminmenu li.has-current-submenu .submenu {
+    display: block;
+}
+#adminmenu div.menu-image {
+    float: left;
+    height: 28px;
+    width: 28px;
+}
+.js.folded #adminmenu div.menu-image {
+    width: 32px;
+}
+#adminmenu li {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+#adminmenu a {
+    display: block;
+    line-height: 18px;
+    padding: 2px 5px;
+}
+#adminmenu li.menu-top {
+    min-height: 26px;
+    position: relative;
+}
+#adminmenu a.menu-top {
+    border-style: solid;
+    border-width: 1px 0;
+    font-weight: bold;
+    line-height: 18px;
+    min-width: 10em;
+    padding: 5px;
+}
+#adminmenu li.menu-open {
+    border-style: solid;
+    border-width: 0 0 1px;
+}
+#adminmenu .submenu a {
+    margin: 0;
+    padding-left: 12px;
+}
+#adminmenu .submenu ul {
+    margin-bottom: 0px;
+}
+.menu-arrow {
+    display: none;
+}
+#adminmenu li.has-current-submenu .menu-arrow, #adminmenu li.menu-top.current .menu-arrow {
+    cursor: auto;
+    display: block;
+    position: absolute;
+    right: -9px;
+    top: 0;
+    z-index: 25;
+}
+#adminmenu .menu-arrow div {
+    background: url("images/menu-arrow-frame.png") no-repeat scroll right top transparent;
+    height: 30px;
+    width: 15px;
+}
+#adminmenu .submenu li {
+    margin: 0;
+    padding: 0;
+}
+.js.folded #adminmenu li.menu-top {
+    border-style: solid;
+    border-width: 1px 0;
+    height: 29px;
+    width: 32px;
+}
+#adminmenu .menu-image img {
+    float: left;
+    opacity: 0.6;
+    padding: 8px 6px 0;
+}
+#adminmenu li.menu-top:hover .menu-image img, #adminmenu li.has-current-submenu .menu-image img {
+    opacity: 1;
+}
+#adminmenu li.menu-separator {
+    border-style: solid;
+    border-width: 1px 0;
+    cursor: inherit;
+    height: 3px;
+    margin: 0;
+    padding: 0;
+}
+#adminmenu div.separator {
+    border-style: solid;
+    border-width: 1px 0 0;
+    height: 1px;
+    padding: 0;
+}
+.js.folded #adminmenu .submenu {
+    -moz-transition: width 200ms ease-out 0s;
+    display: block;
+    left: 26px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: -5px;
+    width: 0;
+    z-index: 999;
+}
+.js.folded #adminmenu .submenu.sub-open {
+    padding: 0 8px 8px 0;
+}
+#adminmenu .submenu .submenu-head {
+    border-style: solid;
+    border-width: 1px 0;
+    cursor: default;
+    padding: 6px 4px 5px 10px;
+}
+.js.folded #adminmenu .submenu-wrap {
+    border-bottom-right-radius: 3px;
+    border-style: solid;
+    border-top-right-radius: 3px;
+    border-width: 0 1px 1px 0;
+    margin-top: 4px;
+    position: relative;
+}
+.js.folded #adminmenu .submenu ul {
+    border-style: solid;
+    border-width: 0 0 0 1px;
+}
+.js.folded #adminmenu .submenu a {
+    padding-left: 10px;
+}
+.js.folded #adminmenu a.has-submenu {
+    margin-left: 40px;
+}
+#adminmenu .menu-toggle {
+    clear: right;
+    cursor: pointer;
+    float: right;
+    height: 27px;
+    margin: 1px 0 0;
+    padding: 1px 2px 0 0;
+    width: 18px;
+}
+#adminmenu .menu-image a {
+    height: 24px;
+}
+#adminmenu .menu-image img {
+    padding: 6px 0 0 1px;
+}
+
+#adminmenu .awaiting-mod, #adminmenu span.update-plugins, #sidemenu li a span.update-plugins {
+    border-radius: 10px 10px 10px 10px;
+    font-family: sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 17px;
+    margin-left: 7px;
+    margin-top: 1px;
+    position: absolute;
+}
+#adminmenu li .awaiting-mod span, #adminmenu li span.update-plugins span, #sidemenu li a span.update-plugins span {
+    display: block;
+    padding: 0 6px;
+}
+
+#adminmenu li span.count-0, #sidemenu li a .count-0 {
+    display: none;
+}
+
+#adminmenuback, #adminmenuwrap, #adminmenu, .js.folded #adminmenu .submenu.sub-open, .js.folded #adminmenu .submenu-wrap {
+    width: 145px;
+}
+#adminmenuback {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+#adminmenuwrap {
+    float: left;
+}
+#adminmenu {
+    clear: left;
+    list-style: none outside none;
+    padding: 0;
+}
+.js.folded #adminmenuback, .js.folded #adminmenuwrap, .js.folded #adminmenu, .js.folded #adminmenu li.menu-top {
+    width: 32px;
+}
+*/
+
+a, #adminmenu a {
+    text-decoration: none;
+}
+
+#adminmenu .submenu ul {
+    margin-bottom: 0px;
+}
+
+.js.folded #maincontent, .js.folded #footer {
+    margin-left: 52px;
+}
+
+#adminmenuback, #adminmenuwrap, #adminmenu, .js.folded #adminmenu .submenu.sub-open, .js.folded #adminmenu .submenu-wrap {
+    width: 145px;
+}
+#adminmenuback {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+#adminmenuwrap {
+    float: left;
+}
+#adminmenu {
+    clear: left;
+    list-style: none outside none;
+    padding: 0;
+}
+.js.folded #adminmenuback, .js.folded #adminmenuwrap, .js.folded #adminmenu, .js.folded #adminmenu li.menu-top {
+    width: 32px;
+}
+
+.clear {
+    clear: both;
+}
+
+.toggle-arrow {
+    background-color: transparent;
+    background-position: left top;
+    background-repeat: no-repeat;
+    display: block;
+    height: 22px;
+    line-height: 22px;
+}
+.toggle-arrow-active {
+    background-position: left bottom;
+}
+#adminmenuback, #adminmenuwrap {
+    border-style: solid;
+    border-width: 0 1px 0 0;
+}
+#adminmenuwrap {
+    position: relative;
+}
+#adminmenushadow {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    z-index: 20;
+}
+#adminmenu * {
+    -moz-user-select: none;
+}
+#adminmenu .submenu {
+    display: none;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+#adminmenu .submenu a {
+    font-size: 12px;
+    line-height: 18px;
+}
+#adminmenu .submenu li.current, #adminmenu .submenu li.current a, #adminmenu .submenu li.current a:hover {
+    font-weight: bold;
+}
+#adminmenu a.menu-top, #adminmenu .submenu-head {
+    font-size: 13px;
+    line-height: 18px;
+}
+#adminmenu div.submenu-head {
+    display: none;
+}
+.js.folded #adminmenu div.submenu-head {
+    display: block;
+}
+.js.folded #adminmenu a.menu-top, body.no-js #adminmenu .menu-toggle, .js.folded #adminmenu div.menu-toggle {
+    display: none;
+}
+body.js #adminmenu li.menu-open .submenu, body.no-js #adminmenu .open-if-no-js .submenu, body.no-js #adminmenu li.has-current-submenu .submenu {
+    display: block;
+}
+#adminmenu div.menu-image {
+    float: left;
+    height: 28px;
+    width: 28px;
+}
+.js.folded #adminmenu div.menu-image {
+    width: 32px;
+}
+#adminmenu li {
+    cursor: pointer;
+    line-height: 140%;
+    margin: 0;
+    padding: 0;
+}
+#adminmenu a {
+    display: block;
+    line-height: 18px;
+    padding: 2px 5px;
+}
+#adminmenu li.menu-top {
+    min-height: 26px;
+    position: relative;
+}
+#adminmenu a.menu-top {
+    border-style: solid;
+    border-width: 1px 0;
+    font-weight: bold;
+    line-height: 18px;
+    min-width: 10em;
+    padding: 5px;
+}
+#adminmenu li.menu-open {
+    border-style: solid;
+    border-width: 0 0 1px;
+}
+#adminmenu .submenu a {
+    margin: 0;
+    padding-left: 12px;
+}
+.menu-arrow {
+    display: none;
+}
+#adminmenu li.has-current-submenu .menu-arrow, #adminmenu li.menu-top.current .menu-arrow {
+    cursor: auto;
+    display: block;
+    position: absolute;
+    right: -9px;
+    top: 0;
+    z-index: 25;
+}
+#adminmenu .menu-arrow div {
+    background: url("images/menu-arrow-frame.png") no-repeat scroll right top transparent;
+    height: 30px;
+    width: 15px;
+}
+#adminmenu .submenu li {
+    margin: 0;
+    padding: 0;
+}
+.js.folded #adminmenu li.menu-top {
+    border-style: solid;
+    border-width: 1px 0;
+    height: 29px;
+    width: 32px;
+}
+#adminmenu .menu-image img {
+    float: left;
+    opacity: 0.6;
+    padding: 8px 6px 0;
+}
+#adminmenu li.menu-top:hover .menu-image img, #adminmenu li.has-current-submenu .menu-image img {
+    opacity: 1;
+}
+#adminmenu li.menu-separator {
+    border-style: solid;
+    border-width: 1px 0;
+    cursor: inherit;
+    height: 3px;
+    margin: 0;
+    padding: 0;
+}
+#adminmenu div.separator {
+    border-style: solid;
+    border-width: 1px 0 0;
+    height: 1px;
+    padding: 0;
+}
+.js.folded #adminmenu .submenu {
+    -moz-transition: width 200ms ease-out 0s;
+    display: block;
+    left: 26px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: -5px;
+    width: 0;
+    z-index: 999;
+}
+.js.folded #adminmenu .submenu.sub-open {
+    padding: 0 8px 8px 0;
+}
+#adminmenu .submenu .submenu-head {
+    border-style: solid;
+    border-width: 1px 0;
+    cursor: default;
+    padding: 6px 4px 5px 10px;
+}
+.js.folded #adminmenu .submenu-wrap {
+    border-bottom-right-radius: 3px;
+    border-style: solid;
+    border-top-right-radius: 3px;
+    border-width: 0 1px 1px 0;
+    margin-top: 4px;
+    position: relative;
+}
+.js.folded #adminmenu .submenu ul {
+    border-style: solid;
+    border-width: 0 0 0 1px;
+}
+.js.folded #adminmenu .submenu a {
+    padding-left: 10px;
+}
+.js.folded #adminmenu a.has-submenu {
+    margin-left: 40px;
+}
+#adminmenu .menu-toggle {
+    clear: right;
+    cursor: pointer;
+    float: right;
+    height: 27px;
+    margin: 1px 0 0;
+    padding: 1px 2px 0 0;
+    width: 18px;
+}
+#adminmenu .menu-image a {
+    height: 24px;
+}
+#adminmenu .menu-image img {
+    padding: 6px 0 0 1px;
+}
+#adminmenu .awaiting-mod, #adminmenu span.update-plugins, #sidemenu li a span.update-plugins {
+    border-radius: 10px 10px 10px 10px;
+    font-family: sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 17px;
+    margin-left: 7px;
+    margin-top: 1px;
+    position: absolute;
+}
+#adminmenu li .awaiting-mod span, #adminmenu li span.update-plugins span, #sidemenu li a span.update-plugins span {
+    display: block;
+    padding: 0 6px;
+}
+#adminmenu li span.count-0, #sidemenu li a .count-0 {
+    display: none;
+}
+
+#collapse-menu, #adminmenu li#collapse-menu {
+    font-size: 12px;
+    line-height: 34px;
+}
+.js.folded #collapse-menu span {
+    display: none;
+}
+#collapse-button, #collapse-button div {
+    height: 15px;
+    width: 15px;
+}
+#collapse-button {
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 8px 6px;
+}
+body.admin {
+    min-width: 785px;
+}
+body.admin-bar #wphead, body.admin-bar #adminmenu {
+    padding-top: 37px;
+}
+
+#collapse-menu
+{
+    padding-top: 3px;
+}
+
+
+
+table.fixed {
+    table-layout: fixed;
+}
+
+body #maincontent table.widefat {
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px; 
+    border-spacing: 0;
+    border-style: solid;
+    border-width: 1px;
+   
+    margin: 0;
+    width: 100%;
+}
+.widefat * {
+    word-wrap: break-word;
+}
+.widefat a {
+    text-decoration: none;
+}
+.widefat thead th:first-of-type {
+    border-top-left-radius: 3px;
+}
+.widefat thead th:last-of-type {
+    border-top-right-radius: 3px;
+}
+.widefat tfoot th:first-of-type {
+    border-bottom-left-radius: 3px;
+}
+.widefat tfoot th:last-of-type {
+    border-bottom-right-radius: 3px;
+}
+.widefat td, .widefat th {
+    border-style: solid;
+    border-width: 1px 0;
+}
+.widefat tfoot th {
+    border-bottom: medium none;
+}
+.widefat .no-items td {
+    border-bottom-width: 0;
+}
+.widefat td {
+    font-size: 12px;
+    padding: 4px 7px 2px;
+    vertical-align: top;
+}
+.widefat td p, .widefat td ol, .widefat td ul {
+    font-size: 12px;
+}
+.widefat th {
+    font-size: 14px;
+    line-height: 1.3em;
+    padding: 7px 7px 8px;
+    text-align: left;
+}
+.widefat th input {
+    margin: 0 0 0 8px;
+    padding: 0;
+    vertical-align: text-top;
+}
+.widefat .check-column {
+    padding: 11px 0 0;
+    vertical-align: top;
+    width: 2.2em;
+}
+.widefat tbody th.check-column {
+    padding: 9px 0 22px;
+}
+.widefat .num, .column-comments, .column-links, .column-posts {
+    text-align: center;
+}
+.widefat th#comments {
+    vertical-align: middle;
+}
+
+#maincontent form input[type="button"], 
+ 
+#maincontent form input[type="reset"]
+{
+    -moz-box-sizing: content-box;
+    border-radius: 11px 11px 11px 11px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    font-size: 12px !important;
+    line-height: 13px;
+    padding: 3px 8px;
+    text-decoration: none;
+}
+
+
+.patient 
+{
+    margin: 0 auto; 
+    width:50%; 
+    text-align:center; 
+    margin-top:50px;
+}
+
+#formholder  
+{
+    margin-left:25%; 
+    text-align:left;
+}
+    
+#formholder .inputs 
+{
+    text-align:right;
+}
+#formholder textarea 
+{
+    width:350px;
+}
+
+.news_title  
+{
+    color:navy;
+    text-decoration:underline;
+}
+.news_div
+{
+    width:400px; 
+    border: 1px solid #aaa; 
+    padding:5px;
+}
+
+#left_content 
+{
+    margin-top: 10px; 
+    width: 300px; 
+    padding: 0 10px; 
+    float: left;  
+}
+#right_content
+{
+    margin-left: 130px;
+    padding: 10px; 
+    background: #fff; 
+}
+#clear_c
+{
+    
+    padding: 5px; 
+    clear: left; 
+}

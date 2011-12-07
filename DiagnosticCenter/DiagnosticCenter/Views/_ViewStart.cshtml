@@ -1,4 +1,12 @@
 ﻿@{
     //Layout = "~/Views/Shared/_Layout.cshtml";
-    Layout = "~/Views/Shared/_WPLikeLayout.cshtml";
+    //Layout = "~/Views/Shared/_WPLikeLayout.cshtml";
+    if( DiagnosticCenter.Classes.UserSettings.getTheme() == "Blue")
+    {
+        Layout = "~/Views/Shared/_BlueLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_WPLikeLayout.cshtml";
+    }
 }

@@ -18,7 +18,7 @@ namespace DiagnosticCenter.Controllers
         // GET: /Examinations/
 
         public ViewResult Index(int? id)
-        {
+        {           
             int index = (id ?? -1);
             Patient patient = db.Patients.Where(p => p.ID_Patient == index).First();
             ViewBag.Patient = patient;

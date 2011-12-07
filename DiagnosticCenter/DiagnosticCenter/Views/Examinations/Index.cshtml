@@ -14,68 +14,48 @@
 <table>
     <tr>
         <th>
+            Examination Type
+        </th>
+        <th>
+            Time
+        </th>    
+        <th>
             Status
         </th>
         <th>
-            Protocol
-        </th>
-        <th>
-            Conclusion
-        </th>
-        <th>
-            Recommendation
-        </th>
-        <th>
-            Consultation
-        </th>
-        <th>
-            StartTime
-        </th>
-        <th>
             Employee
-        </th>
-        <th>
-            Patient
-        </th>
-        <th>
-            ID_ExmType
-        </th>
+        </th>               
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Protocol)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Conclusion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Recommendation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Consultation)
-        </td>
+            @Html.DisplayFor(modelItem => item.ExaminationType.Name)
+        </td>               
         <td>
             @Html.DisplayFor(modelItem => item.StartTime)
         </td>
+        <td>            
+            @if (item.Status == 0)
+            {
+                @ExaminationRes.ExaminationStrings.StatInProgress                
+            }
+            else
+            {
+                @ExaminationRes.ExaminationStrings.StatComplete
+            }
+        </td> 
         <td>
-            @Html.DisplayFor(modelItem => item.Employee.Category)
-        </td>
+            @Html.DisplayFor(modelItem => item.Employee.Surname)
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+            @Html.DisplayFor(modelItem => item.Employee.Patronymic)
+        </td>        
+        
         <td>
-            @Html.DisplayFor(modelItem => item.Patient.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_ExmType)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Examination }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Examination }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Examination })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID_Examination }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID_Examination }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID_Examination })
         </td>
     </tr>
 }
