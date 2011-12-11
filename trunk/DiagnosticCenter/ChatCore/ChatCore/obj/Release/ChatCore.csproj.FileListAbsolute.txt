@@ -4,3 +4,9 @@ C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\bin\Release\ChatCore.pdb
 C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\obj\Release\ChatCore.dll
 C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\obj\Release\ChatCore.pdb
+D:\DotNETcourse\Project\DiagnosticCenter\ChatCore\ChatCore\bin\Release\ChatCore.dll.config
+D:\DotNETcourse\Project\DiagnosticCenter\ChatCore\ChatCore\bin\Release\ChatCore.dll
+D:\DotNETcourse\Project\DiagnosticCenter\ChatCore\ChatCore\bin\Release\ChatCore.pdb
+D:\DotNETcourse\Project\DiagnosticCenter\ChatCore\ChatCore\obj\Release\ResolveAssemblyReference.cache
+D:\DotNETcourse\Project\DiagnosticCenter\ChatCore\ChatCore\obj\Release\ChatCore.dll
+D:\DotNETcourse\Project\DiagnosticCenter\ChatCore\ChatCore\obj\Release\ChatCore.pdb
