@@ -15,6 +15,7 @@ namespace ChatClient
     public partial class Form1 : Form
     {
         private IChatService chat = null;
+
         private string target;
 
         public Form1()
@@ -44,47 +45,59 @@ namespace ChatClient
             Messages.Items.Add(text);
         }
 
-
-        private void Entre(bool forRegister)
+        private void SendMsg()
         {
-            //Создаем объект который отвечает за обратную связь  
-            InstanceContext context = new InstanceContext(new ChatCallbackHandler(this));
-            NetTcpBinding binding = new NetTcpBinding(SecurityMode.None);
-            DuplexChannelFactory<IChatService> factory = new DuplexChannelFactory<IChatService>(context, binding);
-            Uri adress = new Uri(new StreamReader("uri.txt").ReadLine());
-            EndpointAddress endpoint = new EndpointAddress(adress.ToString());
-            //Связь с сервером не устанавливается до тех пор, пока не будет вызван метод Join  
-            chat = factory.CreateChannel(endpoint);
-            string name = userName.Text;
-            List<string> userInChat = null;
-            userInChat = forRegister ?
-                chat.Register(name, userPassword.Text)
-            :
-                chat.Join(name, freeEntre.Checked ? null : userPassword.Text);
+            string msg = DateTime.Now.ToLongTimeString().ToString() + " | " + Message.Text;
+            if(toAll.Checked)
+                chat.Send( msg );
+            else
+                chat.SendPrivate( target, msg );
+        }
 
-            if (userInChat == null)
+        private void Entre()
+        {
+            // Створення об'єкту що відповідатиме за зворотній звязок
+            try
             {
-                MessageBox.Show( freeEntre.Checked ? "Логін уже зайнятий" : "Не вірний логін або пароль" );
-                return;
-            }
+                InstanceContext context = new InstanceContext(new ChatCallbackHandler(this));
+                NetTcpBinding binding = new NetTcpBinding(SecurityMode.None);
+                DuplexChannelFactory<IChatService> factory = new DuplexChannelFactory<IChatService>(context, binding);
+                Uri adress = new Uri(new StreamReader("uri.txt").ReadLine());
+                EndpointAddress endpoint = new EndpointAddress(adress.ToString());
 
-            foreach (string item in userInChat)
+                chat = factory.CreateChannel(endpoint);
+                string name = userName.Text;
+                List<string> userInChat = null;
+                userInChat = chat.Join(name, freeEntre.Checked ? null : userPassword.Text);
+
+                if (userInChat == null)
+                {
+                    MessageBox.Show(freeEntre.Checked ? "Логін уже зайнятий" : "Не вірний логін або пароль");
+                    return;
+                }
+
+                foreach (string item in userInChat) users.Items.Add(item);
+            }
+            catch (Exception e)
             {
-                users.Items.Add(item);
+                MessageBox.Show( "Проблема при звернені до сервера" );
+                chat = null;
+                Close();
             }
-
             target = userName.Text;
             Private.Text = "собі";
 
             loginPanel.Hide();
             panel.Show();
-            this. Height += 300;
+            Text = userName.Text;
+
+            this.Height += 300;
         }
 
 
         private void LogOn_Click(object sender, EventArgs e)
         {
-            Entre(false);
+            Entre();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -94,17 +107,7 @@ namespace ChatClient
 
         private void Send_Click(object sender, EventArgs e)
         {
-            string msg = DateTime.Now.ToLongTimeString().ToString() + " | " + Message.Text;
-            if(toAll.Checked)
-                chat.Send( msg );
-            else
-                chat.SendPrivate( target, msg );
-        }
-
-        private void PrivateSend_Click(object sender, EventArgs e)
-        {
-
-            
+            SendMsg();
         }
 
         private void users_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,11 +122,6 @@ namespace ChatClient
                 target = target = users.Items[users.SelectedIndex] as string;
                 Private.Text = "приватно: " + target;
             }
-        }
-
-        private void Register_Click(object sender, EventArgs e)
-        {
-            Entre( true );
         }
 
         private void freeEntre_CheckedChanged(object sender, EventArgs e)
@@ -148,9 +146,36 @@ namespace ChatClient
             WindowState = FormWindowState.Normal;
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        private void надіслатиToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SendMsg();
+        }
 
+        private void зберегтиІсторіюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Зберігти історію в ...";
+            sfd.Filter = "Текстові файли (*.txt)|*.txt | Всі файли|*.*";
+            if( sfd.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            StreamWriter sw = File.CreateText( sfd.FileName );
+            foreach (string line in Messages.Items)
+                sw.WriteLine(line);
+            sw.Close();
+        }
+
+        private void вийтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FontDialog fd = new FontDialog();
+            if( fd.ShowDialog() == DialogResult.Cancel)
+                return;
+            users.Font = Messages.Font = fd.Font;
         }
     }
     

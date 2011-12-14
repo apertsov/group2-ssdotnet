@@ -14,19 +14,6 @@ class ChatUser
     public ChatCore.IChatCallback Callback;
 }
 
-class Account
-{
-    public string Login,Password;
-    public static bool operator==( Account a, Account b )
-    {
-        return a.Login == b.Login && a.Password == b.Password;
-    }
-    public static bool operator!=(Account a, Account b)
-    {
-        return a.Login != b.Login || a.Password != b.Password;
-    }
-}
-
 namespace ChatCore
 {
     [
@@ -39,42 +26,8 @@ namespace ChatCore
     public class ChatService : IChatService
     {
         static List<ChatUser> users = new List<ChatUser>();
-        static List<Account> accounts = new List<Account>();
         private ChatUser _user;
-
-        static void SaveAccounts()
-        {
-            StreamWriter sw = File.CreateText( "registers.txt" );
-            sw.WriteLine( accounts.Count );
-            foreach (Account a in accounts)
-            {
-                sw.WriteLine(a.Login);
-                sw.WriteLine(a.Password);
-            }
-            sw.Close();
-        }
-
-        public static void AcInfo()
-        {
-            Console.WriteLine("-----------------");
-            foreach (Account a in accounts)
-            {
-                Console.WriteLine(a.Login);
-            }
-        }
-
-        static ChatService()
-        {
-            // ////////////
-            Console.WriteLine("--------");
-
-            StreamReader fs = File.OpenText( "registers.txt" );
-            int n = int.Parse( fs.ReadLine() );
-            for(int i=0;i<n;i++)
-                accounts.Add( new Account(){ Login = fs.ReadLine(), Password = fs.ReadLine()});
-            fs.Close();
-        }
-/***************************************/
+        
         public static bool ExistsEmploye(string userName)
         {
             using (SqlConnection connection = new SqlConnection("server=.\\SQLEXPRESS;Trusted_connection=yes;database=DiagnosticsDB;connection timeout=30"))
@@ -123,7 +76,7 @@ namespace ChatCore
             }
             return false;
         }
-/***************************************/
+
         public List<string> Join(string name,string password)
         {
             if (password != null && !Authenticate( name, password ) )
@@ -145,15 +98,9 @@ namespace ChatCore
             _user = new ChatUser() { Name = name, Callback = callback };
             users.Add(_user);
 
-            Console.WriteLine(name);
-            Console.WriteLine(callback);
+            Console.WriteLine("+" + name);
 
             return res;
-        }
-
-        private bool ExistsEmpoye(string name)
-        {
-            throw new NotImplementedException();
         }
 
         public void Send(string msg)
@@ -174,31 +121,8 @@ namespace ChatCore
             users.Remove(_user);
             foreach (ChatUser x in users)
                 x.Callback.UserLeave(_user.Name);
+            Console.WriteLine("-" + _user.Name);
             _user = null;
-        }
-
-        public List<string> Register(string name, string password)
-        {
-            if (accounts.Exists(a => a.Login == name && a.Password == password))
-                return null;
-            else
-            {
-                accounts.Add(new Account { Login = name, Password = password });
-                SaveAccounts();    
-                return Join(name, password);
-            }
-        }
-
-        public void ChangePassword(string password)
-        {
-            Account x = accounts.Find(a => a.Login == _user.Name);
-            if (password == null)
-            {
-                accounts.Remove(x);
-                SaveAccounts();
-            }
-            else
-                x.Password = password;
         }
     }
 }
