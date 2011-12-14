@@ -11,12 +11,6 @@ namespace ChatCore
     public interface IChatService
     {
         [OperationContract(IsInitiating = true, IsOneWay = false, IsTerminating = false)]
-        List<string> Register(string name, string password);
-
-        [OperationContract(IsInitiating = false, IsOneWay = true, IsTerminating = false)]
-        void ChangePassword( string password );
-
-        [OperationContract(IsInitiating = true, IsOneWay = false, IsTerminating = false)]
         List<string> Join(string name, string password);
 
         [OperationContract(IsInitiating = false, IsOneWay = true, IsTerminating = false)]
