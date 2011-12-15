@@ -1,0 +1,84 @@
+﻿@model PagedList.IPagedList<DiagnosticCenter.Models.NewsVM>
+
+
+@{
+    ViewBag.Controller = "News";
+    ViewBag.Action = "News.Index";
+ }
+
+ <div id="icon-news-general" class="icon32"><br /></div><h2> @ViewRes.SharedStrings.News</h2>
+
+@using (Html.BeginForm())
+{ 
+    <p> 
+        Пошук новини за темою: @Html.TextBox("SearchString") &nbsp; 
+        <input type="submit" value="Знайти" /></p> 
+}
+<table>
+    <tr>
+        <th>
+          @Html.ActionLink("Тема новини", "Index", new { sortOrder = ViewBag.TopicSortParm })
+        </th>
+        <th>
+          @Html.ActionLink("Зміст", "Index", new { sortOrder = ViewBag.TextSortParm })
+        </th>
+        <th>
+          @Html.ActionLink("Працівник", "Index", new { sortOrder = ViewBag.ID_EmployeeSortParm })
+        </th>
+        <th>
+          @Html.ActionLink("Відділення", "Index", new { sortOrder = ViewBag.ID_DeptSortParm })
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.topic) 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_employee) 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_dept)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Деталі", "Details", new { id=item.id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount 
+    &nbsp; 
+    @if (Model.HasPreviousPage)
+    { 
+        @Html.ActionLink("<<", "Index", new { page = 1, }) 
+        @Html.Raw("&nbsp;"); 
+        @Html.ActionLink("< Попередня", "Index", new { page = Model.PageNumber - 1 }) 
+    }
+    else
+    { 
+        @:<< 
+        @Html.Raw("&nbsp;"); 
+        @:< Попередня 
+    } 
+    &nbsp; 
+    @if (Model.HasNextPage)
+    { 
+        @Html.ActionLink("Наступна >", "Index", new { page = Model.PageNumber + 1 }) 
+        @Html.Raw("&nbsp;"); 
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount }) 
+    }
+    else
+    { 
+        @:Наступна > 
+        @Html.Raw("&nbsp;") 
+        @:>> 
+    } 
+</div>

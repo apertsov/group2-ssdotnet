@@ -1,0 +1,28 @@
+﻿@model DiagnosticCenter.Models.Cabinet
+
+@{
+    ViewBag.Title = ViewRes.CabinetsStrings.Cabinets + " - " + ViewRes.CabinetsStrings.Details;
+}
+
+<fieldset>
+    <legend>Кабінет</legend>
+
+    <div class="display-label">@ViewRes.CabinetsStrings.CabinetNo:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">@ViewRes.CabinetsStrings.CabinetPhoneNo:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">@ViewRes.CabinetsStrings.Description:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink(ViewRes.CabinetsStrings.Edit + ViewRes.CabinetsStrings.Cabinet.ToLower(), "Edit", new { id=Model.ID_Cabinet }) |
+    @Html.ActionLink(ViewRes.CabinetsStrings.ReturnToCabsList, "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model DiagnosticCenter.Models.ReferralVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Print</title>
+    <style type="text/css">
+        table { border-style:solid; 
+                border-width:thin;
+                border-color:#ccc;
+                font-size: 20px;
+              }
+        td { border-width:thin;
+             border-style:solid;
+             border-color:#ccc;
+        }
+    </style>
+</head>
+<body onload="javascript:window.print()">
+
+    <div style="margin: 0 auto;">
+        <table align="center">
+            <tr><th colspan="2">@ReferralRes.ReferralStrings.ReferralToDoctor</th></tr>
+            <tr>
+                <td>
+                @ReferralRes.ReferralStrings.Patient
+                </td>
+               
+                <td>
+                 @ViewBag.patient
+                </td>
+            </tr>
+            <tr>
+                <td>
+               @ReferralRes.ReferralStrings.Department
+                </td>
+               
+                <td>
+                 @ViewBag.department
+                </td>
+            </tr>
+            <tr>
+            <td>@ReferralRes.ReferralStrings.Cabinet
+            </td>
+            <td>@ViewBag.cabinet</td>
+            </tr>
+            <tr>
+            <td>@ReferralRes.ReferralStrings.Doctor
+            </td>
+            <td>@ViewBag.employee</td>
+            </tr>
+            <tr>
+            <td>@ReferralRes.ReferralStrings.VisitDate
+            </td>
+            <td>@Model.visitDate</td>
+            </tr>
+            <tr>
+            <td>@ReferralRes.ReferralStrings.CreationDate
+            </td>
+            <td>@Model.todayDate </td>
+            </tr>
+        </table>
+        
+       
+        
+        
+        
+    </div>
+</body>
+</html>

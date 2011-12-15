@@ -1,0 +1,45 @@
+﻿@model List<DiagnosticCenter.Models.EmployeeVM>
+
+<table>
+    <tr>
+        <th>
+            @EmployeesRes.EmployeesStrings.Surname
+        </th>
+        <th>
+           @EmployeesRes.EmployeesStrings.Name
+        </th>
+        <th>
+            @EmployeesRes.EmployeesStrings.Patronymic
+        </th>
+    </tr>
+@foreach(var item in Model){   
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.surname)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.patronymic)
+        </td>
+    </tr>
+    <tr>    
+        <td colspan="3">
+            <br />
+            <b>@EmployeesRes.EmployeesStrings.Department</b>
+            @Html.DisplayFor(modelItem => item.department)<br />
+             <b>@EmployeesRes.EmployeesStrings.Cabinet</b>
+            @Html.DisplayFor(modelItem => item.cabinet)<br />
+             <b> @EmployeesRes.EmployeesStrings.Position</b>
+            @Html.DisplayFor(modelItem => item.position)<br />
+             <b> @EmployeesRes.EmployeesStrings.Category</b>
+            @Html.DisplayFor(modelItem => item.category)<br />
+            <b> @EmployeesRes.EmployeesStrings.Specialty</b>
+            @Html.DisplayFor(modelItem => item.specialty)<br />
+            <b> @EmployeesRes.EmployeesStrings.Rate</b>
+            @Html.DisplayFor(modelItem => item.rate) @EmployeesRes.EmployeesStrings.HoursPerDay
+        </td>
+    </tr>
+}
+</table>

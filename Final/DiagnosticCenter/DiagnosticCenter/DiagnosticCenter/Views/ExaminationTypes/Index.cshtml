@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.ExaminationType>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Controller = "ExaminationTypes";
+    ViewBag.Action = "ExaminationTypes.Index";
+}
+
+<div id="icon-extypes-general" class="icon32"><br /></div><h2>@ExaminationRes.ExaminationStrings.ExaminationTypes</h2>
+
+<p>
+    @Html.ActionLink(ExaminationRes.ExaminationStrings._Create, "Create")
+</p>
+<table class="widefat fixed" cellspacing="0">
+    <thead>
+    <tr>
+        <th>
+            @ExaminationRes.ExaminationStrings.Name
+        </th>        
+        <th>
+            @ExaminationRes.ExaminationStrings.Price
+        </th>
+        <th>
+            @ExaminationRes.ExaminationStrings.Duration
+        </th>        
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>        
+        <td>
+            @*@if (User.IsInRole("Administrator")){*@
+                @Html.ActionLink(ExaminationRes.ExaminationStrings._Edit, "Edit", new { id=item.ID_ExmType }) <text>|</text>
+            @*}*@
+            @Html.ActionLink(ExaminationRes.ExaminationStrings._Details, "Details", new { id = item.ID_ExmType }) 
+            @*@if (User.IsInRole("Administrator"))
+            {*@
+               <text>|</text> @Html.ActionLink(ExaminationRes.ExaminationStrings._Delete, "Delete", new { id = item.ID_ExmType })
+            @*}*@
+        </td>
+    </tr>
+    
+}
+    </tbody>
+
+</table>

@@ -1,0 +1,9 @@
+C:\Users\Я\Desktop\ChatTest\ChatTest\bin\Debug\ChatTest.exe
+C:\Users\Я\Desktop\ChatTest\ChatTest\bin\Debug\ChatTest.pdb
+C:\Users\Я\Desktop\ChatTest\ChatTest\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Я\Desktop\ChatTest\ChatTest\obj\x86\Debug\ChatTest.exe
+C:\Users\Я\Desktop\ChatTest\ChatTest\obj\x86\Debug\ChatTest.pdb
+C:\Users\Я\Desktop\ChatTest\ChatTest\bin\Debug\ChatCore.dll
+C:\Users\Я\Desktop\ChatTest\ChatTest\bin\Debug\ChatCore.pdb
+D:\DotNETcourse\Project\DiagnosticCenter\ChatTest\ChatTest\obj\x86\Debug\ChatTest.exe
+D:\DotNETcourse\Project\DiagnosticCenter\ChatTest\ChatTest\obj\x86\Debug\ChatTest.pdb

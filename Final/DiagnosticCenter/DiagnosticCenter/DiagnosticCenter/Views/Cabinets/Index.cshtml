@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<DiagnosticCenter.Models.Cabinet>
+
+@{
+    ViewBag.Title = ViewRes.CabinetsStrings.AddCabinet;
+    ViewBag.Controller = "Cabinets";
+    ViewBag.Action = "Cabinets.Index";
+}
+@using (Html.BeginForm())
+{
+    <p>
+        @ViewRes.CabinetsStrings.FilterTitle @Html.TextBox("SearchString") &nbsp; 
+        <input type="submit" value="@ViewRes.CabinetsStrings.FilterBtn" /> 
+    </p>
+}
+<table>
+    <tr>
+        <th>
+            @ViewRes.CabinetsStrings.CabinetNo
+        </th>
+        <th>
+            @ViewRes.CabinetsStrings.CabinetPhoneNo
+        </th>
+        <th>
+            @ViewRes.CabinetsStrings.Description
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink(ViewRes.CabinetsStrings.Edit, "Edit", new { id=item.ID_Cabinet }) |
+            @Html.ActionLink(ViewRes.CabinetsStrings.Details, "Details", new { id=item.ID_Cabinet }) |
+            @Html.ActionLink(ViewRes.CabinetsStrings.Delete, "Delete", new { id=item.ID_Cabinet })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div> 
+    @ViewRes.CabinetsStrings.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) @ViewRes.CabinetsStrings.of @Model.PageCount 
+    &nbsp; 
+    @if (Model.HasPreviousPage) 
+    { 
+        @Html.ActionLink("<<", "Index", new { page = 1,}) 
+        @Html.Raw("&nbsp;"); 
+        @Html.ActionLink("< " + ViewRes.CabinetsStrings.PrevPage, "Index", new { page = Model.PageNumber - 1 }) 
+    } 
+    else 
+    { 
+        @:<< 
+        @Html.Raw("&nbsp;"); 
+        @:< @ViewRes.CabinetsStrings.PrevPage 
+    } 
+    &nbsp; 
+    @if (Model.HasNextPage) 
+    { 
+        @Html.ActionLink(@ViewRes.CabinetsStrings.NextPage + " >", "Index", new { page = Model.PageNumber + 1}) 
+        @Html.Raw("&nbsp;"); 
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount}) 
+    } 
+    else 
+    { 
+        @:@ViewRes.CabinetsStrings.NextPage > 
+        @Html.Raw("&nbsp;") 
+        @:>> 
+    } 
+</div>

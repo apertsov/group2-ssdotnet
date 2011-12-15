@@ -1,0 +1,211 @@
+﻿@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "Формування розкладу роботи (" + ViewBag.DeptName + "):";
+}
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")">
+    <link href="@Url.Content("~/Content/Plan.css")" rel="stylesheet" type="text/css" />
+	
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.ui.core.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.ui.widget.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.ui.datepicker.js")"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        $("#datepicker").datepicker({
+	                altField: "#altDatePicker",
+			        altFormat: "dd.mm.yy",
+
+	                regional: "uk",
+	                dateFormat: "d MM, yy"
+	            });
+	    });
+	</script>
+
+    
+
+@using (Html.BeginForm("ChangeDate", "Plan"))
+{
+    <p>
+    
+        @ViewRes.PlanStrings.Date: @Html.TextBox("datepicker")
+        @Html.Hidden("altDatePicker")
+        <input id="pageName" name="pageName" type="hidden" value="Index" />
+        <input type="submit" name ="DateChange" value="@ViewRes.PlanStrings.UpdateData" />
+    </p>
+}  
+@using (Html.BeginForm("Index", "Plan"))
+{    
+    <table>
+        <tr valign="top">
+            <td>
+                <table>
+                    <tr>
+                        <th colspan= @(ViewBag.CabCount + 2)>
+                            @ViewRes.PlanStrings.GeneratingPlanOn (@ViewBag.DeptName):
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @ViewRes.PlanStrings.Date
+                        </th>
+                        <th>
+                            @ViewRes.PlanStrings.Time
+                        </th>
+                        @foreach (var item in ViewBag.EmployeesWithCabinets)
+                        { 
+                            <th>
+                                @ViewRes.PlanStrings.CabinetNo @(item)
+                            </th>
+                        }
+                    </tr>
+                    <tr>
+                        <td rowspan="@(ViewBag.workingHours + 1)">
+                            @ViewBag.Date                        
+                        </td>
+                    </tr>
+                    @{
+                       int rowIndex = 0;
+                       int j = ViewBag.startHour;
+                       foreach (var hour in ViewBag.PlanChart)
+                       {
+                           int colIndex = 0; 
+                            @:<tr>
+
+                                <td>
+                                    @(j):00 - @(j + 1):00
+                                    @{j++;}
+                                </td>
+                                    
+                                      foreach (var cab in hour)
+                                      {
+                            
+                                    @:<td>
+                                          @:@cab
+                                    colIndex++;
+                                    @:</td>
+                                }
+                                      rowIndex++;
+                            @:</tr>
+                        }
+                    }
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <th colspan="3">
+                            @switch (DateTime.Today.Month)
+                            {
+                                case 1:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn.ToLower() + " " + ViewRes.PlanStrings.January.ToLower() + ":") 
+                           break;
+                                case 2:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.February.ToLower() + ":")
+                           break;
+                                case 3:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.March.ToLower() + ":")
+                           break;
+                                case 4:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.April.ToLower() + ":")
+                           break;
+                                case 5:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.May.ToLower() + ":")
+                           break;
+                                case 6:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.June.ToLower() + ":")
+                           break;
+                                case 7:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.July.ToLower() + ":")
+                           break;
+                                case 8:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.August.ToLower() + ":")
+                           break;
+                                case 9:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.September.ToLower() + ":")
+                           break;
+                                case 10:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.October.ToLower() + ":")
+                           break;
+                                case 11:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.November.ToLower() + ":")
+                           break;
+                                case 12:
+                                @Html.Label(ViewRes.PlanStrings.HoursPlanedOn + " " + ViewRes.PlanStrings.December.ToLower() + ":")
+                           break;
+                            }
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @ViewRes.PlanStrings.EmployeeName
+                        </th>
+                        <th>
+                            @ViewRes.PlanStrings.EmployeeHours
+                        </th>
+                        <th>
+                            @ViewRes.PlanStrings.EmploeeRate
+                        </th>
+                    </tr>
+                    @foreach (var keyValuePair in ViewBag.EployeesRate)
+                    {
+                        if ((keyValuePair.Value[1] - keyValuePair.Value[0]) > 10)
+                        {
+                        @Html.Raw("<tr class=\"rate_green\">")
+                        }
+                        else if ((keyValuePair.Value[1] - keyValuePair.Value[0]) > 5)
+                        {
+                        @Html.Raw("<tr class=\"rate_yellow\">")
+                        }
+                        else
+                        {
+                        @Html.Raw("<tr class=\"rate_red\">")
+                        }
+                      
+                        <td>
+                            @keyValuePair.Key
+                        </td>
+                       foreach (var ratePair in keyValuePair.Value)
+                       {
+                        <td>
+                            @ratePair.ToString()
+                        </td>
+                       }
+                        @Html.Raw("</tr>")
+                        
+                    }
+                </table>
+            </td>
+        </tr>
+    </table>  
+    <div>
+        @ViewRes.PlanStrings.Page @(ViewBag.PageCount < ViewBag.PageNo ? 0 : ViewBag.PageNo)
+        @ViewRes.PlanStrings.of @ViewBag.PageCount
+        &nbsp;
+        @if (ViewBag.HasPreviousPage)
+        { 
+            @Html.ActionLink("<<", "Index", new { page = 1, }) 
+            @Html.Raw("&nbsp;")
+            @Html.ActionLink("< " + ViewRes.PlanStrings.PrevPage, "Index", new { pageNo = ViewBag.PageNo - 1 }) 
+        }
+        else
+        { 
+            @:<<
+        @Html.Raw("&nbsp;")
+            @:< @ViewRes.PlanStrings.PrevPage
+                    }
+        &nbsp;
+        @if (ViewBag.HasNextPage)
+        { 
+            @Html.ActionLink(ViewRes.PlanStrings.NextPage + " >", "Index", new { pageNo = ViewBag.PageNo + 1 }) 
+            @Html.Raw("&nbsp;")
+            @Html.ActionLink(">>", "Index", new { pageNo = ViewBag.PageCount }) 
+        }
+        else
+        { 
+            @:@ViewRes.PlanStrings.NextPage >
+        @Html.Raw("&nbsp;") 
+            @:>>
+                    }
+    </div>
+}

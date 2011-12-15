@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<DiagnosticCenter.Models.EmployeeVM>
+@using (Html.BeginForm())
+{ 
+    <p> 
+        @EmployeesRes.EmployeesStrings.SearchBySurname @Html.TextBox("SearchString") &nbsp; 
+        <input type="submit" value=@PatientsRes.PatientsStrings.Find /></p> 
+}
+@{
+    ViewBag.Controller = "Employees";
+    ViewBag.Action = "Employees.Index";
+}
+<table>
+    <tr>
+        <th>
+          @Html.ActionLink(EmployeesRes.EmployeesStrings.Surname, "Index", new { sortOrder = ViewBag.SurnameSortParm })
+        </th>
+        <th>
+             @Html.ActionLink(EmployeesRes.EmployeesStrings.Name, "Index", new { sortOrder = ViewBag.FirstNameSortParm })
+           
+        </th>
+        <th>
+            @EmployeesRes.EmployeesStrings.Patronymic
+        </th>
+        <th>
+            @EmployeesRes.EmployeesStrings.Position
+        </th>
+        <th>
+            @Html.ActionLink(EmployeesRes.EmployeesStrings.Department, "Index", new { sortOrder = ViewBag.DepartmentSortParm })
+            
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.patronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department)
+        </td>
+        <td>
+            @Html.ActionLink(PatientsRes.PatientsStrings.Edit, "Edit", new { id=item.id }) |
+            @Html.ActionLink(PatientsRes.PatientsStrings.Details, "Details", new { id=item.id }) |
+            @Html.ActionLink(PatientsRes.PatientsStrings.Delete, "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+<div> 
+     @PatientsRes.PatientsStrings.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) ... @Model.PageCount 
+    &nbsp; 
+    @if (Model.HasPreviousPage)
+    { 
+        @Html.ActionLink("<<", "Index", new { page = 1, }) 
+        @Html.Raw("&nbsp;"); 
+        @Html.ActionLink("< "+ PatientsRes.PatientsStrings.Prev, "Index", new { page = Model.PageNumber - 1 }) 
+    }
+    else
+    { 
+        @:<< 
+        @Html.Raw("&nbsp;"); 
+        @:< @PatientsRes.PatientsStrings.Prev
+    } 
+    &nbsp; 
+    @if (Model.HasNextPage)
+    { 
+        @Html.ActionLink(PatientsRes.PatientsStrings.Next+ " >", "Index", new { page = Model.PageNumber + 1 }) 
+        @Html.Raw("&nbsp;"); 
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount }) 
+    }
+    else
+    { 
+        @:@PatientsRes.PatientsStrings.Next > 
+        @Html.Raw("&nbsp;") 
+        @:>> 
+    } 
+</div>
