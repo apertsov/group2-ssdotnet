@@ -1,0 +1,463 @@
+﻿body 
+{
+    background: #eef3fa;
+}
+
+/*a, #adminmenu a {
+    color: #21759B;
+}
+a:hover, #adminmenu a:hover {
+    color: #d54e21;
+}
+#adminmenuback, #adminmenuwrap {
+    background-color: #ECECEC;
+    border-color: #CCCCCC;
+}
+#adminmenushadow, #adminmenuback {
+    background-image: url("images/menu-shadow.png");
+    background-position: right top;
+    background-repeat: repeat-y;
+}
+#adminmenu li.menu-separator {
+    background: none repeat scroll 0 0 #DFDFDF;
+    border-color: #CFCFCF;
+}
+#adminmenu div.separator {
+    border-color: #E1E1E1;
+}
+#adminmenu li.has-current-submenu.menu-open .menu-toggle, #adminmenu li.has-current-submenu:hover .menu-toggle {
+    background: url("images/arrows-dark.png") no-repeat scroll -1px 6px transparent;
+}
+#adminmenu .has-submenu:hover .menu-toggle, #adminmenu .menu-open .menu-toggle {
+    background: url("images/arrows.png") no-repeat scroll -2px 6px transparent;
+}
+#adminmenu a.menu-top, .folded #adminmenu li.menu-top, #adminmenu .submenu .submenu-head {
+    border-bottom-color: #DFDFDF;
+    border-top-color: #F9F9F9;
+}
+#adminmenu li.menu-open {
+    border-color: #DFDFDF;
+}
+#adminmenu li.has-current-submenu a.has-current-submenu, #adminmenu li.current a.menu-top, .folded #adminmenu li.has-current-submenu, .folded #adminmenu li.current.menu-top, #adminmenu .menu-arrow, #adminmenu .has-current-submenu .submenu .submenu-head {
+    background-color: #777777;
+    background-image: -moz-linear-gradient(center bottom , #6D6D6D, #808080);
+}
+#adminmenu li.has-current-submenu a.has-current-submenu, #adminmenu li.current a.menu-top, #adminmenu .has-current-submenu .submenu .submenu-head {
+    border-bottom-color: #6D6D6D;
+    border-top-color: #808080;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 #333333;
+}
+.folded #adminmenu li.has-current-submenu, .folded #adminmenu li.current.menu-top {
+    border-bottom-color: #6D6D6D;
+    border-top-color: #808080;
+}
+#adminmenu .submenu a:hover {
+    background-color: #EAF2FA !important;
+    color: #333333 !important;
+}
+#adminmenu .submenu li.current, #adminmenu .submenu li.current a, #adminmenu .submenu li.current a:hover {
+    color: #333333;
+}
+#adminmenu .submenu ul {
+    background-color: #FFFFFF;
+}
+.folded #adminmenu .submenu-wrap, .folded #adminmenu .submenu ul {
+    border-color: #DFDFDF;
+}
+.folded #adminmenu .submenu-wrap {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+#adminmenu .submenu .submenu-head {
+    background-color: #ECECEC;
+    border-right-color: #DFDFDF;
+}
+#adminmenu div.submenu {
+    background-color: transparent;
+}
+#collapse-menu {
+    color: #AAAAAA;
+}
+#collapse-menu:hover {
+    color: #999999;
+}
+#collapse-button {
+    background-color: #F4F4F4;
+    background-image: -moz-linear-gradient(center bottom , #DFDFDF, #FFFFFF);
+    border-color: #CCCCCC;
+}
+#collapse-menu:hover #collapse-button {
+    border-color: #AAAAAA;
+}
+#collapse-button div {
+    background: url("images/arrows.png") no-repeat scroll 0 -72px transparent;
+}
+.folded #collapse-button div {
+    background-position: 0 -108px;
+}
+*/
+
+/*
+#adminmenu .menu-icon-empl div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -60px -33px transparent;
+}
+#adminmenu .menu-icon-empl:hover div.menu-image, #adminmenu .menu-icon-empl.has-current-submenu div.menu-image, #adminmenu .menu-icon-empl.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -60px -1px transparent;
+}*/
+#adminmenu .menu-icon-settings div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -240px -33px transparent;
+}
+#adminmenu .menu-icon-settings:hover div.menu-image, #adminmenu .menu-icon-settings.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -240px -1px transparent;
+}
+#adminmenu .menu-icon-patient div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -300px -33px transparent;
+}
+#adminmenu .menu-icon-patient:hover div.menu-image, #adminmenu .menu-icon-patient.has-current-submenu div.menu-image, #adminmenu .menu-icon-patient.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -300px -1px transparent;
+}
+#adminmenu .menu-icon-news div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -271px -33px transparent;
+}
+#adminmenu .menu-icon-news:hover div.menu-image, #adminmenu .menu-icon-news.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -271px -1px transparent;
+}
+#adminmenu .menu-icon-plan div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -210px -33px transparent;
+}
+#adminmenu .menu-icon-plan:hover div.menu-image, #adminmenu .menu-icon-plan.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -210px -1px transparent;
+}
+#adminmenu .menu-icon-empl div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -331px -33px transparent;
+}
+#adminmenu .menu-icon-empl:hover div.menu-image, #adminmenu .menu-icon-empl.has-current-submenu div.menu-image, #adminmenu .menu-icon-empl.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -330px -1px transparent;
+}
+#adminmenu .menu-icon-extemplates div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -180px -33px transparent;
+}
+#adminmenu .menu-icon-extemplates:hover div.menu-image, #adminmenu .menu-icon-extemplates.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -180px -1px transparent;
+}
+
+
+/*
+#adminmenu .menu-icon-dashboard div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -60px -33px transparent;
+}
+#adminmenu .menu-icon-dashboard:hover div.menu-image, #adminmenu .menu-icon-dashboard.wp-has-current-submenu div.wp-menu-image, #adminmenu .menu-icon-dashboard.current div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -60px -1px transparent;
+}
+#adminmenu .menu-icon-post div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -271px -33px transparent;
+}
+#adminmenu .menu-icon-post:hover div.wp-menu-image, #adminmenu .menu-icon-post.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -271px -1px transparent;
+}
+#adminmenu .menu-icon-media div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -120px -33px transparent;
+}
+#adminmenu .menu-icon-media:hover div.wp-menu-image, #adminmenu .menu-icon-media.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -120px -1px transparent;
+}
+#adminmenu .menu-icon-links div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -90px -33px transparent;
+}
+#adminmenu .menu-icon-links:hover div.wp-menu-image, #adminmenu .menu-icon-links.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -90px -1px transparent;
+}
+#adminmenu .menu-icon-page div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -150px -33px transparent;
+}
+#adminmenu .menu-icon-page:hover div.wp-menu-image, #adminmenu .menu-icon-page.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -150px -1px transparent;
+}
+#adminmenu .menu-icon-comments div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -30px -33px transparent;
+}
+#adminmenu .menu-icon-comments:hover div.wp-menu-image, #adminmenu .menu-icon-comments.wp-has-current-submenu div.wp-menu-image, #adminmenu .menu-icon-comments.current div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -30px -1px transparent;
+}
+#adminmenu .menu-icon-appearance div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll 0 -33px transparent;
+}
+#adminmenu .menu-icon-appearance:hover div.wp-menu-image, #adminmenu .menu-icon-appearance.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll 0 -1px transparent;
+}
+#adminmenu .menu-icon-plugins div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -180px -33px transparent;
+}
+#adminmenu .menu-icon-plugins:hover div.wp-menu-image, #adminmenu .menu-icon-plugins.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -180px -1px transparent;
+}
+#adminmenu .menu-icon-users div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -300px -33px transparent;
+}
+#adminmenu .menu-icon-users:hover div.wp-menu-image, #adminmenu .menu-icon-users.wp-has-current-submenu div.wp-menu-image, #adminmenu .menu-icon-users.current div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -300px -1px transparent;
+}
+#adminmenu .menu-icon-tools div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -210px -33px transparent;
+}
+#adminmenu .menu-icon-tools:hover div.wp-menu-image, #adminmenu .menu-icon-tools.wp-has-current-submenu div.wp-menu-image, #adminmenu .menu-icon-tools.current div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -210px -1px transparent;
+}
+#icon-options-general, #adminmenu .menu-icon-settings div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -240px -33px transparent;
+}
+#adminmenu .menu-icon-settings:hover div.wp-menu-image, #adminmenu .menu-icon-settings.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -240px -1px transparent;
+}
+#adminmenu .menu-icon-site div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -360px -33px transparent;
+}
+#adminmenu .menu-icon-site:hover div.wp-menu-image, #adminmenu .menu-icon-site.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -360px -1px transparent;
+}
+*/
+
+
+a:hover, a:active, a:focus {
+    color: #D54E21;
+}
+#wphead #viewsite a:hover, #adminmenu a:hover, #adminmenu ul.submenu a:hover, #the-comment-list .comment a:hover, #rightnow a:hover, #media-upload a.del-link:hover, div.dashboard-widget-submit input:hover, .subsubsub a:hover, .subsubsub a.current:hover, .ui-tabs-nav a:hover, .plugins .inactive a:hover, #all-plugins-table .plugins .inactive a:hover, #search-plugins-table .plugins .inactive a:hover {
+    color: #D54E21;
+}
+
+a, #adminmenu a, #poststuff #edButtonPreview, #poststuff #edButtonHTML, #the-comment-list p.comment-author strong a, #media-upload a.del-link, #media-items a.delete, .plugins a.delete, .ui-tabs-nav a {
+    color: #21759B;
+}
+#adminmenu .awaiting-mod, #adminmenu .update-plugins, #sidemenu a .update-plugins, #rightnow .reallynow {
+    background-color: #464646;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #FFFFFF;
+}
+#adminmenu li.current a .awaiting-mod, #adminmenu li a.has-current-submenu .update-plugins {
+    background-color: #464646;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #FFFFFF;
+}
+
+#footer {
+    border-color: #DFDFDF;
+    color: #777777;
+}
+
+#user_info a:link, #user_info a:visited, #footer a:link, #footer a:visited {
+    text-decoration: none;
+}
+#footer a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+#adminmenuback, #adminmenuwrap {
+    background-color: #ECECEC;
+    border-color: #CCCCCC;
+}
+#adminmenushadow, #adminmenuback {
+    background-image: url("images/menu-shadow.png");
+    background-position: right top;
+    background-repeat: repeat-y;
+}
+#adminmenu li.menu-separator {
+    background: none repeat scroll 0 0 #DFDFDF;
+    border-color: #CFCFCF;
+}
+#adminmenu div.separator {
+    border-color: #E1E1E1;
+}
+#adminmenu li.has-current-submenu.menu-open .menu-toggle, #adminmenu li.has-current-submenu:hover .menu-toggle {
+    background: url("images/arrows-dark.png") no-repeat scroll -1px 6px transparent;
+}
+#adminmenu .has-submenu:hover .menu-toggle, #adminmenu .menu-open .menu-toggle {
+    background: url("images/arrows.png") no-repeat scroll -2px 6px transparent;
+}
+#adminmenu a.menu-top, .folded #adminmenu li.menu-top, #adminmenu .submenu .submenu-head {
+    border-bottom-color: #DFDFDF;
+    border-top-color: #F9F9F9;
+}
+#adminmenu li.menu-open {
+    border-color: #DFDFDF;
+}
+#adminmenu li.has-current-submenu a.has-current-submenu, #adminmenu li.current a.menu-top, .folded #adminmenu li.has-current-submenu, .folded #adminmenu li.current.menu-top, #adminmenu .menu-arrow, #adminmenu .has-current-submenu .submenu .submenu-head {
+    background-color: #777777;
+    background-image: -moz-linear-gradient(center bottom , #6D6D6D, #808080);
+}
+#adminmenu li.has-current-submenu a.has-current-submenu, #adminmenu li.current a.menu-top, #adminmenu .has-current-submenu .submenu .submenu-head {
+    border-bottom-color: #6D6D6D;
+    border-top-color: #808080;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 #333333;
+}
+.folded #adminmenu li.has-current-submenu, .folded #adminmenu li.current.menu-top {
+    border-bottom-color: #6D6D6D;
+    border-top-color: #808080;
+}
+#adminmenu .submenu a:hover {
+    background-color: #EAF2FA !important;
+    color: #333333 !important;
+}
+#adminmenu .submenu li.current, #adminmenu .submenu li.current a, #adminmenu .submenu li.current a:hover {
+    color: #333333;
+}
+#adminmenu .submenu ul {
+    background-color: #FFFFFF;
+}
+.folded #adminmenu .submenu-wrap, .folded #adminmenu .submenu ul {
+    border-color: #DFDFDF;
+}
+.folded #adminmenu .submenu-wrap {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+#adminmenu .submenu .submenu-head {
+    background-color: #ECECEC;
+    border-right-color: #DFDFDF;
+}
+#adminmenu div.submenu {
+    background-color: transparent;
+}
+#collapse-menu {
+    color: #AAAAAA;
+}
+#collapse-menu:hover {
+    color: #999999;
+}
+#collapse-button {
+    background-color: #F4F4F4;
+    background-image: -moz-linear-gradient(center bottom , #DFDFDF, #FFFFFF);
+    border-color: #CCCCCC;
+}
+#collapse-menu:hover #collapse-button {
+    border-color: #AAAAAA;
+}
+#collapse-button div {
+    background: url("images/arrows.png") no-repeat scroll 0 -72px transparent;
+}
+.folded #collapse-button div {
+    background-position: 0 -108px;
+}
+
+
+.widefat {
+    background-color: #F9F9F9;
+    border-color: #DFDFDF;
+}
+
+.widget .widget-top, .postbox h3, .stuffbox h3, .widefat thead tr th, .widefat tfoot tr th, h3.dashboard-widget-title, h3.dashboard-widget-title span, h3.dashboard-widget-title small, .find-box-head, .sidebar-name, #nav-menu-header, #nav-menu-footer, .menu-item-handle, #fullscreen-topbar {
+    background-color: #F1F1F1;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #ECECEC);
+}
+
+/*
+#adminmenu .menu-icon-dashboard div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -60px -33px transparent;
+}
+#adminmenu .menu-icon-dashboard:hover div.menu-image, #adminmenu .menu-icon-dashboard.has-current-submenu div.menu-image, #adminmenu .menu-icon-dashboard.current div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -60px -1px transparent;
+}
+#adminmenu .menu-icon-post div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -271px -33px transparent;
+}
+#adminmenu .menu-icon-post:hover div.menu-image, #adminmenu .menu-icon-post.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -271px -1px transparent;
+}
+#adminmenu .menu-icon-media div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -120px -33px transparent;
+}
+#adminmenu .menu-icon-media:hover div.menu-image, #adminmenu .menu-icon-media.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -120px -1px transparent;
+}
+#adminmenu .menu-icon-links div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -90px -33px transparent;
+}
+#adminmenu .menu-icon-links:hover div.menu-image, #adminmenu .menu-icon-links.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -90px -1px transparent;
+}
+#adminmenu .menu-icon-page div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -150px -33px transparent;
+}
+#adminmenu .menu-icon-page:hover div.menu-image, #adminmenu .menu-icon-page.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -150px -1px transparent;
+}
+#adminmenu .menu-icon-comments div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -30px -33px transparent;
+}
+#adminmenu .menu-icon-comments:hover div.menu-image, #adminmenu .menu-icon-comments.has-current-submenu div.menu-image, #adminmenu .menu-icon-comments.current div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -30px -1px transparent;
+}
+#adminmenu .menu-icon-appearance div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll 0 -33px transparent;
+}
+#adminmenu .menu-icon-appearance:hover div.menu-image, #adminmenu .menu-icon-appearance.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll 0 -1px transparent;
+}
+#adminmenu .menu-icon-plugins div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -180px -33px transparent;
+}
+#adminmenu .menu-icon-plugins:hover div.menu-image, #adminmenu .menu-icon-plugins.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -180px -1px transparent;
+}
+#adminmenu .menu-icon-users div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -300px -33px transparent;
+}
+#adminmenu .menu-icon-users:hover div.menu-image, #adminmenu .menu-icon-users.has-current-submenu div.menu-image, #adminmenu .menu-icon-users.current div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -300px -1px transparent;
+}
+#adminmenu .menu-icon-tools div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -210px -33px transparent;
+}
+#adminmenu .menu-icon-tools:hover div.menu-image, #adminmenu .menu-icon-tools.has-current-submenu div.menu-image, #adminmenu .menu-icon-tools.current div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -210px -1px transparent;
+}
+#icon-options-general, #adminmenu .menu-icon-settings div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -240px -33px transparent;
+}
+#adminmenu .menu-icon-settings:hover div.menu-image, #adminmenu .menu-icon-settings.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -240px -1px transparent;
+}
+#adminmenu .menu-icon-site div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -360px -33px transparent;
+}
+#adminmenu .menu-icon-site:hover div.menu-image, #adminmenu .menu-icon-site.has-current-submenu div.menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll -360px -1px transparent;
+}
+#icon-edit, #icon-post {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -552px -5px transparent;
+}
+#icon-index {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -137px -5px transparent;
+}
+#icon-upload {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -251px -5px transparent;
+}
+#icon-link-manager, #icon-link, #icon-link-category {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -190px -5px transparent;
+}
+#icon-edit-pages, #icon-page {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -312px -5px transparent;
+}
+#icon-edit-comments {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -72px -5px transparent;
+}
+#icon-themes {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -11px -5px transparent;
+}
+#icon-plugins {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -370px -5px transparent;
+}
+#icon-users, #icon-profile, #icon-user-edit {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -600px -5px transparent;
+}
+#icon-tools, #icon-admin {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -432px -5px transparent;
+}
+#icon-options-general {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -492px -5px transparent;
+}
+#icon-ms-admin {
+    background: url("../images/icons32.png?ver=20100531") no-repeat scroll -659px -5px transparent;
+}
+
+*/

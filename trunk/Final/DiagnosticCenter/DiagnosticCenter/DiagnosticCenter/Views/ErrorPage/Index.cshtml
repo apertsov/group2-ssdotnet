@@ -1,0 +1,10 @@
+﻿@model DiagnosticCenter.Models.ErrorPageVM
+@{
+    ViewBag.Title = ViewRes.ErrorPageStrings.Error;
+}
+<h2>@ViewRes.ErrorPageStrings.Error !!</h2>
+
+<p>@Model.errTitle</p>
+<p>@Model.errDescription</p>
+
+@Html.ActionLink(ViewRes.ErrorPageStrings.GoBack, Model.errGoBackAction, Model.errGoBackController)

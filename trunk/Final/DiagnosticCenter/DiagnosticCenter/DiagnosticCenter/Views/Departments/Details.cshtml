@@ -1,0 +1,21 @@
+﻿@model DiagnosticCenter.Models.Department
+
+@{
+    ViewBag.Title = "Інформація";
+}
+
+<h2>Інформація</h2>
+
+<fieldset>
+    <legend>Відділення "@Model.Name" </legend>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.ID_Dept }) |
+    @Html.ActionLink("Видалити", "Delete", new { id = Model.ID_Dept })
+</p>
+<p>
+    @Html.ActionLink("Список відділень", "Index")
+</p>

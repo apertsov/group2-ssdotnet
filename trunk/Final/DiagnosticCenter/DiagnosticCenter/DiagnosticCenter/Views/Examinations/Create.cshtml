@@ -1,0 +1,156 @@
+﻿@model DiagnosticCenter.Models.Examination
+
+@{        
+    System.Collections.Generic.IEnumerable<System.Web.Mvc.SelectListItem> templItems = @ViewBag.Templ;
+    DiagnosticCenter.Models.Patient patient = ViewBag.Patient;
+    DiagnosticCenter.Models.Employee employee = ViewBag.Employee;
+    string fullName = patient.Surname + " " + patient.FirstName + " " + patient.Patronymic;
+    ViewBag.Title = fullName + " - "+  @ExaminationRes.ExaminationStrings.ExaminationCreation;        
+}
+
+<div id="icon-extempl-general" class="icon32"><br /></div><h2>@fullName - @ExaminationRes.ExaminationStrings.ExaminationCreation</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#protTempl").change(function () {
+            var url = '@Url.Content("~/")' + "ExaminationTemplates/GetTemplate";
+            var ddlsource = "#protTempl";
+            var ddltarget = "#Protocol";
+            $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+                $(ddltarget).empty();
+                $(ddltarget).html(data);
+            });
+        });
+
+        $("#conclTempl").change(function () {
+            var url = '@Url.Content("~/")' + "ExaminationTemplates/GetTemplate";
+            var ddlsource = "#conclTempl";
+            var ddltarget = "#Conclusion";
+            $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+                $(ddltarget).empty();
+                $(ddltarget).html(data);
+            });
+        });
+
+        $("#recomTempl").change(function () {
+            var url = '@Url.Content("~/")' + "ExaminationTemplates/GetTemplate";
+            var ddlsource = "#recomTempl";
+            var ddltarget = "#Recommendation";
+            $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+                $(ddltarget).empty();
+                $(ddltarget).html(data);
+            });
+        });
+
+        $("#consTempl").change(function () {
+            var url = '@Url.Content("~/")' + "ExaminationTemplates/GetTemplate";
+            var ddlsource = "#consTempl";
+            var ddltarget = "#Consultation";
+            $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+                $(ddltarget).empty();
+                $(ddltarget).html(data);
+            });
+        });
+        
+    });
+  </script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)    
+
+        <div class="editor-label">
+            @Html.Label(ExaminationRes.ExaminationStrings.ExaminationType2)
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.ID_ExmType)*@
+            @Html.DropDownList("ID_ExmType", String.Empty)
+            @Html.ValidationMessageFor(model => model.ID_ExmType)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label(ExaminationRes.ExaminationStrings.Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label(ExaminationRes.ExaminationStrings.Doctor)
+        </div>
+        <div class="editor-field">
+            @*@Html.HiddenFor(model => model.ID_Employee)*@
+            @employee.Surname @employee.FirstName @employee.Patronymic
+            @*@Html.DropDownList("ID_Employee", String.Empty)*@
+            @Html.ValidationMessageFor(model => model.ID_Employee)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ID_Patient, ExaminationRes.ExaminationStrings.Patient)
+        </div>
+        <div class="editor-field">
+            @Html.Hidden("patientID", patient.ID_Patient)
+            @patient.FirstName @patient.Surname @patient.Patronymic
+            @*@Html.DropDownList("ID_Patient", String.Empty)*@
+            @Html.ValidationMessageFor(model => model.ID_Patient)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status, ExaminationRes.ExaminationStrings.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Protocol, ExaminationRes.ExaminationStrings.Protocol)
+        </div>
+        <div class="editor-field">            
+            @Html.DropDownList("protTempl", templItems, ExaminationRes.ExaminationStrings.TemplCh)
+            <br />
+            @Html.TextAreaFor(model => model.Protocol, new { cols=80, rows=15 })
+            @Html.ValidationMessageFor(model => model.Protocol)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Conclusion, ExaminationRes.ExaminationStrings.Conclusion)
+        </div>
+        <div class="editor-field">            
+            @Html.DropDownList("conclTempl", templItems, ExaminationRes.ExaminationStrings.TemplCh)
+            <br />
+            @Html.TextAreaFor(model => model.Conclusion, new { cols = 80, rows = 15 })
+            @Html.ValidationMessageFor(model => model.Conclusion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Recommendation, ExaminationRes.ExaminationStrings.Recommendation)
+        </div>
+        <div class="editor-field">           
+            @Html.DropDownList("recomTempl", templItems, ExaminationRes.ExaminationStrings.TemplCh)
+            <br />
+            @Html.TextAreaFor(model => model.Recommendation, new { cols = 80, rows = 10 })
+            @Html.ValidationMessageFor(model => model.Recommendation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Consultation, ExaminationRes.ExaminationStrings.Consultation)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("consTempl", templItems, ExaminationRes.ExaminationStrings.TemplCh)
+            <br />
+            @Html.TextAreaFor(model => model.Consultation, new { cols = 80, rows = 10 })
+            @Html.ValidationMessageFor(model => model.Consultation)
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="@ExaminationRes.ExaminationStrings._Create" class="yt-uix-button"/>
+        </p>
+
+}
+
+<div>
+    @Html.ActionLink(@ExaminationRes.ExaminationStrings.Back, "Index")
+</div>

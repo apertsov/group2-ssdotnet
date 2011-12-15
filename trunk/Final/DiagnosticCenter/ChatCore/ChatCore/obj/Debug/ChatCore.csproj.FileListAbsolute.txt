@@ -1,0 +1,6 @@
+C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\bin\Debug\ChatCore.dll.config
+C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\bin\Debug\ChatCore.dll
+C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\bin\Debug\ChatCore.pdb
+C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\obj\Debug\ChatCore.dll
+C:\Users\Я\Desktop\SHIIIITTT\ChatCore\ChatCore\obj\Debug\ChatCore.pdb

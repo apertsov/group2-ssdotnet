@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.Department>
+
+@{
+    ViewBag.Title = DepartmentsRes.DepartmentsStrings.DepartmentsList;
+    
+    ViewBag.Controller = "Departments";
+    ViewBag.Action = "Departments.Index";
+}
+
+<h2>@DepartmentsRes.DepartmentsStrings.DepartmentsList</h2>
+
+<table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "Details", new { id = item.ID_Dept })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,78 @@
+﻿@model DiagnosticCenter.Models.Patient
+@{
+    ViewBag.Title = "Patients";
+    ViewBag.Controller = "Patients";
+    ViewBag.Action = "Patients.Details";
+}
+
+<table>
+    <tr>
+        <th>
+            @PatientsRes.PatientsStrings.Surname
+        </th>
+        <th>
+            @PatientsRes.PatientsStrings.Name
+        </th>
+        <th>
+            @PatientsRes.PatientsStrings.Patronymic
+        </th>
+        <th>
+            @PatientsRes.PatientsStrings.Profession
+        </th>
+        <th>
+            @PatientsRes.PatientsStrings.Sex
+
+        </th>
+        <th>
+            @PatientsRes.PatientsStrings.BirthDate
+        </th>
+        <th>
+            @PatientsRes.PatientsStrings.Employed
+        </th>
+        <th>
+           @PatientsRes.PatientsStrings.CivilServant
+        </th>
+</tr>
+   <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Patronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Specialty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Sex)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => Model.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Workplace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Civil_Servant)
+        </td>
+      </tr>  
+     <tr>
+        <td colspan="4">
+            <br />
+            <p><b>@PatientsRes.PatientsStrings.City</b>&nbsp;@Html.DisplayFor(modelItem => Model.City)</p>
+            <p><b>@PatientsRes.PatientsStrings.Address</b>&nbsp;@Html.DisplayFor(modelItem => Model.Address)</p>
+            <p><b>@PatientsRes.PatientsStrings.Email</b>&nbsp;@Html.DisplayFor(modelItem => Model.Email)</p>
+            <p><b>@PatientsRes.PatientsStrings.Phone</b>&nbsp;@Html.DisplayFor(modelItem => Model.Phone)</p>
+        </td>
+       
+    <td colspan="4" align = "center">
+      @Html.DisplayFor(modelItem => Model.Comment)
+    </td>
+    </tr>
+
+
+</table>

@@ -1,0 +1,9 @@
+D:\DotNETcourse\Project\DiagnosticCenter\ChatTest\ChatTest\obj\x86\Debug\ChatTest.exe
+D:\DotNETcourse\Project\DiagnosticCenter\ChatTest\ChatTest\obj\x86\Debug\ChatTest.pdb
+D:\DotNETcourse\Project\DiagnosticCenter\ChatServer\ChatTest\bin\Debug\ChatServer.exe
+D:\DotNETcourse\Project\DiagnosticCenter\ChatServer\ChatTest\bin\Debug\ChatServer.pdb
+D:\DotNETcourse\Project\DiagnosticCenter\ChatServer\ChatTest\bin\Debug\ChatCore.dll
+D:\DotNETcourse\Project\DiagnosticCenter\ChatServer\ChatTest\bin\Debug\ChatCore.pdb
+D:\DotNETcourse\Project\DiagnosticCenter\ChatServer\ChatTest\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\DotNETcourse\Project\DiagnosticCenter\ChatServer\ChatTest\obj\x86\Debug\ChatServer.exe
+D:\DotNETcourse\Project\DiagnosticCenter\ChatServer\ChatTest\obj\x86\Debug\ChatServer.pdb
