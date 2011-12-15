@@ -73,6 +73,14 @@ namespace DiagnosticCenter.Controllers
             //        errGoBackController = "Plan"
             //    });
             //}
+            if (context.Employees.Where(e => e.ID_User == idUser).Count() == 0) 
+                return RedirectToAction("Index", "ErrorPage", new
+                    {
+                        errTitle = ViewRes.PlanStrings.Error1Text,
+                        errDescription = ViewRes.PlanStrings.Error1Recomendation,
+                        errGoBackAction = "Index",
+                        errGoBackController = "Plan"
+                    });
             int depId = context.Employees.Where(e => e.ID_User == idUser).FirstOrDefault().ID_Dept;
 
             //Передаємо назву відділення
