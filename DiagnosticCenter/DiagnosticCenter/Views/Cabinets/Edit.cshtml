@@ -37,7 +37,13 @@
             @Html.EditorFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)
         </div>
-
+        <div class="editor-label">
+            @ViewRes.CabinetsStrings.Department:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Dept",ViewRes.CabinetsStrings.ChooseDepartment)
+           
+        </div>
         <p>
             <input type="submit" value="@ViewRes.CabinetsStrings.SaveChanges" />
         </p>
