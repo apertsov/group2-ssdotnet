@@ -7,39 +7,123 @@
            xmlns:dataForm="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="640" d:DesignHeight="480" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:DCExternalSite.Web.Models">
+           d:DesignWidth="800" d:DesignHeight="600" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:DCExternalSite.Web.Models">
     <sdk:Page.Resources>
         <CollectionViewSource x:Key="patientExaminationsViewSource" Source="{Binding Path=Data.Examinations, ElementName=patientDomainDataSource}" />
     </sdk:Page.Resources>
     <Grid x:Name="LayoutRoot">
-        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" >
-            <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">                
+        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" Grid.ColumnSpan="3">
+            <StackPanel x:Name="ContentStackPanel">
                 <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" 
-                           Text="{Binding Path=ApplicationStrings.PatientPageTitle, Source={StaticResource ResourceWrapper}}"/>                 
+                           Text="{Binding Path=ApplicationStrings.PatientPageTitle, Source={StaticResource ResourceWrapper}}" Margin="0,15" />
                 <my1:BusyIndicator IsBusy="{Binding ElementName=examinationDataSource, Path=IsBusy}" BusyContent="Дані завантажуються..." />
-                <Grid Height="80" Name="grid1" Width="600" HorizontalAlignment="Left">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />                       
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="0.05*" />
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.25*" />
                     </Grid.RowDefinitions>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock  Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.FirstName, Mode=TwoWay, ElementName=patientDomainDataSource}"  />
-                        <TextBlock  Text="  " />
-                        <TextBlock  Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Surname, Mode=TwoWay, ElementName=patientDomainDataSource}"  />
-                    </StackPanel>
-                    <TextBlock Margin="0,0,0,5" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.City, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Column="2" />
-                    <TextBlock Margin="0,0,0,6" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Address, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Column="2" Grid.Row="1" />
-                    <TextBlock Margin="0,0,0,24" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.BirthDate, Mode=TwoWay, ElementName=patientDomainDataSource, StringFormat='dd.MM.yyyy'}" Grid.Row="1" Grid.RowSpan="2" DataContext="{Binding}" />
-                    <TextBlock Margin="0,0,0,6" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Phone, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Column="1" Grid.RowSpan="2" />
-                    <TextBlock Margin="0,0,0,12" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Email, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
-                </Grid>                
-                <TextBlock Text="Дані обстежень:" Style="{StaticResource HeaderTextStyle}"/>
-                
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.05*" MinWidth="5" />
+                        <ColumnDefinition Width="0.5*" MinWidth="150" />
+                        <ColumnDefinition Width="0.05*" MinWidth="10" />
+                        <ColumnDefinition Width="0.35*" MinWidth="100" />
+                        <ColumnDefinition Width="0.05*" MinWidth="5" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Margin="0,0,0,153" Grid.Column="1">
+                        <TextBlock Text="Дані обстежень:" Style="{StaticResource HeaderTextStyle}" Grid.Column="1" Grid.ColumnSpan="2" />
+                        <sdk:DataGrid Name="dataGrid1" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=examinationDataSource, Path=Data}" RowDetailsVisibilityMode="VisibleWhenSelected" Background="#78FFFFFF" HorizontalAlignment="Stretch" MinHeight="120" Grid.Column="1" Grid.ColumnSpan="2">
+                            <sdk:DataGrid.Columns>
+                                <sdk:DataGridTextColumn x:Name="startTimeColumn" Binding="{Binding Path=StartTime, StringFormat='dd.MM.yyyy'}" Header="Дата" />
+                                <sdk:DataGridTextColumn x:Name="ExaminationTypeName" Binding="{Binding Path=ExaminationType.Name}" Header="Тип обстеження" />
+                                <sdk:DataGridTextColumn x:Name="conclusionColumn" Binding="{Binding Path=Conclusion}" Header="Заключення" />
+                                <sdk:DataGridTextColumn x:Name="ExaminationTypePrice" Binding="{Binding Path=ExaminationType.Price, StringFormat='# ###.00 ₴'}" Header="Вартість">
+                                    <sdk:DataGridTextColumn.CellStyle>
+                                        <Style TargetType="sdk:DataGridCell">
+                                            <Style.Setters>
+                                                <Setter Property="HorizontalAlignment" Value="Right" />
+                                            </Style.Setters>
+                                        </Style>
+                                    </sdk:DataGridTextColumn.CellStyle>
+                                </sdk:DataGridTextColumn>
+                            </sdk:DataGrid.Columns>
+                        </sdk:DataGrid>                    
+                        <sdk:DataPager PageSize="5" Source="{Binding Data, ElementName=examinationDataSource}" HorizontalAlignment="Center" Background="#7CF2F3F4" Grid.Column="1" Grid.ColumnSpan="2" />
+                      </StackPanel>
+                    <dataForm:DataForm x:Name="dataForm1" AutoGenerateFields="False" HorizontalAlignment="Stretch" AutoEdit="True" AutoCommit="False" CurrentItem="{Binding SelectedItem, ElementName=dataGrid1}"  IsReadOnly="True" Grid.Column="3" Grid.RowSpan="3">
+                        <dataForm:DataForm.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#FFF3F7FA" Offset="0" />
+                                <GradientStop Color="#76FFFFFF" Offset="0.1" />
+                            </LinearGradientBrush>
+                        </dataForm:DataForm.Background>
+                        <dataForm:DataForm.EditTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <dataForm:DataField Label="{Binding ExaminationType.Name}" FontWeight="Bold">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Visibility="Collapsed">
+                                            <TextBlock Name="ExaminationTypeNameTextBlock" Text="{Binding ExaminationType.Name}" />
+                                            <TextBlock Name="ExaminationTypePriceTextBlock" Text="{Binding ExaminationType.Price}" />
+                                        </StackPanel>
+                                    </dataForm:DataField>
+                                    <dataForm:DataField Label="Консультація:">
+                                        <TextBox Name="ConsultationTextBox" Text="{Binding Consultation}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+                                    </dataForm:DataField>
+                                    <dataForm:DataField Label="Рекомендації:">
+                                        <TextBox Name="RecommendationTextBox" Text="{Binding Recommendation}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+                                    </dataForm:DataField>
+                                    <dataForm:DataField Label="Заключення:">
+                                        <TextBox Name="ConclusionTextBox" Text="{Binding Conclusion}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+                                    </dataForm:DataField>
+                                    <dataForm:DataField Label="Протокол:">
+                                        <TextBox Name="ProtocolTextBox" Text="{Binding Protocol}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
+                                    </dataForm:DataField>
+                                    <dataForm:DataField Name="StartTimeDataField" Label="{Binding Mode=OneWay, Path=StartTime, StringFormat='dd.MM.yyyy h:mm'}">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <TextBlock Name="StartTimeTextBlock" Text="{Binding StartTime, StringFormat='dd.MM.yyyy h:mm'}" Visibility="Collapsed" />
+                                            <TextBlock Name="EmployeeFirstNameTextBlock" Text="{Binding Employee.FirstName}" />
+                                            <TextBlock Text="  " />
+                                            <TextBlock Name="EmployeeSurnameTextBlock" Text="{Binding Employee.Surname}" />
+                                        </StackPanel>
+                                    </dataForm:DataField>
+                                    <dataForm:DataField Label="">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                            <TextBlock Name="EmployeeSpecialtyTextBlock" Text="{Binding Employee.Specialty}" />
+                                            <TextBlock Text=", категорія " />
+                                            <TextBlock Name="EmployeeCategoryTextBlock" Text="{Binding Employee.Category}" />
+                                        </StackPanel>
+                                    </dataForm:DataField>
+                                </StackPanel>
+                            </DataTemplate>
+                        </dataForm:DataForm.EditTemplate>
+                    </dataForm:DataForm>
+                    <Image Name="imagePrint" Source="/DCExternalSite;component/Img/print_icon_128.png" Height="30" Width="30" MouseLeftButtonUp="imagePrint_MouseLeftButtonUp" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                    <Grid Name="grid1" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.42*" />
+                            <ColumnDefinition Width="0.06*" />
+                            <ColumnDefinition Width="0.42*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.3*" />
+                            <RowDefinition Height="0.05*" />
+                            <RowDefinition Height="0.3*" />
+                            <RowDefinition Height="0.05*" />
+                            <RowDefinition Height="0.3*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="FirstNameTextBlock" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.FirstName, Mode=TwoWay, ElementName=patientDomainDataSource}" />
+                            <TextBlock Text="  " />
+                            <TextBlock Name="SurnameTextBlock" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Surname, Mode=TwoWay, ElementName=patientDomainDataSource}" />
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.City, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Row="4" HorizontalAlignment="Stretch" />
+                        <TextBlock Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Address, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Stretch" />
+                        <TextBlock Name="BirthDateTextBlock" Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.BirthDate, Mode=TwoWay, ElementName=patientDomainDataSource, StringFormat='dd.MM.yyyy'}" DataContext="{Binding}" Grid.Column="2" HorizontalAlignment="Stretch" />
+                        <TextBlock Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Phone, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Row="2" HorizontalAlignment="Stretch" />
+                        <TextBlock Style="{StaticResource ContentTextStyle}" Text="{Binding Path=Data.Email, Mode=TwoWay, ElementName=patientDomainDataSource}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" />
+                    </Grid>
+                </Grid>
                 <riaControls:DomainDataSource Name="patientDomainDataSource" QueryName="GetPatientById" d:DesignData="{d:DesignInstance my:Patient, CreateList=true}"
                  LoadedData="patientDomainDataSource_LoadedData" DataContext="{Binding}" AutoLoad="True" Height="0">
                     <riaControls:DomainDataSource.DomainContext>
@@ -64,66 +148,6 @@
                         Value="{Binding User.ID, Source={StaticResource WebContext}}" />
                         </riaControls:DomainDataSource.QueryParameters>
                 </riaControls:DomainDataSource>
-                <sdk:DataGrid Name="dataGrid1" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding ElementName=examinationDataSource, Path=Data}" RowDetailsVisibilityMode="VisibleWhenSelected" Background="#78FFFFFF" HorizontalAlignment="Left" MinHeight="100">
-                    <sdk:DataGrid.Columns>
-                        <sdk:DataGridTextColumn x:Name="startTimeColumn" Binding="{Binding Path=StartTime, StringFormat='dd.MM.yyyy'}" Header="Дата"  />
-                        <sdk:DataGridTextColumn x:Name="ExaminationTypeName" Binding="{Binding Path=ExaminationType.Name}" Header="Тип обстеження"  />
-                        <sdk:DataGridTextColumn x:Name="conclusionColumn" Binding="{Binding Path=Conclusion}" Header="Заключення" />
-                        <sdk:DataGridTextColumn x:Name="ExaminationTypePrice" Binding="{Binding Path=ExaminationType.Price, StringFormat='# ###.00 ₴'}" Header="Вартість" >
-                            <sdk:DataGridTextColumn.CellStyle>
-                                <Style TargetType="sdk:DataGridCell">
-                                    <Style.Setters>
-                                        <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    </Style.Setters>
-                                </Style>
-                            </sdk:DataGridTextColumn.CellStyle>
-                        </sdk:DataGridTextColumn>                       
-                    </sdk:DataGrid.Columns>
-                </sdk:DataGrid>
-                <sdk:DataPager PageSize="5" Source="{Binding Data, ElementName=examinationDataSource}" HorizontalAlignment="Left" Background="#7CF2F3F4" />
-                <dataForm:DataForm x:Name="dataForm1" AutoGenerateFields="False" HorizontalAlignment="Left"
-                    AutoEdit="True" AutoCommit="False" Width="600" 
-                    CurrentItem="{Binding SelectedItem, ElementName=dataGrid1}" Margin="0,12,0,0" IsReadOnly="True" >
-                    <dataForm:DataForm.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#FFF3F7FA" Offset="0" />
-                            <GradientStop Color="#76FFFFFF" Offset="0.1" />
-                        </LinearGradientBrush>
-                    </dataForm:DataForm.Background>
-                    <dataForm:DataForm.EditTemplate>
-                        <DataTemplate>
-                            <StackPanel>                                
-                                <dataForm:DataField Label="{Binding ExaminationType.Name}" FontWeight="Bold" />     
-                                <dataForm:DataField Label="Консультація:">
-                                    <TextBox Text="{Binding Consultation}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
-                                </dataForm:DataField>                                
-                                <dataForm:DataField Label="Рекомендації:">
-                                    <TextBox Text="{Binding Recommendation}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
-                                </dataForm:DataField>
-                                <dataForm:DataField Label="Заключення:">
-                                    <TextBox Text="{Binding Conclusion}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
-                                </dataForm:DataField>
-                                <dataForm:DataField Label="Протокол:">
-                                    <TextBox Text="{Binding Protocol}" Height="96" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
-                                </dataForm:DataField>
-                                <dataForm:DataField Label="{Binding Mode=OneWay, Path=StartTime, StringFormat='dd.MM.yyyy h:mm'}">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                                        <TextBlock  Text="{Binding Employee.FirstName}" />
-                                        <TextBlock  Text="  " />
-                                        <TextBlock  Text="{Binding Employee.Surname}" />
-                                    </StackPanel>
-                                </dataForm:DataField>
-                                <dataForm:DataField Label="">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">                                        
-                                        <TextBlock  Text="{Binding Employee.Specialty}" />
-                                        <TextBlock  Text=", категорія " />
-                                        <TextBlock  Text="{Binding Employee.Category}" />
-                                    </StackPanel>
-                                </dataForm:DataField>                                
-                            </StackPanel>
-                        </DataTemplate>
-                    </dataForm:DataForm.EditTemplate>
-                </dataForm:DataForm>                               
             </StackPanel>
         </ScrollViewer>
     </Grid>
