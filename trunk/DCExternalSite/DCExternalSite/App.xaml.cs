@@ -14,6 +14,180 @@
     {
         private BusyIndicator busyIndicator;
 
+        //for Passing Values between Pages
+       
+        private string firstName;
+        private string surname;
+        private string birthDate;        
+        private string consultation;
+        private string recommendation;
+        private string conclusion;
+        private string protocol;
+        private string startTime;
+        private string examinationTypeName;
+        private string examinationTypePrice;
+        private string employeeFirstName;
+        private string employeeSurname;        
+        private string employeeSpecialty;
+        private string employeeCategory;
+        
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                firstName = value;
+            }
+        }
+        public string Surname
+        {
+            get
+            {
+                return surname;
+            }
+            set
+            {
+                surname = value;
+            }
+        }
+        public string BirthDate
+        {
+            get
+            {
+                return birthDate;
+            }
+            set
+            {
+                birthDate = value;
+            }
+        }        
+        public string Consultation
+        {
+            get
+            {
+                return consultation;
+            }
+            set
+            {
+                consultation = value;
+            }
+        }
+        public string Recommendation
+        {
+            get
+            {
+                return recommendation;
+            }
+            set
+            {
+                recommendation = value;
+            }
+        }
+        public string Conclusion
+        {
+            get
+            {
+                return conclusion;
+            }
+            set
+            {
+                conclusion = value;
+            }
+        }
+        public string Protocol
+        {
+            get
+            {
+                return protocol;
+            }
+            set
+            {
+                protocol = value;
+            }
+        }
+        public string StartTime
+        {
+            get
+            {
+                return startTime;
+            }
+            set
+            {
+                startTime = value;
+            }
+        }
+        public string ExaminationTypeName
+        {
+            get
+            {
+                return examinationTypeName;
+            }
+            set
+            {
+                examinationTypeName = value;
+            }
+        }
+        public string ExaminationTypePrice
+        {
+            get
+            {
+                return examinationTypePrice;
+            }
+            set
+            {
+                examinationTypePrice = value;
+            }
+        }
+        public string EmployeeFirstName
+        {
+            get
+            {
+                return employeeFirstName;
+            }
+            set
+            {
+                employeeFirstName = value;
+            }
+        }
+        public string EmployeeSurname
+        {
+            get
+            {
+                return employeeSurname;
+            }
+            set
+            {
+                employeeSurname = value;
+            }
+        }
+        public string EmployeeSpecialty
+        {
+            get
+            {
+                return employeeSpecialty;
+            }
+            set
+            {
+                employeeSpecialty = value;
+            }
+        }
+        public string EmployeeCategory
+        {
+            get
+            {
+                return employeeCategory;
+            }
+            set
+            {
+                employeeCategory = value;
+            }
+        }
+
+        //
+        
         /// <summary>
         /// Creates a new <see cref="App"/> instance.
         /// </summary>
@@ -41,6 +215,9 @@
 
             // Show some UI to the user while LoadUser is in progress
             this.InitializeRootVisual();
+
+            //for Passing Values between Pages
+            //this.RootVisual = new Home();
         }
 
         /// <summary>

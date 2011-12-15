@@ -90,6 +90,7 @@ namespace DCExternalSite.Web
     using System.ServiceModel.DomainServices.Client;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
     using System.ServiceModel.Web;
+    using DCExternalSite.Web.Resources;
     
     
     /// <summary>
@@ -358,14 +359,9 @@ namespace DCExternalSite.Web
         /// <summary>
         /// Gets or sets the 'Answer' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Name="SecurityAnswerLabel", Order=6, ResourceType=typeof(DCExternalSite.Web.Resources.RegistrationDataResources))]
+        [Display(Name="SecurityAnswerLabel", Order=6, ResourceType=typeof(RegistrationDataResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         public string Answer
         {
             get
@@ -389,20 +385,13 @@ namespace DCExternalSite.Web
         /// <summary>
         /// Gets or sets the 'Email' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references a property 'ValidationErrorInvalidEmail' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [RegularExpressionAttribute("^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessageResourceName = "ValidationErrorInvalidEmail", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Name="EmailLabel", Order=2, ResourceType=typeof(DCExternalSite.Web.Resources.RegistrationDataResources))]
+        [Display(Name="EmailLabel", Order=2, ResourceType=typeof(RegistrationDataResources))]
         [Editable(false, AllowInitialValue=true)]
         [Key()]
+        [RegularExpression("^([\\w-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([\\w-]+\\.)+))([a-zA-Z]{2,4" +
+            "}|[0-9]{1,3})(\\]?)$", ErrorMessageResourceName="ValidationErrorInvalidEmail", ErrorMessageResourceType=typeof(ValidationErrorResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         [RoundtripOriginal()]
         public string Email
         {
@@ -426,14 +415,9 @@ namespace DCExternalSite.Web
         /// <summary>
         /// Gets or sets the 'FriendlyName' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references a property 'ValidationErrorBadFriendlyNameLength' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [StringLengthAttribute(255, ErrorMessageResourceName = "ValidationErrorBadFriendlyNameLength", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Description="FriendlyNameDescription", Name="FriendlyNameLabel", Order=1, ResourceType=typeof(DCExternalSite.Web.Resources.RegistrationDataResources))]
+        [Display(Description="FriendlyNameDescription", Name="FriendlyNameLabel", Order=1, ResourceType=typeof(RegistrationDataResources))]
+        [StringLength(255, ErrorMessageResourceName="ValidationErrorBadFriendlyNameLength", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         public string FriendlyName
         {
             get
@@ -457,14 +441,9 @@ namespace DCExternalSite.Web
         /// <summary>
         /// Gets or sets the 'Question' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Name="SecurityQuestionLabel", Order=5, ResourceType=typeof(DCExternalSite.Web.Resources.RegistrationDataResources))]
+        [Display(Name="SecurityQuestionLabel", Order=5, ResourceType=typeof(RegistrationDataResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         public string Question
         {
             get
@@ -488,25 +467,14 @@ namespace DCExternalSite.Web
         /// <summary>
         /// Gets or sets the 'UserName' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references a property 'ValidationErrorInvalidUserName' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [RegularExpressionAttribute("^[a-zA-Z0-9_]*$", ErrorMessageResourceName = "ValidationErrorInvalidUserName", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references a property 'ValidationErrorBadUserNameLength' on type 'DCExternalSite.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'DCExternalSite.csproj'.
-        // [StringLengthAttribute(255, ErrorMessageResourceName = "ValidationErrorBadUserNameLength", ErrorMessageResourceType = typeof(DCExternalSite.Web.Resources.ValidationErrorResources), MinimumLength = 4)]
-        // 
         [DataMember()]
-        [Display(Name="UserNameLabel", Order=0, ResourceType=typeof(DCExternalSite.Web.Resources.RegistrationDataResources))]
+        [Display(Name="UserNameLabel", Order=0, ResourceType=typeof(RegistrationDataResources))]
         [Editable(false, AllowInitialValue=true)]
         [Key()]
+        [RegularExpression("^[a-zA-Z0-9_]*$", ErrorMessageResourceName="ValidationErrorInvalidUserName", ErrorMessageResourceType=typeof(ValidationErrorResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         [RoundtripOriginal()]
+        [StringLength(255, ErrorMessageResourceName="ValidationErrorBadUserNameLength", ErrorMessageResourceType=typeof(ValidationErrorResources), MinimumLength=4)]
         public string UserName
         {
             get
@@ -548,8 +516,6 @@ namespace DCExternalSite.Web
     public sealed partial class User : Entity, global::System.Security.Principal.IIdentity, global::System.Security.Principal.IPrincipal
     {
         
-        private string _displayName;
-        
         private string _friendlyName;
         
         private int _id;
@@ -565,8 +531,6 @@ namespace DCExternalSite.Web
         /// can be used for further object setup.
         /// </summary>
         partial void OnCreated();
-        partial void OnDisplayNameChanging(string value);
-        partial void OnDisplayNameChanged();
         partial void OnFriendlyNameChanging(string value);
         partial void OnFriendlyNameChanged();
         partial void OnIDChanging(int value);
@@ -585,31 +549,6 @@ namespace DCExternalSite.Web
         public User()
         {
             this.OnCreated();
-        }
-        
-        /// <summary>
-        /// Gets or sets the 'DisplayName' value.
-        /// </summary>
-        [DataMember()]
-        [Editable(false)]
-        [ReadOnly(true)]
-        public string DisplayName
-        {
-            get
-            {
-                return this._displayName;
-            }
-            set
-            {
-                if ((this._displayName != value))
-                {
-                    this.OnDisplayNameChanging(value);
-                    this.ValidateProperty("DisplayName", value);
-                    this._displayName = value;
-                    this.RaisePropertyChanged("DisplayName");
-                    this.OnDisplayNameChanged();
-                }
-            }
         }
         
         /// <summary>

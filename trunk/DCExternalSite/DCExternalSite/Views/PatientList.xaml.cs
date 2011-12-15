@@ -21,7 +21,7 @@ namespace DCExternalSite.Views
 {
     public partial class PatientList : Page
     {
-       
+                
         public PatientList()
         {
             InitializeComponent();
@@ -61,6 +61,31 @@ namespace DCExternalSite.Views
                 e.MarkErrorAsHandled();
             }
         }
-     
+
+        
+         private void imagePrint_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+         {
+            
+             App app = (App)Application.Current;
+
+             app.FirstName = FirstNameTextBlock.Text;
+             app.Surname = SurnameTextBlock.Text;
+             app.BirthDate = BirthDateTextBlock.Text;
+             app.Consultation = (dataForm1.FindNameInContent("ConsultationTextBox") as TextBox).Text;
+             app.Recommendation = (dataForm1.FindNameInContent("RecommendationTextBox") as TextBox).Text;
+             app.Conclusion = (dataForm1.FindNameInContent("ConclusionTextBox") as TextBox).Text;
+             app.Protocol = (dataForm1.FindNameInContent("ProtocolTextBox") as TextBox).Text;
+             app.StartTime = (dataForm1.FindNameInContent("StartTimeTextBlock") as TextBlock).Text;
+             app.ExaminationTypeName = (dataForm1.FindNameInContent("ExaminationTypeNameTextBlock") as TextBlock).Text;
+             app.ExaminationTypePrice = (dataForm1.FindNameInContent("ExaminationTypePriceTextBlock") as TextBlock).Text;
+             app.EmployeeFirstName = (dataForm1.FindNameInContent("EmployeeFirstNameTextBlock") as TextBlock).Text;
+             app.EmployeeSurname = (dataForm1.FindNameInContent("EmployeeSurnameTextBlock") as TextBlock).Text;
+             app.EmployeeSpecialty = (dataForm1.FindNameInContent("EmployeeSpecialtyTextBlock") as TextBlock).Text;
+             app.EmployeeCategory = (dataForm1.FindNameInContent("EmployeeCategoryTextBlock") as TextBlock).Text;
+             
+             this.NavigationService.Navigate(new Uri("/PrintPage", UriKind.Relative));
+             
+         }
+
     }     
 }

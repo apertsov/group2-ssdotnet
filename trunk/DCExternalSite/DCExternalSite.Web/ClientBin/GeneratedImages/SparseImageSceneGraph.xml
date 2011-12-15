@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<SceneGraph version="1">
+  <AspectRatio>1,68698647288422</AspectRatio>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_001.jpg</FileName>
+    <x>0</x>
+    <y>0,0337821121844895</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,174799874483069</Height>
+    <ZOrder>1</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_002.jpg</FileName>
+    <x>0,14289611817161</x>
+    <y>0</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,186453199448606</Height>
+    <ZOrder>2</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_003.gif</FileName>
+    <x>0,286268615660216</x>
+    <y>0,0337821121844895</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,222204230852507</Height>
+    <ZOrder>3</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_004.jpg</FileName>
+    <x>0,429828728877264</x>
+    <y>0,0627583427583353</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,206030785390712</Height>
+    <ZOrder>4</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_005.jpg</FileName>
+    <x>0,574080758191112</x>
+    <y>0</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,233066499310758</Height>
+    <ZOrder>5</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_006.jpg</FileName>
+    <x>0,718285863442576</x>
+    <y>0,0627583427583353</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,200760251881546</Height>
+    <ZOrder>6</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_007.jpg</FileName>
+    <x>0,861844476492871</x>
+    <y>0,0337821121844895</y>
+    <Width>0,138155523507129</Width>
+    <Height>0,167807879503747</Height>
+    <ZOrder>7</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_008.jpg</FileName>
+    <x>0</x>
+    <y>0,21816616863067</y>
+    <Width>0,138155523507125</Width>
+    <Height>0,155222288540967</Height>
+    <ZOrder>8</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_009.jpg</FileName>
+    <x>0,14289611817161</x>
+    <y>0,196037381411718</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,155377666207173</Height>
+    <ZOrder>9</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_010.jpg</FileName>
+    <x>0,286268615660216</x>
+    <y>0,263518594639882</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,155377666207174</Height>
+    <ZOrder>10</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_011.jpg</FileName>
+    <x>0,429828728877264</x>
+    <y>0,278220632793</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,187199012246401</Height>
+    <ZOrder>11</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_012.jpg</FileName>
+    <x>0,574080758191112</x>
+    <y>0,24279596210732</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,155377666207173</Height>
+    <ZOrder>12</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_013.jpg</FileName>
+    <x>0,718285863442576</x>
+    <y>0,272875668592685</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,310164542808999</Height>
+    <ZOrder>13</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_014.jpg</FileName>
+    <x>0,861844476492871</x>
+    <y>0,210937150730681</y>
+    <Width>0,138155523507129</Width>
+    <Height>0,174799874483069</Height>
+    <ZOrder>14</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_015.jpg</FileName>
+    <x>0,861844476492871</x>
+    <y>0,395094865559787</y>
+    <Width>0,138155523507129</Width>
+    <Height>0,132718423218628</Height>
+    <ZOrder>15</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_016.jpg</FileName>
+    <x>0</x>
+    <y>0,381228423223723</y>
+    <Width>0,138155523507125</Width>
+    <Height>0,233066499310762</Height>
+    <ZOrder>16</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_017.jpg</FileName>
+    <x>0,14289611817161</x>
+    <y>0,360843851915797</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,174333741484449</Height>
+    <ZOrder>17</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_018.jpg</FileName>
+    <x>0,14289611817161</x>
+    <y>0,545316242116294</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,186453199448613</Height>
+    <ZOrder>18</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_019.jpg</FileName>
+    <x>0,286268615660216</x>
+    <y>0,427809673494939</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,291333124138451</Height>
+    <ZOrder>19</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_020.jpg</FileName>
+    <x>0,429828728877264</x>
+    <y>0,475918880639487</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,174799874483071</Height>
+    <ZOrder>20</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_021.jpg</FileName>
+    <x>0</x>
+    <y>0,624040857289209</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,130607313623426</Height>
+    <ZOrder>21</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_022.jpg</FileName>
+    <x>0</x>
+    <y>0,762027873514826</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,116387583093307</Height>
+    <ZOrder>22</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_023.jpg</FileName>
+    <x>0,14289611817161</x>
+    <y>0,739742409102985</y>
+    <Width>0,138155523507127</Width>
+    <Height>0,260257590897015</Height>
+    <ZOrder>23</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_024.jpg</FileName>
+    <x>0,286268615660216</x>
+    <y>0,728181867901628</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,166212241980732</Height>
+    <ZOrder>24</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_025.jpg</FileName>
+    <x>0,429828728877264</x>
+    <y>0,658993065284352</y>
+    <Width>0,138155523507124</Width>
+    <Height>0,236016708162794</Height>
+    <ZOrder>25</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_026.jpg</FileName>
+    <x>0,574080758191112</x>
+    <y>0,41136400924417</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,219122349779349</Height>
+    <ZOrder>26</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_027.jpg</FileName>
+    <x>0,574080758191112</x>
+    <y>0,640019267766645</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,15615455453821</Height>
+    <ZOrder>27</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_028.jpg</FileName>
+    <x>0,574080758191112</x>
+    <y>0,80624300370063</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,155072705135123</Height>
+    <ZOrder>28</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_029.jpg</FileName>
+    <x>0,718285863442576</x>
+    <y>0,592675833352978</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,17497915640562</Height>
+    <ZOrder>29</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_030.jpg</FileName>
+    <x>0,718285863442576</x>
+    <y>0,778621894804151</y>
+    <Width>0,138155523507126</Width>
+    <Height>0,154756155542341</Height>
+    <ZOrder>30</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_031.jpg</FileName>
+    <x>0,861844476492871</x>
+    <y>0,535177593400247</y>
+    <Width>0,138155523507129</Width>
+    <Height>0,156154554538211</Height>
+    <ZOrder>31</ZOrder>
+  </SceneNode>
+  <SceneNode>
+    <FileName>D:\.net\.netProject\Deep Zoom Composer Projects\DS_deepzoom\Source Images\dc_img_032.jpg</FileName>
+    <x>0,861844476492871</x>
+    <y>0,699542099618933</y>
+    <Width>0,138155523507129</Width>
+    <Height>0,174799874483068</Height>
+    <ZOrder>32</ZOrder>
+  </SceneNode>
+</SceneGraph>

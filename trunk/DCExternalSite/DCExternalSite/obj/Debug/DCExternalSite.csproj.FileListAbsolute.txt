@@ -233,3 +233,4 @@ D:\.net\.netProject\DCExternalSite\DCExternalSite\obj\Debug\Views\Login\Registra
 D:\.net\.netProject\DCExternalSite\DCExternalSite\Bin\Debug\System.Windows.Controls.DomainServices.dll
 D:\.net\.netProject\DCExternalSite\DCExternalSite\Bin\Debug\System.Windows.Controls.DomainServices.xml
 D:\.net\.netProject\DCExternalSite\DCExternalSite\obj\Debug\Views\NewsViewWindow.g.i.cs
+D:\.net\.netProject\DCExternalSite\DCExternalSite\obj\Debug\Views\PrintPage.g.i.cs
