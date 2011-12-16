@@ -133,7 +133,7 @@
     <value>Выберите должность</value>
   </data>
   <data name="CreateEmployee" xml:space="preserve">
-    <value>Создать работника</value>
+    <value>Регистрация нового работника</value>
   </data>
   <data name="Department" xml:space="preserve">
     <value>Отделение:</value>
@@ -157,7 +157,7 @@
     <value>Глав. медсестра</value>
   </data>
   <data name="HoursPerDay" xml:space="preserve">
-    <value>ч. в день.</value>
+    <value>ч. на месяц.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Имя:</value>
@@ -188,5 +188,14 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Фамилия:</value>
+  </data>
+  <data name="Empl" xml:space="preserve">
+    <value>Работники</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактирование информации о работнике</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Інформация о работнике</value>
   </data>
 </root>

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Empl Create";
+    ViewBag.Title = EmployeesRes.EmployeesStrings.CreateEmployee;
     ViewBag.Controller = "Employees";
     ViewBag.Action = "Employees.Create";
 }
@@ -49,47 +49,48 @@
     });
   </script>
 
+<div id="icon-empl-general" class="icon32"><br /></div><h2>@EmployeesRes.EmployeesStrings.CreateEmployee</h2>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>@EmployeesRes.EmployeesStrings.CreateEmployee</legend>
+    
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Name)
-        
+            <br />
             @Html.EditorFor(model => model.FirstName)
             @Html.ValidationMessageFor(model => model.FirstName)
         </div>
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Surname)
-        
+            <br />
             @Html.EditorFor(model => model.Surname)
             @Html.ValidationMessageFor(model => model.Surname)
         </div>
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Patronymic)
-        
+            <br />
             @Html.EditorFor(model => model.Patronymic)
             @Html.ValidationMessageFor(model => model.Patronymic)
         </div>
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Category)
-       
+            <br />
             @Html.EditorFor(model => model.Category)
             @Html.ValidationMessageFor(model => model.Category)
         </div>
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Specialty)
-        
+            <br />
             @Html.EditorFor(model => model.Specialty)
             @Html.ValidationMessageFor(model => model.Specialty)
         </div>
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Position)
+            <br />
             <select name = "position" id="position">
                 <option value = "">@EmployeesRes.EmployeesStrings.ChoosePosition</option>
                 <option value = "зав. відділом">@EmployeesRes.EmployeesStrings.departmentchief</option>
@@ -104,37 +105,39 @@
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Rate)
-        
+            <br />
             @Html.EditorFor(model => model.Rate)
             @Html.ValidationMessageFor(model => model.Rate)
         </div>
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Department)
-            @Html.DropDownList("Dept")
-          
+            <br />
+            @Html.DropDownList("Dept")          
         </div>
 
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Cabinet)
+            <br />
             @Html.DropDownList("Cab")
-       
-            
         </div>
         
         <div class="editor-label">
             @Html.Label(EmployeesRes.EmployeesStrings.Nickname)
+            <br />
             @Html.EditorFor(model => model.Username)
             @Html.ValidationMessageFor(model => model.Username)
         </div>
         <div class="editor-label">
             @Html.Label(PatientsRes.PatientsStrings.Email)
+            <br />
             @Html.EditorFor(model => model.Email)
             @Html.ValidationMessageFor(model => model.Email)
 
         </div>
+        <br />
         <p>
             <input type="submit" value="@PatientsRes.PatientsStrings.ButtonOk" disabled="disabled" name="sub" id="sub" class="yt-uix-button"/>
         </p>
-    </fieldset>
+
 }

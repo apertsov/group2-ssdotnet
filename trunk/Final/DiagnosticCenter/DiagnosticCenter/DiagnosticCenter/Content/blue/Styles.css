@@ -16,7 +16,7 @@ to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
 body {
-    background-color: #fff; /*#5c87b2;*/
+    background-color: #f8f8f8; /*#5c87b2;*/
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -169,8 +169,11 @@ select {
 }
 
 input[type="submit"] {
-    font-size: 1.2em;
-    padding: 5px;
+    font-size: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px;
+    min-width: 70px;
 }
 
 /* TABLE
@@ -250,28 +253,37 @@ div#title span {
     text-decoration: none;
 }
 
-#logindisplay {
+#lefthead 
+{
+    float: right;    
+}
+
+#logindisplay, #lefthead {
     font-size: 1.1em;
     display: block;
     text-align: right;
     margin: 5px;
-    color: White;
+    /*color: White;*/
+    color: #333333;
     width: 20%;
-    float: left;
+    /*float: left;*/
 }
 
-#logindisplay a:link {
-    color: white;
+#logindisplay a:link, #lefthead a:link{
+    /*color: White;*/
+    color: #333333;
     text-decoration: underline;
 }
 
-#logindisplay a:visited {
-    color: white;
+#logindisplay a:visited, #lefthead a:visited {
+    /*color: White;*/
+    color: #333333;
     text-decoration: underline;
 }
 
-#logindisplay a:hover {
-    color: white;
+#logindisplay a:hover, #lefthead a:hover {
+    /*color: White;*/
+    color: #333333;
     text-decoration: none;
 }
 
@@ -348,6 +360,21 @@ page width. Or, you can specify an exact pixel width. */
     width: 100%;
 }
 
+#wrap h2 {
+    font-size: 23px;
+    line-height: 29px;
+    padding: 11px 16px 4px 0;
+    font-weight:400;
+    margin-bottom: 20px;
+}
+
+.icon32 {
+    float: left;
+    height: 34px;
+    margin: 7px 8px 0 0;
+    width: 36px;
+}
+
 header, #header {
     position: fixed;
     top: 0;
@@ -365,7 +392,7 @@ header, #header {
 
 .inner
 {
-    padding-top: 57px;
+    padding-top: 45px;
     padding-bottom: 70px;
     padding-right: 10px;
 }
@@ -1141,4 +1168,161 @@ body #maincontent table.widefat {
     
     padding: 5px; 
     clear: left; 
+}
+
+
+ul.dropdown, ul.dropdown li, ul.dropdown ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+ul.dropdown {
+    float: right;
+    position: relative;
+    z-index: 597;
+}
+ul.dropdown li {
+    float: left;
+    line-height: 1.3em;
+    vertical-align: middle;
+}
+ul.dropdown li.hover, ul.dropdown li:hover {
+    cursor: default;
+    position: relative;
+    z-index: 599;
+}
+ul.dropdown ul {
+    right: 0;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    width: 100%;
+    z-index: 598;
+}
+ul.dropdown ul li {
+    float: none;
+}
+ul.dropdown ul ul {
+    right: 99%;
+    top: 1px;
+}
+ul.dropdown li:hover > ul {
+    visibility: visible;
+}
+
+
+
+ul.dropdown {
+    font-weight: bold;
+}
+ul.dropdown li {
+    background-color: #edf3f8;
+    border-color: #FFFFFF #D9D9D9 #D9D9D9;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    color: #000000;
+    padding: 5px 10px;
+}
+ul.dropdown li.hover, ul.dropdown li:hover {
+    background-color: #EEEEEE;
+    color: #000000;
+}
+ul.dropdown a:link, ul.dropdown a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+ul.dropdown a:hover {
+    color: #000000;
+}
+ul.dropdown a:active {
+    color: #FFA500;
+}
+ul.dropdown ul {
+    margin-top: 1px;
+    width: 100px;
+}
+ul.dropdown ul li {
+    font-weight: normal;
+}
+ul.dropdown .dir {
+    background-image: url("images/arrow_down.png");
+    background-position: 100% 50%;    
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+ul.dropdown-horizontal ul .dir {
+    background-image: url("images/arrow_left.png");
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    padding-right: 15px;
+}
+ul.dropdown-upward .dir {
+    background-image: url("images/nav-arrow-top.png");
+}
+ul.dropdown-vertical .dir, ul.dropdown-upward ul .dir {
+    background-image: url("images/nav-arrow-right.png");
+}
+ul.dropdown-vertical-rtl .dir {
+    background-image: url("images/nav-arrow-left.png");
+    background-position: 0 50%;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.yt-uix-button 
+{
+    background: #F6F6F6 url("images/btn_bg.png") repeat;
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    color: #000000;
+    cursor: pointer;
+    height: 2.0833em;
+    overflow: visible;
+    padding: 0 0.5em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.yt-uix-button-text {
+    background: none repeat scroll 0 0 transparent;
+    border-color: transparent;
+    border-radius: 0 0 0 0;
+    filter: none;
+}
+.yt-uix-button:hover, .yt-uix-button:focus, .yt-uix-button-hover {
+    background: -moz-linear-gradient(center top , #FFFFFF, #EBEBEB) repeat scroll 0 0 #F3F3F3;
+    border-color: #999999;
+    box-shadow: 0 0 3px #999999;
+    outline: 0 none;
+}
+.yt-uix-button:active, .yt-uix-button-active, .yt-uix-button-active:hover, .yt-uix-button-active:focus {
+    background: -moz-linear-gradient(center top , #CCCCCC, #FFFFFF) repeat scroll 0 0 #DDDDDD;
+    border-color: #999999;
+}
+
+.yt-uix-button, .yt-subscription-button.subscribed {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-image: -moz-linear-gradient(center top , #FFFFFF 0pt, #E0E0E0 100%);
+    border-color: #CCCCCC #CCCCCC #AAAAAA;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #555555;
+    font-size: 11px;
+    font-weight: bold;
+    height: 2.95em;
+    padding: 0 3px;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    
+    font: 11px arial,sans-serif;
+    line-height: 1;
+}
+.yt-uix-button:hover, .yt-uix-button:active {
+    background-image: -moz-linear-gradient(center top , #FFFFFF 0pt, #E0E0E0 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 3px #FFFFFF inset;
 }

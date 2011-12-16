@@ -25,11 +25,15 @@
                 </span> 
             </div>
             
-            <div id="culturedisplay">
-                @Html.Partial("_CultureChooserPartial")
-            </div> 
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
+            <div id="lefthead">
+            <ul class="dropdown dropdown-horizontal">
+                @*<div id="culturedisplay">*@
+                    @Html.Partial("_CultureChooserPartial")
+                @*</div> 
+                <div id="logindisplay">*@
+                    @Html.Partial("_LogOnPartial")
+                @*</div>*@
+            </ul> 
             </div>  
         </div>
     

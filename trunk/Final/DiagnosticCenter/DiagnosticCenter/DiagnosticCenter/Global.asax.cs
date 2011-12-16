@@ -82,7 +82,10 @@ namespace DiagnosticCenter
 
 
                     ci = new CultureInfo(langName);
-                    this.Session["Culture"] = ci;                    
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        this.Session["Culture"] = ci;
+                    }
                 }
                 //Устанавливаем культуру для каждого запроса
                 Thread.CurrentThread.CurrentUICulture = ci;

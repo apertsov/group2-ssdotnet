@@ -133,7 +133,7 @@
     <value>Choose position</value>
   </data>
   <data name="CreateEmployee" xml:space="preserve">
-    <value>Create new employee</value>
+    <value>New Employee Registering</value>
   </data>
   <data name="Department" xml:space="preserve">
     <value>Department:</value>
@@ -157,7 +157,7 @@
     <value>Head nurse</value>
   </data>
   <data name="HoursPerDay" xml:space="preserve">
-    <value>hours per day</value>
+    <value>hours per month</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name:</value>
@@ -188,5 +188,14 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Surname:</value>
+  </data>
+  <data name="Empl" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Employee's Information Editing</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Information about Employee </value>
   </data>
 </root>

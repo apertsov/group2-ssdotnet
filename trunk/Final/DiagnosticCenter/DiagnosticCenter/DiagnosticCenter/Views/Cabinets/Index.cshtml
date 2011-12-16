@@ -1,15 +1,17 @@
 ﻿@model PagedList.IPagedList<DiagnosticCenter.Models.Cabinet>
 
 @{
-    ViewBag.Title = ViewRes.CabinetsStrings.AddCabinet;
+    ViewBag.Title = ViewRes.CabinetsStrings.Cabinets;
     ViewBag.Controller = "Cabinets";
     ViewBag.Action = "Cabinets.Index";
 }
+
+<div id="icon-cabs-general" class="icon32"><br /></div><h2>@ViewRes.CabinetsStrings.Cabinets</h2>
 @using (Html.BeginForm())
 {
     <p>
         @ViewRes.CabinetsStrings.FilterTitle @Html.TextBox("SearchString") &nbsp; 
-        <input type="submit" value="@ViewRes.CabinetsStrings.FilterBtn" /> 
+        <input type="submit" value="@ViewRes.CabinetsStrings.FilterBtn" class="yt-uix-button" /> 
     </p>
 }
 <table>

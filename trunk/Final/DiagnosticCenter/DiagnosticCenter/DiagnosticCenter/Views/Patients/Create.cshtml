@@ -7,14 +7,15 @@
 @{
     ViewBag.Controller = "Patients";
     ViewBag.Action = "Patients.Create";
+    ViewBag.Title = PatientsRes.PatientsStrings.PatientCreate;
 }
-<div class="patient">
+<div id="icon-patients-general" class="icon32"><br /></div><h2>@PatientsRes.PatientsStrings.PatientCreate</h2>
+
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-    <h2 align="center">@PatientsRes.PatientsStrings.PatientCreate</h2>
-    <table id="formholder">
-        
+    
+    <table >        
         <tr>
             <td>
               @Html.Label(PatientsRes.PatientsStrings.Name)
@@ -129,11 +130,10 @@
             
                 @Html.TextAreaFor(model => model.Comment)
                <br />
-                <input type="submit" value=@PatientsRes.PatientsStrings.ButtonOk />
+                <input type="submit" value="@PatientsRes.PatientsStrings.ButtonOk" class="yt-uix-button" />
             </td>
         </tr>    
-    </table>
-       
+    </table>      
    
 }
-</div>
+

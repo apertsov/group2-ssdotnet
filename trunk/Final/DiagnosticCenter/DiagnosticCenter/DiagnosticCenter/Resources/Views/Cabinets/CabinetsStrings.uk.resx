@@ -189,4 +189,10 @@
   <data name="LogOff" xml:space="preserve">
     <value>Вийти</value>
   </data>
+  <data name="Creating" xml:space="preserve">
+    <value>Реєстрація нового кабінету</value>
+  </data>
+  <data name="Editing" xml:space="preserve">
+    <value>Редагування інформації про кабінет</value>
+  </data>
 </root>
