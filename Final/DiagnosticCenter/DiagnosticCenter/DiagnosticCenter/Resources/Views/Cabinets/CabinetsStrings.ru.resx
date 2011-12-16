@@ -187,6 +187,12 @@
     <value>Ошибка удаления кабинета</value>
   </data>
   <data name="LogOff" xml:space="preserve">
-    <value>ыход</value>
+    <value>Выход</value>
+  </data>
+  <data name="Creating" xml:space="preserve">
+    <value>Регистрация нового кабинета</value>
+  </data>
+  <data name="Editing" xml:space="preserve">
+    <value>Редактирование информации про кабинет</value>
   </data>
 </root>

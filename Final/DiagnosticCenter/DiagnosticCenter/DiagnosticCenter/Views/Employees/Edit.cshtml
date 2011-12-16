@@ -23,7 +23,9 @@
 @{ 
     ViewBag.Controller = "Employees";
     ViewBag.Action = "Employees.Edit";
+    ViewBag.Title = EmployeesRes.EmployeesStrings.Edit;
  }
+ <div id="icon-empl-general" class="icon32"><br /></div><h2>@EmployeesRes.EmployeesStrings.Edit</h2>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
@@ -96,7 +98,7 @@
             @Html.DropDownList("Cab")
          </div>
         <p>
-            <input type="submit" value=@PatientsRes.PatientsStrings.Save  id="sub"/>
+            <input type="submit" value=@PatientsRes.PatientsStrings.Save  id="sub" class="yt-uix-button"/>
         </p>
     </fieldset>
 }

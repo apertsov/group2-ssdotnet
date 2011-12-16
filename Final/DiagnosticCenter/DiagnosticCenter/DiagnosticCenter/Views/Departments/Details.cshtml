@@ -1,21 +1,22 @@
 ﻿@model DiagnosticCenter.Models.Department
 
 @{
-    ViewBag.Title = "Інформація";
+    ViewBag.Title = DepartmentsRes.DepartmentsStrings.Info;
+    ViewBag.Controller = "Departments";
 }
 
-<h2>Інформація</h2>
+<div id="icon-deps-general" class="icon32"><br /></div><h2>@DepartmentsRes.DepartmentsStrings.Info</h2>
 
 <fieldset>
-    <legend>Відділення "@Model.Name" </legend>
+    <legend>@DepartmentsRes.DepartmentsStrings.Dep "@Model.Name" </legend>
     <div class="display-field">
         @Html.DisplayFor(model => model.Description)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Редагувати", "Edit", new { id = Model.ID_Dept }) |
-    @Html.ActionLink("Видалити", "Delete", new { id = Model.ID_Dept })
+    @Html.ActionLink(@DepartmentsRes.DepartmentsStrings.Edit, "Edit", new { id = Model.ID_Dept }) |
+    @Html.ActionLink(@DepartmentsRes.DepartmentsStrings.Delete, "Delete", new { id = Model.ID_Dept })
 </p>
 <p>
-    @Html.ActionLink("Список відділень", "Index")
+    @Html.ActionLink(@DepartmentsRes.DepartmentsStrings.List, "Index")
 </p>

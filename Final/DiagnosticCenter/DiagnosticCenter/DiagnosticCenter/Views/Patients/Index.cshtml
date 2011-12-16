@@ -1,15 +1,17 @@
 ﻿@{
-    ViewBag.Title = "Patients";
+    ViewBag.Title = PatientsRes.PatientsStrings.Patients;
     ViewBag.Controller = "Patients";
     ViewBag.Action = "Patients.Index";
 }
 
 @model PagedList.IPagedList<DiagnosticCenter.Models.Patient>
+           
+<div id="icon-patients-general" class="icon32"><br /></div><h2>@PatientsRes.PatientsStrings.Patients</h2>
 @using (Html.BeginForm())
 { 
     <p> 
         @PatientsRes.PatientsStrings.SearchBySurname @Html.TextBox("SearchString") &nbsp; 
-        <input type="submit" value=@PatientsRes.PatientsStrings.Find /></p> 
+        <input type="submit" value="@PatientsRes.PatientsStrings.Find" class="yt-uix-button" /></p> 
 }
 <table align = "center">
    

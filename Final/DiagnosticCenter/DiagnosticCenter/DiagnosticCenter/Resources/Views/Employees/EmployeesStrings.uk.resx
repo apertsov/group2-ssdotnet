@@ -133,7 +133,7 @@
     <value>Виберіть посаду</value>
   </data>
   <data name="CreateEmployee" xml:space="preserve">
-    <value>Створення працівника</value>
+    <value>Реєстрація нового працівника</value>
   </data>
   <data name="Department" xml:space="preserve">
     <value>Відділення:</value>
@@ -148,7 +148,7 @@
     <value>Знайти</value>
   </data>
   <data name="FindEmployee" xml:space="preserve">
-    <value>Пошук пацієнтів</value>
+    <value>Пошук працівників</value>
   </data>
   <data name="headdoctor" xml:space="preserve">
     <value>Головний лікар</value>
@@ -157,7 +157,7 @@
     <value>Головна медсестра</value>
   </data>
   <data name="HoursPerDay" xml:space="preserve">
-    <value>год. в день.</value>
+    <value>год. на місяць.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Ім'я:</value>
@@ -188,5 +188,14 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Прізвище:</value>
+  </data>
+  <data name="Empl" xml:space="preserve">
+    <value>Працівники</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагування інформації про працівника</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Інформація про працівника</value>
   </data>
 </root>

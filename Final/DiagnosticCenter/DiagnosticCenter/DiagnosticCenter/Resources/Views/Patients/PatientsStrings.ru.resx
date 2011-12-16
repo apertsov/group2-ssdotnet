@@ -148,7 +148,7 @@
     <value>Изменить</value>
   </data>
   <data name="EditPatient" xml:space="preserve">
-    <value>Редактирование информации</value>
+    <value>Редактирование информации о пациенте</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Електронный адрес:</value>
@@ -157,7 +157,7 @@
     <value>Трудоустроен(-а)</value>
   </data>
   <data name="Exam" xml:space="preserve">
-    <value>Обследование</value>
+    <value>Обследования</value>
   </data>
   <data name="female" xml:space="preserve">
     <value>женский</value>
@@ -184,7 +184,7 @@
     <value>Страница</value>
   </data>
   <data name="PatientCreate" xml:space="preserve">
-    <value>Создать нового пациента</value>
+    <value>Регистрация нового пациента</value>
   </data>
   <data name="Patronymic" xml:space="preserve">
     <value>Отчество:</value>
@@ -212,5 +212,11 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Фамилия:</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Пациенты</value>
+  </data>
+  <data name="PatInfo" xml:space="preserve">
+    <value>Информация о пациенте</value>
   </data>
 </root>

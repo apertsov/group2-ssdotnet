@@ -1,41 +1,43 @@
 ﻿@model DiagnosticCenter.Models.Department
 
 @{
-    ViewBag.Title = "Редагувати відділення";
+    ViewBag.Title = DepartmentsRes.DepartmentsStrings.Editing;
+    ViewBag.Controller = "Departments";
 }
 
-<h2>Редагувати</h2>
+
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<div id="icon-deps-general" class="icon32"><br /></div> <h2>@DepartmentsRes.DepartmentsStrings.Editing</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Відділення</legend>
+        <legend>@DepartmentsRes.DepartmentsStrings.Info</legend>
 
         @Html.HiddenFor(model => model.ID_Dept)
 
         <div class="editor-field">
-            Назва:
+            @DepartmentsRes.DepartmentsStrings.Name:
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <div class="editor-label">
-            Опис:
+            @DepartmentsRes.DepartmentsStrings.Descr:
         </div>
         <div class="editor-field">
             @Html.TextAreaFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)
         </div>
-
+        <br />
         <p>
-            <input type="submit" value="Зберегти" />
+            <input type="submit" value="@DepartmentsRes.DepartmentsStrings.Save" class="yt-uix-button"/>
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Список відділень", "Index")
+    @Html.ActionLink(@DepartmentsRes.DepartmentsStrings.List, "Index")
 </div>

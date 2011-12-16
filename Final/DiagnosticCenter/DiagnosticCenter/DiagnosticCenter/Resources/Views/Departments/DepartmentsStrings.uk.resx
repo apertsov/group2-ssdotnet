@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Create" xml:space="preserve">
+    <value>Зареєструвати</value>
+  </data>
+  <data name="Creating" xml:space="preserve">
+    <value>Реєстрація відділення</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Dep" xml:space="preserve">
+    <value>Відділення</value>
+  </data>
   <data name="DepartmentsList" xml:space="preserve">
     <value>Список відділень</value>
+  </data>
+  <data name="Descr" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Editing" xml:space="preserve">
+    <value>Редагування інформації про відділення</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Інформація про відділення</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>Список відділень</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Зберегти</value>
   </data>
 </root>

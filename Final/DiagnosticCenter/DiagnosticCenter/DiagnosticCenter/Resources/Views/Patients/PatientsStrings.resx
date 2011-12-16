@@ -157,7 +157,7 @@
     <value>Employed</value>
   </data>
   <data name="Exam" xml:space="preserve">
-    <value>Examination</value>
+    <value>Examinations</value>
   </data>
   <data name="female" xml:space="preserve">
     <value>female</value>
@@ -184,7 +184,7 @@
     <value>Page</value>
   </data>
   <data name="PatientCreate" xml:space="preserve">
-    <value>Create new patient</value>
+    <value>New Patient Registering</value>
   </data>
   <data name="Patronymic" xml:space="preserve">
     <value>Patronymic:</value>
@@ -212,5 +212,11 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Surname:</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="PatInfo" xml:space="preserve">
+    <value>Info about Patient</value>
   </data>
 </root>

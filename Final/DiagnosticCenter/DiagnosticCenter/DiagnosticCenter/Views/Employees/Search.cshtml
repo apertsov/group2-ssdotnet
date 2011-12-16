@@ -1,30 +1,34 @@
 ﻿@{
-    ViewBag.Title = "Empl find";
+    ViewBag.Title = EmployeesRes.EmployeesStrings.FindEmployee;
     ViewBag.Controller = "Employees";
     ViewBag.Action = "Employees.Search";
 }
+<div id="icon-empl-general" class="icon32"><br /></div><h2>@EmployeesRes.EmployeesStrings.FindEmployee</h2>
 @using (Html.BeginForm())
 {
-<fieldset>
-    <legend>@EmployeesRes.EmployeesStrings.FindEmployee</legend>
     <div class="editor-label">
         @Html.Label(EmployeesRes.EmployeesStrings.Name)
+        <br />
         <input type = "text" name = "FirstName"/>
     </div>
     <div class="editor-label">
         @Html.Label(EmployeesRes.EmployeesStrings.Surname)
+        <br />
         <input type = "text" name="Surname"/>
     </div>
     <div class="editor-label">
         @Html.Label(EmployeesRes.EmployeesStrings.Category)
+        <br />
         <input type="text" name="Category" />
     </div>
     <div class="editor-label">
         @Html.Label(EmployeesRes.EmployeesStrings.Specialty)
+        <br />
         <input type="text" name="Specialty" />
     </div>
     <div class="editor-label">
         @Html.Label(EmployeesRes.EmployeesStrings.Position)
+        <br />
         <select name = "position">
             <option value = "">@EmployeesRes.EmployeesStrings.ChoosePosition</option>
             <option value = "зав. відділом">@EmployeesRes.EmployeesStrings.departmentchief</option>
@@ -37,12 +41,15 @@
     </div>
     <div class="editor-label">
         @Html.Label(EmployeesRes.EmployeesStrings.Department)
+        <br />
         @Html.DropDownList("Dept", EmployeesRes.EmployeesStrings.ChooseDept)
     </div>
     <div class="editor-label">
         @Html.Label(EmployeesRes.EmployeesStrings.Cabinet)
+        <br />
         @Html.DropDownList("Cab", EmployeesRes.EmployeesStrings.ChooseCab)
     </div>
-    <p><input type="submit" value=@EmployeesRes.EmployeesStrings.Find /></p>
-</fieldset>
+    <br />
+    <p><input type="submit" value="@EmployeesRes.EmployeesStrings.Find" class="yt-uix-button" /></p>
+
 }

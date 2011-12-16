@@ -1,9 +1,11 @@
 ﻿@using System.Web.Mvc.Html
 @{
     ViewBag.Title = ViewRes.PlanStrings.GeneratingPlan + " (" + ViewBag.DeptName + "):";
+    ViewBag.Controller = "Plan";
+    ViewBag.Action = "Plan.Index";
 }
 
-    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" />
     <link href="@Url.Content("~/Content/Plan.css")" rel="stylesheet" type="text/css" />
 	
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")"></script>
@@ -22,7 +24,7 @@
 	    });
 	</script>
 
-    
+  <div id="icon-plan-general" class="icon32"><br /></div><h2>@ViewRes.PlanStrings.GeneratingPlan</h2>  
 
 @using (Html.BeginForm("ChangeDate", "Plan"))
 {
@@ -31,7 +33,7 @@
         @ViewRes.PlanStrings.Date: @Html.TextBox("datepicker")
         @Html.Hidden("altDatePicker")
         <input id="pageName" name="pageName" type="hidden" value="Index" />
-        <input type="submit" name ="DateChange" value="@ViewRes.PlanStrings.UpdateData" />
+        <input type="submit" name ="DateChange" value="@ViewRes.PlanStrings.UpdateData" class="yt-uix-button"/>
     </p>
 }  
 @using (Html.BeginForm("Index", "Plan"))
@@ -65,11 +67,11 @@
                         </td>
                     </tr>
                     @{
-                       int rowIndex = 0;
-                       int j = ViewBag.startHour;
-                       foreach (var hour in ViewBag.PlanChart)
-                       {
-                           int colIndex = 0; 
+                        int rowIndex = 0;
+                        int j = ViewBag.startHour;
+                        foreach (var hour in ViewBag.PlanChart)
+                        {
+                            int colIndex = 0; 
                             @:<tr>
 
                                 <td>
@@ -165,12 +167,12 @@
                         <td>
                             @keyValuePair.Key
                         </td>
-                       foreach (var ratePair in keyValuePair.Value)
-                       {
+                        foreach (var ratePair in keyValuePair.Value)
+                        {
                         <td>
                             @ratePair.ToString()
                         </td>
-                       }
+                        }
                         @Html.Raw("</tr>")
                         
                     }

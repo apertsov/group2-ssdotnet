@@ -2,10 +2,12 @@
 
 @{
     ViewBag.Title = ViewRes.CabinetsStrings.Cabinets + " - " + ViewRes.CabinetsStrings.Details;
+    ViewBag.Controller = "Cabinets";
 }
 
+<div id="icon-cabs-general" class="icon32"><br /></div><h2>@ViewRes.CabinetsStrings.CabinetInfo</h2>
 <fieldset>
-    <legend>Кабінет</legend>
+    
 
     <div class="display-label">@ViewRes.CabinetsStrings.CabinetNo:</div>
     <div class="display-field">
@@ -23,6 +25,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink(ViewRes.CabinetsStrings.Edit + ViewRes.CabinetsStrings.Cabinet.ToLower(), "Edit", new { id=Model.ID_Cabinet }) |
+    @Html.ActionLink(ViewRes.CabinetsStrings.Edit + " " + ViewRes.CabinetsStrings.Cabinet.ToLower(), "Edit", new { id=Model.ID_Cabinet }) |
     @Html.ActionLink(ViewRes.CabinetsStrings.ReturnToCabsList, "Index")
 </p>

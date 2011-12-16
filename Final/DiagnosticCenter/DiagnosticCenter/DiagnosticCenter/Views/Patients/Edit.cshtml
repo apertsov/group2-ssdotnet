@@ -5,20 +5,20 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 @{
+    ViewBag.Title = PatientsRes.PatientsStrings.EditPatient;
     ViewBag.Controller = "Patients";
     ViewBag.Action = "Patients.Edit";
 }
        
+<div id="icon-patients-general" class="icon32"><br /></div><h2>@PatientsRes.PatientsStrings.EditPatient</h2>
 
-<div class="patient">
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.Password) 
     @Html.HiddenFor(model => model.ID_Patient)
-    <p align = "center"><h2>@PatientsRes.PatientsStrings.EditPatient
-</h2></p>
-    <table id="formholder">
+   
+    <table>
         
         <tr>
             <td>
@@ -132,14 +132,14 @@
                 @Html.Label(PatientsRes.PatientsStrings.Comment)<br />
            
             
-                @Html.TextAreaFor(model => model.Comment)<br />
-                           <input type="submit" value=@PatientsRes.PatientsStrings.Save name ="save"  />
+                @Html.TextAreaFor(model => model.Comment)<br /><br />
+               <input type="submit" value="@PatientsRes.PatientsStrings.Save" class="yt-uix-button" name ="save"  />
             </td>
         </tr>    
     </table>
        
    
 }
-</div>
+
 
 
