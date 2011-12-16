@@ -18,6 +18,7 @@ namespace DiagnosticCenter.Controllers
         }
 
         [Authorize(Roles = "Administrator, DepartmentChiefDoctor, Doctor, HeadDoctor, HeadNurse, Nurse")]
+       
         public ActionResult Index(int? pageNo, string dateValue)
         {
             const int cabsOnPage = 4; //TODO: Read form Paramters Table
@@ -55,7 +56,8 @@ namespace DiagnosticCenter.Controllers
             }
             else
             {
-                date = Convert.ToDateTime(dateValue).Date;
+                System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("uk");
+                date = Convert.ToDateTime(dateValue, ci.DateTimeFormat).Date;
             }
 
             ViewBag.Date = date.ToShortDateString();
@@ -73,6 +75,14 @@ namespace DiagnosticCenter.Controllers
             //        errGoBackController = "Plan"
             //    });
             //}
+            if (context.Employees.Where(e => e.ID_User == idUser).Count() == 0) 
+                return RedirectToAction("Index", "ErrorPage", new
+                    {
+                        errTitle = ViewRes.PlanStrings.Error1Text,
+                        errDescription = ViewRes.PlanStrings.Error1Recomendation,
+                        errGoBackAction = "Index",
+                        errGoBackController = "Plan"
+                    });
             int depId = context.Employees.Where(e => e.ID_User == idUser).FirstOrDefault().ID_Dept;
 
             //Передаємо назву відділення
@@ -317,7 +327,8 @@ namespace DiagnosticCenter.Controllers
             }
             else
             {
-                date = Convert.ToDateTime(dateValue).Date;
+                System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("uk");
+                date = Convert.ToDateTime(dateValue, ci.DateTimeFormat).Date;
             }
 
             ViewBag.Date = date.ToShortDateString();

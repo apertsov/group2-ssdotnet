@@ -14,7 +14,7 @@ namespace DiagnosticCenter.Controllers
 
         public ActionResult Index(string searchString, int? page)
         {
-            int itemsOnPage = 5; //TODO Read from Parameters table
+            int itemsOnPage = 20; //TODO Read from Parameters table
             
             int cabNo = 0;
             IOrderedQueryable<Cabinet> cab = Cabinets_db.Cabinets.OrderBy(c => c.Number); ;
@@ -57,7 +57,18 @@ namespace DiagnosticCenter.Controllers
  
         public ActionResult Edit(int id)
         {
+            //Cabinet cabinet = Cabinets_db.Cabinets.Single(c => c.ID_Cabinet == id);
+            //return View(cabinet);
             Cabinet cabinet = Cabinets_db.Cabinets.Single(c => c.ID_Cabinet == id);
+            List<Department> dept = Cabinets_db.Departments.ToList();
+            IEnumerable<SelectListItem> _dept = dept.Select(e => new SelectListItem { Value = e.ID_Dept.ToString(), 
+                                                                                      Text = e.Name,
+                                                                                      Selected = e.ID_Dept == cabinet.ID_Dept
+                                                                                    }).ToList();
+            
+
+            ViewBag.Dept = _dept;
+            
             return View(cabinet);
         }
 
@@ -66,6 +77,7 @@ namespace DiagnosticCenter.Controllers
         {
             if (ModelState.IsValid)
             {
+                cabinet.ID_Dept = Convert.ToInt32(Request.Form["Dept"]);
                 Cabinets_db.Cabinets.Attach(cabinet);
                 Cabinets_db.ObjectStateManager.ChangeObjectState(cabinet, EntityState.Modified);
                 Cabinets_db.SaveChanges();

@@ -219,4 +219,7 @@
   <data name="Error3Text" xml:space="preserve">
     <value>Records in Plan table does not correspont to workday settings.</value>
   </data>
+  <data name="GeneratingPlan" xml:space="preserve">
+    <value>Generating plan</value>
+  </data>
 </root>

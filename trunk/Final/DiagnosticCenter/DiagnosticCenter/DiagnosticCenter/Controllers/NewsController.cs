@@ -19,49 +19,31 @@ namespace DiagnosticCenter.Controllers
         string[] r = { "Doctor", "HeadDoctor", "Nurse", "HeadNurse", "DepartmentChiefDoctor", "MedicalRegistrar" }; // масив ролей
 
         //-------Всі новини-------//
-        public ViewResult Index(string sortOrder, string searchString, int? page)
+        public ActionResult Index(string sortOrder, string searchString, int? page)
         {
             IQueryable<News> news = context.News;
-
-            ViewBag.TopicSortParm = String.IsNullOrEmpty(sortOrder) ? "Topic desc" : "";
-            ViewBag.TextSortParm = String.IsNullOrEmpty(sortOrder) ? "Text desc" : "";
-            ViewBag.ID_NewsSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_New desc" : "";
-            ViewBag.ID_DeptSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_Dept desc" : "";
           
             if (!String.IsNullOrEmpty(searchString))
             {
                 news = news.Where(s => s.Topic.ToUpper().Contains(searchString.ToUpper()));
             }
-           
-            switch (sortOrder)
-            {
-                case "Topic desc":
-                    news = news.OrderByDescending(s => s.Topic);
-                    break;
-                case "Text desc":
-                    news = news.OrderByDescending(s => s.Text);
-                    break;
-                case "ID_Employee desc":
-                    news = news.OrderByDescending(s => s.ID_Employee);
-                    break;
-                case "ID_Dept desc":
-                    news = news.OrderByDescending(s => s.ID_Dept);
-                    break;
-                default:
-                    news = news.OrderByDescending(s => s.Topic);
-                    break;
-            }
-
-            /*foreach(News _buf in news)
-            {
-                News a = new News();
-                a = _buf;
-            }*/
             
+            int idUser = (int)Membership.GetUser(User.Identity.Name).ProviderUserKey;
+            if (context.Employees.Where(e => e.ID_User == idUser).Count() == 0)
+                return RedirectToAction("Index", "ErrorPage", new
+                {
+                    errTitle = ViewRes.PlanStrings.Error1Text,
+                    errDescription = ViewRes.PlanStrings.Error1Recomendation,
+                    errGoBackAction = "Index",
+                    errGoBackController = "News"
+                });
+
+            int emplId = context.Employees.Where(e => e.ID_User == idUser).FirstOrDefault().ID_Employee;
+            ViewBag.emplId = emplId;
+
             model.FillModel(news);
-  
             int pageIndex = (page ?? 1);
-            return View(model.lst.ToPagedList(pageIndex, 5));
+            return View(model.lst.ToPagedList(pageIndex, 10));
         }
 
         /*----- Детальна інформація про новини -----*/
@@ -77,13 +59,14 @@ namespace DiagnosticCenter.Controllers
         public ActionResult Create()
         {
             List<Employee> empl = context.Employees.ToList();
-            IEnumerable<SelectListItem> _empl = empl.Select(n => new SelectListItem { Value = n.ID_Employee.ToString(), Text = n.Position.ToString() });
+            IEnumerable<SelectListItem> _empl = empl.Select(n => new SelectListItem { Value = n.ID_Employee.ToString(), Text = n.FirstName.ToString() + " " + n.Surname.ToString() });
             
             List<Department> dept = context.Departments.ToList();
             IEnumerable<SelectListItem> _dept = dept.Select(n => new SelectListItem { Value = n.ID_Dept.ToString(), Text = n.Name });
 
-            List<News> ntype = context.News.ToList();
-            IEnumerable<SelectListItem> _ntype = ntype.Select(n => new SelectListItem { Value = n.Type.ToString(), Text = n.Type.ToString() });
+            List<SelectListItem> _ntype = new List<SelectListItem>();
+            _ntype.Add(new SelectListItem(){Value = "0", Text = "Внутрішні новини"});
+            _ntype.Add(new SelectListItem(){Value = "1", Text = "Зовнішні новини" });
 
             ViewBag.Empls = _empl;
             ViewBag.Depts = _dept;
@@ -110,9 +93,15 @@ namespace DiagnosticCenter.Controllers
         {
             News news = context.News.Include("Employee").Where(n => n.ID_News == id).First();
             List<Department> dept = context.Departments.ToList();
-            IEnumerable<SelectListItem> _dept = dept.Select(n => new SelectListItem { Value = n.ID_Dept.ToString(), Text = n.Name, Selected = n.ID_Dept == id });
+            IEnumerable<SelectListItem> _dept = dept.Select(n => new SelectListItem { Value = n.ID_Dept.ToString(), 
+                                                                                      Text = n.Name, 
+                                                                                      Selected = n.ID_Dept == news.ID_Dept 
+                                                                                    });        
             List<Employee> empl = context.Employees.ToList();
-            IEnumerable<SelectListItem> _empl = empl.Select(n => new SelectListItem { Value = n.ID_Employee.ToString(), Text = n.ID_Employee.ToString(), Selected = n.ID_Employee == id });
+            IEnumerable<SelectListItem> _empl = empl.Select(n => new SelectListItem { Value = n.ID_Employee.ToString(), 
+                                                                                      Text = n.FirstName.ToString() + " " + n.Surname.ToString(), 
+                                                                                      Selected = n.ID_Employee == news.ID_Employee 
+                                                                                    });
             ViewBag.Depts = _dept;
             ViewBag.Employees = _empl;
             return View(news);
@@ -138,19 +127,7 @@ namespace DiagnosticCenter.Controllers
         }
 
         //------Видалення новин-------//
-        public ActionResult Delete(int id)
-        {
-            //News news = context.News.Where(n => n.ID_News == id).First();
-            //context.News.DeleteObject(news);
-            //context.SaveChanges();
-            //return RedirectToAction("Index");
-            News news = db.News.Single(n => n.ID_News == id);
-            return View(news);
-        
-        }
-        
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+                public ActionResult Delete(int id)
         {
             News news = db.News.Single(n => n.ID_News == id);
             db.News.DeleteObject(news);

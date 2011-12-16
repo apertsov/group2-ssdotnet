@@ -31,3 +31,14 @@ D:\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\uk\Diagnos
 D:\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\ResolveAssemblyReference.cache
 D:\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\DiagnosticCenter.Tests.dll
 D:\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\DiagnosticCenter.Tests.pdb
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.Tests.dll.config
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.Tests.dll
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.Tests.pdb
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.dll
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\PagedList.dll
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\DiagnosticCenter.pdb
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\ru\DiagnosticCenter.resources.dll
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\bin\Debug\uk\DiagnosticCenter.resources.dll
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\ResolveAssemblyReference.cache
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\DiagnosticCenter.Tests.dll
+D:\dotNet\Final\DiagnosticCenter\DiagnosticCenter\DiagnosticCenter.Tests\obj\Debug\DiagnosticCenter.Tests.pdb
