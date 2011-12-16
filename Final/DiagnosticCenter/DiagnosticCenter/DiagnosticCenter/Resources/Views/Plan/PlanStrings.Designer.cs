@@ -214,6 +214,15 @@ namespace ViewRes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generating plan.
+        /// </summary>
+        public static string GeneratingPlan {
+            get {
+                return ResourceManager.GetString("GeneratingPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generating workplan on.
         /// </summary>
         public static string GeneratingPlanOn {

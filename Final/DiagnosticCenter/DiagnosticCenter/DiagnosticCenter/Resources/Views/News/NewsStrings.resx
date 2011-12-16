@@ -117,22 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ID_Dept" xml:space="preserve">
-    <value>Відділення</value>
+  <data name="Autor" xml:space="preserve">
+    <value>Autor</value>
   </data>
-  <data name="ID_Employee" xml:space="preserve">
-    <value>Працівник</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Departmert</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
   </data>
   <data name="NewsDC" xml:space="preserve">
     <value>Diagnostic Center News</value>
   </data>
-  <data name="Text" xml:space="preserve">
-    <value>Зміст</value>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
   </data>
-  <data name="Topic" xml:space="preserve">
-    <value>Тема новини</value>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
   </data>
-  <data name="Type" xml:space="preserve">
-    <value>Тип новини</value>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="SearchByTopic" xml:space="preserve">
+    <value>Search news by topic</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="BackToNews" xml:space="preserve">
+    <value>Back to news</value>
+  </data>
+  <data name="ChooseDept" xml:space="preserve">
+    <value>-- Choose department --</value>
+  </data>
+  <data name="ChooseEmpl" xml:space="preserve">
+    <value>-- Choose employee --</value>
+  </data>
+  <data name="CreateNews" xml:space="preserve">
+    <value>News creation</value>
+  </data>
+  <data name="EditNews" xml:space="preserve">
+    <value>Edit news</value>
+  </data>
+  <data name="NewsDetails" xml:space="preserve">
+    <value>News details</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
 </root>

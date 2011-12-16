@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using DiagnosticCenter.Resources.Models.Cabinets;
+using DiagnosticCenter.Resources.Models.News;
 using DiagnosticCenter.Resources.Models.Examinations;
 using DiagnosticCenter.Classes;
 using DiagnosticCenter.Resources.Models.Settings;
@@ -99,15 +100,15 @@ namespace DiagnosticCenter.Models
     {     
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
         [RegularExpression("^[0-9]+$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
-        //[LocalizedDisplayName("CabinetNo", NameResourceType = typeof(CabinetsFieldNames))]
+        [LocalizedDisplayName("CabinetNo", NameResourceType = typeof(CabinetsFieldNames))]
         public System.Int32 Number {get; set;}
 
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
         [RegularExpression("^([0-9]{5,6})|([0-9]{1,2}-[0-9]{2}-[0-9]{2})$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(CabinetsValidationStrings))]
-        //[LocalizedDisplayName("CabinetPhoneNo", NameResourceType = typeof(CabinetsFieldNames))]
+        [LocalizedDisplayName("CabinetPhoneNo", NameResourceType = typeof(CabinetsFieldNames))]
         public System.String Phone {get; set;}
 
-        //[LocalizedDisplayName("CabinetDescription", NameResourceType = typeof(CabinetsFieldNames))]
+        [LocalizedDisplayName("CabinetDescription", NameResourceType = typeof(CabinetsFieldNames))]
         public System.String Description {get; set;}
     }
 
@@ -210,12 +211,12 @@ namespace DiagnosticCenter.Models
     {
         public global::System.Int32 ID_News {get; set;}
 
-        [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([а-яійїє':А-Яійїє0-9]+\\s?)+$", ErrorMessage = "Неправильний формат")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(NewsValidationStrings))]
+        [RegularExpression("^([а-яійїє':А-Яійїє0-9]+\\s?)+$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(NewsValidationStrings))]
         public global::System.String Topic { get; set; }
 
-        [Required(ErrorMessage = "Обов'язкове поле")]
-        [RegularExpression("^([а-яійїє':А-Яійїє0-9\\.]+\\s?)+$", ErrorMessage = "Неправильний формат")]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(NewsValidationStrings))]
+        [RegularExpression("^([а-яійїє':А-Яійїє0-9\\.]+\\s?)+$", ErrorMessageResourceName = "InvalidFormat", ErrorMessageResourceType = typeof(NewsValidationStrings))]
         public global::System.String Text {get; set;}
 
         public global::System.Int32 ID_Employee { get; set; }

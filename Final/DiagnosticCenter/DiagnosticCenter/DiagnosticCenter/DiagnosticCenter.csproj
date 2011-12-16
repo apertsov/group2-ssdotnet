@@ -165,6 +165,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExaminationTypesStrings.uk.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Models\News\NewsFieldNames.Designer.cs">
+      <DependentUpon>NewsFieldNames.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\News\NewsFieldNames.ru.Designer.cs">
+      <DependentUpon>NewsFieldNames.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\News\NewsFieldNames.uk.Designer.cs">
+      <DependentUpon>NewsFieldNames.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\News\NewsValidationStrings.Designer.cs">
+      <DependentUpon>NewsValidationStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\News\NewsValidationStrings.ru.Designer.cs">
+      <DependentUpon>NewsValidationStrings.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Models\News\NewsValidationStrings.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewsValidationStrings.uk.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Models\Settings\SettingsValidationStrings.Designer.cs">
       <DependentUpon>SettingsValidationStrings.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -835,7 +865,6 @@
     <Content Include="Views\Settings\Edit.cshtml" />
     <Content Include="Views\Plan\Edit.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
-    <Content Include="Views\News\Delete.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Web.config">
@@ -888,6 +917,33 @@
     <EmbeddedResource Include="Resources\Models\Examinations\ExaminationTypesStrings.uk.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ExaminationTypesStrings.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\News\NewsFieldNames.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsFieldNames.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsFieldNames</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\News\NewsFieldNames.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsFieldNames.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsFieldNames</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\News\NewsFieldNames.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsFieldNames.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NewsFieldNames</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\News\NewsValidationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsValidationStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\News\NewsValidationStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsValidationStrings.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\News\NewsValidationStrings.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NewsValidationStrings.uk.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Settings\SettingsValidationStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -1146,7 +1202,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1155</DevelopmentServerPort>
+          <DevelopmentServerPort>22119</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

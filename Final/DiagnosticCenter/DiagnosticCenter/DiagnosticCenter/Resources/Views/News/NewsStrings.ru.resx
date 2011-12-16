@@ -117,7 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Autor" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Отдел</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Подробно</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Правка</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Найти</value>
+  </data>
   <data name="NewsDC" xml:space="preserve">
-    <value>Новости Діагностического Центра</value>
+    <value>Новости Диагностического Центра</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Следующая</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>из</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Страница</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Предидущая</value>
+  </data>
+  <data name="SearchByTopic" xml:space="preserve">
+    <value>Поиск по теме</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="BackToNews" xml:space="preserve">
+    <value>Назад к новостям</value>
+  </data>
+  <data name="ChooseDept" xml:space="preserve">
+    <value>-- Виберите отдел --</value>
+  </data>
+  <data name="ChooseEmpl" xml:space="preserve">
+    <value>-- Виберите работника --</value>
+  </data>
+  <data name="CreateNews" xml:space="preserve">
+    <value>Создание новости</value>
+  </data>
+  <data name="EditNews" xml:space="preserve">
+    <value>Правка новостей</value>
+  </data>
+  <data name="NewsDetails" xml:space="preserve">
+    <value>Подробности новости</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
 </root>

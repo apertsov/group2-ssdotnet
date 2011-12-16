@@ -219,4 +219,7 @@
   <data name="Error3Text" xml:space="preserve">
     <value>Записи в таблице расписаний не соответствуют настройкам рабочего дня.</value>
   </data>
+  <data name="GeneratingPlan" xml:space="preserve">
+    <value>Формирование расписания работы</value>
+  </data>
 </root>
