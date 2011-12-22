@@ -1,0 +1,43 @@
+﻿@model DiagnosticCenter.Models.ExaminationTemplate
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div id="icon-extempl-general" class="icon32"><br /></div><h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ExaminationTemplate</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Body</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+
+    <div class="display-label">ExaminationType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExaminationType.Description)
+    </div>
+
+    <div class="display-label">Employee</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Employee.Category)
+    </div>
+
+    <div class="display-label">IsPrivate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsPrivate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

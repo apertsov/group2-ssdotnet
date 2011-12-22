@@ -1,0 +1,184 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+    color: #333333;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+#loginId
+{
+    margin: 7em auto;
+    width: 320px;
+}
+
+#loginId h1
+{
+    color: #979797;
+    display: block;
+    /*height: 67px;*/
+    overflow: hidden;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    width: 326px;
+}
+
+#loginform form {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 4px 10px -1px rgba(200, 200, 200, 0.7);
+    font-weight: normal;
+    margin-left: 8px;
+    padding: 26px 24px 46px;
+}
+
+#loginform form div.in {
+    margin-bottom: 0;
+}
+
+#loginform form div.in label {
+    color: #777777;
+    font-size: 14px;
+}
+
+body form input {
+    background: none repeat scroll 0 0 #FBFBFB;
+    border: 1px solid #E5E5E5;
+    box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: medium none;
+    padding: 3px;
+    width: 97%;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="file"], input[type="button"], input[type="reset"], select {
+    background-color: #FFFFFF;
+    border-color: #DFDFDF;
+}
+
+input[type="checkbox"] 
+{
+    font-size: 12px;
+    line-height: 19px;
+    width: 14px;
+    height: 14px;
+}
+
+input {
+    color: #555555;
+}
+
+form .forgetmenot {
+    float: left;
+    font-weight: normal;
+}
+
+form .forgetmenot label {
+    font-size: 12px;
+    line-height: 19px;
+}
+
+form .submit
+{
+    float: right;    
+}   
+
+/*
+#loginform form .submit input[type="submit"]  
+{
+    background: #dedede;
+    border-color: #dedede;
+    color: #979797;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 5px 5px 5px 5px;
+    font-size: 16px;
+}
+
+#loginform form .submit input[type="submit"]:hover  
+{
+    background: #f4f4f4;
+    border-color: #f4f4f4;
+    color: #767676;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 5px 5px 5px 5px;
+    font-size: 16px;
+    cursor: pointer;
+}*/
+
+input[type="submit"] {
+    font-size: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px;
+    min-width: 70px;
+}
+
+.yt-uix-button 
+{
+    background: #F6F6F6 url("images/btn_bg.png") repeat;
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 #F6F6F6;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    color: #000000;
+    cursor: pointer;
+    height: 2.0833em;
+    overflow: visible;
+    padding: 0 0.5em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.yt-uix-button-text {
+    background: none repeat scroll 0 0 transparent;
+    border-color: transparent;
+    border-radius: 0 0 0 0;
+    filter: none;
+}
+.yt-uix-button:hover, .yt-uix-button:focus, .yt-uix-button-hover {
+    background: -moz-linear-gradient(center top , #FFFFFF, #EBEBEB) repeat scroll 0 0 #F3F3F3;
+    border-color: #999999;
+    box-shadow: 0 0 3px #999999;
+    outline: 0 none;
+}
+.yt-uix-button:active, .yt-uix-button-active, .yt-uix-button-active:hover, .yt-uix-button-active:focus {
+    background: -moz-linear-gradient(center top , #CCCCCC, #FFFFFF) repeat scroll 0 0 #DDDDDD;
+    border-color: #999999;
+}
+
+.yt-uix-button, .yt-subscription-button.subscribed {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-image: -moz-linear-gradient(center top , #FFFFFF 0pt, #E0E0E0 100%);
+    border-color: #CCCCCC #CCCCCC #AAAAAA;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #555555;
+    font-size: 11px;
+    font-weight: bold;
+    height: 2.95em;
+    padding: 0 3px;
+    text-shadow: 0 0 0 transparent, 0 1px 0 #FFFFFF;
+    
+    font: 11px arial,sans-serif;
+    line-height: 1;
+}
+.yt-uix-button:hover, .yt-uix-button:active {
+    background-image: -moz-linear-gradient(center top , #FFFFFF 0pt, #E0E0E0 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 3px #FFFFFF inset;
+}

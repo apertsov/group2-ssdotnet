@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="833ad62a-27fe-402b-ad69-a1c0c2b5860f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1044/Services/DCService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DCService.wsdl" MetadataType="Wsdl" ID="88452ada-88c6-4751-a8ff-fda8a66070e3" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DCService.disco" MetadataType="Disco" ID="b7124aba-e966-4620-a123-6e19dee171b3" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?disco" />
+    <MetadataFile FileName="DCService.xsd" MetadataType="Schema" ID="ed5246aa-24fd-42ff-9f6f-46d41b571ab5" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DCService1.wsdl" MetadataType="Wsdl" ID="4596deff-378f-446b-a5fb-bf1c3858cdaf" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?wsdl" />
+    <MetadataFile FileName="DCService1.xsd" MetadataType="Schema" ID="2b8e6ca9-5ccb-4fd9-a356-525231864ea2" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DCService2.xsd" MetadataType="Schema" ID="d595e527-3983-4484-a3fb-f16961db4a2f" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DCService3.xsd" MetadataType="Schema" ID="406dc873-e7ee-47fd-829f-771c14bbdadd" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DCService4.xsd" MetadataType="Schema" ID="0f88bc8a-a91b-42a1-8df9-1e270a41de08" SourceId="1" SourceUrl="http://localhost:1044/Services/DCService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

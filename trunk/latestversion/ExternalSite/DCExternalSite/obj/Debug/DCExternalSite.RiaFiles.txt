@@ -1,0 +1,3 @@
+D:\DiagnosticCenter\ExternalSite\DCExternalSite
+Generated_Code\DCExternalSite.Web.g.cs
+Generated_Code\Models\Shared\User.shared.cs

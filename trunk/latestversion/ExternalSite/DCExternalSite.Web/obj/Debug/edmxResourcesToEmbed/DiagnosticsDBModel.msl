@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DiagnosticsDBModelStoreContainer" CdmEntityContainer="ASPNETDBEntities">
+    <EntitySetMapping Name="Cabinets">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.Cabinets">
+        <MappingFragment StoreEntitySet="Cabinets">
+          <ScalarProperty Name="ID_Cabinet" ColumnName="ID_Cabinet" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Days">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.Days">
+        <MappingFragment StoreEntitySet="Days">
+          <ScalarProperty Name="ID_Day" ColumnName="ID_Day" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartBreak" ColumnName="StartBreak" />
+          <ScalarProperty Name="EndBreak" ColumnName="EndBreak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+          <ScalarProperty Name="ID_Cabinet" ColumnName="ID_Cabinet" />
+          <ScalarProperty Name="AtWork" ColumnName="AtWork" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examinations">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.Examinations">
+        <MappingFragment StoreEntitySet="Examinations">
+          <ScalarProperty Name="ID_Examination" ColumnName="ID_Examination" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Protocol" ColumnName="Protocol" />
+          <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+          <ScalarProperty Name="Recommendation" ColumnName="Recommendation" />
+          <ScalarProperty Name="Consultation" ColumnName="Consultation" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="ID_ExmType" ColumnName="ID_ExmType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExaminationTypes">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.ExaminationTypes">
+        <MappingFragment StoreEntitySet="ExaminationTypes">
+          <ScalarProperty Name="ID_ExmType" ColumnName="ID_ExmType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Examination_ID_Examination" ColumnName="Examination_ID_Examination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="ID_News" ColumnName="ID_News" />
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.Patients">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Workplace" ColumnName="Workplace" />
+          <ScalarProperty Name="Civil_Servant" ColumnName="Civil_Servant" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Referrals">
+      <EntityTypeMapping TypeName="DiagnosticsDBModel.Referrals">
+        <MappingFragment StoreEntitySet="Referrals">
+          <ScalarProperty Name="ID_Referral" ColumnName="ID_Referral" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="ID_Examination" ColumnName="ID_Examination" />
+          <ScalarProperty Name="Examination_ID_Examination" ColumnName="Examination_ID_Examination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DayEmployee" TypeName="DiagnosticsDBModel.DayEmployee" StoreEntitySet="DayEmployee">
+      <EndProperty Name="Days">
+        <ScalarProperty Name="ID_Day" ColumnName="Day_ID_Day" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="ID_Employee" ColumnName="Employee_ID_Employee" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DiagnosticCenter.Models.Examination>
+
+@{  
+    DiagnosticCenter.Models.Patient patient = ViewBag.Patient;
+    string fullName = patient.Surname + " " + patient.FirstName + " " + patient.Patronymic;
+    ViewBag.Title = fullName + " - " + @ExaminationRes.ExaminationStrings.Examinations;
+}
+
+<div id="icon-extempl-general" class="icon32"><br /></div><h2>@fullName - @ExaminationRes.ExaminationStrings.Examinations</h2>
+
+<p>
+    @Html.ActionLink(@ExaminationRes.ExaminationStrings.NewExamination, "Create", new { id = patient.ID_Patient })
+</p>
+<table>
+    <tr>
+        <th>
+            @ExaminationRes.ExaminationStrings.ExaminationType2
+        </th>
+        <th>
+            @ExaminationRes.ExaminationStrings.Time
+        </th>    
+        <th>
+            @ExaminationRes.ExaminationStrings.Status
+        </th>
+        <th>
+            @ExaminationRes.ExaminationStrings.Doctor
+        </th>               
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExaminationType.Name)
+        </td>               
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>            
+            @if (item.Status == 0)
+            {
+                @ExaminationRes.ExaminationStrings.StatInProgress                
+            }
+            else
+            {
+                @ExaminationRes.ExaminationStrings.StatComplete
+            }
+        </td> 
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Surname)
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+            @Html.DisplayFor(modelItem => item.Employee.Patronymic)
+        </td>        
+        @ViewRes.SharedStrings.Edit
+        <td>
+            @*@Html.ActionLink(@ExaminationRes.ExaminationStrings._Edit, "Edit", new { id = item.ID_Examination }) |*@
+            @Html.ActionLink(@ExaminationRes.ExaminationStrings._Details, "Details", new { id = item.ID_Examination }) |
+            @Html.ActionLink(@ExaminationRes.ExaminationStrings._Delete, "Delete", new { id = item.ID_Examination })
+        </td>
+    </tr>
+}
+
+</table>

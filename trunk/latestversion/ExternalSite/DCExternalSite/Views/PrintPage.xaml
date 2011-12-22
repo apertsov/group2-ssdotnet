@@ -1,0 +1,115 @@
+﻿<navigation:Page xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices"  x:Class="DCExternalSite.Views.PrintPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1020" d:DesignHeight="489"
+           Title="PrintPage Page">
+    <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}" Width="920" HorizontalAlignment="Left">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Name="stackPanel1" HorizontalAlignment="Right"
+                        Margin="0" VerticalAlignment="Stretch" Orientation="Horizontal">
+                
+            </StackPanel>
+        
+            <RichTextBox x:Name="rta"
+                          Grid.Row="1"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Stretch"
+                          TextWrapping="Wrap"
+                          IsReadOnly="True" Width="720" BorderBrush="{x:Null}">
+
+                <Paragraph x:Name="H1"
+                           FontFamily="Courier New"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           TextAlignment="Center">
+                    <LineBreak />
+                    Чернівецький діагностичний центр
+                    <LineBreak />
+                </Paragraph>
+                <Paragraph x:Name="P_ExaminationTypeName"
+                           FontFamily="Courier New"
+                           FontSize="20"
+                           TextAlignment="Center"/>
+                <Paragraph/>
+                <Paragraph x:Name="P_ExaminationTypePrice"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Right">
+                    Вартість обстеження:
+                </Paragraph>
+                <Paragraph/>
+                <Paragraph x:Name="P_Patient"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Left">
+                    Ім'я паціента: 
+                </Paragraph>
+                <Paragraph x:Name="P_BirthDate"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Left">
+                    Дата народження:
+                </Paragraph>
+                <Paragraph/>
+                <Paragraph x:Name="P_Consultation"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Left">
+                    Консультація:
+                </Paragraph>
+                <Paragraph/>
+                <Paragraph x:Name="P_Recommendation"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Left">
+                    Рекомендації:
+                </Paragraph>
+                <Paragraph/>
+                <Paragraph x:Name="P_Conclusion"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Left">
+                    Заключення:
+                </Paragraph>
+                <Paragraph/>
+                <Paragraph x:Name="P_Protocol"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Left">
+                    Протокол:
+                </Paragraph>
+                <Paragraph/>
+                <Paragraph x:Name="P_EmployeeName"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Right">
+                    Обстеження провів:
+                </Paragraph>
+                <Paragraph x:Name="P_EmployeeSpecialty"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Right">                    
+                </Paragraph>
+                <Paragraph x:Name="P_StartTime"
+                           FontFamily="Courier New"
+                           FontSize="14"
+                           TextAlignment="Right">
+                </Paragraph>
+                <Paragraph/>
+                <Paragraph/>
+                <Paragraph/>
+            </RichTextBox>
+            <Image Name="imagePrint" Source="/DCExternalSite;component/Img/print_printer_icon_128_.png" MouseLeftButtonUp="imagePrint_MouseLeftButtonUp" Margin="771,0,99,0" />
+        </Grid>
+        <riaControls:DomainDataSource />
+    </StackPanel>    
+</navigation:Page>
+    

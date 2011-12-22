@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D13C25F-B32C-404C-8C43-F4091B7F3466}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DCExternalSite.Web</RootNamespace>
+    <AssemblyName>DCExternalSite.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>{7BA1AD87-DA4F-49CC-A15E-FB8062A2D305}|..\DCExternalSite\DCExternalSite.csproj|ClientBin|False</SilverlightApplicationList>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ServiceModel.DomainServices.Server" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.DomainServices.Hosting" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\DCExternalSite.xap" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\6\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\7\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\5_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\5_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\5_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\5_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\6_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\6_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\6_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\6_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\7_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\7_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\7_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_files\8\7_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_001_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_002_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\10\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_003_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_004_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_005_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_006_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_007_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_008_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\10\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\0_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\1_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\2_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\3_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\4_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\5_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\5_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\5_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\5_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\5_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\6_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\6_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\6_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\6_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\6_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\7_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\7_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\7_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\7_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\11\7_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_009_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_010_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_011_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\11\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_012_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_013_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\10\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_014_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\5_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\5_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\5_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\11\5_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_015_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_016_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_017_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_018_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\10\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_019_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\10\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_020_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_021_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\10\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\5_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\5_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\5_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\5_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\6_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\6_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\6_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\11\6_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_022_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_023_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_024_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_025_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_026_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_027_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\5_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\5_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\5_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\11\5_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\0_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\10_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\11_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\1_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\2_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\3_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\4_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\5_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\6_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\7_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\8_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_5.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_6.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\12\9_7.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_028_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_029_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_030_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_031_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032.xml" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\0\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\10\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\0_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\0_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\0_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\1_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\1_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\1_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\2_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\2_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\2_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\2_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\2_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\3_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\3_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\3_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\3_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\3_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\4_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\4_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\4_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\4_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\4_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\5_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\5_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\5_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\5_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\5_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\6_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\6_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\6_2.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\6_3.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\11\6_4.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\1\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\2\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\3\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\4\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\5\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\6\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\7\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\8\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\9\0_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\9\0_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\9\1_0.jpg" />
+    <Content Include="ClientBin\GeneratedImages\dzc_output_images\dc_img_032_files\9\1_1.jpg" />
+    <Content Include="ClientBin\GeneratedImages\Metadata.xml" />
+    <Content Include="ClientBin\GeneratedImages\scene.xml" />
+    <Content Include="ClientBin\GeneratedImages\SparseImageSceneGraph.xml" />
+    <Content Include="DCExternalSiteTestPage.aspx" />
+    <Content Include="DCExternalSiteTestPage.html" />
+    <Content Include="Services\DCService0.svc" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Models\DiagnosticsDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiagnosticsDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ValidationErrorResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationErrorResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\RegistrationDataResources.Designer.cs">
+      <DependentUpon>RegistrationDataResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\RegistrationData.cs" />
+    <Compile Include="Services\DCDomainService.cs" />
+    <Compile Include="Services\DCDomainService.metadata.cs" />
+    <Compile Include="Services\DCService0.svc.cs">
+      <DependentUpon>DCService0.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\User.cs" />
+    <Compile Include="Services\UserRegistrationService.cs" />
+    <Compile Include="Models\Shared\User.shared.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ValidationErrorResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrorResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RegistrationDataResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegistrationDataResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\DiagnosticsDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DiagnosticsDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1154</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

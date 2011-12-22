@@ -1,0 +1,37 @@
+﻿@model DiagnosticCenter.Models.ExaminationType
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Controller = "ExaminationTypes";
+    ViewBag.Action = "ExaminationTypes.Details";
+}
+
+<div id="icon-extypes-general" class="icon32"><br /></div><h2>@ExaminationRes.ExaminationStrings.ExaminationTypes - @ExaminationRes.ExaminationStrings._Details</h2>
+
+<p>@Html.ActionLink(@ExaminationRes.ExaminationStrings._Edit, "Edit", new { id = Model.ID_ExmType })</p>
+
+<fieldset>
+    <legend>@ExaminationRes.ExaminationStrings.ExaminationType</legend>
+
+    <div class="display-label">@Html.LabelFor(model => model.Name)</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(model => model.Description)</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(model => model.Price)</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(model => model.Duration)</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Duration)
+    </div>
+        
+</fieldset>
+

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DiagnosticCenter.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DiagnosticCenter.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1044/Services/DCService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:import schemaLocation="http://localhost:1044/Services/DCService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfPatient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatient" nillable="true" type="tns:ArrayOfPatient" />
+  <xs:complexType name="Patient">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Civil_Servant" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Examination" nillable="true" type="tns:ArrayOfExamination" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID_Patient" type="xs:int" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Patronymic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Referral" nillable="true" type="tns:ArrayOfReferral" />
+          <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Specialty" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Workplace" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Patient" nillable="true" type="tns:Patient" />
+  <xs:complexType name="ArrayOfExamination">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Examination" nillable="true" type="tns:Examination" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExamination" nillable="true" type="tns:ArrayOfExamination" />
+  <xs:complexType name="Examination">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Conclusion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Consultation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q2:EntityReferenceOfEmployeeD3Miy1Vx" />
+          <xs:element minOccurs="0" name="ExaminationType" nillable="true" type="tns:ExaminationType" />
+          <xs:element minOccurs="0" name="ExaminationTypeReference" nillable="true" type="q2:EntityReferenceOfExaminationTypeD3Miy1Vx" />
+          <xs:element minOccurs="0" name="ID_Employee" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Examination" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_ExmType" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Patient" type="xs:int" />
+          <xs:element minOccurs="0" name="Patient" nillable="true" type="tns:Patient" />
+          <xs:element minOccurs="0" name="PatientReference" nillable="true" type="q2:EntityReferenceOfPatientD3Miy1Vx" />
+          <xs:element minOccurs="0" name="Protocol" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Recommendation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Referral" nillable="true" type="tns:Referral" />
+          <xs:element minOccurs="0" name="ReferralReference" nillable="true" type="q2:EntityReferenceOfReferralD3Miy1Vx" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Status" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Examination" nillable="true" type="tns:Examination" />
+  <xs:complexType name="Employee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AtWork" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cabinet" nillable="true" type="tns:Cabinet" />
+          <xs:element minOccurs="0" name="CabinetReference" nillable="true" type="q3:EntityReferenceOfCabinetD3Miy1Vx" />
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Day" nillable="true" type="tns:ArrayOfDay" />
+          <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+          <xs:element minOccurs="0" name="DepartmentReference" nillable="true" type="q3:EntityReferenceOfDepartmentD3Miy1Vx" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Examination" nillable="true" type="tns:ArrayOfExamination" />
+          <xs:element minOccurs="0" name="ExaminationTemplates" nillable="true" type="tns:ArrayOfExaminationTemplate" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID_Cabinet" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Dept" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Employee" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_User" type="ser:guid" />
+          <xs:element minOccurs="0" name="News" nillable="true" type="tns:ArrayOfNews" />
+          <xs:element minOccurs="0" name="Patronymic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rate" type="xs:int" />
+          <xs:element minOccurs="0" name="Referral" nillable="true" type="tns:ArrayOfReferral" />
+          <xs:element minOccurs="0" name="Specialty" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="Cabinet">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Department" nillable="true" type="tns:Department" />
+          <xs:element minOccurs="0" name="DepartmentReference" nillable="true" type="q4:EntityReferenceOfDepartmentD3Miy1Vx" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:ArrayOfEmployee" />
+          <xs:element minOccurs="0" name="ID_Cabinet" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Dept" type="xs:int" />
+          <xs:element minOccurs="0" name="Number" type="xs:int" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Cabinet" nillable="true" type="tns:Cabinet" />
+  <xs:complexType name="Department">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cabinet" nillable="true" type="tns:ArrayOfCabinet" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:ArrayOfEmployee" />
+          <xs:element minOccurs="0" name="ID_Dept" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="ArrayOfCabinet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cabinet" nillable="true" type="tns:Cabinet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCabinet" nillable="true" type="tns:ArrayOfCabinet" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+  <xs:complexType name="ArrayOfDay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Day" nillable="true" type="tns:Day" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDay" nillable="true" type="tns:ArrayOfDay" />
+  <xs:complexType name="Day">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:ArrayOfEmployee" />
+          <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID_Day" type="xs:int" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Day" nillable="true" type="tns:Day" />
+  <xs:complexType name="ArrayOfExaminationTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExaminationTemplate" nillable="true" type="tns:ExaminationTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExaminationTemplate" nillable="true" type="tns:ArrayOfExaminationTemplate" />
+  <xs:complexType name="ExaminationTemplate">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="EmployeeID_Employee" type="xs:int" />
+          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q7:EntityReferenceOfEmployeeD3Miy1Vx" />
+          <xs:element minOccurs="0" name="ExaminationType" nillable="true" type="tns:ExaminationType" />
+          <xs:element minOccurs="0" name="ExaminationTypeID_ExmType" type="xs:int" />
+          <xs:element minOccurs="0" name="ExaminationTypeReference" nillable="true" type="q7:EntityReferenceOfExaminationTypeD3Miy1Vx" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPrivate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExaminationTemplate" nillable="true" type="tns:ExaminationTemplate" />
+  <xs:complexType name="ExaminationType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Duration" type="xs:int" />
+          <xs:element minOccurs="0" name="ExaminationTemplates" nillable="true" type="tns:ArrayOfExaminationTemplate" />
+          <xs:element minOccurs="0" name="Examinations" nillable="true" type="tns:ArrayOfExamination" />
+          <xs:element minOccurs="0" name="ID_ExmType" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExaminationType" nillable="true" type="tns:ExaminationType" />
+  <xs:complexType name="ArrayOfNews">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="News" nillable="true" type="tns:News" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNews" nillable="true" type="tns:ArrayOfNews" />
+  <xs:complexType name="News">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q9:EntityReferenceOfEmployeeD3Miy1Vx" />
+          <xs:element minOccurs="0" name="ID_Dept" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Employee" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_News" type="xs:int" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Topic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="News" nillable="true" type="tns:News" />
+  <xs:complexType name="ArrayOfReferral">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Referral" nillable="true" type="tns:Referral" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReferral" nillable="true" type="tns:ArrayOfReferral" />
+  <xs:complexType name="Referral">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="EmployeeReference" nillable="true" type="q10:EntityReferenceOfEmployeeD3Miy1Vx" />
+          <xs:element minOccurs="0" name="Examination" nillable="true" type="tns:Examination" />
+          <xs:element minOccurs="0" name="ExaminationReference" nillable="true" type="q10:EntityReferenceOfExaminationD3Miy1Vx" />
+          <xs:element minOccurs="0" name="ID_Employee" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Examination" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Patient" type="xs:int" />
+          <xs:element minOccurs="0" name="ID_Referral" type="xs:int" />
+          <xs:element minOccurs="0" name="Patient" nillable="true" type="tns:Patient" />
+          <xs:element minOccurs="0" name="PatientReference" nillable="true" type="q10:EntityReferenceOfPatientD3Miy1Vx" />
+          <xs:element minOccurs="0" name="VisitDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Referral" nillable="true" type="tns:Referral" />
+</xs:schema>

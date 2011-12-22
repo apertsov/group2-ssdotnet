@@ -1,0 +1,30 @@
+﻿<li class="dir">
+@if(Request.IsAuthenticated) {
+    <strong>@User.Identity.Name</strong>
+    <ul> 
+    <li>
+    @Html.ActionLink(AccountRes.AccountStrings.Profile,"Index","Statistics")
+    </li>
+    <li class="dir">
+      Тема
+      <ul>
+      <li>
+
+    @Html.ActionLink("Gray", "ChangeTheme", "UserSettings",
+            new { theme = "Gray", returnUrl = this.Request.RawUrl }, null)
+            </li>
+            <li>
+    @Html.ActionLink("Blue", "ChangeTheme", "UserSettings",
+            new { theme = "Blue", returnUrl = this.Request.RawUrl }, null)
+            </li>
+        </ul>
+    </li>
+    <li>
+    @Html.ActionLink(ViewRes.CabinetsStrings.LogOff, "LogOff", "Account")
+    </li>
+    </ul>
+}
+else {
+    @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+}
+</li>
