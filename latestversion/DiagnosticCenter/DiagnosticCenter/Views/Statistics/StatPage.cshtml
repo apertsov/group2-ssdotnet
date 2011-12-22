@@ -1,0 +1,38 @@
+﻿<h2> @ViewRes.SharedStrings.Stat </h2>
+
+
+<img src="@Url.Action("PieChart")" alt="SimpleChart" align="left" /> 
+
+
+<img src="@Url.Action("ColumnChart")" alt="SimpleChart" />
+
+<div>
+<table align="center">
+<th align="center" colspan="2">
+    @ViewRes.StatisticsStrings.NumOfPat
+</th>
+<tr>
+    <td>
+    @ViewRes.StatisticsStrings.Today </td>
+    <td>
+      @ViewBag.PatientsToday
+    </td>
+</tr>
+<tr>
+<td>
+    @ViewRes.StatisticsStrings.Month
+</td>
+<td>
+    @ViewBag.PatientsMonth
+</td>
+</tr>
+<tr>
+<td>
+    @ViewRes.StatisticsStrings.Total
+</td>
+<td>
+    @ViewBag.PatientsTotal
+</td>
+</tr>
+</table>
+</div>

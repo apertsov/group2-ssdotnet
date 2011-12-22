@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DiagnosticsDBModelStoreContainer" CdmEntityContainer="DiagnosticsDBEntities">
+    <EntitySetMapping Name="Cabinets">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Cabinet)">
+        <MappingFragment StoreEntitySet="Cabinets">
+          <ScalarProperty Name="ID_Cabinet" ColumnName="ID_Cabinet" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Days">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Day)">
+        <MappingFragment StoreEntitySet="Days">
+          <ScalarProperty Name="ID_Day" ColumnName="ID_Day" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+          <ScalarProperty Name="ID_Cabinet" ColumnName="ID_Cabinet" />
+          <ScalarProperty Name="AtWork" ColumnName="AtWork" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examinations">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Examination)">
+        <MappingFragment StoreEntitySet="Examinations">
+          <ScalarProperty Name="ID_Examination" ColumnName="ID_Examination" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Protocol" ColumnName="Protocol" />
+          <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+          <ScalarProperty Name="Recommendation" ColumnName="Recommendation" />
+          <ScalarProperty Name="Consultation" ColumnName="Consultation" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="ID_ExmType" ColumnName="ID_ExmType" />
+          <ScalarProperty Name="Referral_ID_Referral" ColumnName="Referral_ID_Referral" />
+          <ScalarProperty Name="ExaminationType_ID_ExmType" ColumnName="ExaminationType_ID_ExmType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExaminationTemplates">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.ExaminationTemplate)">
+        <MappingFragment StoreEntitySet="ExaminationTemplates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="ExaminationTypeID_ExmType" ColumnName="ExaminationTypeID_ExmType" />
+          <ScalarProperty Name="EmployeeID_Employee" ColumnName="EmployeeID_Employee" />
+          <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExaminationTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.ExaminationType)">
+        <MappingFragment StoreEntitySet="ExaminationTypes">
+          <ScalarProperty Name="ID_ExmType" ColumnName="ID_ExmType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.News)">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="ID_News" ColumnName="ID_News" />
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Patient)">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Workplace" ColumnName="Workplace" />
+          <ScalarProperty Name="Civil_Servant" ColumnName="Civil_Servant" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Positions)">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="ID_Position" ColumnName="ID_Position" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Referrals">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Referral)">
+        <MappingFragment StoreEntitySet="Referrals">
+          <ScalarProperty Name="ID_Referral" ColumnName="ID_Referral" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+          <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+          <ScalarProperty Name="ID_Examination" ColumnName="ID_Examination" />
+          <ScalarProperty Name="ID_Dept" ColumnName="ID_Dept" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.Settings)">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="ID_Settings" ColumnName="ID_Settings" />
+          <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+          <ScalarProperty Name="CenterDetails" ColumnName="CenterDetails" />
+          <ScalarProperty Name="CenterAddress" ColumnName="CenterAddress" />
+          <ScalarProperty Name="CenterPhoneNo" ColumnName="CenterPhoneNo" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+          <ScalarProperty Name="WorkDayStartHour" ColumnName="WorkDayStartHour" />
+          <ScalarProperty Name="WorkDayEndHour" ColumnName="WorkDayEndHour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="LastLockedOutDate" ColumnName="LastLockedOutDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSettingsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DiagnosticsDBModel.UserSettings)">
+        <MappingFragment StoreEntitySet="UserSettingsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropName" ColumnName="PropName" />
+          <ScalarProperty Name="PropValue" ColumnName="PropValue" />
+          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DayEmployee" TypeName="DiagnosticsDBModel.DayEmployee" StoreEntitySet="DayEmployee">
+      <EndProperty Name="Days">
+        <ScalarProperty Name="ID_Day" ColumnName="Day_ID_Day" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="ID_Employee" ColumnName="Employee_ID_Employee" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRole" TypeName="DiagnosticsDBModel.UserRole" StoreEntitySet="UserRole">
+      <EndProperty Name="Roles">
+        <ScalarProperty Name="RoleID" ColumnName="Roles_RoleID" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UserID" ColumnName="Users_UserID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,16 @@
+﻿<xapCache source="D:\DiagnosticCenter\ExternalSite\DCExternalSite\Bin\Debug\DCExternalSite.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="16.12.2011 14:18:33">
+  <file source="D:\DiagnosticCenter\ExternalSite\DCExternalSite\obj\Debug\DCExternalSite.dll" archivePath="DCExternalSite.dll" lastWriteTime="16.12.2011 14:18:30" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.ComponentModel.DataAnnotations.dll" archivePath="System.ComponentModel.DataAnnotations.dll" lastWriteTime="26.08.2010 3:17:48" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.dll" archivePath="System.ServiceModel.DomainServices.Client.dll" lastWriteTime="14.01.2011 14:13:36" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.Web.dll" archivePath="System.ServiceModel.DomainServices.Client.Web.dll" lastWriteTime="14.01.2011 14:13:32" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.ServiceModel.Web.Extensions.dll" archivePath="System.ServiceModel.Web.Extensions.dll" lastWriteTime="26.08.2010 3:17:48" />
+  <file source="D:\DiagnosticCenter\ExternalSite\DCExternalSite\Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll" archivePath="System.Windows.Controls.Data.DataForm.Toolkit.dll" lastWriteTime="16.12.2011 1:13:44" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Controls.Data.dll" archivePath="System.Windows.Controls.Data.dll" lastWriteTime="26.08.2010 3:17:48" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Controls.Data.Input.dll" archivePath="System.Windows.Controls.Data.Input.dll" lastWriteTime="26.08.2010 3:17:48" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Controls.dll" archivePath="System.Windows.Controls.dll" lastWriteTime="26.08.2010 3:17:48" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Silverlight\System.Windows.Controls.DomainServices.dll" archivePath="System.Windows.Controls.DomainServices.dll" lastWriteTime="14.01.2011 14:13:50" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Controls.Navigation.dll" archivePath="System.Windows.Controls.Navigation.dll" lastWriteTime="26.08.2010 3:17:48" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Data.dll" archivePath="System.Windows.Data.dll" lastWriteTime="26.08.2010 3:17:48" />
+  <file source="D:\DiagnosticCenter\ExternalSite\DCExternalSite\ServiceReferences.ClientConfig" archivePath="ServiceReferences.ClientConfig" lastWriteTime="16.12.2011 1:13:45" />
+  <file source="D:\DiagnosticCenter\ExternalSite\DCExternalSite\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="16.12.2011 14:18:33" />
+</xapCache>

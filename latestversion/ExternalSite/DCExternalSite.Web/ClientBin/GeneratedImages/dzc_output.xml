@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Collection MaxLevel="8" TileSize="256" Format="jpg" NextItemId="32" ServerFormat="Default" xmlns="http://schemas.microsoft.com/deepzoom/2009">
+  <Items>
+    <I Id="0" N="0" Source="dzc_output_images/dc_img_001.xml">
+      <Size Width="400" Height="300" />
+      <Viewport Width="7.2382194690060055" X="-0" Y="-0.1449462375948162" />
+    </I>
+    <I Id="1" N="1" Source="dzc_output_images/dc_img_002.xml">
+      <Size Width="400" Height="320" />
+      <Viewport Width="7.238219469006113" X="-1.0343134645951424" Y="-0" />
+    </I>
+    <I Id="2" N="2" Source="dzc_output_images/dc_img_003.xml">
+      <Size Width="987" Height="941" />
+      <Viewport Width="7.2382194690061379" X="-2.0720750672372072" Y="-0.14494623759481881" />
+    </I>
+    <I Id="3" N="3" Source="dzc_output_images/dc_img_004.xml">
+      <Size Width="250" Height="221" />
+      <Viewport Width="7.2382194690061379" X="-3.11119467369757" Y="-0.26927225896441431" />
+    </I>
+    <I Id="4" N="4" Source="dzc_output_images/dc_img_005.xml">
+      <Size Width="400" Height="400" />
+      <Viewport Width="7.2382194690060206" X="-4.1553225207206452" Y="-0" />
+    </I>
+    <I Id="5" N="5" Source="dzc_output_images/dc_img_006.xml">
+      <Size Width="202" Height="174" />
+      <Viewport Width="7.2382194690060508" X="-5.1991107210818726" Y="-0.26927225896441115" />
+    </I>
+    <I Id="6" N="6" Source="dzc_output_images/dc_img_007.xml">
+      <Size Width="250" Height="180" />
+      <Viewport Width="7.2382194690058927" X="-6.2382194690058927" Y="-0.1449462375948139" />
+    </I>
+    <I Id="7" N="7" Source="dzc_output_images/dc_img_008.xml">
+      <Size Width="500" Height="333" />
+      <Viewport Width="7.2382194690060615" X="-0" Y="-0.93606832932166406" />
+    </I>
+    <I Id="8" N="8" Source="dzc_output_images/dc_img_009.xml">
+      <Size Width="1800" Height="1200" />
+      <Viewport Width="7.2382194690059647" X="-1.0343134645951213" Y="-0.84112209172683428" />
+    </I>
+    <I Id="9" N="9" Source="dzc_output_images/dc_img_010.xml">
+      <Size Width="600" Height="400" />
+      <Viewport Width="7.2382194690059842" X="-2.0720750672371633" Y="-1.1306583975782705" />
+    </I>
+    <I Id="10" N="10" Source="dzc_output_images/dc_img_011.xml">
+      <Size Width="625" Height="502" />
+      <Viewport Width="7.2382194690061379" X="-3.11119467369757" Y="-1.1937392701901723" />
+    </I>
+    <I Id="11" N="11" Source="dzc_output_images/dc_img_012.xml">
+      <Size Width="1200" Height="800" />
+      <Viewport Width="7.2382194690060206" X="-4.1553225207206452" Y="-1.0417454367115533" />
+    </I>
+    <I Id="12" N="12" Source="dzc_output_images/dc_img_013.xml">
+      <Size Width="263" Height="350" />
+      <Viewport Width="7.2382194690060508" X="-5.1991107210818726" Y="-1.1708060549227506" />
+    </I>
+    <I Id="13" N="13" Source="dzc_output_images/dc_img_014.xml">
+      <Size Width="1024" Height="768" />
+      <Viewport Width="7.2382194690058927" X="-6.2382194690058927" Y="-0.90505135381736457" />
+    </I>
+    <I Id="14" N="14" Source="dzc_output_images/dc_img_015.xml">
+      <Size Width="1440" Height="820" />
+      <Viewport Width="7.2382194690058927" X="-6.2382194690058927" Y="-1.6952022994646685" />
+    </I>
+    <I Id="15" N="15" Source="dzc_output_images/dc_img_016.xml">
+      <Size Width="245" Height="245" />
+      <Viewport Width="7.2382194690060615" X="-0" Y="-1.6357066517544154" />
+    </I>
+    <I Id="16" N="16" Source="dzc_output_images/dc_img_017.xml">
+      <Size Width="250" Height="187" />
+      <Viewport Width="7.2382194690059647" X="-1.0343134645951213" Y="-1.5482441834536793" />
+    </I>
+    <I Id="17" N="17" Source="dzc_output_images/dc_img_018.xml">
+      <Size Width="300" Height="240" />
+      <Viewport Width="7.2382194690059647" X="-1.0343134645951213" Y="-2.339745281835599" />
+    </I>
+    <I Id="18" N="18" Source="dzc_output_images/dc_img_019.xml">
+      <Size Width="800" Height="1000" />
+      <Viewport Width="7.2382194690061379" X="-2.0720750672372072" Y="-1.8355691391087723" />
+    </I>
+    <I Id="19" N="19" Source="dzc_output_images/dc_img_020.xml">
+      <Size Width="1024" Height="768" />
+      <Viewport Width="7.2382194690061379" X="-3.11119467369757" Y="-2.041987510203803" />
+    </I>
+    <I Id="20" N="20" Source="dzc_output_images/dc_img_021.xml">
+      <Size Width="621" Height="348" />
+      <Viewport Width="7.2382194690060055" X="-0" Y="-2.6775227633944159" />
+    </I>
+    <I Id="21" N="21" Source="dzc_output_images/dc_img_022.xml">
+      <Size Width="1600" Height="799" />
+      <Viewport Width="7.2382194690060055" X="-0" Y="-3.2695727432657447" />
+    </I>
+    <I Id="22" N="22" Source="dzc_output_images/dc_img_023.xml">
+      <Size Width="300" Height="335" />
+      <Viewport Width="7.2382194690059647" X="-1.0343134645951213" Y="-3.1739542632278659" />
+    </I>
+    <I Id="23" N="23" Source="dzc_output_images/dc_img_024.xml">
+      <Size Width="631" Height="450" />
+      <Viewport Width="7.2382194690061379" X="-2.0720750672372072" Y="-3.1243523631884895" />
+    </I>
+    <I Id="24" N="24" Source="dzc_output_images/dc_img_025.xml">
+      <Size Width="395" Height="400" />
+      <Viewport Width="7.2382194690061379" X="-3.11119467369757" Y="-2.8274894385644567" />
+    </I>
+    <I Id="25" N="25" Source="dzc_output_images/dc_img_026.xml">
+      <Size Width="234" Height="220" />
+      <Viewport Width="7.2382194690060206" X="-4.1553225207206452" Y="-1.7650070278683734" />
+    </I>
+    <I Id="26" N="26" Source="dzc_output_images/dc_img_027.xml">
+      <Size Width="600" Height="402" />
+      <Viewport Width="7.2382194690060206" X="-4.1553225207206452" Y="-2.7460800658153555" />
+    </I>
+    <I Id="27" N="27" Source="dzc_output_images/dc_img_028.xml">
+      <Size Width="3057" Height="2034" />
+      <Viewport Width="7.2382194690060206" X="-4.1553225207206452" Y="-3.4592831062589746" />
+    </I>
+    <I Id="28" N="28" Source="dzc_output_images/dc_img_029.xml">
+      <Size Width="325" Height="244" />
+      <Viewport Width="7.2382194690060508" X="-5.1991107210818726" Y="-2.5429473352269953" />
+    </I>
+    <I Id="29" N="29" Source="dzc_output_images/dc_img_030.xml">
+      <Size Width="500" Height="332" />
+      <Viewport Width="7.2382194690060508" X="-5.1991107210818726" Y="-3.3407713983208596" />
+    </I>
+    <I Id="30" N="30" Source="dzc_output_images/dc_img_031.xml">
+      <Size Width="400" Height="268" />
+      <Viewport Width="7.2382194690058927" X="-6.2382194690058927" Y="-2.2962441834536551" />
+    </I>
+    <I Id="31" N="31" Source="dzc_output_images/dc_img_032.xml">
+      <Size Width="1600" Height="1200" />
+      <Viewport Width="7.2382194690058927" X="-6.2382194690058927" Y="-3.001469973967323" />
+    </I>
+  </Items>
+</Collection>

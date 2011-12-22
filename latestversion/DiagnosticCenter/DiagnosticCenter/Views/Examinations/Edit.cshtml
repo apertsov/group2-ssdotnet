@@ -1,0 +1,109 @@
+﻿@model DiagnosticCenter.Models.Examination
+
+@{
+    ViewBag.Title = "Edit";
+
+    DiagnosticCenter.Models.Patient patient = ViewBag.Patient;
+    DiagnosticCenter.Models.Employee employee = ViewBag.Employee;
+    string fullName = patient.Surname + " " + patient.FirstName + " " + patient.Patronymic;
+    ViewBag.Title = fullName + " - " + @ExaminationRes.ExaminationStrings.ExaminationEditing;
+}
+
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div id="icon-extempl-general" class="icon32"><br /></div><h2>@fullName - @ExaminationRes.ExaminationStrings.ExaminationEditing</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)    
+
+        @Html.HiddenFor(model => model.ID_Examination)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ID_ExmType, ExaminationRes.ExaminationStrings.ExaminationType2)
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.ID_ExmType)*@
+            @Html.DropDownList("ID_ExmType", String.Empty)
+            @Html.ValidationMessageFor(model => model.ID_ExmType)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartTime, ExaminationRes.ExaminationStrings.Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime)
+        </div>
+    
+        <div class="editor-label">
+            @Html.Label(ExaminationRes.ExaminationStrings.Doctor)
+        </div>
+        <div class="editor-field">
+            @*@Html.HiddenFor(model => model.ID_Employee)*@
+            @employee.Surname @employee.FirstName @employee.Patronymic
+            @*@Html.DropDownList("ID_Employee", String.Empty)*@
+            @Html.ValidationMessageFor(model => model.ID_Employee)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ID_Patient, ExaminationRes.ExaminationStrings.Patient)
+        </div>
+        <div class="editor-field">
+            @Html.Hidden("patientID", patient.ID_Patient)
+            @patient.FirstName @patient.Surname @patient.Patronymic
+            @*@Html.DropDownList("ID_Patient", String.Empty)*@
+            @Html.ValidationMessageFor(model => model.ID_Patient)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status, ExaminationRes.ExaminationStrings.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Protocol, ExaminationRes.ExaminationStrings.Protocol)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Protocol)
+            @Html.ValidationMessageFor(model => model.Protocol)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Conclusion, ExaminationRes.ExaminationStrings.Conclusion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Conclusion)
+            @Html.ValidationMessageFor(model => model.Conclusion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Recommendation, ExaminationRes.ExaminationStrings.Recommendation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Recommendation)
+            @Html.ValidationMessageFor(model => model.Recommendation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Consultation, ExaminationRes.ExaminationStrings.Consultation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Consultation)
+            @Html.ValidationMessageFor(model => model.Consultation)
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="@ExaminationRes.ExaminationStrings._Save" class="yt-uix-button" />
+        </p>
+
+}
+
+<div>
+    @Html.ActionLink(@ExaminationRes.ExaminationStrings.Back, "Index")
+</div>

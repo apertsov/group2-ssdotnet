@@ -1,0 +1,223 @@
+﻿#adminmenu .menu-icon-settings div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -240px -33px transparent;
+}
+#adminmenu .menu-icon-settings:hover div.menu-image, #adminmenu .menu-icon-settings.has-current-submenu div.menu-image, #adminmenu .menu-icon-settings.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -240px -1px transparent;
+}
+#adminmenu .menu-icon-patient div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -300px -33px transparent;
+}
+#adminmenu .menu-icon-patient:hover div.menu-image, #adminmenu .menu-icon-patient.has-current-submenu div.menu-image, #adminmenu .menu-icon-patient.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -300px -1px transparent;
+}
+#adminmenu .menu-icon-news div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -271px -33px transparent;
+}
+#adminmenu .menu-icon-news:hover div.menu-image, #adminmenu .menu-icon-news.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -271px -1px transparent;
+}
+#adminmenu .menu-icon-plan div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -210px -33px transparent;
+}
+#adminmenu .menu-icon-plan:hover div.menu-image, #adminmenu .menu-icon-plan.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -210px -1px transparent;
+}
+#adminmenu .menu-icon-empl div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -331px -33px transparent;
+}
+#adminmenu .menu-icon-empl:hover div.menu-image, #adminmenu .menu-icon-empl.has-current-submenu div.menu-image, #adminmenu .menu-icon-empl.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -330px -1px transparent;
+}
+#adminmenu .menu-icon-extemplates div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -180px -33px transparent;
+}
+#adminmenu .menu-icon-extemplates:hover div.menu-image, #adminmenu .menu-icon-extemplates.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -180px -1px transparent;
+}
+#adminmenu .menu-icon-examtypes div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -360px -33px transparent;
+}
+#adminmenu .menu-icon-examtypes:hover div.menu-image, #adminmenu .menu-icon-examtypes.has-current-submenu div.menu-image, #adminmenu .menu-icon-examtypes.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -360px -1px transparent;
+}
+#adminmenu .menu-icon-deps div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -120px -33px transparent;
+}
+#adminmenu .menu-icon-deps:hover div.menu-image, #adminmenu .menu-icon-deps.has-current-submenu div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -120px -1px transparent;
+}
+#adminmenu .menu-icon-cabinets div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -30px -33px transparent;
+}
+#adminmenu .menu-icon-cabinets:hover div.menu-image, #adminmenu .menu-icon-cabinets.has-current-submenu div.menu-image, #adminmenu .menu-icon-cabinets.current div.menu-image {
+    background: url("images/menu.png") no-repeat scroll -30px -1px transparent;
+}
+
+
+.icon32.icon-settings, #icon-settings-general {
+    background: url("images/icons32.png") no-repeat scroll -492px -5px transparent;
+}
+.icon32.icon-news, #icon-news-general {
+    background: url("images/icons32.png") no-repeat scroll -552px -5px transparent;
+}
+.icon32.icon-extypes, #icon-extypes-general {
+    background: url("images/icons32.png") no-repeat scroll -660px -5px transparent;
+}
+.icon32.icon-page, #icon-extempl-pages, #icon-extempl-general {
+    background: url("images/icons32.png") no-repeat scroll -312px -5px transparent;
+}
+.icon32.icon-patients, #icon-patients-general {
+    background: url("images/icons32.png") no-repeat scroll -600px -5px transparent;
+}
+.icon32.icon-empl, #icon-empl-general {
+    background: url("images/icons32.png") no-repeat scroll -251px -5px transparent;
+}
+.icon32.icon-deps, #icon-deps-general {
+    background: url("images/icons32.png") no-repeat scroll -72px -5px transparent;
+}
+.icon32.icon-cabs, #icon-cabs-general {
+    background: url("images/icons32.png") no-repeat scroll -135px -5px transparent;
+}
+.icon32.icon-plan, #icon-plan-general {
+    background: url("images/icons32.png") no-repeat scroll -190px -5px transparent;
+}
+#wrap h2 
+{
+    color: #555;
+    text-shadow:1px 0px 2px #333333;
+}
+
+
+
+a:hover, a:active, a:focus {
+    color: #D54E21;
+}
+#wphead #viewsite a:hover, #adminmenu a:hover, #adminmenu ul.submenu a:hover, #the-comment-list .comment a:hover, #rightnow a:hover, #media-upload a.del-link:hover, div.dashboard-widget-submit input:hover, .subsubsub a:hover, .subsubsub a.current:hover, .ui-tabs-nav a:hover, .plugins .inactive a:hover, #all-plugins-table .plugins .inactive a:hover, #search-plugins-table .plugins .inactive a:hover {
+    color: #D54E21;
+}
+
+a, #adminmenu a, #poststuff #edButtonPreview, #poststuff #edButtonHTML, #the-comment-list p.comment-author strong a, #media-upload a.del-link, #media-items a.delete, .plugins a.delete, .ui-tabs-nav a {
+    color: #3e709e;
+}
+#adminmenu .awaiting-mod, #adminmenu .update-plugins, #sidemenu a .update-plugins, #rightnow .reallynow {
+    background-color: #464646;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #FFFFFF;
+}
+#adminmenu li.current a .awaiting-mod, #adminmenu li a.has-current-submenu .update-plugins {
+    background-color: #464646;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #FFFFFF;
+}
+
+#footer {
+    border-color: #DFDFDF;
+    color: #21426b;
+}
+
+#user_info a:link, #user_info a:visited, #footer a:link, #footer a:visited {
+    text-decoration: none;
+}
+#footer a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+#adminmenuback, #adminmenuwrap {
+    background-color: #edf3f8;
+    border-color: #CCCCCC;
+}
+#adminmenushadow, #adminmenuback {
+    background-image: url("images/menu-shadow.png");
+    background-position: right top;
+    background-repeat: repeat-y;
+}
+#adminmenu li.menu-separator {
+    background: none repeat scroll 0 0 #DFDFDF;
+    border-color: #CFCFCF;
+}
+#adminmenu div.separator {
+    border-color: #E1E1E1;
+}
+#adminmenu li.has-current-submenu.menu-open .menu-toggle, #adminmenu li.has-current-submenu:hover .menu-toggle {
+    background: url("images/arrows-dark.png") no-repeat scroll -1px 6px transparent;
+}
+#adminmenu .has-submenu:hover .menu-toggle, #adminmenu .menu-open .menu-toggle {
+    background: url("images/arrows.png") no-repeat scroll -2px 6px transparent;
+}
+#adminmenu a.menu-top, .folded #adminmenu li.menu-top, #adminmenu .submenu .submenu-head {
+    border-bottom-color: #DFDFDF;
+    border-top-color: #F9F9F9;
+}
+#adminmenu li.menu-open {
+    border-color: #DFDFDF;
+}
+#adminmenu li.has-current-submenu a.has-current-submenu, #adminmenu li.current a.menu-top, .folded #adminmenu li.has-current-submenu, .folded #adminmenu li.current.menu-top, #adminmenu .menu-arrow, #adminmenu .has-current-submenu .submenu .submenu-head {
+    background-color: #21426b;
+    background-image: -moz-linear-gradient(center bottom , #6D6D6D, #808080);
+}
+#adminmenu li.has-current-submenu a.has-current-submenu, #adminmenu li.current a.menu-top, #adminmenu .has-current-submenu .submenu .submenu-head {
+    border-bottom-color: #6D6D6D;
+    border-top-color: #808080;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 #333333;
+}
+.folded #adminmenu li.has-current-submenu, .folded #adminmenu li.current.menu-top {
+    border-bottom-color: #6D6D6D;
+    border-top-color: #808080;
+}
+#adminmenu .submenu a:hover {
+    background-color: #EAF2FA !important;
+    color: #333333 !important;
+}
+#adminmenu .submenu li.current, #adminmenu .submenu li.current a, #adminmenu .submenu li.current a:hover {
+    color: #333333;
+}
+#adminmenu .submenu ul {
+    background-color: #FFFFFF;
+}
+.folded #adminmenu .submenu-wrap, .folded #adminmenu .submenu ul {
+    border-color: #DFDFDF;
+}
+.folded #adminmenu .submenu-wrap {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+#adminmenu .submenu .submenu-head {
+    background-color: #edf3f8;
+    border-right-color: #DFDFDF;
+}
+#adminmenu div.submenu {
+    background-color: transparent;
+}
+#collapse-menu {
+    color: #AAAAAA;
+}
+#collapse-menu:hover {
+    color: #999999;
+}
+#collapse-button {
+    background-color: #F4F4F4;
+    background-image: -moz-linear-gradient(center bottom , #DFDFDF, #FFFFFF);
+    border-color: #CCCCCC;
+}
+#collapse-menu:hover #collapse-button {
+    border-color: #AAAAAA;
+}
+#collapse-button div {
+    background: url("images/arrows.png") no-repeat scroll 0 -72px transparent;
+}
+.folded #collapse-button div {
+    background-position: 0 -108px;
+}
+
+
+.widefat {
+    background-color: #F9F9F9;
+    border-color: #DFDFDF;
+}
+
+.widget .widget-top, .postbox h3, .stuffbox h3, .widefat thead tr th, .widefat tfoot tr th, h3.dashboard-widget-title, h3.dashboard-widget-title span, h3.dashboard-widget-title small, .find-box-head, .sidebar-name, #nav-menu-header, #nav-menu-footer, .menu-item-handle, #fullscreen-topbar {
+    background-color: #F1F1F1;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #edf3f8);
+}
+

@@ -1,0 +1,27 @@
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\bin\DCExternalSite.Web.dll
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\bin\DCExternalSite.Web.pdb
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.ValidationErrorResources.resources
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.RegistrationDataResources.resources
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\GenerateResource.read.1.tlog
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\GenerateResource.write.1.tlog
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.dll
+D:\.net\.netProject\DCExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.pdb
+D:\Новая папка\DCExternalSite.Web\bin\DCExternalSite.Web.dll
+D:\Новая папка\DCExternalSite.Web\bin\DCExternalSite.Web.pdb
+D:\Новая папка\DCExternalSite.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Новая папка\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.ValidationErrorResources.resources
+D:\Новая папка\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.RegistrationDataResources.resources
+D:\Новая папка\DCExternalSite.Web\obj\Debug\GenerateResource.read.1.tlog
+D:\Новая папка\DCExternalSite.Web\obj\Debug\GenerateResource.write.1.tlog
+D:\Новая папка\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.dll
+D:\Новая папка\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.pdb
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\bin\DCExternalSite.Web.dll
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\bin\DCExternalSite.Web.pdb
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.ValidationErrorResources.resources
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.Resources.RegistrationDataResources.resources
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\obj\Debug\GenerateResource.read.1.tlog
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\obj\Debug\GenerateResource.write.1.tlog
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.dll
+D:\DiagnosticCenter\ExternalSite\DCExternalSite.Web\obj\Debug\DCExternalSite.Web.pdb

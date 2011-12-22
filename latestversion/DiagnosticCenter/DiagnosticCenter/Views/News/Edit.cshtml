@@ -1,0 +1,55 @@
+﻿@model DiagnosticCenter.Models.News
+
+@{
+    ViewBag.Title = NewsRes.NewsStrings.EditNews;
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div id="icon-news-general" class="icon32"><br /></div><h2>@NewsRes.NewsStrings.EditNews</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>@NewsRes.NewsStrings.EditNews</legend>
+
+        @Html.HiddenFor(model => model.ID_News)
+
+        <div class="editor-field">
+            @Html.Label(NewsFieldNames.NewsFieldNames.Topic)
+            @Html.EditorFor(model => model.Topic)
+            @Html.ValidationMessageFor(model => model.Topic)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label(NewsFieldNames.NewsFieldNames.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label(NewsFieldNames.NewsFieldNames.Employee)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Employees", NewsRes.NewsStrings.ChooseEmpl)
+         </div>
+
+         <div class="editor-label">
+            @Html.Label(NewsFieldNames.NewsFieldNames.Department)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Depts", NewsRes.NewsStrings.ChooseDept)
+         </div>
+
+        <p>
+            <input type="submit" value=@NewsRes.NewsStrings.Save />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(NewsRes.NewsStrings.BackToNews, "Index")
+</div>

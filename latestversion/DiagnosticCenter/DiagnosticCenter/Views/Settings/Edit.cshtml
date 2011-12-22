@@ -1,0 +1,94 @@
+﻿@using System.ComponentModel
+@model DiagnosticCenter.Models.Settings
+@{
+    ViewBag.Title = @ViewRes.SettingsStrings.Settigs;
+    ViewBag.Controller = "Settings";
+    ViewBag.Action = "Settings.Edit";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div id="icon-settings-general" class="icon32"><br /></div><h2> @ViewRes.SettingsStrings.Settigs</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+ 
+        <table>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.CenterName)
+                </th>
+                <th>
+                    @Html.LabelFor(model => model.CenterDetails)
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextAreaFor(model => model.CenterName, 5, 50, null)
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.CenterDetails, 5, 50, null)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.CenterAddress)
+                </th>
+                <th>
+                    @Html.LabelFor(model => model.CenterPhoneNo)
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextAreaFor(model => model.CenterAddress, 5, 50, null)
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.CenterPhoneNo, 5, 50, null)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <legend>@ViewRes.SettingsStrings.Localization</legend>
+                        @Html.LabelFor(model => model.LanguageId)
+                        @Html.DropDownListFor(model => model.LanguageId, new BindingList<SelectListItem>
+                                                            {new SelectListItem{Value = "en", Text = @"English"},
+                                                            new SelectListItem{Value = "uk", Text = @"Ukrainian (Українська)"},
+                                                            new SelectListItem{Value = "ru", Text = @"Russian (Русский)"}})
+                        <br />
+                        @Html.LabelFor(model => model.ThemeId)
+                        
+                        @Html.DropDownListFor(model => model.ThemeId, new BindingList<SelectListItem>
+                                                            {new SelectListItem{Value = "Gray", Text = ViewRes.SettingsStrings.GrayTheme},
+                                                            new SelectListItem{Value = "Blue", Text = ViewRes.SettingsStrings.BlueTheme}})
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend>@ViewRes.SettingsStrings.WorkDayParameters</legend>
+                        @Html.LabelFor(model => model.WorkDayStartHour)
+                        @Html.DropDownListFor(model => model.WorkDayStartHour, new BindingList<SelectListItem>
+                                                                 {new SelectListItem{Value = "7", Text = @"7-00"},
+                                                                  new SelectListItem{Value = "8", Text = @"8-00"},
+                                                                  new SelectListItem{Value = "9", Text = @"9-00"},
+                                                                  new SelectListItem{Value = "10", Text = @"10-00"},
+                                                                  new SelectListItem{Value = "11", Text = @"11-00"}})
+                        <br />
+                        @Html.LabelFor(model => model.WorkDayEndHour)
+                        @Html.DropDownListFor(model => model.WorkDayEndHour, new BindingList<SelectListItem>
+                                                                 {new SelectListItem{Value = "16", Text = @"16-00"},
+                                                                  new SelectListItem{Value = "17", Text = @"17-00"},
+                                                                  new SelectListItem{Value = "18", Text = @"18-00"},
+                                                                  new SelectListItem{Value = "19", Text = @"19-00"},
+                                                                  new SelectListItem{Value = "20", Text = @"20-00"}})
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <p>
+            <input type="submit" value="@ViewRes.SettingsStrings.Save" class="yt-uix-button" />
+        </p>
+    
+}

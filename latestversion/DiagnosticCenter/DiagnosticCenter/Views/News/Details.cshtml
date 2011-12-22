@@ -1,0 +1,23 @@
+﻿@model List<DiagnosticCenter.Models.NewsVM>
+           
+@{
+    ViewBag.Title = NewsRes.NewsStrings.NewsDetails;
+}
+
+<div id="icon-news-general" class="icon32"><br /></div><h2>@NewsRes.NewsStrings.NewsDetails</h2>
+
+@foreach(var item in Model){   
+
+    <br />
+        <b>@NewsFieldNames.NewsFieldNames.Topic:</b><br />
+    @Html.DisplayFor(modelItem => item.topic)<br /><br />
+        <b>@NewsFieldNames.NewsFieldNames.Description:</b><br />
+    @Html.DisplayFor(modelItem => item.text)<br /><br />
+        <b> @NewsFieldNames.NewsFieldNames.Employee:</b><br />
+    @Html.DisplayFor(modelItem => item.employee)<br /><br />
+        <b> @NewsFieldNames.NewsFieldNames.Department:</b><br />
+    @Html.DisplayFor(modelItem => item.dept)<br /><br />
+        <b> @NewsFieldNames.NewsFieldNames.NewsType:</b><br />
+    @Html.DisplayFor(modelItem => item.type)<br /><br />
+
+}
